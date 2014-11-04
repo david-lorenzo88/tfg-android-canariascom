@@ -1,0 +1,299 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/searchExternalLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffeeeeee"
+    android:orientation="vertical"
+    tools:context=".Search">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/searchWraperLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:contentDescription="@string/zona_recogida"
+            android:orientation="vertical"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="vertical"
+            tools:context=".Search">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/pickupPointTitle"
+                android:textSize="@dimen/text_size_xlarge" />
+
+            <com.canarias.rentacar.widgets.StatusRelativeLayout
+                android:id="@+id/pickupZoneLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_bottom"
+                android:clickable="true"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/pickupZoneDefaultLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/pickupZoneIcon"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/pickupZoneDefaultLabel" />
+
+                <ImageView
+                    android:id="@id/pickupZoneIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_action_new" />
+
+            </com.canarias.rentacar.widgets.StatusRelativeLayout>
+
+            <!--<CheckBox
+                android:id="@+id/chkPickupEqualsDropoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:checked="true"
+                android:text="@string/pickup_equals_dropoff" />-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/dropoffPointTitle"
+                android:textSize="@dimen/text_size_xlarge" />
+
+            <com.canarias.rentacar.widgets.StatusRelativeLayout
+                android:id="@+id/dropoffZoneLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_bottom"
+                android:clickable="true"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/dropoffZoneDefaultLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/dropoffZoneIcon"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/dropoffZoneDefaultLabel" />
+
+                <ImageView
+                    android:id="@id/dropoffZoneIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_action_new" />
+
+            </com.canarias.rentacar.widgets.StatusRelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/pickupDateTitle"
+                android:textSize="@dimen/text_size_xlarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.canarias.rentacar.widgets.StatusRelativeLayout
+                    android:id="@+id/pickupDateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="50"
+                    android:background="@drawable/border_bottom"
+                    android:clickable="true"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/pickupDateDefaultLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/pickupDateIcon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/pickupDateDefaultLabel" />
+
+
+                    <ImageView
+                        android:id="@id/pickupDateIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_action_go_to_today" />
+
+                </com.canarias.rentacar.widgets.StatusRelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#DADADC"
+
+                    ></View>
+
+                <com.canarias.rentacar.widgets.StatusRelativeLayout
+                    android:id="@+id/pickupTimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="50"
+                    android:background="@drawable/border_bottom"
+                    android:clickable="true"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/pickupTimeDefaultLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/pickupTimeIcon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toLeftOf="@id/pickupTimeIcon"
+                        android:text="@string/pickupTimeDefaultLabel" />
+
+
+                    <ImageView
+                        android:id="@id/pickupTimeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_clock" />
+
+                </com.canarias.rentacar.widgets.StatusRelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/dropoffDateTitle"
+                android:textSize="@dimen/text_size_xlarge" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.canarias.rentacar.widgets.StatusRelativeLayout
+                    android:id="@+id/dropoffDateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="50"
+                    android:background="@drawable/border_bottom"
+                    android:clickable="true"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/dropoffDateDefaultLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/dropoffDateIcon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/pickupDateDefaultLabel" />
+
+
+                    <ImageView
+                        android:id="@id/dropoffDateIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_action_go_to_today" />
+
+                </com.canarias.rentacar.widgets.StatusRelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#DADADC"
+
+                    ></View>
+
+                <com.canarias.rentacar.widgets.StatusRelativeLayout
+                    android:id="@+id/dropoffTimeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="50"
+                    android:background="@drawable/border_bottom"
+                    android:clickable="true"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/dropoffTimeDefaultLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/dropoffTimeIcon"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toLeftOf="@id/dropoffTimeIcon"
+                        android:text="@string/pickupTimeDefaultLabel" />
+
+
+                    <ImageView
+                        android:id="@id/dropoffTimeIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_clock" />
+
+                </com.canarias.rentacar.widgets.StatusRelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSearchCars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/red_canarias"
+        android:text="@string/consultar_disponibilidad"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+</LinearLayout>

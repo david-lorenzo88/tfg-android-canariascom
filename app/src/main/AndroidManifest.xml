@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.canarias.rentacar"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.TranslucentActionBar">
+        <activity
+            android:name="com.canarias.rentacar.HomeActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.canarias.rentacar.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.CarListActivity"
+            android:label="@string/title_car_list"
+            android:parentActivityName="com.canarias.rentacar.HomeActivity"
+            android:theme="@style/Theme.ActionBarNoShadow">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.CarDetailActivity"
+            android:label="@string/title_car_detail"
+            android:parentActivityName="com.canarias.rentacar.CarListActivity"
+            android:theme="@style/Theme.TranslucentActionBar.ActionBar.Overlay">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.CarListActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.OfficeListActivity"
+            android:label="@string/title_office_list"
+            android:parentActivityName="com.canarias.rentacar.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.OfficeDetailActivity"
+            android:label="@string/title_office_detail"
+            android:parentActivityName="com.canarias.rentacar.OfficeListActivity"
+            android:theme="@style/Theme.TranslucentActionBar.ActionBar.Overlay">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.OfficeListActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.ReservationListActivity"
+            android:label="@string/title_reservation_list"
+            android:parentActivityName="com.canarias.rentacar.HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.ReservationDetailActivity"
+            android:label="@string/title_reservation_detail"
+            android:parentActivityName="com.canarias.rentacar.ReservationListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.ReservationListActivity" />
+        </activity>
+    </application>
+
+</manifest>

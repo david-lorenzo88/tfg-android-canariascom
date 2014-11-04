@@ -1,0 +1,13 @@
+<!-- From: file:/Users/manuel/Repos/FAB/library/AndroidManifest.xml -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.manuelpeinado.fadingactionbar"
+    android:versionCode="312"
+    android:versionName="3.1.2">
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+        tools:ignore="AllowBackup" />
+</manifest>

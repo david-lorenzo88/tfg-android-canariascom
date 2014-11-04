@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Locations>
+    <Zone name="Playa de las Américas - Costa Adeje" Url="playa-de-las-americas-costa-adeje">
+        <Location Address="Av de Bruselas 14, C.C. El Duque, Local 12, 38670-Adeje." Airport="0"
+            CountryCode="ES" Fax="922 719 131" Id="30" Lat="28.09231" Lng="-16.7361" Name="El Duque"
+            Phone="Tfn 922 714 298" Url="el-duque" Zone="Playa de las Américas - Costa Adeje">
+            <VirtualLink>
+                <![CDATA[https://maps.google.es/maps?q=&amp;layer=c&amp;sll=28.092285,-16.736003&amp;cid=5272939778305500561&amp;panoid=enPgDm50N9vvu_BC0MTckQ&amp;cbp=13,13.85,,0,0&amp;gl=ES&amp;hl=es&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=28.092285,-16.736003&amp;spn=0.006295,0.006295&amp;t=h&amp;cbll=28.09234,-16.736168&amp;source=embed&amp;output=svembed]]></VirtualLink>
+        </Location>
+
+        <Location Address="Av. Las Américas,7. C.C. Américas Plaza Local 26, 38660- Arona."
+            Airport="0" CountryCode="ES" Fax="922 793 868" Id="79" Lat="28.05461" Lng="-16.72908"
+            Name="Playa de las Américas - Central" Phone="922 792 919"
+            Url="playa-de-las-americas-central" Zone="Playa de las Américas - Costa Adeje">
+            <VirtualLink>
+                <![CDATA[https://maps.google.es/maps?q=&amp;layer=c&amp;sll=28.054614,-16.729079&amp;cid=5656802797681156038&amp;panoid=pvu3ct2lFR8F4Mh-RX6BUw&amp;cbp=13,198.59,,0,0&amp;gl=ES&amp;hl=en&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=28.054614,-16.729079&amp;spn=0.006295,0.006295&amp;t=h&amp;cbll=28.054613,-16.729057&amp;source=embed&amp;output=svembed]]></VirtualLink>
+        </Location>
+
+        <Location Address="C/ Hawaii, 2, 38650 Arona, Tenerife" Airport="0" CountryCode="ES"
+            Id="209" Lat="28.05390" Lng="-16.70621" Name="Hotel Paradise Park"
+            Url="hotel-paradise-park" Zone="Playa de las Américas - Costa Adeje" />
+
+        <!--<Location Id="166" Name="Costa Adeje" Lat="" Lng="" Address="" Zone="Playa de las Américas - Costa Adeje" CountryCode="ES" Airport="0"  />-->
+        <Location Address="Calle Brusela, 1 38670 Adeje" Airport="0" CountryCode="ES" Id="215"
+            Lat="28.08532" Lng="-16.73296" Name="Hotel Bahía Princess" Url="bahia-princess"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Calle Bruselas, 13 38670 Adeje" Airport="0" CountryCode="ES" Id="218"
+            Lat="28.09027" Lng="-16.73536" Name="Hotel Fañabé Costa Sur" Phone="670 35 02 49"
+            Url="fanabe-costa-sur" Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Calle Londres 1, 38670, Costa Adeje, Adeje" Airport="0" CountryCode="ES"
+            Id="216" Lat="28.08496" Lng="-16.7345" Name="Hotel Guayarmina Princess"
+            Url="guayarmina-princess" Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Avenida de Moscú 38660, Adeje" Airport="0" CountryCode="ES" Id="217"
+            Lat="28.09115" Lng="-16.73425" Name="Hotel Isabel Family" Phone="670 35 02 61"
+            Url="isabel-family" Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Avenida Bruselas 7-8-9, 38660, Adeje" Airport="0" CountryCode="ES"
+            Id="210" Lat="28.08924" Lng="-16.73463" Name="Hotel Isla Bonita" Url="isla-bonita"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Calle Bruselas, 4, 38660, Adeje" Airport="0" CountryCode="ES" Id="214"
+            Lat="28.08810" Lng="-16.73229" Name="Hotel Jacaranda" Phone="922 72 45 47"
+            Url="jacaranda-hotel" Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Calle Gran Bretaña 38660, Adeje" Airport="0" CountryCode="ES" Id="213"
+            Lat="28.07601" Lng="-16.73404" Name="Hotel Jardín Tropical" Phone="637 59 06 30"
+            Url="jardin-tropical-hotel" Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Av. Rafael Puig 18. Urb.Sansofé A-1. Playa de las Américas. 38660-Adeje."
+            Airport="0" CountryCode="ES" Id="219" Lat="28.07159" Lng="-16.73070" Name="San Sofé"
+            Phone="922 794 729" Url="sansofe-pueblo-canario"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Av.Ernesto Sarti, 7.Playa de las Américas. 38660-Adeje." Airport="0"
+            CountryCode="ES" Id="83" Lat="28.08487" Lng="-16.73267" Name="Parque Royale"
+            Phone="671 605 593" Url="paque-royale-torviscas"
+            Zone="Playa de las Américas - Costa Adeje">
+            <VirtualLink>
+                <![CDATA[https://maps.google.es/maps?q=&amp;layer=c&amp;sll=28.084862,-16.732657&amp;cid=15776640907983602700&amp;panoid=GG_PnLcyo01LkFM1TQ7qdQ&amp;cbp=13,235.86,,0,0&amp;hl=es&amp;gl=ES&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=28.084864,-16.732746&amp;spn=0.006295,0.006295&amp;t=h&amp;cbll=28.084864,-16.732747&amp;source=embed&amp;output=svembed]]></VirtualLink>
+        </Location>
+        <Location Address="Av. Rafael Puig 36, Hotel Conquistador Local 4 A.  38660-Arona."
+            Airport="0" CountryCode="ES" Id="46" Lat="28.05740" Lng="-16.7346"
+            Name="Hotel H10 Conquistador" Phone="670 350 181" Url="h10-conquistador"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Av. Bruselas 16. Gran Hotel Costa Adeje, 38670 - Adeje." Airport="0"
+            CountryCode="ES" Id="59" Lat="28.09359" Lng="-16.73715" Name="Costa Adeje Gran Hotel"
+            Phone="922 717 675" Url="costa-adeje-gran-hotel"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Lugar la Enramada, Hotel Costa Adeje,  38670 - Costa Adeje." Airport="0"
+            CountryCode="ES" Id="57" Lat="28.09728" Lng="-16.74918" Name="Costa Adeje Palace"
+            Phone="600 558 733" Url="costa-adeje-palace"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Av. De Bruselas s/n. Hotel Bahia del Duque. 38670 - Costa Adeje."
+            Airport="0" CountryCode="ES" Id="201" Lat="28.09338" Lng="-16.74212"
+            Name="Hotel Bahía del Duque" Phone="661 220 907" Url="bahia-del-duque-hotel"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="Av  Rafael Puig Lluvina 2. Hotel Troya.  38660 - Adeje." Airport="0"
+            CountryCode="ES" Id="49" Lat="28.06752" Lng="-16.73199" Name="Hotel Troya"
+            Url="troya-hotel" Zone="Playa de las Américas - Costa Adeje" />
+
+        <Location Address="C/París s/n , Hotel Jardines de Nivaria, local 3. Fañabé. 38670-Adeje."
+            Airport="0" CountryCode="ES" Id="65" Lat="28.08906" Lng="-16.73688"
+            Name="Hotel Jardines de Nivaria" Phone="922 715 599" Url="jardines-de-nivaria"
+            Zone="Playa de las Américas - Costa Adeje" />
+
+    </Zone>
+    <Zone name="Puerto de la Cruz" Url="puerto-de-la-cruz">
+        <Location
+            Address="Calle Antonio Ruiz Álvarez, 7 Urb.Playa Jardín. Hotel Turquesa L-2. 38400-Puerto de la Cruz."
+            Airport="0" CountryCode="ES" Fax="922 378 136" Id="95" Lat="28.41053" Lng="-16.55804"
+            Name="Hotel Turquesa Playa" Phone="922 388 456" Url="turquesa-playa"
+            Zone="Puerto de la Cruz">
+            <VirtualLink>
+                <![CDATA[https://maps.google.es/maps?q=&amp;layer=c&amp;sll=28.410521,-16.558034&amp;cid=5590097923425681681&amp;panoid=f0ERb-HBkMiU7lRmqtmg8A&amp;cbp=13,184.93,,0,0&amp;gl=ES&amp;hl=es&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=28.410521,-16.558034&amp;spn=0.006295,0.006295&amp;t=h&amp;cbll=28.410556,-16.557996&amp;source=embed&amp;output=svembed]]></VirtualLink>
+        </Location>
+
+        <!--<Location Id="164" Name="Puerto de la Cruz - Office" Lat="" Lng="" Address="" Zone="Puerto de la Cruz"  CountryCode="ES" Airport="0"  />-->
+    </Zone>
+    <Zone name="North Airport" Url="north-airport">
+        <Location Address="Los Rodeos, 38297, La Laguna" Airport="1" CountryCode="ES" Id="92"
+            Lat="28.48811" Lng="-16.3460" Name="North Airport Los Rodeos" Url="north-airport-rodeos"
+            Zone="North Airport" />
+
+    </Zone>
+    <Zone name="South Airport" Url="south-airport">
+        <Location Address="Aeropuerto de Tenerife Sur (TFS) 38610 Tenerife" Airport="1"
+            CountryCode="ES" Id="93" Lat="28.0486" Lng="-16.5771" Name="South Airport Reina Sofia"
+            Url="south-airport-reina-sofia" Zone="South Airport" />
+
+    </Zone>
+    <Zone name="Golf del Sur" Url="golf-del-sur">
+        <Location
+            Address="Urb. Golf del Sur, H. Golf Plaza,  Parcela A-H-1, 38620 - San Miguel de Abona."
+            Airport="0" CountryCode="ES" Id="47" Lat="28.02798" Lng="-16.61082"
+            Name="Central Golf Sur" Phone="922 738 060" Url="golf-del-sur" Zone="Golf del Sur">
+            <VirtualLink>
+                <![CDATA[https://maps.google.es/maps?q=&amp;layer=c&amp;sll=28.027970,-16.610813&amp;cid=1997852530733947538&amp;panoid=JDFpNVWnGDjslJfS1wMrCw&amp;cbp=13,243.68,,0,-0.55&amp;gl=ES&amp;hl=es&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=28.02797,-16.610813&amp;spn=0.006295,0.006295&amp;t=h&amp;cbll=28.027966,-16.610779&amp;source=embed&amp;output=svembed]]></VirtualLink>
+        </Location>
+
+    </Zone>
+    <Zone name="Guía de Isora" Url="guia-de-isora">
+        <Location
+            Address="Finca Abama , Hotel Abama. Ctra. Gral. TF 47, Km 9, 38687 - Guia de Isora."
+            Airport="0" CountryCode="ES" Id="161" Lat="28.17101" Lng="-16.79896" Name="Hotel Abama"
+            Phone="670 350 183" Url="abama-hotel" Zone="Guía de Isora" />
+
+    </Zone>
+    <Zone name="Playa Paraíso - Callao" Url="playa-paraiso">
+        <Location
+            Address="Av Playa Paraíso,parcela 18, s/n. Hotel Bahia Principe. 38678 - Playa Paraiso. Adeje."
+            Airport="0" CountryCode="ES" Id="199" Lat="28.11918" Lng="-16.77167"
+            Name="Hotel Bahía Príncipe" Phone="661 220 958" Url="bahia-principe-tenerife-adeje"
+            Zone="Playa Paraíso - Callao" />
+
+        <Location Address="Av de Adeje 300, 38678 - Playa Paraiso, Adeje." Airport="0"
+            CountryCode="ES" Id="86" Lat="28.12118" Lng="-16.77696" Name="Hotel Roca Nivaria"
+            Phone="922 741 081" Url="roca-nivaria-hotel" Zone="Playa Paraíso - Callao" />
+
+        <Location
+            Address="Av de Adeje 300, Residencial Club Paraiso, Local 10. 38678-Playa Paraiso, Adeje."
+            Airport="0" CountryCode="ES" Id="212" Lat="28.12184" Lng="-16.77491"
+            Name="Playa Paraíso" Phone="922 740 079" Url="playa-paraiso"
+            Zone="Playa Paraíso - Callao">
+            <VirtualLink>
+                <![CDATA[https://maps.google.es/maps?q=&amp;layer=c&amp;sll=28.121834,-16.774899&amp;cid=14738116129281468169&amp;panoid=m3kPPew1AOVNM3B2uPtfqA&amp;cbp=13,307.84,,0,0&amp;gl=ES&amp;hl=es&amp;ie=UTF8&amp;hq=&amp;hnear=&amp;ll=28.121834,-16.774899&amp;spn=0.006295,0.006295&amp;t=h&amp;cbll=28.121938,-16.774799&amp;source=embed&amp;output=svembed]]></VirtualLink>
+        </Location>
+    </Zone>
+</Locations>

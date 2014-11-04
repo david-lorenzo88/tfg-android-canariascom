@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pickupDateIcon" type="id">pickupDateIcon</item>
+    <item name="dropoffZoneIcon" type="id">dropoffZoneIcon</item>
+    <item name="pickupZoneIcon" type="id">pickupZoneIcon</item>
+    <item name="dropoffDateIcon" type="id">dropoffDateIcon</item>
+    <item name="pickupTimeIcon" type="id">pickupTimeIcon</item>
+    <item name="dropoffTimeIcon" type="id">dropoffTimeIcon</item>
+    <item name="iconSelectCar" type="id">iconSelectCar</item>
+    <item name="iconSelectReservation" type="id">iconSelectReservation</item>
+    <item name="reservation_status" type="id">reservation_status</item>
+</resources>

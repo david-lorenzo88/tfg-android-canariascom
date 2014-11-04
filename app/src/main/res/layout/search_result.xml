@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchResultWrapperLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_bottom"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/txtCarModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="3dp"
+        android:text="Volkswagen Polo 1.2 5p A/C"
+        android:textSize="@dimen/text_size_xlarge"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/searchResultBoxTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageCar"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/car_image"
+            android:scaleType="fitStart"
+            android:src="@drawable/vw_touran" />
+
+        <TextView
+            android:id="@+id/txtCarPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="37dp"
+            android:layout_toLeftOf="@id/iconSelectCar"
+            android:text="155,86 €"
+            android:textSize="@dimen/text_size_xlarge" />
+
+        <ImageView
+            android:id="@id/iconSelectCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_keyboard_arrow_right" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/searchResultAttributesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"></LinearLayout>
+
+</LinearLayout>

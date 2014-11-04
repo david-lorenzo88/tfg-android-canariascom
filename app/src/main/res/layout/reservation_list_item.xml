@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reservationListItemWrapperLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_bottom"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/reservation_list_icon_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_done_black_48dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtCarModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="3dp"
+            android:text="Volkswagen Polo 1.2 5p A/C"
+            android:textSize="@dimen/text_size_xlarge"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/localizer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:paddingBottom="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/localizer"
+                android:textColor="@color/red_canarias"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/reservationExtras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/localizer"
+                android:paddingBottom="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/reservation_extras"
+                android:textSize="@dimen/text_size_medium" />
+
+
+            <TextView
+                android:id="@+id/txtCarPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/reservationExtras"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toLeftOf="@id/iconSelectReservation"
+                android:paddingBottom="3dp"
+                android:text="155,86 €"
+                android:textSize="@dimen/text_size_xlarge" />
+
+            <ImageView
+                android:id="@id/iconSelectReservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_keyboard_arrow_right" />
+
+            <TextView
+                android:id="@+id/reservationDates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/reservationExtras"
+                android:paddingBottom="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp"
+                android:text="@string/reservation_dates"
+                android:textSize="@dimen/text_size_medium" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
