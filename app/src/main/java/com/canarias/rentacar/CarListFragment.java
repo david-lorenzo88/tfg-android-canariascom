@@ -17,6 +17,10 @@ import com.canarias.rentacar.async.FilterCarsAsyncTask;
 import com.canarias.rentacar.db.dao.CarDataSource;
 import com.canarias.rentacar.model.Car;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -51,6 +55,7 @@ public class CarListFragment extends ListFragment {
      */
     private Callbacks mCallbacks = sDummyCallbacks;
     List<Car> cars;
+    List<Car> filteredCars;
     List<String> categories;
 
     Spinner filterSpinner;
@@ -112,10 +117,15 @@ public class CarListFragment extends ListFragment {
 
 
         CarDataSource ds = new CarDataSource(getActivity());
+
+
         try {
             ds.open();
 
             cars = ds.getAllCars();
+
+            //Collections.copy(filteredCars, cars);
+            filteredCars = new ArrayList<Car>(cars);
 
             categories = ds.getCarCategories();
             categories.add(0, getActivity().getString(R.string.spinnerAllText));
@@ -127,7 +137,8 @@ public class CarListFragment extends ListFragment {
                     R.layout.car_list_item,
                     cars));
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categories);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                    R.layout.category_spinner, R.id.category_item_name, categories);
             filterSpinner.setAdapter(adapter); // this will set list of values to spinner
 
             filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -135,6 +146,7 @@ public class CarListFragment extends ListFragment {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     FilterCarsAsyncTask task = new FilterCarsAsyncTask(listView);
                     task.execute((String) parent.getItemAtPosition(position));
+                    filterCarList((String)parent.getItemAtPosition(position));
                 }
 
                 @Override
@@ -144,8 +156,24 @@ public class CarListFragment extends ListFragment {
             });
 
 
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             Log.e("TEST", ex.getMessage());
+        }
+
+    }
+
+    private void filterCarList(String cat){
+        filteredCars = new ArrayList<Car>(cars);
+
+        if(!cat.equals(getString(R.string.spinnerAllText))){
+            filteredCars = new ArrayList<Car>();
+
+            for(Car c : cars){
+                if(c.getCategory().equals(cat)){
+                    filteredCars.add(c);
+                }
+            }
+
         }
 
     }
@@ -177,7 +205,7 @@ public class CarListFragment extends ListFragment {
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
 
-        mCallbacks.onItemSelected(cars.get(position - 1).getModel());
+        mCallbacks.onItemSelected(filteredCars.get(position - 1).getModel());
     }
 
     @Override

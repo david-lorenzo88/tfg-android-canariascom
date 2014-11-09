@@ -66,8 +66,7 @@
         <activity
             android:name="com.canarias.rentacar.CarListActivity"
             android:label="@string/title_car_list"
-            android:parentActivityName="com.canarias.rentacar.HomeActivity"
-            android:theme="@style/Theme.ActionBarNoShadow">
+            android:parentActivityName="com.canarias.rentacar.HomeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.canarias.rentacar.HomeActivity" />

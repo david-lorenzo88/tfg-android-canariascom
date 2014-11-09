@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -12,6 +13,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.canarias.rentacar.async.DownloadCarsAsyncTask;
+import com.canarias.rentacar.async.SyncDataAsyncTask;
+import com.canarias.rentacar.config.Config;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeActivity extends Activity
@@ -33,6 +44,8 @@ public class HomeActivity extends Activity
      */
     private CharSequence mTitle;
 
+    private SharedPreferences prefs = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +59,8 @@ public class HomeActivity extends Activity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        prefs = getSharedPreferences("com.canarias.rentacar", MODE_PRIVATE);
     }
 
     @Override
@@ -76,9 +91,11 @@ public class HomeActivity extends Activity
             case DRAWER_POSITION_CARS:
                 Intent carsIntent = new Intent(this, CarListActivity.class);
                 startActivity(carsIntent);
+                break;
             case DRAWER_POSITION_OFFICES:
                 Intent officesIntent = new Intent(this, OfficeListActivity.class);
                 startActivity(officesIntent);
+                break;
             default:
                 // update the main content by replacing fragments
 
@@ -141,7 +158,40 @@ public class HomeActivity extends Activity
         }*/
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date today = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(today);
+
+        Date daysAgo = new Date();
+        Calendar calDaysAgo = Calendar.getInstance();
+        calDaysAgo.setTime(daysAgo);
+        calDaysAgo.add(Calendar.DATE, (Config.DAYS_TO_SYNC_CONTENT + 1) * -1);
+
+        try {
+            Date lastSync = sdf.parse(prefs.getString("last_sync", sdf.format(calDaysAgo.getTime())));
+            Calendar lastSyncCal = Calendar.getInstance();
+            lastSyncCal.setTime(lastSync);
+            lastSyncCal.add(Calendar.DATE, Config.DAYS_TO_SYNC_CONTENT);
+
+            if (cal.compareTo(lastSyncCal) >= 0) {
+
+                //Sync Data Here
+                Toast.makeText(this, "Last Sync: "+sdf.format(lastSync), Toast.LENGTH_LONG).show();
+
+                SyncDataAsyncTask syncTask = new SyncDataAsyncTask(this);
+                syncTask.execute();
+
+                prefs.edit().putString("last_sync", sdf.format(today)).commit();
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * A placeholder fragment containing a simple view.
      */

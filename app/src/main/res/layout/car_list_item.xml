@@ -27,8 +27,8 @@
             android:singleLine="true"
             android:text="Nombre del coche"
             android:textAlignment="center"
-            android:textColor="@color/theme_primary_dark"
-            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_xlarge"
 
             />
 
@@ -53,8 +53,8 @@
                 android:singleLine="true"
                 android:text="@string/category_label"
                 android:textAlignment="textStart"
-                android:textColor="@color/theme_accent_2"
-                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/red_canarias"
+                android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
 
                 />
@@ -69,8 +69,7 @@
                 android:singleLine="true"
                 android:text="Turismo"
                 android:textAlignment="textStart"
-                android:textColor="@color/theme_primary_light"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_medium"
 
                 />
         </LinearLayout>
@@ -90,8 +89,8 @@
                 android:singleLine="true"
                 android:text="@string/group_label"
                 android:textAlignment="textStart"
-                android:textColor="@color/theme_accent_2"
-                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/red_canarias"
+                android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
 
                 />
@@ -106,8 +105,7 @@
                 android:singleLine="true"
                 android:text="B"
                 android:textAlignment="textStart"
-                android:textColor="@color/theme_primary_light"
-                android:textSize="@dimen/text_size_small"
+                android:textSize="@dimen/text_size_medium"
 
                 />
         </LinearLayout>
@@ -117,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_margin="@dimen/list_item_action_margin"
-            android:background="@color/theme_accent_1"
+            android:background="@color/red_canarias"
             android:contentDescription="@string/car_detail_link">
 
             <TextView

@@ -1,9 +1,219 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/office_detail"
-    style="?android:attr/textAppearanceLarge"
+<com.canarias.rentacar.widgets.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/office_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:textIsSelectable="true"
-    tools:context="com.canarias.rentacar.OfficeDetailFragment" />
+    android:background="#fff"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mapWrap">
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/map" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:paddingLeft="16dp"
+                    android:paddingBottom="16dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/mapOpen"
+
+                android:src="@drawable/ic_add_box_grey600_36dp"
+                android:background="@color/red_canarias"
+                android:clickable="true"
+                />
+                </FrameLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtOfficeName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@color/red_canarias"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_xlarge"
+                android:layout_below="@id/mapWrap"
+                android:text="@string/office_name"
+                android:gravity="center_horizontal"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOfficeName"
+                android:background="@drawable/border_bottom"
+                android:paddingBottom="20dp"
+                android:id="@+id/office_general_info">
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red_canarias"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/zone_label"
+            android:layout_alignParentTop="true"
+            android:id="@+id/label_zone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_alignBottom="@id/label_zone"
+                android:text="@string/office_zone"
+                android:id="@+id/txtOfficeZone"
+                android:layout_toRightOf="@id/label_zone"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_canarias"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/address_label"
+                android:layout_below="@id/label_zone"
+                android:id="@+id/label_address"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_alignTop="@id/label_address"
+                android:text="@string/office_address"
+                android:id="@+id/txtOfficeAddress"
+                android:layout_toRightOf="@id/label_address"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_canarias"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/phone_label"
+                android:layout_below="@id/txtOfficeAddress"
+                android:id="@+id/label_phone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_alignBottom="@id/label_phone"
+                android:text="@string/office_phone"
+                android:id="@+id/txtOfficePhone"
+                android:layout_toRightOf="@id/label_phone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_canarias"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/fax_label"
+                android:layout_below="@id/label_phone"
+                android:id="@+id/label_fax"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_alignBottom="@id/label_fax"
+                android:text="@string/office_fax"
+                android:id="@+id/txtOfficeFax"
+                android:layout_toRightOf="@id/label_fax"/>
+
+            </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/office_general_info"
+            android:background="@drawable/border_bottom"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:id="@+id/office_delivery_conditions">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red_canarias"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_size_xlarge"
+                android:text="@string/delivery_conditions_label"
+                android:layout_alignParentTop="true"
+                android:id="@+id/label_delivery_conditions"/>
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/webViewOfficeDeliveryConditions"
+                android:layout_below="@id/label_delivery_conditions">
+
+                </WebView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/office_delivery_conditions"
+                android:background="@drawable/border_bottom"
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:id="@+id/office_return_conditions">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red_canarias"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:text="@string/return_conditions_label"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/label_return_conditions"/>
+
+                <WebView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/webViewOfficeReturnConditions"
+                    android:layout_below="@id/label_return_conditions">
+
+                </WebView>
+
+            </RelativeLayout>
+
+            </RelativeLayout>
+
+
+</com.canarias.rentacar.widgets.ObservableScrollView>

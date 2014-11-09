@@ -384,5 +384,13 @@
     <string name="office_phone">(0034) 666555444</string>
     <string name="office_zone">Zona de la oficina</string>
     <string name="show_offices_in_lista">Mostrar en lista</string>
+    <string name="zone_label">Zona:</string>
+    <string name="address_label">Dirección:</string>
+    <string name="phone_label">Teléfono:</string>
+    <string name="fax_label">Fax:</string>
+    <string name="office_fax">922 717171</string>
+    <string name="delivery_conditions_label">Condiciones de Recogida</string>
+    <string name="return_conditions_label">Condiciones de Devolución</string>
+    <string name="offices_and_cars_download_ok">¡Oficinas y coches actualizados correctamente!</string>
 
 </resources>
