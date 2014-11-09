@@ -98,6 +98,7 @@ public class ReservationListActivity extends FragmentActivity
             Log.v("TEST", "Reservation: " + id);
             Intent detailIntent = new Intent(this, ReservationDetailActivity.class);
             detailIntent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, id);
+
             startActivity(detailIntent);
         }
     }

@@ -74,7 +74,7 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
         Reservation dItem = (Reservation) this.resList.get(position);
 
         drawerHolder.model.setText(Utils.trimStringToMaxSize(dItem.getCar().getModel(), 23));
-        drawerHolder.price.setText(String.valueOf(dItem.getPrice().getAmount()) + "€");
+        drawerHolder.price.setText(String.format("%.02f", dItem.getPrice().getAmount()) + "€");
 
         int extrasCount = 0;
         Iterator<Extra> it = dItem.getExtras().iterator();

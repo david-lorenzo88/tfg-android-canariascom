@@ -7,7 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.canarias.rentacar.dummy.DummyContent;
+import com.canarias.rentacar.db.dao.OfficeDataSource;
+import com.canarias.rentacar.model.Office;
+
+import java.sql.SQLException;
+
 
 /**
  * A fragment representing a single Office detail screen.
@@ -25,7 +29,7 @@ public class OfficeDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private Office mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -42,7 +46,16 @@ public class OfficeDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            OfficeDataSource ds = new OfficeDataSource(getActivity());
+            try{
+                ds.open();
+                mItem = ds.getOffice(getArguments().getString(ARG_ITEM_ID));
+                ds.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
         }
     }
 
@@ -53,7 +66,7 @@ public class OfficeDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.office_detail)).setText(mItem.content);
+            ((TextView) rootView.findViewById(R.id.office_detail)).setText(mItem.getName());
         }
 
         return rootView;

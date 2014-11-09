@@ -26,7 +26,7 @@ public class OfficeDataSource {
             DBHelper.COLUMN_OFFICEFAX, DBHelper.COLUMN_OFFICELATITUDE,
             DBHelper.COLUMN_OFFICELONGITUDE, DBHelper.COLUMN_OFFICENAME,
             DBHelper.COLUMN_OFFICEPHONE, DBHelper.COLUMN_DELIVERYCONDITIONS,
-            DBHelper.COLUMN_RETURNCONDITIONS, DBHelper.COLUMN_ZONE};
+            DBHelper.COLUMN_RETURNCONDITIONS, DBHelper.COLUMN_ZONE, DBHelper.COLUMN_OFFICEADDRESS};
     private Context context;
 
     public OfficeDataSource(Context context) {
@@ -53,6 +53,7 @@ public class OfficeDataSource {
         values.put(DBHelper.COLUMN_DELIVERYCONDITIONS, office.getDeliveryConditions());
         values.put(DBHelper.COLUMN_RETURNCONDITIONS, office.getReturnConditions());
         values.put(DBHelper.COLUMN_ZONE, office.getZone().getCode());
+        values.put(DBHelper.COLUMN_OFFICEADDRESS, office.getAddress());
 
         Office current = getOffice(office.getCode());
         if (current == null) {
@@ -161,6 +162,7 @@ public class OfficeDataSource {
         Zone zone = new Zone();
         zone.setCode(cursor.getInt(8));
         office.setZone(zone);
+        office.setAddress(cursor.getString(9));
         return office;
     }
 }

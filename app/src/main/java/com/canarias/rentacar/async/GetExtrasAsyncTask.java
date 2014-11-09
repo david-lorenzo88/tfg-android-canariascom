@@ -38,6 +38,7 @@ public class GetExtrasAsyncTask extends
     private LayoutInflater inflater;
     private HashMap<Integer, Integer> extrasQuantity;
     private ViewGroup container;
+    List<Extra> result;
 
     public GetExtrasAsyncTask(Context context,
                               HashMap<String, String> params, LinearLayout extrasContainer,
@@ -88,7 +89,7 @@ public class GetExtrasAsyncTask extends
     }
 
     protected void onPostExecute(List<Extra> result) {
-        //test
+        this.result = result;
         progress.dismiss();
         if (result != null) {
 
@@ -193,4 +194,6 @@ public class GetExtrasAsyncTask extends
     public HashMap<Integer, Integer> getExtrasQuantity() {
         return this.extrasQuantity;
     }
+
+    public List<Extra> getResult(){ return result; }
 }

@@ -101,12 +101,12 @@ public class ExtrasAdapter extends ArrayAdapter<Extra> {
         if (Extra.extraPriceType.containsKey(String.valueOf(extra.getModelCode()))) {
             //Set text
             extraPrice.setText(
-                    extra.getPrice() + "€ / " + context.getString(
+                    String.format("%.02f", extra.getPrice()) + "€ / " + context.getString(
                             Extra.extraPriceType.get(String.valueOf(extra.getModelCode())).equals(Extra.PriceType.DAILY) ? R.string.priceTypeDaily : R.string.priceTypeTotal));
         } else {
             //Set default text
             extraPrice.setText(
-                    extra.getPrice() + "€ / " + context.getString(R.string.priceTypeTotal));
+                    String.format("%.02f", extra.getPrice()) + "€ / " + context.getString(R.string.priceTypeTotal));
         }
         NumberPicker extraNumber = viewCache.getExtraNumber(resource);
         extraNumber.setMaxValue(9);

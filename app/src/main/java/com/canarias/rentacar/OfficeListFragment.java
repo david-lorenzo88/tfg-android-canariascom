@@ -3,11 +3,18 @@ package com.canarias.rentacar;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.canarias.rentacar.dummy.DummyContent;
+import com.canarias.rentacar.adapters.OfficeListAdapter;
+import com.canarias.rentacar.db.dao.OfficeDataSource;
+
+import com.canarias.rentacar.model.Office;
+
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * A list fragment representing a list of Offices. This fragment
@@ -39,6 +46,8 @@ public class OfficeListFragment extends ListFragment {
      * clicks.
      */
     private Callbacks mCallbacks = sDummyCallbacks;
+    List<Office> offices;
+    ListView listView;
     /**
      * The current activated item position. Only used on tablets.
      */
@@ -55,12 +64,7 @@ public class OfficeListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // TODO: replace with a real list adapter.
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                DummyContent.ITEMS));
+
     }
 
     @Override
@@ -72,11 +76,38 @@ public class OfficeListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+
+        listView = getListView();
+
+        listView.setDivider(null);
+        listView.setDividerHeight(10);
+        listView.setSelector(R.color.transparent);
+        listView.setCacheColorHint(R.color.transparent);
+        listView.setHeaderDividersEnabled(true);
+        listView.setFooterDividersEnabled(true);
+        listView.addHeaderView(new View(getActivity()));
+        listView.addFooterView(new View(getActivity()));
+
+        OfficeDataSource ds = new OfficeDataSource(getActivity());
+
+        try{
+            ds.open();
+
+            offices = ds.getOffices(null);
+
+            ds.close();
+
+            setListAdapter(new OfficeListAdapter(getActivity(), R.layout.office_list_item, offices));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+
+        Log.v("MENU", "onAttach OfficeListFragment");
 
         // Activities containing this fragment must implement its callbacks.
         if (!(activity instanceof Callbacks)) {
@@ -85,6 +116,8 @@ public class OfficeListFragment extends ListFragment {
 
         mCallbacks = (Callbacks) activity;
     }
+
+
 
     @Override
     public void onDetach() {
@@ -100,7 +133,7 @@ public class OfficeListFragment extends ListFragment {
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+        mCallbacks.onItemSelected(offices.get(position - 1).getCode());
     }
 
     @Override

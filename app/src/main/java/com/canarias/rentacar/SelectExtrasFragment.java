@@ -128,7 +128,7 @@ public class SelectExtrasFragment extends Fragment {
 
         carModel.setText(args.getString(ARG_CAR_MODEL));
 
-        carPrice.setText(args.getFloat(ARG_CAR_PRICE) + "€");
+        carPrice.setText(String.format("%.02f", args.getFloat(ARG_CAR_PRICE)) + "€");
 
         ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
         OfficeDataSource officeDS = new OfficeDataSource(getActivity());
@@ -162,7 +162,7 @@ public class SelectExtrasFragment extends Fragment {
         final TextView summaryCollapsedText = (TextView) rootView.findViewById(R.id.selectExtrasSummaryCollapsedText);
         summaryCollapsedText.setText(
                 getActivity().getString(R.string.showSummary)
-                        + " (" + args.getFloat(ARG_CAR_PRICE) + "€)");
+                        + " (" + String.format("%.02f", args.getFloat(ARG_CAR_PRICE)) + "€)");
 
 
         final ImageView collapseBtn = (ImageView) rootView.findViewById(R.id.selectExtrasIconCollapse);

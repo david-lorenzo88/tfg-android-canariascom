@@ -76,6 +76,9 @@ public class HomeActivity extends Activity
             case DRAWER_POSITION_CARS:
                 Intent carsIntent = new Intent(this, CarListActivity.class);
                 startActivity(carsIntent);
+            case DRAWER_POSITION_OFFICES:
+                Intent officesIntent = new Intent(this, OfficeListActivity.class);
+                startActivity(officesIntent);
             default:
                 // update the main content by replacing fragments
 
@@ -95,6 +98,9 @@ public class HomeActivity extends Activity
                 break;
             case DRAWER_POSITION_CARS:
                 mTitle = getString(R.string.title_fragment_cars);
+                break;
+            case DRAWER_POSITION_OFFICES:
+                mTitle = getString(R.string.title_fragment_offices);
                 break;
             default:
                 mTitle = getString(R.string.app_name);

@@ -1,10 +1,19 @@
 package com.canarias.rentacar;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -12,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.canarias.rentacar.async.CancelReservationAsyncTask;
 import com.canarias.rentacar.async.ImageDownloader;
 import com.canarias.rentacar.config.Config;
 import com.canarias.rentacar.db.dao.ReservationDataSource;
@@ -20,6 +30,7 @@ import com.canarias.rentacar.model.Reservation;
 import com.canarias.rentacar.utils.Utils;
 
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
@@ -32,8 +43,12 @@ import java.util.concurrent.TimeUnit;
  */
 public class ReservationDetailFragment extends Fragment {
 
+    private final static String FRAGMENT_TAG = "reservation_detail_fragment";
+    private final static String UPDATE_FRAGMENT_TAG = "reservation_update_fragment";
+
     public static final String ARG_ITEM_ID = "item_id";
     public static final String SHOW_TOAST = "show_toast";
+    public static final String ARG_STATUS = "status";
     private Reservation mItem;
     private String mToastText;
 
@@ -64,6 +79,8 @@ public class ReservationDetailFragment extends Fragment {
         if (getArguments().containsKey(SHOW_TOAST)) {
             mToastText = getArguments().getString(SHOW_TOAST);
         }
+
+        setHasOptionsMenu(true);
     }
 
 
@@ -187,7 +204,7 @@ public class ReservationDetailFragment extends Fragment {
                 //Generate a different id for price TextView
                 tvPrice.setId(Integer.parseInt(e.getCode() + "12"));
 
-                tvPrice.setText(price + "€");
+                tvPrice.setText(String.format("%.02f", price) + "€");
 
                 extrasFrame.addView(tvPrice);
 
@@ -197,11 +214,12 @@ public class ReservationDetailFragment extends Fragment {
 
             float fCarPrice = mItem.getPrice().getAmount() - calculatedTotal;
 
+
             TextView carPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTxtCarPrice);
-            carPrice.setText(fCarPrice + "€");
+            carPrice.setText(String.format("%.02f", Utils.round(fCarPrice)) + "€");
 
             TextView totalPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTotalValue);
-            totalPrice.setText(mItem.getPrice().getAmount() + "€");
+            totalPrice.setText(String.format("%.02f", mItem.getPrice().getAmount()) + "€");
 
             //Customer Data
             TextView customerNameDateBirth = (TextView) rootView.findViewById(R.id.resDetailTitularNombreFecha);
@@ -240,6 +258,91 @@ public class ReservationDetailFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.reservation_detail, menu);
+
+        if(mItem != null && mItem.getState().toLowerCase().contains("cancel")){
+            menu.removeItem(R.id.action_cancel_reservation);
+            menu.removeItem(R.id.action_update_reservation);
+        }
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            // This ID represents the Home or Up button. In the case of this
+            // activity, the Up button is shown. Use NavUtils to allow users
+            // to navigate up one level in the application structure. For
+            // more details, see the Navigation pattern on Android Design:
+            //
+            // http://developer.android.com/design/patterns/navigation.html#up-vs-back
+            //
+            NavUtils.navigateUpTo(getActivity(), new Intent(getActivity(), ReservationListActivity.class));
+            return true;
+        } else if (id == R.id.action_cancel_reservation) {
+            //Cancel reservation, show confirmation dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle(getString(R.string.cancel_reservation));
+            builder.setMessage(getString(R.string.cancel_reservation_message));
+
+            builder.setPositiveButton(getString(R.string.cancel_reservation_action_positive),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Cancel reservation
+                            String reservationId = getActivity().getIntent()
+                                    .getStringExtra(ReservationDetailFragment.ARG_ITEM_ID);
+                            Log.v("TEST", "Cancelling: " + reservationId);
+
+                            Fragment fragment = getFragmentManager().findFragmentByTag(FRAGMENT_TAG);
+                            View rootView = fragment.getView();
+
+
+                            CancelReservationAsyncTask task =
+                                    new CancelReservationAsyncTask(getActivity(),
+                                            reservationId,
+                                            (TextView) rootView.findViewById(R.id.reservation_status),
+                                            (ImageView) rootView.findViewById(R.id.status_icon));
+                            task.execute();
+                        }
+                    });
+            builder.setNegativeButton(getString(R.string.cancel_reservation_action_negative),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+
+            dialog.show();
+
+            dialog.getButton(Dialog.BUTTON_POSITIVE).setBackgroundColor(
+                    getResources().getColor(R.color.red_canarias));
+            dialog.getButton(Dialog.BUTTON_POSITIVE).setTextColor(getResources()
+                    .getColor(R.color.white));
+
+        } else if (id == R.id.action_update_reservation) {
+
+            UpdateReservationFragment fragment = UpdateReservationFragment
+                    .newInstance(getActivity().getIntent().getStringExtra(ReservationDetailFragment.ARG_ITEM_ID));
+
+
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.reservation_detail_container, fragment, UPDATE_FRAGMENT_TAG)
+                    .addToBackStack("Reservation_Detail")
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .commit();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

@@ -95,7 +95,7 @@ public class MakeBookingFragment extends Fragment {
 
         carModel.setText(args.getString(Config.ARG_CAR_MODEL));
 
-        carPrice.setText(args.getFloat(Config.ARG_CAR_PRICE) + "€");
+        carPrice.setText(String.format("%.02f", args.getFloat(Config.ARG_CAR_PRICE)) + "€");
 
         ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
         OfficeDataSource officeDS = new OfficeDataSource(getActivity());
@@ -209,7 +209,7 @@ public class MakeBookingFragment extends Fragment {
 
                 totalPrice += extraPrice;
 
-                tvPrice.setText(extraPrice + "€");
+                tvPrice.setText(String.format("%.02f", extraPrice) + "€");
 
                 extrasFrame.addView(tvPrice);
 
@@ -220,13 +220,13 @@ public class MakeBookingFragment extends Fragment {
 
         totalPrice = Utils.round(totalPrice);
         TextView totalPriceTv = (TextView) rootView.findViewById(R.id.makeBookingTotalValue);
-        totalPriceTv.setText(totalPrice + "€");
+        totalPriceTv.setText(String.format("%.02f", totalPrice) + "€");
 
 
         final TextView summaryCollapsedText = (TextView) rootView.findViewById(R.id.makeBookingSummaryCollapsedText);
         summaryCollapsedText.setText(
                 getActivity().getString(R.string.showSummary)
-                        + " (" + totalPrice + "€)");
+                        + " (" + String.format("%.02f", totalPrice) + "€)");
 
         final ImageView collapseBtn = (ImageView) rootView.findViewById(R.id.makeBookingIconCollapse);
         collapseBtn.setOnClickListener(new View.OnClickListener() {

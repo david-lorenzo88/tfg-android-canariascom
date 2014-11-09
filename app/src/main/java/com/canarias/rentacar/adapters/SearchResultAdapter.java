@@ -76,7 +76,7 @@ public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
         txtModel.setText(sr.getDescription());
 
         TextView txtPrice = viewCache.getPrice(resource);
-        txtPrice.setText(sr.getTotalPrice());
+        txtPrice.setText(sr.getTotalPrice() + "€");
 
         LinearLayout attContainer = viewCache.getAttributesContainer(resource);
         attContainer.removeAllViews();

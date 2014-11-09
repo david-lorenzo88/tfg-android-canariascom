@@ -38,6 +38,9 @@ public final class Config {
     public static int SUMMARY_TEXT_CAR_MODEL_MAX_SIZE = 20;
     public static float TAX = 13.5F;
 
+    public static double DEFAULT_LAT = 28.267417;
+    public static double DEFAULT_LNG = -16.607208;
+
     public final static String getLanguageCode(String lang) {
         List<String> supportedLangs =
                 new ArrayList<String>(Arrays.asList("es", "en", "fr", "de", "it", "ru"));

@@ -1,10 +1,17 @@
 package com.canarias.rentacar;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.google.android.gms.maps.MapFragment;
 
 
 /**
@@ -26,11 +33,15 @@ import android.view.MenuItem;
 public class OfficeListActivity extends Activity
         implements OfficeListFragment.Callbacks {
 
+    private static final String TAG_MAP = "MAP";
+    private static final String TAG_LIST = "LIST";
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
      */
     private boolean mTwoPane;
+
+    private boolean mShowMenuMapAction = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +49,27 @@ public class OfficeListActivity extends Activity
         setContentView(R.layout.activity_office_list);
         // Show the Up button in the action bar.
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                Log.v("MENU", "onBackStackChanged");
+                Fragment mapFragment = getFragmentManager().findFragmentByTag(TAG_MAP);
+                if (mapFragment != null && mapFragment.isVisible()) {
+                    // add your code here
+                    Log.v("MENU", "Map Fragment is visible");
+                    mShowMenuMapAction = false;
+                } else {
+                    Log.v("MENU", "Map Fragment is NOT visible");
+                    mShowMenuMapAction = true;
+                }
+
+
+                invalidateOptionsMenu();
+            }
+        });
+
+        if(savedInstanceState != null)
+            mShowMenuMapAction = savedInstanceState.getBoolean("mShowMenuMapAction");
 
         if (findViewById(R.id.office_detail_container) != null) {
             // The detail container view will be present only in the
@@ -57,6 +89,13 @@ public class OfficeListActivity extends Activity
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        Log.v("MENU", "onSaveInstanceState");
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("mShowMenuMapAction", mShowMenuMapAction);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
@@ -69,6 +108,28 @@ public class OfficeListActivity extends Activity
             //
             NavUtils.navigateUpFromSameTask(this);
             return true;
+        }
+        if(id == R.id.action_show_offices_in_map){
+            mShowMenuMapAction = false;
+            invalidateOptionsMenu();
+
+            FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES);
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.office_list, fragment, TAG_MAP)
+                    .addToBackStack(null)
+                    .commit();
+
+        }
+        if(id == R.id.action_show_offices_in_list){
+            mShowMenuMapAction = true;
+            invalidateOptionsMenu();
+
+            OfficeListFragment fragment = new OfficeListFragment();
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.office_list, fragment, TAG_LIST)
+                    .addToBackStack(null)
+                    .commit();
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -98,5 +159,35 @@ public class OfficeListActivity extends Activity
             detailIntent.putExtra(OfficeDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.v("MENU", "onCreateOptionsMenu");
+        getMenuInflater().inflate(R.menu.office_list, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Log.v("MENU", "onPrepareOptionsMenu");
+        MenuInflater inflater = getMenuInflater();
+        menu.clear();
+        inflater.inflate(R.menu.office_list, menu);
+
+        if(mShowMenuMapAction) {
+            menu.removeItem(R.id.action_show_offices_in_list);
+        } else {
+            menu.removeItem(R.id.action_show_offices_in_map);
+        }
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    public void setmShowMenuMapAction(boolean showMenuMapAction){
+        mShowMenuMapAction = showMenuMapAction;
+    }
+
+
 }

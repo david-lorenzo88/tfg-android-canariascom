@@ -374,5 +374,15 @@
     <string name="update_reservation">Modificar Reserva</string>
     <string name="getting_extras_title">Obteniendo extras</string>
     <string name="getting_extras">Obteniendo extras...</string>
+    <string name="updating_booking_title">Actualizando Reserva</string>
+    <string name="updating_booking">Actualizando Reserva...</string>
+    <string name="updated_reservation">¡Reserva actualizada correctamente!</string>
+    <string name="title_fragment_offices">Oficinas</string>
+    <string name="show_offices_in_map">Mostrar en mapa</string>
+    <string name="office_name">Nombre Oficina</string>
+    <string name="office_address">Dirección de la oficina</string>
+    <string name="office_phone">(0034) 666555444</string>
+    <string name="office_zone">Zona de la oficina</string>
+    <string name="show_offices_in_lista">Mostrar en lista</string>
 
 </resources>

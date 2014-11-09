@@ -74,6 +74,30 @@ public class ReservationDataSource {
 
     }
 
+    public int update(Reservation res) {
+        ContentValues values = new ContentValues();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+
+        values.put(DBHelper.COLUMN_AVAILABILITYIDENTIFIER, res.getAvailabilityIdentifier());
+        values.put(DBHelper.COLUMN_STARTDATE, sdf.format(res.getStartDate()));
+        values.put(DBHelper.COLUMN_ENDDATE, sdf.format(res.getEndDate()));
+        values.put(DBHelper.COLUMN_PRICE, res.getPrice().getAmount());
+        values.put(DBHelper.COLUMN_COMMENTS, res.getComments());
+        values.put(DBHelper.COLUMN_FLIGHTNUMBER, res.getFlightNumber());
+        values.put(DBHelper.COLUMN_CUSTOMER, res.getCustomer().getEmail());
+        values.put(DBHelper.COLUMN_CAR, res.getCar().getModel());
+        values.put(DBHelper.COLUMN_DELIVERYOFFICE, res.getDeliveryOffice().getCode());
+        values.put(DBHelper.COLUMN_RETURNOFFICE, res.getReturnOffice().getCode());
+        values.put(DBHelper.COLUMN_STATE, res.getState());
+
+
+        return database.update(DBHelper.TABLE_RESERVATION, values,
+                DBHelper.COLUMN_LOCALIZER + " = ?", new String[]{res.getLocalizer()});
+
+
+    }
+
     public int delete(Reservation res) {
         String locata = res.getLocalizer();
 

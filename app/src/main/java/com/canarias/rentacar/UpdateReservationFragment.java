@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.canarias.rentacar.async.GetExtrasAsyncTask;
 import com.canarias.rentacar.async.ImageDownloader;
+import com.canarias.rentacar.async.UpdateBookingAsyncTask;
 import com.canarias.rentacar.config.Config;
 import com.canarias.rentacar.db.dao.ReservationDataSource;
 import com.canarias.rentacar.model.Extra;
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -101,6 +103,15 @@ public class UpdateReservationFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_update_reservation, container, false);
 
         if (mItem != null) {
+
+            //Comprobamos si el numero de vuelo debe ser obligatorio.
+            for (String code : Config.FLIGHT_NUMBER_MANDATORY_OFFICE_CODES) {
+                if (mItem.getDeliveryOffice().getCode().equals(code)
+                        || mItem.getReturnOffice().getCode().equals(code)) {
+                    mFlightNumMandatory = true;
+                    break;
+                }
+            }
 
 
             Date pickupDate, dropoffDate;
@@ -177,7 +188,7 @@ public class UpdateReservationFragment extends Fragment {
                 //Generate a different id for price TextView
                 tvPrice.setId(Integer.parseInt(e.getCode() + "12"));
 
-                tvPrice.setText(price + "€");
+                tvPrice.setText(String.format("%.02f", price) + "€");
 
                 extrasFrame.addView(tvPrice);
 
@@ -188,10 +199,10 @@ public class UpdateReservationFragment extends Fragment {
             float fCarPrice = mItem.getPrice().getAmount() - calculatedTotal;
 
             TextView carPrice = (TextView) rootView.findViewById(R.id.carPrice);
-            carPrice.setText(fCarPrice + "€");
+            carPrice.setText(String.format("%.02f", Utils.round(fCarPrice)) + "€");
 
             TextView totalPrice = (TextView) rootView.findViewById(R.id.totalValue);
-            totalPrice.setText(mItem.getPrice().getAmount() + "€");
+            totalPrice.setText(String.format("%.02f", mItem.getPrice().getAmount()) + "€");
 
             //Customer Data
             EditText customerBirthDate = (EditText) rootView.findViewById(R.id.customerBirthdate);
@@ -215,6 +226,10 @@ public class UpdateReservationFragment extends Fragment {
 
             EditText flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
             flightNum.setText(mItem.getFlightNumber());
+
+            if (!mFlightNumMandatory) {
+                flightNum.setVisibility(View.GONE);
+            }
 
             TextView lblPickupPoint = (TextView) rootView.findViewById(R.id.pickupPoint);
             TextView lblDropoffPoint = (TextView) rootView.findViewById(R.id.dropoffPoint);
@@ -241,7 +256,7 @@ public class UpdateReservationFragment extends Fragment {
             final TextView summaryCollapsedText = (TextView) rootView.findViewById(R.id.summaryCollapsedText);
             summaryCollapsedText.setText(
                     getActivity().getString(R.string.showSummary)
-                            + " (" + mItem.getPrice().getAmount() + "€)");
+                            + " (" + String.format("%.02f", mItem.getPrice().getAmount()) + "€)");
 
             final ImageView collapseBtn = (ImageView) rootView.findViewById(R.id.iconCollapse);
             collapseBtn.setOnClickListener(new View.OnClickListener() {
@@ -309,10 +324,12 @@ public class UpdateReservationFragment extends Fragment {
                 public void onClick(View v) {
                     if (validateData(rootView)) {
 
-                        HashMap<String, String> params = getFieldValues(rootView, extrasTask.getExtrasQuantity());
+                        HashMap<String, String> params = getFieldValues(rootView,
+                                extrasTask.getExtrasQuantity(), mItem, extrasTask.getResult());
 
-                        //MakeBookingAsyncTask task = new MakeBookingAsyncTask(getActivity(), params);
-                        //task.execute();
+                        UpdateBookingAsyncTask task = new UpdateBookingAsyncTask(getActivity(),
+                                params, getFragmentManager());
+                        task.execute();
                     } else {
                         Toast.makeText(getActivity(),
                                 getActivity().getString(R.string.btnSearchCarsInvalidStatus),
@@ -367,31 +384,54 @@ public class UpdateReservationFragment extends Fragment {
 
     }
 
-    private HashMap<String, String> getFieldValues(View rootView, HashMap<Integer, Integer> extrasQuantity) {
+    private HashMap<String, String> getFieldValues(View rootView, HashMap<Integer, Integer> extrasQuantity,
+                                                   Reservation res, List<Extra> extrasResult) {
 
         HashMap<String, String> map = new HashMap<String, String>();
 
         Bundle args = getArguments();
 
 
-        String extras = "";
+        String extrasToXml = "", extras = "";
 
 
         Set<Integer> keys = extrasQuantity.keySet();
 
-
+        //Serialize extras for XML request
         for (Integer line : keys) {
 
             int count = Integer.parseInt(extrasQuantity.get(line).toString());
             for (int i = 0; i < count; i++) {
-                extras += line + ",";
+                extrasToXml += line + ",";
             }
+        }
+        if (extrasToXml.length() > 0) {
+            extrasToXml = extrasToXml.substring(0, extrasToXml.length() - 1);
+        }
+
+        map.put(Config.ARG_EXTRAS_TO_XML, extrasToXml);
+
+        //Serialize extras for internal use
+        for (Integer line : keys) {
+
+            int qty = Integer.parseInt(extrasQuantity.get(line).toString());
+            if(qty > 0) {
+                for (Extra e : extrasResult) {
+                    if (e.getCode() == line) {
+                        extras += line + ";" + qty + ";" + e.getName() + ";" + e.getPrice() + ";" + e.getModelCode() + "#";
+                        break;
+                    }
+                }
+            }
+
         }
         if (extras.length() > 0) {
             extras = extras.substring(0, extras.length() - 1);
         }
 
-        map.put(Config.ARG_EXTRAS_TO_XML, extras);
+        map.put(Config.ARG_EXTRAS, extras);
+
+
 
 
         EditText custName = (EditText) rootView.findViewById(R.id.customerName);
@@ -409,6 +449,23 @@ public class UpdateReservationFragment extends Fragment {
         map.put(Config.ARG_CUSTOMER_PHONE, custPhone.getText().toString().trim());
         map.put(Config.ARG_FLIGHT_NUMBER, flightNum.getText().toString().trim());
         map.put(Config.ARG_COMMENTS, comments.getText().toString().trim());
+
+
+        SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm");
+
+        map.put(Config.ARG_PICKUP_POINT, res.getDeliveryOffice().getCode());
+        map.put(Config.ARG_DROPOFF_POINT, res.getReturnOffice().getCode());
+        map.put(Config.ARG_PICKUP_DATE, sdfDate.format(res.getStartDate()));
+        map.put(Config.ARG_DROPOFF_DATE, sdfDate.format(res.getEndDate()));
+        map.put(Config.ARG_PICKUP_TIME, sdfTime.format(res.getStartDate()));
+        map.put(Config.ARG_DROPOFF_TIME, sdfTime.format(res.getEndDate()));
+
+        map.put(Config.ARG_CAR_MODEL, res.getCar().getModel());
+        map.put(Config.ARG_AVAILABILITY_IDENTIFIER, res.getAvailabilityIdentifier());
+
+
+        map.put(Config.ARG_ORDER_ID, res.getLocalizer());
 
 
         return map;

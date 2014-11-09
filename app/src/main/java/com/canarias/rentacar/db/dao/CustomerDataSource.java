@@ -55,6 +55,23 @@ public class CustomerDataSource {
 
     }
 
+    public int update(Customer cust, String reservationCode){
+        ContentValues values = new ContentValues();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        values.put(DBHelper.COLUMN_CUSTOMERBIRTHDATE, sdf.format(cust.getBirthDate()));
+        values.put(DBHelper.COLUMN_CUSTOMERLANGUAGE, cust.getLanguage());
+        values.put(DBHelper.COLUMN_CUSTOMERNAME, cust.getName());
+        values.put(DBHelper.COLUMN_CUSTOMERPHONE, cust.getPhone());
+        values.put(DBHelper.COLUMN_CUSTOMERSURNAME, cust.getSurname());
+
+
+        return database.update(DBHelper.TABLE_CUSTOMER,
+                values,
+                DBHelper.COLUMN_CUSTOMEREMAIL + " = ? and " +
+                        DBHelper.COLUMN_CUSTOMERRESERVATIONCODE + " = ?",
+                new String[]{cust.getEmail(), reservationCode});
+    }
+
     public int delete(Customer cust) {
         String email = cust.getEmail();
 

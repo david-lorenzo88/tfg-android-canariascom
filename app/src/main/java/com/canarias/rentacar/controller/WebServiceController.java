@@ -12,6 +12,7 @@ import com.canarias.rentacar.model.webservice.GetExtrasResponse;
 import com.canarias.rentacar.model.webservice.ListDestinationsResponse;
 import com.canarias.rentacar.model.webservice.MakeReservationResponse;
 import com.canarias.rentacar.model.webservice.Response;
+import com.canarias.rentacar.model.webservice.UpdateReservationResponse;
 import com.canarias.rentacar.webservice.IWebService;
 
 import org.simpleframework.xml.Serializer;
@@ -127,6 +128,46 @@ public class WebServiceController implements IWebService {
 
     @Override
     public Response updateReservation(String identifier, String customerName, String customerSurname, String customerPhone, String flightNumber, String comments, String birthDate, String extras, String orderId) {
+        try {
+            HashMap<String, String> params = new HashMap<String, String>();
+            params.put("function", "update_reservation");
+            params.put("order_id", orderId);
+            params.put("customer_name", URLEncoder.encode(customerName, "utf-8"));
+            params.put("customer_last_name", URLEncoder.encode(customerSurname, "utf-8"));
+
+            params.put("customer_phone", URLEncoder.encode(customerPhone, "utf-8"));
+            params.put("customer_birth_date", birthDate);
+            params.put("comments", URLEncoder.encode(comments, "utf-8"));
+            params.put("flight_number", URLEncoder.encode(flightNumber, "utf-8"));
+            if(extras != null)
+                params.put("extras", extras);
+            if(identifier != null)
+                params.put("identifier", identifier);
+
+            InputStream result = httpRequest(params);
+
+            if (result != null) {
+                Serializer serializer = new Persister();
+                try {
+
+                    UpdateReservationResponse resp = serializer.read(UpdateReservationResponse.class, result);
+
+
+                    return resp;
+
+                } catch (Exception ex) {
+
+                    Log.e("TEST", ex.getMessage());
+                    ErrorResponse error = serializer.read(ErrorResponse.class, result);
+
+                    return error;
+                }
+            }
+
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+
         return null;
     }
 

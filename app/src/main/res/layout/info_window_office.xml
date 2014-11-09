@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/infoWindowOfficeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_bottom"
+        android:padding="16dp"
+        android:text="@string/office_name"
+        android:textColor="@color/red_canarias"
+        android:textSize="@dimen/text_size_xlarge"
+
+        android:textStyle="bold" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/infoWindowOfficeAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/office_address"
+        android:textSize="@dimen/text_size_medium"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+    <TextView
+        android:id="@+id/infoWindowOfficeZone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/office_zone"
+        android:textSize="@dimen/text_size_medium"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@id/infoWindowOfficeAddress"/>
+
+    <ImageView
+        android:id="@+id/iconSelectOffice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_alignBottom="@id/infoWindowOfficeZone"
+        android:src="@drawable/ic_keyboard_arrow_right" />
+
+    <TextView
+        android:id="@+id/infoWindowOfficePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/office_phone"
+        android:textSize="@dimen/text_size_medium"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_below="@id/infoWindowOfficeZone"/>
+</RelativeLayout>
+</LinearLayout>

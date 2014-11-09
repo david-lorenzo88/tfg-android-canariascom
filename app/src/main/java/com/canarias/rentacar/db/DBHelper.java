@@ -62,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_OFFICEFAX = "fax";
     public static final String COLUMN_DELIVERYCONDITIONS = "delivery_conditions";
     public static final String COLUMN_RETURNCONDITIONS = "return_conditions";
+    public static final String COLUMN_OFFICEADDRESS = "address";
     public static final String COLUMN_ZONE = "zone";//Zone code
 
     private static final String TABLE_OFFICE_CREATE = "create table "
@@ -74,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_DELIVERYCONDITIONS + " text,"
             + COLUMN_RETURNCONDITIONS + " text,"
             + COLUMN_ZONE + " integer not null,"
+            + COLUMN_OFFICEADDRESS + " text,"
             + " FOREIGN KEY (" + COLUMN_ZONE + ") REFERENCES " + TABLE_ZONE + " (" + COLUMN_ZONECODE + ")"
             + ");";
 
@@ -160,7 +162,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + TABLE_OFFICE_CREATE + TABLE_CUSTOMER_CREATE
             + TABLE_RESERVATION_CREATE + TABLE_EXTRA_CREATE;
     private static final String DATABASE_NAME = "rentacarcanarias.db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

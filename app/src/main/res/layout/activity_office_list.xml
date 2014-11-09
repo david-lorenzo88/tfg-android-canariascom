@@ -1,5 +1,8 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<fragment
     android:id="@+id/office_list"
     android:name="com.canarias.rentacar.OfficeListFragment"
     android:layout_width="match_parent"
@@ -8,3 +11,6 @@
     android:layout_marginRight="16dp"
     tools:context="com.canarias.rentacar.OfficeListActivity"
     tools:layout="@android:layout/list_content" />
+
+
+</FrameLayout>
