@@ -73,6 +73,15 @@ public class OfficeDetailFragment extends Fragment {
             final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
             final int newAlpha = (int) (ratio * 255);
             mActionBarBackgroundDrawable.setAlpha(newAlpha);
+
+            if(newAlpha > 50) {
+                getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+                getActivity().getActionBar().setDisplayShowHomeEnabled(true);
+            } else {
+                getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+                getActivity().getActionBar().setDisplayShowHomeEnabled(false);
+
+            }
         }
     };
 
@@ -97,6 +106,9 @@ public class OfficeDetailFragment extends Fragment {
                 ds.open();
                 mItem = ds.getOffice(getArguments().getString(ARG_ITEM_ID));
                 ds.close();
+
+                getActivity().setTitle(mItem.getName());
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -170,6 +182,8 @@ public class OfficeDetailFragment extends Fragment {
             mActionBarBackgroundDrawable.setAlpha(0);
 
             getActivity().getActionBar().setBackgroundDrawable(mActionBarBackgroundDrawable);
+            getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+            getActivity().getActionBar().setDisplayShowHomeEnabled(false);
 
             ((ObservableScrollView) rootView.findViewById(R.id.office_detail_container))
                     .setOnScrollChangedListener(mOnScrollChangedListener);

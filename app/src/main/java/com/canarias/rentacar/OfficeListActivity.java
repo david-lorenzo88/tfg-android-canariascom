@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Spinner;
 
 import com.google.android.gms.maps.MapFragment;
 
@@ -43,10 +44,14 @@ public class OfficeListActivity extends Activity
 
     private boolean mShowMenuMapAction = true;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_list);
+
+
         // Show the Up button in the action bar.
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -81,12 +86,14 @@ public class OfficeListActivity extends Activity
             // In two-pane mode, list items should be given the
             // 'activated' state when touched.
             ((OfficeListFragment) getFragmentManager()
-                    .findFragmentById(R.id.office_list))
+                    .findFragmentById(R.id.office_fragment))
                     .setActivateOnItemClick(true);
         }
 
         // TODO: If exposing deep links into your app, handle intents here.
     }
+
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -115,9 +122,13 @@ public class OfficeListActivity extends Activity
 
             FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES);
             getFragmentManager().beginTransaction()
-                    .replace(R.id.office_list, fragment, TAG_MAP)
+                    .replace(R.id.office_fragment, fragment, TAG_MAP)
+
                     .addToBackStack(null)
                     .commit();
+
+
+
 
         }
         if(id == R.id.action_show_offices_in_list){
@@ -126,9 +137,12 @@ public class OfficeListActivity extends Activity
 
             OfficeListFragment fragment = new OfficeListFragment();
             getFragmentManager().beginTransaction()
-                    .replace(R.id.office_list, fragment, TAG_LIST)
+                    .replace(R.id.office_fragment, fragment, TAG_LIST)
+
                     .addToBackStack(null)
                     .commit();
+
+
 
         }
         return super.onOptionsItemSelected(item);
@@ -185,9 +199,7 @@ public class OfficeListActivity extends Activity
         return super.onPrepareOptionsMenu(menu);
     }
 
-    public void setmShowMenuMapAction(boolean showMenuMapAction){
-        mShowMenuMapAction = showMenuMapAction;
-    }
+
 
 
 }

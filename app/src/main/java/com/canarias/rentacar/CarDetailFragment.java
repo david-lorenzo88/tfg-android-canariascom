@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.canarias.rentacar.async.ImageDownloader;
+import com.canarias.rentacar.config.Config;
 import com.canarias.rentacar.db.dao.AttributeDataSource;
 import com.canarias.rentacar.db.dao.CarDataSource;
 import com.canarias.rentacar.model.Car;
@@ -22,6 +24,7 @@ import com.canarias.rentacar.widgets.ObservableScrollView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Locale;
 
 
 /**
@@ -68,6 +71,14 @@ public class CarDetailFragment extends Fragment {
             final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
             final int newAlpha = (int) (ratio * 255);
             mActionBarBackgroundDrawable.setAlpha(newAlpha);
+            if(newAlpha > 50) {
+                getActivity().getActionBar().setDisplayShowTitleEnabled(true);
+                getActivity().getActionBar().setDisplayShowHomeEnabled(true);
+            } else {
+                getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+                getActivity().getActionBar().setDisplayShowHomeEnabled(false);
+
+            }
         }
     };
 
@@ -83,6 +94,7 @@ public class CarDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
+
 
             CarDataSource ds = new CarDataSource(getActivity());
             AttributeDataSource attDS = new AttributeDataSource(getActivity());
@@ -104,6 +116,8 @@ public class CarDetailFragment extends Fragment {
                 attDS.close();
 
                 imageDownloader = new ImageDownloader(99999, getActivity());
+
+                getActivity().setTitle(car.getModel());
 
             } catch (Exception ex) {
                 Log.d("TEST", ex.getMessage());
@@ -146,14 +160,55 @@ public class CarDetailFragment extends Fragment {
             Iterator<CarAttribute> it = car.getAttributes().iterator();
             while (it.hasNext()) {
                 CarAttribute current = it.next();
-                View attWrapper = inflater.inflate(R.layout.fragment_car_detail_attribute, container, false);
-                TextView attName = (TextView) attWrapper.findViewById(R.id.car_detail_attribute_name);
-                TextView attValue = (TextView) attWrapper.findViewById(R.id.car_detail_attribute_value);
 
-                attName.setText(current.getName());
-                attValue.setText(current.getValue());
+                if(current.getValue().equals(
+                        Config.yesTranslations.get(
+                                Config.getLanguageCode(Locale.getDefault().getLanguage())))
+                        || TextUtils.isDigitsOnly(current.getValue())) {
 
-                attributes.addView(attWrapper);
+                    View attWrapper = inflater.inflate(R.layout.fragment_car_detail_attribute, container, false);
+                    ImageView attIcon = (ImageView)attWrapper.findViewById(R.id.car_detail_attribute_icon);
+                    TextView attValue = (TextView) attWrapper.findViewById(R.id.car_detail_attribute_value);
+                    attValue.setText(current.getValue());
+                    if(TextUtils.isDigitsOnly(current.getValue())){
+                        if(CarAttribute.attributeIcons.containsKey(current.getFilename())){
+                            attIcon.setImageDrawable(
+                                    getActivity().getResources().getDrawable(
+                                            CarAttribute.attributeIcons.get(
+                                                    current.getFilename())
+                                    )
+                            );
+
+                        } else {
+                            attIcon.setVisibility(View.INVISIBLE);
+                        }
+
+
+                    } else {
+
+                        if(CarAttribute.attributeIcons.containsKey(current.getFilename())){
+                            attIcon.setImageDrawable(
+                                    getActivity().getResources().getDrawable(
+                                            CarAttribute.attributeIcons.get(
+                                                    current.getFilename())
+                                    )
+                            );
+                            attValue.setVisibility(View.GONE);
+                        } else {
+                            attIcon.setVisibility(View.INVISIBLE);
+                        }
+
+
+                    }
+
+
+
+                    TextView attName = (TextView) attWrapper.findViewById(R.id.car_detail_attribute_name);
+                    attName.setText(current.getName());
+
+
+                    attributes.addView(attWrapper);
+                }
             }
 
             /*attributes.setAdapter(new CarAttributeAdapter(
@@ -171,6 +226,10 @@ public class CarDetailFragment extends Fragment {
         mActionBarBackgroundDrawable.setAlpha(0);
 
         getActivity().getActionBar().setBackgroundDrawable(mActionBarBackgroundDrawable);
+        getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+        getActivity().getActionBar().setDisplayShowHomeEnabled(false);
+
+
 
         ((ObservableScrollView) rootView.findViewById(R.id.car_detail_container))
                 .setOnScrollChangedListener(mOnScrollChangedListener);

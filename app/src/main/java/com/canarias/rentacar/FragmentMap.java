@@ -167,19 +167,21 @@ public class FragmentMap extends MapFragment {
 
 
         //Loop to show markers
-        for(Office o : this.offices.values()) {
+        if(this.offices != null) {
+            for (Office o : this.offices.values()) {
 
-            if(o.getLatitude() != 0 && o.getLongitude() != 0) {
+                if (o.getLatitude() != 0 && o.getLongitude() != 0) {
 
 
-                map.addMarker(new MarkerOptions()
-                        .position(new LatLng(o.getLatitude(), o.getLongitude()))
-                        .title(o.getName())
-                        .snippet(o.getCode())
-                        .icon(icon));
-            } else {
-                Log.v("MAP", "Oficina faltan coordenadas! "+o.getName()+" - "
-                        +o.getCode());
+                    map.addMarker(new MarkerOptions()
+                            .position(new LatLng(o.getLatitude(), o.getLongitude()))
+                            .title(o.getName())
+                            .snippet(o.getCode())
+                            .icon(icon));
+                } else {
+                    Log.v("MAP", "Oficina faltan coordenadas! " + o.getName() + " - "
+                            + o.getCode());
+                }
             }
         }
         map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {

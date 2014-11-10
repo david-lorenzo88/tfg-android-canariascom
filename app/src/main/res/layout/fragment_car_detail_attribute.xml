@@ -11,6 +11,14 @@
         android:orientation="horizontal"
         android:padding="20dp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pict_ac"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/car_detail_attribute_icon"
+            />
+
         <TextView
             android:id="@+id/car_detail_attribute_name"
             android:layout_width="wrap_content"
@@ -21,7 +29,8 @@
             android:text="Nombre"
             android:textAlignment="textStart"
             android:textColor="@color/blue_canarias"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical" />
 
         <TextView
             android:id="@+id/car_detail_attribute_value"
@@ -32,18 +41,9 @@
             android:gravity="start"
             android:text="Valor"
             android:textAlignment="textStart"
-            android:textColor="@color/theme_accent_1_light" />
+            android:textColor="@color/theme_accent_1_light"
+            android:layout_gravity="center_vertical" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="1dp"
-        android:background="@color/red_canarias"
-
-        ></View>
 
 </LinearLayout>

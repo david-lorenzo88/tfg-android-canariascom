@@ -2,6 +2,7 @@ package com.canarias.rentacar.config;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public final class Config {
@@ -52,6 +53,20 @@ public final class Config {
 
         return DEFAULT_LANGUAGE;
     }
+
+    public static HashMap<String, String> yesTranslations;
+
+    static {
+        yesTranslations = new HashMap<String, String>();
+        yesTranslations.put("es", "Sí");
+        yesTranslations.put("en", "Yes");
+        yesTranslations.put("de", "Ja");
+        yesTranslations.put("fr", "Oui");
+        yesTranslations.put("it", "Si");
+        yesTranslations.put("ru", "&#1044;&#1072;");
+
+    }
+
 
 
 }
