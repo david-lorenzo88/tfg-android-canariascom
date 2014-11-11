@@ -149,9 +149,12 @@ public class OfficeDetailFragment extends Fragment {
 
             wvReturnCond.loadDataWithBaseURL("fake://not/needed", wrapHtml(mItem.getReturnConditions()), "text/html", "ISO-8859-1", "");
 
+            mapView = (MapView) rootView.findViewById(R.id.map);
+            mapView.onCreate(savedInstanceState);
+
             if (mItem.getLatitude() != 0 && mItem.getLongitude() != 0) {
-                mapView = (MapView) rootView.findViewById(R.id.map);
-                mapView.onCreate(savedInstanceState);
+
+
                 GoogleMap map = mapView.getMap();
                 if (map != null) {
                     map.setMyLocationEnabled(true);

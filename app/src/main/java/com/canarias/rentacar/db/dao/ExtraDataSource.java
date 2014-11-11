@@ -57,6 +57,11 @@ public class ExtraDataSource {
                 new String[]{extra.getReservationCode()});
     }
 
+    public int deleteExtrasFromReservation(String locata) {
+        return database.delete(DBHelper.TABLE_EXTRA, DBHelper.COLUMN_RESERVATION + " = ?",
+                new String[]{locata});
+    }
+
     public List<Extra> getReservationExtras(String localizer) {
         List<Extra> extras = new ArrayList<Extra>();
 

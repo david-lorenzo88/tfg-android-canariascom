@@ -393,5 +393,7 @@
     <string name="delivery_conditions_label">Condiciones de Recogida</string>
     <string name="return_conditions_label">Condiciones de Devolución</string>
     <string name="offices_and_cars_download_ok">¡Oficinas y coches actualizados correctamente!</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="txt_image_slider">Slider de imágenes</string>
 
 </resources>

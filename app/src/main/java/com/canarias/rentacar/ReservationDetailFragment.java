@@ -1,6 +1,7 @@
 package com.canarias.rentacar;
 
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -52,6 +53,8 @@ public class ReservationDetailFragment extends Fragment {
     private Reservation mItem;
     private String mToastText;
 
+    private boolean mViewIsCreated = false;
+
     public ReservationDetailFragment() {
         // Required empty public constructor
     }
@@ -59,7 +62,25 @@ public class ReservationDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.v("DET", "onCreate");
+
+
+        if (getArguments().containsKey(SHOW_TOAST)) {
+            mToastText = getArguments().getString(SHOW_TOAST);
+        }
+
+        setHasOptionsMenu(true);
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_reservation_detail, container, false);
+        Log.v("DET", "onCreateView");
+
         if (getArguments().containsKey(ARG_ITEM_ID)) {
+            Log.v("DET", "Loading Reservation");
             ReservationDataSource ds = new ReservationDataSource(getActivity());
 
             try {
@@ -76,86 +97,84 @@ public class ReservationDetailFragment extends Fragment {
 
         }
 
-        if (getArguments().containsKey(SHOW_TOAST)) {
-            mToastText = getArguments().getString(SHOW_TOAST);
+        if (mItem != null) {
+
+            initLayout(rootView);
         }
 
-        setHasOptionsMenu(true);
+
+
+        return rootView;
     }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_reservation_detail, container, false);
 
 
-        if (mItem != null) {
+    private void initLayout(View rootView) {
+        Date pickupDate, dropoffDate;
+        long dateDiff = 1;
 
-            Date pickupDate, dropoffDate;
-            long dateDiff = 1;
+        pickupDate = mItem.getStartDate();
+        dropoffDate = mItem.getEndDate();
 
-            pickupDate = mItem.getStartDate();
-            dropoffDate = mItem.getEndDate();
+        long diff = dropoffDate.getTime() - pickupDate.getTime();
 
-            long diff = dropoffDate.getTime() - pickupDate.getTime();
-
-            dateDiff = TimeUnit.MILLISECONDS.toDays(diff);
+        dateDiff = TimeUnit.MILLISECONDS.toDays(diff);
 
 
-            TextView localizer = (TextView) rootView.findViewById(R.id.localizer);
-            localizer.setText(mItem.getLocalizer());
+        TextView localizer = (TextView) rootView.findViewById(R.id.localizer);
+        localizer.setText(mItem.getLocalizer());
 
-            TextView status = (TextView) rootView.findViewById(R.id.reservation_status);
-            String sStatus = mItem.getState().replace("&nbsp;", " ").substring(0, 10);
-            try {
-                sStatus = Config.getLanguageCode(Locale.getDefault().getLanguage()).equals("es") ?
-                        mItem.getState().split("/")[0].replace("&nbsp;", " ").trim() :
-                        mItem.getState().split("/")[1].replace("&nbsp;", " ").trim();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            status.setText(sStatus);
+        TextView status = (TextView) rootView.findViewById(R.id.reservation_status);
+        String sStatus = mItem.getState().replace("&nbsp;", " ").substring(0, 10);
+        try {
+            sStatus = Config.getLanguageCode(Locale.getDefault().getLanguage()).equals("es") ?
+                    mItem.getState().split("/")[0].replace("&nbsp;", " ").trim() :
+                    mItem.getState().split("/")[1].replace("&nbsp;", " ").trim();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        status.setText(sStatus);
 
-            ImageView iconStatus = (ImageView) rootView.findViewById(R.id.status_icon);
-            if (mItem.getState().toLowerCase().contains("confirm")) {
-                iconStatus.setImageDrawable(
-                        getActivity().getResources().getDrawable(R.drawable.ic_done_black_48dp));
-            } else if (mItem.getState().toLowerCase().contains("curso")) {
-                iconStatus.setImageDrawable(
-                        getActivity().getResources().getDrawable(R.drawable.ic_schedule_black_48dp));
+        ImageView iconStatus = (ImageView) rootView.findViewById(R.id.status_icon);
+        if (mItem.getState().toLowerCase().contains("confirm")) {
+            iconStatus.setImageDrawable(
+                    getActivity().getResources().getDrawable(R.drawable.ic_done_black_48dp));
+        } else if (mItem.getState().toLowerCase().contains("curso")) {
+            iconStatus.setImageDrawable(
+                    getActivity().getResources().getDrawable(R.drawable.ic_schedule_black_48dp));
+        } else {
+            iconStatus.setImageDrawable(
+                    getActivity().getResources().getDrawable(R.drawable.ic_cancel_black_48dp));
+        }
+
+        TextView carModel = (TextView) rootView.findViewById(R.id.bookingDetailsCarModel);
+        carModel.setText(mItem.getCar().getModel());
+
+        Iterator<Extra> it = mItem.getExtras().iterator();
+        float calculatedTotal = 0;
+
+        View lastView = rootView.findViewById(R.id.extrasFrame);
+        View lastViewRight = lastView;
+
+        RelativeLayout extrasFrame = (RelativeLayout) rootView.findViewById(R.id.extrasFrame);
+
+        while (it.hasNext()) {
+            Extra e = it.next();
+
+            //Calculamos el precio total del extra
+
+
+            float price = e.getQuantity() * e.getPrice();
+
+
+            if (e.getPriceType().equals(Extra.PriceType.DAILY)) {
+                Log.v("TEST", "Precio por dia, " + dateDiff + " dias");
+                price = price * dateDiff;
             } else {
-                iconStatus.setImageDrawable(
-                        getActivity().getResources().getDrawable(R.drawable.ic_cancel_black_48dp));
+                Log.v("TEST", "Precio por alquiler");
+                price = price;
             }
-
-            TextView carModel = (TextView) rootView.findViewById(R.id.bookingDetailsCarModel);
-            carModel.setText(mItem.getCar().getModel());
-
-            Iterator<Extra> it = mItem.getExtras().iterator();
-            float calculatedTotal = 0;
-
-            View lastView = rootView.findViewById(R.id.extrasFrame);
-            View lastViewRight = lastView;
-
-            RelativeLayout extrasFrame = (RelativeLayout) rootView.findViewById(R.id.extrasFrame);
-
-            while (it.hasNext()) {
-                Extra e = it.next();
-
-                //Calculamos el precio total del extra
-
-
-                float price = e.getQuantity() * e.getPrice();
-
-
-                if (e.getPriceType().equals(Extra.PriceType.DAILY)) {
-                    Log.v("TEST", "Precio por dia, " + dateDiff + " dias");
-                    price = price * dateDiff;
-                } else {
-                    Log.v("TEST", "Precio por alquiler");
-                    price = price;
-                }
 
                 /*if(Extra.extraPriceType.containsKey(e.getModelCode())){
                     int str = Extra.extraPriceType.get(e.getModelCode());
@@ -173,91 +192,88 @@ public class ReservationDetailFragment extends Fragment {
                     price = price * (1 + (Config.TAX / 100));
                 }*/
 
-                price = Utils.round(price);
+            price = Utils.round(price);
 
-                calculatedTotal += price;
+            calculatedTotal += price;
 
-                //Textview concepto
-                RelativeLayout.LayoutParams lp =
-                        new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                                RelativeLayout.LayoutParams.WRAP_CONTENT);
+            //Textview concepto
+            RelativeLayout.LayoutParams lp =
+                    new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-                lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 1);
-                lp.addRule(RelativeLayout.BELOW, lastView.getId());
-                lp.setMargins(6, 6, 0, 6);
-                TextView tvConcept = new TextView(getActivity());
-                tvConcept.setId(e.getCode());
-                tvConcept.setLayoutParams(lp);
-                tvConcept.setText(e.getQuantity() + " x " + e.getName());
+            lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 1);
+            lp.addRule(RelativeLayout.BELOW, lastView.getId());
+            lp.setMargins(6, 6, 0, 6);
+            TextView tvConcept = new TextView(getActivity());
+            tvConcept.setId(e.getCode());
+            tvConcept.setLayoutParams(lp);
+            tvConcept.setText(e.getQuantity() + " x " + e.getName());
 
-                extrasFrame.addView(tvConcept);
+            extrasFrame.addView(tvConcept);
 
-                lp =
-                        new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                                RelativeLayout.LayoutParams.WRAP_CONTENT);
+            lp =
+                    new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+                            RelativeLayout.LayoutParams.WRAP_CONTENT);
 
-                lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
-                lp.addRule(RelativeLayout.BELOW, lastViewRight.getId());
-                lp.setMargins(0, 6, 6, 6);
-                TextView tvPrice = new TextView(getActivity());
-                tvPrice.setLayoutParams(lp);
-                //Generate a different id for price TextView
-                tvPrice.setId(Integer.parseInt(e.getCode() + "12"));
+            lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
+            lp.addRule(RelativeLayout.BELOW, lastViewRight.getId());
+            lp.setMargins(0, 6, 6, 6);
+            TextView tvPrice = new TextView(getActivity());
+            tvPrice.setLayoutParams(lp);
+            //Generate a different id for price TextView
+            tvPrice.setId(Integer.parseInt(e.getCode() + "12"));
 
-                tvPrice.setText(String.format("%.02f", price) + "€");
+            tvPrice.setText(String.format("%.02f", price) + "€");
 
-                extrasFrame.addView(tvPrice);
+            extrasFrame.addView(tvPrice);
 
-                lastView = tvConcept;
-                lastViewRight = tvPrice;
-            }
-
-            float fCarPrice = mItem.getPrice().getAmount() - calculatedTotal;
-
-
-            TextView carPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTxtCarPrice);
-            carPrice.setText(String.format("%.02f", Utils.round(fCarPrice)) + "€");
-
-            TextView totalPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTotalValue);
-            totalPrice.setText(String.format("%.02f", mItem.getPrice().getAmount()) + "€");
-
-            //Customer Data
-            TextView customerNameDateBirth = (TextView) rootView.findViewById(R.id.resDetailTitularNombreFecha);
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            customerNameDateBirth.setText(mItem.getCustomer().getName() + " - " + sdf.format(mItem.getCustomer().getBirthDate()));
-
-            TextView customerEmail = (TextView) rootView.findViewById(R.id.resDetailTitularEmail);
-            customerEmail.setText(mItem.getCustomer().getEmail());
-
-            TextView lblPickupPoint = (TextView) rootView.findViewById(R.id.resDetailRecogidaZona);
-            TextView lblDropoffPoint = (TextView) rootView.findViewById(R.id.resDetailDevolucionZona);
-            TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.resDetailRecogidaFecha);
-            TextView lblDropoffDateTime = (TextView) rootView.findViewById(R.id.resDetailDevolucionFecha);
-
-            sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-
-            lblPickupPoint.setText(mItem.getDeliveryOffice().getName()
-                    + " (" + mItem.getDeliveryOffice().getZone().getName() + ")");
-            lblDropoffPoint.setText(mItem.getReturnOffice().getName()
-                    + " (" + mItem.getReturnOffice().getZone().getName() + ")");
-            lblPickupDateTime.setText(
-                    sdf.format(mItem.getStartDate()));
-            lblDropoffDateTime.setText(
-                    sdf.format(mItem.getEndDate()));
-
-            TextView comments = (TextView) rootView.findViewById(R.id.resDetailComments);
-            comments.setText(mItem.getComments());
-
-            ImageView carImage = (ImageView) rootView.findViewById(R.id.car_image);
-            ImageDownloader downloader = new ImageDownloader(9999, getActivity());
-            downloader.download(mItem.getCar().getImageUrl(), carImage);
-
-            if (mToastText != null && !mToastText.isEmpty()) {
-                Toast.makeText(getActivity(), mToastText, Toast.LENGTH_SHORT).show();
-            }
+            lastView = tvConcept;
+            lastViewRight = tvPrice;
         }
 
-        return rootView;
+        float fCarPrice = mItem.getPrice().getAmount() - calculatedTotal;
+
+
+        TextView carPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTxtCarPrice);
+        carPrice.setText(String.format("%.02f", Utils.round(fCarPrice)) + "€");
+
+        TextView totalPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTotalValue);
+        totalPrice.setText(String.format("%.02f", mItem.getPrice().getAmount()) + "€");
+
+        //Customer Data
+        TextView customerNameDateBirth = (TextView) rootView.findViewById(R.id.resDetailTitularNombreFecha);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        customerNameDateBirth.setText(mItem.getCustomer().getName() + " - " + sdf.format(mItem.getCustomer().getBirthDate()));
+
+        TextView customerEmail = (TextView) rootView.findViewById(R.id.resDetailTitularEmail);
+        customerEmail.setText(mItem.getCustomer().getEmail());
+
+        TextView lblPickupPoint = (TextView) rootView.findViewById(R.id.resDetailRecogidaZona);
+        TextView lblDropoffPoint = (TextView) rootView.findViewById(R.id.resDetailDevolucionZona);
+        TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.resDetailRecogidaFecha);
+        TextView lblDropoffDateTime = (TextView) rootView.findViewById(R.id.resDetailDevolucionFecha);
+
+        sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+
+        lblPickupPoint.setText(mItem.getDeliveryOffice().getName()
+                + " (" + mItem.getDeliveryOffice().getZone().getName() + ")");
+        lblDropoffPoint.setText(mItem.getReturnOffice().getName()
+                + " (" + mItem.getReturnOffice().getZone().getName() + ")");
+        lblPickupDateTime.setText(
+                sdf.format(mItem.getStartDate()));
+        lblDropoffDateTime.setText(
+                sdf.format(mItem.getEndDate()));
+
+        TextView comments = (TextView) rootView.findViewById(R.id.resDetailComments);
+        comments.setText(mItem.getComments());
+
+        ImageView carImage = (ImageView) rootView.findViewById(R.id.car_image);
+        ImageDownloader downloader = new ImageDownloader(9999, getActivity());
+        downloader.download(mItem.getCar().getImageUrl(), carImage);
+
+        if (mToastText != null && !mToastText.isEmpty()) {
+            Toast.makeText(getActivity(), mToastText, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

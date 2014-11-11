@@ -173,8 +173,9 @@ public class UpdateBookingAsyncTask extends
                 customerDS.update(cust, res.getLocalizer());
                 reservationDS.update(res);
 
+                extraDS.deleteExtrasFromReservation(res.getLocalizer());
                 for (Extra e : extrasList) {
-                    extraDS.delete(e);
+
                     extraDS.insert(e);
                 }
 

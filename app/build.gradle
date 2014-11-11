@@ -36,7 +36,9 @@ dependencies {
 
     //compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar-abc:3.1.2'
     //compile 'com.android.support:appcompat-v7:20.0.0'
-    compile 'com.android.support:support-v4:20.0.0'
+    
 
+    compile 'com.android.support:support-v4:20.0.0'
     compile 'com.google.android.gms:play-services:5.0.77'
+    compile 'com.android.support:appcompat-v7:20.0.0'
 }

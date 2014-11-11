@@ -96,6 +96,10 @@ public class HomeActivity extends Activity
                 Intent officesIntent = new Intent(this, OfficeListActivity.class);
                 startActivity(officesIntent);
                 break;
+            case DRAWER_POSITION_HELP:
+                Intent helpIntent = new Intent(this, HelpActivity.class);
+                startActivity(helpIntent);
+                break;
             default:
                 // update the main content by replacing fragments
 

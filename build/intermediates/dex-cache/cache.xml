@@ -19,5 +19,11 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\classes-c4ecc82122f4946c8bac7c0a8b91e6eed548ea79.jar"
+        jar="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
 
 </pre-dex-items>

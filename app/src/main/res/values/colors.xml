@@ -14,6 +14,10 @@
   limitations under the License.
   -->
 <resources>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="view_divider_color">#BABABA</color>
+    <color name="view_divider_color_2">#DADADA</color>
+
     <color name="transparent">#00000000</color>
 
     <color name="body_text_1">#de000000</color>
