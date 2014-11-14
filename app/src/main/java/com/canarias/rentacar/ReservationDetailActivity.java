@@ -62,6 +62,8 @@ public class ReservationDetailActivity extends Activity {
             Bundle arguments = new Bundle();
             arguments.putString(ReservationDetailFragment.ARG_ITEM_ID,
                     getIntent().getStringExtra(ReservationDetailFragment.ARG_ITEM_ID));
+            arguments.putBoolean(ReservationDetailFragment.ARG_LAUNCH_UPDATE,
+                    getIntent().getBooleanExtra(ReservationDetailFragment.ARG_LAUNCH_UPDATE, false));
             ReservationDetailFragment fragment = new ReservationDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()

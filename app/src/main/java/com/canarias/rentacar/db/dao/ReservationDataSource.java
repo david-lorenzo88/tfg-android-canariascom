@@ -52,7 +52,7 @@ public class ReservationDataSource {
 
     public long insert(Reservation res) {
         ContentValues values = new ContentValues();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         values.put(DBHelper.COLUMN_LOCALIZER, res.getLocalizer());
         values.put(DBHelper.COLUMN_AVAILABILITYIDENTIFIER, res.getAvailabilityIdentifier());
@@ -76,7 +76,7 @@ public class ReservationDataSource {
 
     public int update(Reservation res) {
         ContentValues values = new ContentValues();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
         values.put(DBHelper.COLUMN_AVAILABILITYIDENTIFIER, res.getAvailabilityIdentifier());
@@ -194,7 +194,7 @@ public class ReservationDataSource {
         res.setLocalizer(cursor.getString(0));
         res.setAvailabilityIdentifier(cursor.getString(1));
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date convertedDate = new Date();
         try {
             convertedDate = dateFormat.parse(cursor.getString(2));

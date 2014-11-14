@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.canarias.rentacar.async.CancelReservationAsyncTask;
+import com.canarias.rentacar.async.GetBookingAsyncTask;
 import com.canarias.rentacar.async.ImageDownloader;
 import com.canarias.rentacar.config.Config;
 import com.canarias.rentacar.db.dao.ReservationDataSource;
@@ -34,6 +35,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -48,6 +50,7 @@ public class ReservationDetailFragment extends Fragment {
     private final static String UPDATE_FRAGMENT_TAG = "reservation_update_fragment";
 
     public static final String ARG_ITEM_ID = "item_id";
+    public static final String ARG_LAUNCH_UPDATE = "launch_update";
     public static final String SHOW_TOAST = "show_toast";
     public static final String ARG_STATUS = "status";
     private Reservation mItem;
@@ -100,9 +103,23 @@ public class ReservationDetailFragment extends Fragment {
         if (mItem != null) {
 
             initLayout(rootView);
+
+            //Si la reserva no está cancelada, descargamos desde WebService por si se
+            //ha actualizado.
+            if(getArguments().getBoolean(ARG_LAUNCH_UPDATE, false) &&
+                    !mItem.getState().toLowerCase().contains("cancel")) {
+
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put(Config.ARG_ORDER_ID, mItem.getLocalizer());
+                params.put(Config.ARG_PICKUP_POINT, mItem.getDeliveryOffice().getCode());
+                params.put(Config.ARG_DROPOFF_POINT, mItem.getReturnOffice().getCode());
+                params.put(Config.ARG_AVAILABILITY_IDENTIFIER, mItem.getAvailabilityIdentifier());
+                GetBookingAsyncTask task = new GetBookingAsyncTask(getActivity(), params, getFragmentManager());
+                task.execute();
+            }
         }
 
-
+        getActivity().getActionBar().setTitle(getString(R.string.title_reservation_detail));
 
         return rootView;
     }
@@ -253,7 +270,7 @@ public class ReservationDetailFragment extends Fragment {
         TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.resDetailRecogidaFecha);
         TextView lblDropoffDateTime = (TextView) rootView.findViewById(R.id.resDetailDevolucionFecha);
 
-        sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
         lblPickupPoint.setText(mItem.getDeliveryOffice().getName()
                 + " (" + mItem.getDeliveryOffice().getZone().getName() + ")");

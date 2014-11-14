@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,6 +51,7 @@ public class HomeActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Log.v("HOME", "onCreate");
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -61,11 +63,19 @@ public class HomeActivity extends Activity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         prefs = getSharedPreferences("com.canarias.rentacar", MODE_PRIVATE);
+
+        if(savedInstanceState == null){
+            Log.v("HOME", "onCreate - savedInstanceState NULL");
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.container, new HomeFragment())
+                    .commit();
+        }
+
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-
+        Log.v("HOME", "onNavigationDrawerItemSelected - "+position);
         FragmentManager fragmentManager = getFragmentManager();
 
         switch (position) {
@@ -81,6 +91,7 @@ public class HomeActivity extends Activity
 
                         .replace(R.id.container,
                                 SearchFragment.newInstance(DRAWER_POSITION_NEW_BOOKING))
+                        .addToBackStack(null)
                         .commit();
 
                 break;
@@ -100,7 +111,7 @@ public class HomeActivity extends Activity
                 Intent helpIntent = new Intent(this, HelpActivity.class);
                 startActivity(helpIntent);
                 break;
-            default:
+            case DRAWER_POSITION_HOME:
                 // update the main content by replacing fragments
 
                 fragmentManager.beginTransaction()
@@ -165,7 +176,7 @@ public class HomeActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
-
+        Log.v("HOME", "onResume");
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date today = new Date();
         Calendar cal = Calendar.getInstance();
@@ -196,44 +207,7 @@ public class HomeActivity extends Activity
             e.printStackTrace();
         }
     }
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
 
-        public PlaceholderFragment() {
-        }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_home, container, false);
-            return rootView;
-        }
-
-        @Override
-        public void onAttach(Activity activity) {
-            super.onAttach(activity);
-            ((HomeActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
-        }
-    }
 
 }

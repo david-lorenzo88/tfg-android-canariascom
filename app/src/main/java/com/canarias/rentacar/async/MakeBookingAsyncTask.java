@@ -111,7 +111,7 @@ public class MakeBookingAsyncTask extends
                 res.setAvailabilityIdentifier(this.params.get(Config.ARG_AVAILABILITY_IDENTIFIER));
                 res.setComments(this.params.get(Config.ARG_COMMENTS));
 
-                sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+                sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                 res.setStartDate(sdf.parse(this.params.get(Config.ARG_PICKUP_DATE) + " " + this.params.get(Config.ARG_PICKUP_TIME)));
                 res.setEndDate(sdf.parse(this.params.get(Config.ARG_DROPOFF_DATE) + " " + this.params.get(Config.ARG_DROPOFF_TIME)));
                 res.setState(resp.getStatus());

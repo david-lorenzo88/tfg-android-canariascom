@@ -15,7 +15,11 @@ public class Customer {
     private String email;
     @Element(name = "phone")
     private String phone;
+    @Element(name = "birthDate")
+    private String birthDateXml;
+
     private Date birthDate;
+    @Element(name = "language")
     private String language;
 
     @Element(name = "country")
@@ -35,6 +39,14 @@ public class Customer {
         this.surname = surname;
         this.email = email;
         this.phone = phone;
+    }
+
+    public String getBirthDateXml() {
+        return birthDateXml;
+    }
+
+    public void setBirthDateXml(String birthDateXml) {
+        this.birthDateXml = birthDateXml;
     }
 
     public String getCountry() {

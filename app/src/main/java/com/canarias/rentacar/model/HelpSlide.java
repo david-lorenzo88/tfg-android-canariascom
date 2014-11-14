@@ -8,8 +8,35 @@ public class HelpSlide {
     private String title;
     private int imageDrawableId;
     private String description;
+    private String titleAction;
+    private String subtitle;
+    private String identifier;
 
     public HelpSlide(){}
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
+    public String getTitleAction() {
+        return titleAction;
+    }
+
+    public void setTitleAction(String titleAction) {
+        this.titleAction = titleAction;
+    }
 
     public String getTitle() {
         return title;

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.canarias.rentacar.async.AvailabilityAsyncTask;
@@ -55,6 +56,8 @@ public class SearchResultsFragment extends Fragment {
 
         initActivity(rootView);
 
+        getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking) + " - " + getString(R.string.title_activity_search_results));
+
         return rootView;
     }
 
@@ -74,6 +77,14 @@ public class SearchResultsFragment extends Fragment {
         TextView lblDropoffPoint = (TextView) rootView.findViewById(R.id.searchResultDropoffPointValue);
         TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.searchResultpickupDateValue);
         TextView lblDropoffDateTime = (TextView) rootView.findViewById(R.id.searchResultDropoffDateValue);
+
+        LinearLayout changeBtn = (LinearLayout) rootView.findViewById(R.id.changeBtn);
+        changeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
 
         ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
         OfficeDataSource officeDS = new OfficeDataSource(getActivity());

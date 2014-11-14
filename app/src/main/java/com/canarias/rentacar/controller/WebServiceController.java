@@ -9,6 +9,7 @@ import com.canarias.rentacar.model.webservice.CancelReservationResponse;
 import com.canarias.rentacar.model.webservice.ErrorResponse;
 import com.canarias.rentacar.model.webservice.GetAllCarsResponse;
 import com.canarias.rentacar.model.webservice.GetExtrasResponse;
+import com.canarias.rentacar.model.webservice.GetReservationResponse;
 import com.canarias.rentacar.model.webservice.ListDestinationsResponse;
 import com.canarias.rentacar.model.webservice.MakeReservationResponse;
 import com.canarias.rentacar.model.webservice.Response;
@@ -95,7 +96,7 @@ public class WebServiceController implements IWebService {
             params.put("customer_email", customerEmail);
             params.put("customer_phone", URLEncoder.encode(customerPhone, "utf-8"));
             params.put("customer_birth_date", birthDate);
-            params.put("comments", URLEncoder.encode(comments, "utf-8"));
+            params.put("comment", URLEncoder.encode(comments, "utf-8"));
             params.put("flight_number", URLEncoder.encode(flightNumber, "utf-8"));
             params.put("extras", extras);
 
@@ -137,7 +138,7 @@ public class WebServiceController implements IWebService {
 
             params.put("customer_phone", URLEncoder.encode(customerPhone, "utf-8"));
             params.put("customer_birth_date", birthDate);
-            params.put("comments", URLEncoder.encode(comments, "utf-8"));
+            params.put("comment", URLEncoder.encode(comments, "utf-8"));
             params.put("flight_number", URLEncoder.encode(flightNumber, "utf-8"));
             if(extras != null)
                 params.put("extras", extras);
@@ -173,7 +174,38 @@ public class WebServiceController implements IWebService {
 
     @Override
     public Response getReservation(String orderId) {
+        try {
+            HashMap<String, String> params = new HashMap<String, String>();
+            params.put("function", "get_reservation");
+            params.put("order_id", orderId);
+
+
+            InputStream result = httpRequest(params);
+
+            if (result != null) {
+                Serializer serializer = new Persister();
+                try {
+
+                    GetReservationResponse resp = serializer.read(GetReservationResponse.class, result);
+
+
+                    return resp;
+
+                } catch (Exception ex) {
+
+                    Log.e("TEST", ex.getMessage());
+                    ErrorResponse error = serializer.read(ErrorResponse.class, result);
+
+                    return error;
+                }
+            }
+
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+
         return null;
+
     }
 
     @Override

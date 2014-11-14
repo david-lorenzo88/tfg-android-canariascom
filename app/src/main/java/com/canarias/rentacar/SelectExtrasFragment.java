@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -75,6 +76,7 @@ public class SelectExtrasFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mReference = this;
     }
 
     @Override
@@ -84,6 +86,14 @@ public class SelectExtrasFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.fragment_select_extras, container, false);
 
         Bundle args = getArguments();
+
+        LinearLayout changeBtn = (LinearLayout) rootView.findViewById(R.id.changeBtn);
+        changeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
 
 
         final List<Extra> extras = new ArrayList<Extra>();
@@ -238,6 +248,8 @@ public class SelectExtrasFragment extends Fragment {
                 AnimationHelper.rotate(collapseBtn, 0, 180, 500);
             }
         }.start();
+
+        getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking) + " - " + getString(R.string.title_fragment_select_extras));
 
 
         return rootView;

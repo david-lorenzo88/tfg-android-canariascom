@@ -86,6 +86,8 @@ public class ReservationListActivity extends FragmentActivity
             // fragment transaction.
             Bundle arguments = new Bundle();
             arguments.putString(ReservationDetailFragment.ARG_ITEM_ID, id);
+            //Flag para lanzar la actualización de la reserva la web service.
+            arguments.putBoolean(ReservationDetailFragment.ARG_LAUNCH_UPDATE, true);
             ReservationDetailFragment fragment = new ReservationDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
@@ -98,7 +100,7 @@ public class ReservationListActivity extends FragmentActivity
             Log.v("TEST", "Reservation: " + id);
             Intent detailIntent = new Intent(this, ReservationDetailActivity.class);
             detailIntent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, id);
-
+            detailIntent.putExtra(ReservationDetailFragment.ARG_LAUNCH_UPDATE, true);
             startActivity(detailIntent);
         }
     }

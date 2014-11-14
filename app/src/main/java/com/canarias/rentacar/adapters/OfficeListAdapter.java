@@ -38,12 +38,12 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ReservationItemHolder drawerHolder;
+        ItemHolder drawerHolder;
         View view = convertView;
 
         if (view == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            drawerHolder = new ReservationItemHolder();
+            drawerHolder = new ItemHolder();
 
             view = inflater.inflate(layoutResID, parent, false);
             drawerHolder.name = (TextView) view
@@ -64,7 +64,7 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
             view.setTag(drawerHolder);
 
         } else {
-            drawerHolder = (ReservationItemHolder) view.getTag();
+            drawerHolder = (ItemHolder) view.getTag();
 
         }
 
@@ -82,7 +82,7 @@ public class OfficeListAdapter extends ArrayAdapter<Office> {
 
 
 
-    private static class ReservationItemHolder {
+    private static class ItemHolder {
         TextView name;
         TextView zone;
         TextView phone;

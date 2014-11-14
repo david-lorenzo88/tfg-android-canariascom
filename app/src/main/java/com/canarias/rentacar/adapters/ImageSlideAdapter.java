@@ -44,6 +44,9 @@ public class ImageSlideAdapter extends PagerAdapter {
             TextView title = (TextView) view.findViewById(R.id.title);
             title.setText(item.getTitle());
 
+            TextView titleAction = (TextView) view.findViewById(R.id.titleAction);
+            titleAction.setText(item.getTitleAction());
+
             TextView description = (TextView) view.findViewById(R.id.description);
             description.setText(item.getDescription());
 

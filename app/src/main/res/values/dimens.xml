@@ -187,4 +187,5 @@
 
     <dimen name="recurrence_picker_height">340dp</dimen>
     <dimen name="recurrence_picker_width">300dp</dimen>
+    <dimen name="text_size_xxlarge">28dp</dimen>
 </resources>

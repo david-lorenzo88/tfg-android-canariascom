@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,6 +82,14 @@ public class MakeBookingFragment extends Fragment {
 
         Bundle args = getArguments();
 
+        LinearLayout changeBtn = (LinearLayout) rootView.findViewById(R.id.changeBtn);
+        changeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
+
         TextView lblPickupPoint = (TextView) rootView.findViewById(R.id.makeBookingPickupPointValue);
         TextView lblDropoffPoint = (TextView) rootView.findViewById(R.id.makeBookingDropoffPointValue);
         TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.makeBookingpickupDateValue);
@@ -103,7 +112,7 @@ public class MakeBookingFragment extends Fragment {
         Date pickupDate, dropoffDate;
         long dateDiff = 1;
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             pickupDate = sdf.parse(args.getString(Config.ARG_PICKUP_DATE)
                     + " " + args.getString(Config.ARG_PICKUP_TIME));
             dropoffDate = sdf.parse(args.getString(Config.ARG_DROPOFF_DATE)
@@ -304,6 +313,7 @@ public class MakeBookingFragment extends Fragment {
             flightNum.setVisibility(View.GONE);
         }
 
+        getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking) + " - " + getString(R.string.title_fragment_make_booking));
 
         return rootView;
     }

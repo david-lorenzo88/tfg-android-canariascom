@@ -40,7 +40,7 @@ public class CustomerDataSource {
     public long insert(Customer cust, String reservationCode) {
         ContentValues values = new ContentValues();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         values.put(DBHelper.COLUMN_CUSTOMERBIRTHDATE, sdf.format(cust.getBirthDate()));
         values.put(DBHelper.COLUMN_CUSTOMEREMAIL, cust.getEmail());
         values.put(DBHelper.COLUMN_CUSTOMERLANGUAGE, cust.getLanguage());
@@ -57,7 +57,7 @@ public class CustomerDataSource {
 
     public int update(Customer cust, String reservationCode){
         ContentValues values = new ContentValues();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         values.put(DBHelper.COLUMN_CUSTOMERBIRTHDATE, sdf.format(cust.getBirthDate()));
         values.put(DBHelper.COLUMN_CUSTOMERLANGUAGE, cust.getLanguage());
         values.put(DBHelper.COLUMN_CUSTOMERNAME, cust.getName());
@@ -103,7 +103,7 @@ public class CustomerDataSource {
         Customer cust = new Customer();
         cust.setEmail(cursor.getString(0));
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date convertedDate = new Date();
         try {
             convertedDate = dateFormat.parse(cursor.getString(1));

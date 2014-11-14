@@ -33,7 +33,7 @@ public class StatusRelativeLayout extends RelativeLayout {
 
         switch (status) {
             case STATUS_OK:
-                setBackgroundResource(R.drawable.border_bottom);
+                setBackgroundResource(R.drawable.border_bottom_ok);
                 setPadding(20, 20, 20, 20);
                 break;
             case STATUS_ERROR:

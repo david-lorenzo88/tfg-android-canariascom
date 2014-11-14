@@ -24,6 +24,17 @@ public class ReservationLine {
     @Element(name = "tax")
     private String tax;
 
+    @Element(name = "modelCode")
+    private int modelCode;
+
+    public int getModelCode() {
+        return modelCode;
+    }
+
+    public void setModelCode(int modelCode) {
+        this.modelCode = modelCode;
+    }
+
     public int getItemCode() {
         return itemCode;
     }

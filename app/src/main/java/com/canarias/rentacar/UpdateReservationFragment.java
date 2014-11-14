@@ -236,7 +236,7 @@ public class UpdateReservationFragment extends Fragment {
             TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.pickupDate);
             TextView lblDropoffDateTime = (TextView) rootView.findViewById(R.id.dropoffDate);
 
-            sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
             lblPickupPoint.setText(mItem.getDeliveryOffice().getName()
                     + " (" + mItem.getDeliveryOffice().getZone().getName() + ")");
@@ -295,7 +295,7 @@ public class UpdateReservationFragment extends Fragment {
 
 
             sdf = new SimpleDateFormat("dd/MM/yyyy");
-            SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
 
             HashMap<String, String> params = new HashMap<String, String>();
             params.put(Config.ARG_PICKUP_POINT,
@@ -340,6 +340,8 @@ public class UpdateReservationFragment extends Fragment {
             });
 
         }
+
+        getActivity().getActionBar().setTitle(getString(R.string.title_reservation_update));
 
         return rootView;
     }
@@ -452,7 +454,7 @@ public class UpdateReservationFragment extends Fragment {
 
 
         SimpleDateFormat sdfDate = new SimpleDateFormat("dd/MM/yyyy");
-        SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm");
+        SimpleDateFormat sdfTime = new SimpleDateFormat("HH:mm");
 
         map.put(Config.ARG_PICKUP_POINT, res.getDeliveryOffice().getCode());
         map.put(Config.ARG_DROPOFF_POINT, res.getReturnOffice().getCode());

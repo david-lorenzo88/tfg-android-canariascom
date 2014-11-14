@@ -94,6 +94,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
         initActivity(rootView);
 
+        getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking));
+
         return rootView;
     }
 
@@ -193,7 +195,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 dialog.show(getFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });
-        pickupDateLayout.setStatus(StatusRelativeLayout.STATUS_OK);
+        pickupDateLayout.setStatus(StatusRelativeLayout.STATUS_PENDING);
 
         dropoffDateLayout = (StatusRelativeLayout) rootView.findViewById(R.id.dropoffDateLayout);
 
@@ -233,7 +235,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 dialog.show(getFragmentManager(), FRAG_TAG_DATE_PICKER);
             }
         });
-        dropoffDateLayout.setStatus(StatusRelativeLayout.STATUS_OK);
+        dropoffDateLayout.setStatus(StatusRelativeLayout.STATUS_PENDING);
 
         pickupTimeLayout = (StatusRelativeLayout) rootView.findViewById(R.id.pickupTimeLayout);
 
@@ -246,7 +248,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 dialog.show();
             }
         });
-        pickupTimeLayout.setStatus(StatusRelativeLayout.STATUS_OK);
+        pickupTimeLayout.setStatus(StatusRelativeLayout.STATUS_PENDING);
 
         dropoffTimeLayout = (StatusRelativeLayout) rootView.findViewById(R.id.dropoffTimeLayout);
 
@@ -259,7 +261,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 dialog.show();
             }
         });
-        dropoffTimeLayout.setStatus(StatusRelativeLayout.STATUS_OK);
+        dropoffTimeLayout.setStatus(StatusRelativeLayout.STATUS_PENDING);
 
         btnSearchCars = (Button) rootView.findViewById(R.id.btnSearchCars);
 
@@ -269,6 +271,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
                 //Validamos
                 boolean valid = true;
+
+                validateDateLayoutStatus();
 
                 if (pickupZoneLayout.getStatus() != StatusRelativeLayout.STATUS_OK) {
                     pickupZoneLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
@@ -346,34 +350,39 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
     }
 
     private void validateDateLayoutStatus() {
-        Calendar pickupCal = Calendar.getInstance();
-        Calendar dropoffCal = Calendar.getInstance();
+        Date pickupCal,dropoffCal;
+
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            sdf.parse(dropoffDate);
-            dropoffCal = sdf.getCalendar();
-            sdf = new SimpleDateFormat("dd/MM/yyyy");
-            sdf.parse(pickupDate);
-            pickupCal = sdf.getCalendar();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            dropoffCal = sdf.parse(dropoffDate + " " + dropoffTime);
+            //dropoffCal = sdf.getCalendar();
+            pickupCal = sdf.parse(pickupDate + " " + pickupTime) ;
+            //pickupCal = sdf.getCalendar();
 
-            dropoffCal.set(Calendar.HOUR, 0);
-            dropoffCal.set(Calendar.HOUR_OF_DAY, 0);
-            dropoffCal.set(Calendar.MINUTE, 0);
-            dropoffCal.set(Calendar.SECOND, 0);
-            dropoffCal.set(Calendar.MILLISECOND, 0);
+            //dropoffCal.set(Calendar.HOUR, 0);
+            //dropoffCal.set(Calendar.HOUR_OF_DAY, 0);
+            //dropoffCal.set(Calendar.MINUTE, 0);
+            //dropoffCal.set(Calendar.SECOND, 0);
+            //dropoffCal.set(Calendar.MILLISECOND, 0);
 
-            pickupCal.set(Calendar.HOUR, 0);
-            pickupCal.set(Calendar.HOUR_OF_DAY, 0);
-            pickupCal.set(Calendar.MINUTE, 0);
-            pickupCal.set(Calendar.SECOND, 0);
-            pickupCal.set(Calendar.MILLISECOND, 0);
+            //pickupCal.set(Calendar.HOUR, 0);
+            //pickupCal.set(Calendar.HOUR_OF_DAY, 0);
+            //pickupCal.set(Calendar.MINUTE, 0);
+            //pickupCal.set(Calendar.SECOND, 0);
+            //pickupCal.set(Calendar.MILLISECOND, 0);
 
             Log.v("TEST", "PickupCal: " + pickupCal.getTime());
             Log.v("TEST", "DropoffCal: " + dropoffCal.getTime());
-            if (pickupCal.getTime().compareTo(dropoffCal.getTime()) >= 0) {
+            if (pickupCal.getTime() >= dropoffCal.getTime()) {
                 dropoffDateLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
+                pickupDateLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
+                pickupTimeLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
+                dropoffTimeLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
             } else {
+                pickupDateLayout.setStatus(StatusRelativeLayout.STATUS_OK);
                 dropoffDateLayout.setStatus(StatusRelativeLayout.STATUS_OK);
+                pickupTimeLayout.setStatus(StatusRelativeLayout.STATUS_OK);
+                dropoffTimeLayout.setStatus(StatusRelativeLayout.STATUS_OK);
             }
         } catch (Exception ex) {
             Log.v("TEST", ex.getMessage());

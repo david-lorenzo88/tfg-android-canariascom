@@ -111,11 +111,19 @@
         <activity
             android:name="com.canarias.rentacar.HelpActivity"
             android:label="@string/title_activity_help"
-            android:parentActivityName="com.canarias.rentacar.HomeActivity"
-            android:theme="@style/Theme.AppCompat">
+            android:parentActivityName="com.canarias.rentacar.HomeActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.canarias.rentacar.HomeActivity" />
+        </activity>
+        <activity
+            android:name="com.canarias.rentacar.SlideActivity"
+            android:label="@string/title_activity_slide"
+            android:parentActivityName="com.canarias.rentacar.HelpActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.canarias.rentacar.HelpActivity" />
         </activity>
     </application>
 

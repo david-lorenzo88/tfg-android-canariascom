@@ -3,8 +3,8 @@
 
     <bool name="default_circle_indicator_centered">true</bool>
 
-    <color name="default_circle_indicator_fill_color">#660000FF</color>
-    <color name="default_circle_indicator_page_color">#FF0000FF</color>
+    <color name="default_circle_indicator_fill_color">@color/red_canarias_alpha50</color>
+    <color name="default_circle_indicator_page_color">@color/red_canarias_alpha50</color>
 
     <integer name="default_circle_indicator_orientation">0</integer>
 
