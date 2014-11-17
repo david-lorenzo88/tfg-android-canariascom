@@ -31,6 +31,13 @@ public final class Config {
     public static final String ARG_EXTRAS_TO_XML = "extras_xml";
     public static final String ARG_ORDER_ID = "order_id";
     public static final String[] FLIGHT_NUMBER_MANDATORY_OFFICE_CODES = new String[]{"92", "93"};
+    public static final String ARG_PICKUP_POINT_LAYOUT_STATE = "pickup_point_layout_state";
+    public static final String ARG_DROPOFF_POINT_LAYOUT_STATE = "dropoff_point_layout_state";
+    public static final String ARG_PICKUP_DATE_LAYOUT_STATE = "pikcup_date_layout_state";
+    public static final String ARG_DROPOFF_DATE_LAYOUT_STATE = "dropoff_date_layout_state";
+    public static final String ARG_PICKUP_TIME_LAYOUT_STATE = "pickup_time_layout_state";
+    public static final String ARG_DROPOFF_TIME_LAYOUT_STATE = "dropoff_time_layout_state";
+    public static final java.lang.String ARG_OPEN_CANCEL_DIALOG = "open_cancel_dialog";
     public static String WEBSERVICE_PATH = "http://rentacar.canarias.com/CarHireXML_android.asp";
     public static String AGENCY_CODE = "4O7GMLV8J1";
     public static String AGENCY_PASS = "tenerife2";
@@ -42,6 +49,9 @@ public final class Config {
 
     public static double DEFAULT_LAT = 28.267417;
     public static double DEFAULT_LNG = -16.607208;
+
+    public static int HTTP_TIMEOUT = 10000;
+    public static boolean ENABLE_HTTP_TIMEOUT = true;
 
     public final static String getLanguageCode(String lang) {
         List<String> supportedLangs =

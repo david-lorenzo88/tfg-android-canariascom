@@ -142,12 +142,12 @@ public class OfficeDetailFragment extends Fragment {
 
             WebView wvDeliveryCond = (WebView) rootView.findViewById(R.id.webViewOfficeDeliveryConditions);
 
-            wvDeliveryCond.loadDataWithBaseURL("fake://not/needed", wrapHtml(mItem.getDeliveryConditions()), "text/html", "ISO-8859-1", "");
+            wvDeliveryCond.loadDataWithBaseURL("fake://not/needed", wrapHtml(mItem.getDeliveryConditions()), "text/html", "UTF-8", "");
 
 
             WebView wvReturnCond = (WebView) rootView.findViewById(R.id.webViewOfficeReturnConditions);
 
-            wvReturnCond.loadDataWithBaseURL("fake://not/needed", wrapHtml(mItem.getReturnConditions()), "text/html", "ISO-8859-1", "");
+            wvReturnCond.loadDataWithBaseURL("fake://not/needed", wrapHtml(mItem.getReturnConditions()), "text/html", "UTF-8", "");
 
             mapView = (MapView) rootView.findViewById(R.id.map);
             mapView.onCreate(savedInstanceState);

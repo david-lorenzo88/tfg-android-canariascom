@@ -91,8 +91,10 @@ public class HomeActivity extends Activity
 
                         .replace(R.id.container,
                                 SearchFragment.newInstance(DRAWER_POSITION_NEW_BOOKING))
-                        .addToBackStack(null)
+                        .addToBackStack("New_Booking")
                         .commit();
+                mTitle = getString(R.string.title_fragment_new_booking);
+                getActionBar().setTitle(mTitle);
 
                 break;
             case DRAWER_POSITION_SETTINGS:
@@ -117,6 +119,8 @@ public class HomeActivity extends Activity
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new HomeFragment())
                         .commit();
+                mTitle = getString(R.string.app_name);
+                getActionBar().setTitle(mTitle);
                 break;
         }
 
@@ -128,15 +132,10 @@ public class HomeActivity extends Activity
             case DRAWER_POSITION_NEW_BOOKING:
                 mTitle = getString(R.string.title_fragment_new_booking);
                 break;
-            case DRAWER_POSITION_CARS:
-                mTitle = getString(R.string.title_fragment_cars);
-                break;
-            case DRAWER_POSITION_OFFICES:
-                mTitle = getString(R.string.title_fragment_offices);
-                break;
-            default:
+            case DRAWER_POSITION_HOME:
                 mTitle = getString(R.string.app_name);
                 break;
+
 
         }
     }

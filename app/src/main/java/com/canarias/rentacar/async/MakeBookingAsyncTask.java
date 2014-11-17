@@ -2,6 +2,7 @@ package com.canarias.rentacar.async;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -43,11 +44,14 @@ public class MakeBookingAsyncTask extends
     ErrorResponse error;
     AlertDialog loadingDialog;
     ProgressDialog progress;
+    FragmentManager fragmentManager;
 
     public MakeBookingAsyncTask(Context context,
-                                HashMap<String, String> params) {
+                                HashMap<String, String> params,
+                                FragmentManager fragmentManager) {
         this.params = params;
         this.context = context;
+        this.fragmentManager = fragmentManager;
     }
 
     @Override
@@ -66,11 +70,12 @@ public class MakeBookingAsyncTask extends
                 this.params.get(Config.ARG_CUSTOMER_BIRTHDATE),
                 this.params.get(Config.ARG_EXTRAS_TO_XML));
 
+        Reservation res = null;
         if (result != null && result.getClass().equals(MakeReservationResponse.class)) {
 
             MakeReservationResponse resp = (MakeReservationResponse) result;
 
-            Reservation res = new Reservation();
+            res = new Reservation();
 
             //Init DataSources
             OfficeDataSource officeDS = new OfficeDataSource(context);
@@ -167,7 +172,7 @@ public class MakeBookingAsyncTask extends
                     extraDS.insert(e);
                 }
 
-                return res;
+
 
             } catch (SQLException ex) {
 
@@ -183,7 +188,9 @@ public class MakeBookingAsyncTask extends
                 extraDS.close();
             }
 
-            return null;
+            return res;
+
+
 
         } else {
             if (result != null && result.getClass().equals(ErrorResponse.class)) {
@@ -207,6 +214,9 @@ public class MakeBookingAsyncTask extends
                     context.getString(R.string.confirmed_booking));
 
             context.startActivity(intent);
+
+            fragmentManager.popBackStack("New_Booking", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         } else {
             //Error
             //Check for error

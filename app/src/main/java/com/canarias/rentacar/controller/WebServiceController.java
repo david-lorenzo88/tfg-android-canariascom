@@ -373,6 +373,12 @@ public class WebServiceController implements IWebService {
             URL url = new URL(sUrl);
 
             URLConnection urlConnection = url.openConnection();
+
+            if(Config.ENABLE_HTTP_TIMEOUT) {
+                urlConnection.setConnectTimeout(Config.HTTP_TIMEOUT);
+                urlConnection.setReadTimeout(Config.HTTP_TIMEOUT);
+            }
+
             InputStream in = new BufferedInputStream(
                     urlConnection.getInputStream());
 

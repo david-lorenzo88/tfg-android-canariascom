@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.canarias.rentacar.adapters.ExtrasAdapter;
 import com.canarias.rentacar.async.GetExtrasAsyncTask;
 import com.canarias.rentacar.async.ImageDownloader;
 import com.canarias.rentacar.async.UpdateBookingAsyncTask;
@@ -29,6 +30,7 @@ import com.canarias.rentacar.utils.Utils;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -53,6 +55,9 @@ public class UpdateReservationFragment extends Fragment {
     private boolean mFlightNumMandatory = false;
     private String mResId;
     private Reservation mItem;
+    private HashMap<Integer, Integer> extrasQuantity;
+
+    private GetExtrasAsyncTask extrasTask;
 
 
     public UpdateReservationFragment() {
@@ -88,6 +93,41 @@ public class UpdateReservationFragment extends Fragment {
                 ds.open();
 
                 mItem = ds.getReservation(getArguments().getString(ARG_RES_ID));
+
+                extrasQuantity = new HashMap<Integer, Integer>();
+
+                //Fill extrasQuantity
+                if(mItem.getExtras() != null && mItem.getExtras().size() > 0){
+                    for(Extra e : mItem.getExtras()){
+                        extrasQuantity.put(e.getCode(), e.getQuantity());
+                    }
+                }
+
+
+                if(savedInstanceState != null){
+                    String extras = savedInstanceState.getString(Config.ARG_EXTRAS);
+
+
+                    //Replace any DB value with the restored one
+                    Log.v("EXTRAS", "Restoring State... "+extras);
+                    if(extras != null && !extras.isEmpty()){
+                        String[] parts = extras.split(";");
+                        for(String e : parts){
+                            String[] eParts = e.split("-");
+                            if(eParts.length == 2){
+                                try {
+                                    int code = Integer.parseInt(eParts[0]);
+                                    int qty = Integer.parseInt(eParts[1]);
+                                    extrasQuantity.put(code, qty);
+
+                                }catch (NumberFormatException ex){
+                                    ex.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                }
+
 
                 ds.close();
 
@@ -311,9 +351,9 @@ public class UpdateReservationFragment extends Fragment {
             params.put(Config.ARG_DROPOFF_TIME,
                     sdfTime.format(mItem.getEndDate()));
 
-            final GetExtrasAsyncTask extrasTask = new GetExtrasAsyncTask(
+            extrasTask = new GetExtrasAsyncTask(
                     getActivity(), params, extrasLinearLayout,
-                    mItem.getExtras(), inflater, container);
+                    inflater, container, extrasQuantity);
             extrasTask.execute();
 
 
@@ -344,6 +384,31 @@ public class UpdateReservationFragment extends Fragment {
         getActivity().getActionBar().setTitle(getString(R.string.title_reservation_update));
 
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        if(extrasTask != null) {
+
+            HashMap<Integer, Integer> extrasQuantity = extrasTask.getExtrasQuantity();
+
+
+            Iterator<Integer> it = extrasQuantity.keySet().iterator();
+
+            String extras = "";
+
+            while (it.hasNext()) {
+                int key = it.next();
+                extras += key + "-" + extrasQuantity.get(key) + ";";
+            }
+            if (extras.length() > 0)
+                extras = extras.substring(0, extras.length() - 1);
+            outState.putString(Config.ARG_EXTRAS, extras);
+
+        }
+
+        super.onSaveInstanceState(outState);
     }
 
     private boolean validateData(View rootView) {

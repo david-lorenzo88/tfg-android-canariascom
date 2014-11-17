@@ -1,12 +1,16 @@
 package com.canarias.rentacar.async;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -146,6 +150,24 @@ public class AvailabilityAsyncTask extends
                     .setVisibility(View.GONE);
         } else {
             //No hay resultados, mostrar mensaje
+
+            rootView.findViewById(R.id.loadingLayout).setVisibility(View.GONE);
+
+            final AlertDialog loadingDialog = new AlertDialog.Builder(context).create();
+
+            loadingDialog.setTitle(context.getString(R.string.availability_error_dialog_title));
+
+            loadingDialog.setButton(Dialog.BUTTON_POSITIVE, context.getString(R.string.accept),
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            loadingDialog.dismiss();
+                        }
+                    });
+
+            loadingDialog.setMessage(context.getString(R.string.availability_error_dialog_msg));
+
+            loadingDialog.show();
         }
     }
 

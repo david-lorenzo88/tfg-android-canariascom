@@ -1,6 +1,7 @@
 package com.canarias.rentacar;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -80,6 +81,12 @@ public class HomeFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getActivity().getActionBar().setTitle(getString(R.string.app_name));
     }
 
 

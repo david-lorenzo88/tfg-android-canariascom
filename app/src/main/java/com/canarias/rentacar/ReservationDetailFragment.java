@@ -56,6 +56,11 @@ public class ReservationDetailFragment extends Fragment {
     private Reservation mItem;
     private String mToastText;
 
+    private static final String ACTION_CANCEL = "cancel";
+    private static final String ACTION_UPDATE = "update";
+
+    private boolean openCancelDialog = false;
+
     private boolean mViewIsCreated = false;
 
     public ReservationDetailFragment() {
@@ -67,14 +72,27 @@ public class ReservationDetailFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Log.v("DET", "onCreate");
 
+        if(savedInstanceState != null){
+            openCancelDialog = savedInstanceState.getBoolean(Config.ARG_OPEN_CANCEL_DIALOG, false);
+        }
+
 
         if (getArguments().containsKey(SHOW_TOAST)) {
             mToastText = getArguments().getString(SHOW_TOAST);
+
+            getArguments().remove(SHOW_TOAST);
         }
 
         setHasOptionsMenu(true);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putBoolean(Config.ARG_OPEN_CANCEL_DIALOG, openCancelDialog);
+
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -120,6 +138,9 @@ public class ReservationDetailFragment extends Fragment {
         }
 
         getActivity().getActionBar().setTitle(getString(R.string.title_reservation_detail));
+
+        if(openCancelDialog)
+            optionItemAction(ACTION_CANCEL);
 
         return rootView;
     }
@@ -321,6 +342,20 @@ public class ReservationDetailFragment extends Fragment {
             return true;
         } else if (id == R.id.action_cancel_reservation) {
             //Cancel reservation, show confirmation dialog
+            optionItemAction(ACTION_CANCEL);
+
+        } else if (id == R.id.action_update_reservation) {
+            optionItemAction(ACTION_UPDATE);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void optionItemAction(String action){
+        if(action.equals(ACTION_CANCEL)){
+
+            openCancelDialog = true;
+
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setTitle(getString(R.string.cancel_reservation));
             builder.setMessage(getString(R.string.cancel_reservation_message));
@@ -344,13 +379,16 @@ public class ReservationDetailFragment extends Fragment {
                                             (TextView) rootView.findViewById(R.id.reservation_status),
                                             (ImageView) rootView.findViewById(R.id.status_icon));
                             task.execute();
+                            openCancelDialog = false;
                         }
                     });
             builder.setNegativeButton(getString(R.string.cancel_reservation_action_negative),
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+
                             dialog.cancel();
+                            openCancelDialog = false;
                         }
                     });
 
@@ -363,8 +401,7 @@ public class ReservationDetailFragment extends Fragment {
             dialog.getButton(Dialog.BUTTON_POSITIVE).setTextColor(getResources()
                     .getColor(R.color.white));
 
-        } else if (id == R.id.action_update_reservation) {
-
+        } else if (action.equals(ACTION_UPDATE)){
             UpdateReservationFragment fragment = UpdateReservationFragment
                     .newInstance(getActivity().getIntent().getStringExtra(ReservationDetailFragment.ARG_ITEM_ID));
 
@@ -375,7 +412,6 @@ public class ReservationDetailFragment extends Fragment {
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .commit();
         }
-        return super.onOptionsItemSelected(item);
     }
 
 

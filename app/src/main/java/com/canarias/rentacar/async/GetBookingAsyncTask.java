@@ -73,7 +73,7 @@ public class GetBookingAsyncTask extends
 
             GetReservationResponse resp = (GetReservationResponse) result;
 
-            Reservation res = new Reservation();
+            Reservation res = null;
 
             //Init DataSources
             OfficeDataSource officeDS = new OfficeDataSource(context);
@@ -83,6 +83,8 @@ public class GetBookingAsyncTask extends
             ExtraDataSource extraDS = new ExtraDataSource(context);
 
             try {
+
+                res = new Reservation();
 
                 officeDS.open();
                 customerDS.open();
@@ -172,7 +174,7 @@ public class GetBookingAsyncTask extends
                     extraDS.insert(e);
                 }
 
-                return res;
+
 
             } catch (SQLException ex) {
 
@@ -187,7 +189,7 @@ public class GetBookingAsyncTask extends
                 extraDS.close();
             }
 
-            return null;
+            return res;
 
         } else {
             if (result != null && result.getClass().equals(ErrorResponse.class)) {

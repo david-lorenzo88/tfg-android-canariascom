@@ -48,6 +48,22 @@ public class MakeBookingFragment extends Fragment {
     private static final int SUMMARY_STATUS_COLLAPSED = 1;
     private boolean mFlightNumMandatory = false;
 
+    private EditText custName;
+    private EditText custLastName;
+    private EditText custBirthdate;
+    private EditText custEmail;
+    private EditText custPhone;
+    private EditText flightNum;
+    private EditText comments;
+
+    private String valuecustName;
+    private String valuecustLastName;
+    private String valuecustBirthdate;
+    private String valuecustEmail;
+    private String valuecustPhone;
+    private String valueflightNum;
+    private String valuecomments;
+
     public MakeBookingFragment() {
         // Required empty public constructor
     }
@@ -71,6 +87,54 @@ public class MakeBookingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState != null) {
+
+            valuecustName = savedInstanceState.getString(Config.ARG_CUSTOMER_NAME);
+            if (valuecustName == null)
+                valuecustName = PreferenceManager
+                        .getDefaultSharedPreferences(getActivity()).getString("customer_name", "");
+
+            valuecustLastName = savedInstanceState.getString(Config.ARG_CUSTOMER_LASTNAME);
+            if (valuecustLastName == null)
+                valuecustLastName = PreferenceManager
+                        .getDefaultSharedPreferences(getActivity()).getString("customer_surname", "");
+
+            valuecustEmail = savedInstanceState.getString(Config.ARG_CUSTOMER_EMAIL);
+            if (valuecustEmail == null)
+                valuecustEmail = PreferenceManager
+                        .getDefaultSharedPreferences(getActivity()).getString("customer_email", "");
+
+            valuecustPhone = savedInstanceState.getString(Config.ARG_CUSTOMER_PHONE);
+            if (valuecustPhone == null)
+                valuecustPhone = PreferenceManager
+                        .getDefaultSharedPreferences(getActivity()).getString("customer_phone", "");
+
+            valuecustBirthdate = savedInstanceState.getString(Config.ARG_CUSTOMER_BIRTHDATE);
+            if (valuecustBirthdate == null)
+                valuecustBirthdate = PreferenceManager
+                        .getDefaultSharedPreferences(getActivity()).getString("customer_birth_date", "");
+        } else {
+
+            valuecustName = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity()).getString("customer_name", "");
+
+
+            valuecustLastName = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity()).getString("customer_surname", "");
+
+
+            valuecustEmail = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity()).getString("customer_email", "");
+
+
+            valuecustPhone = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity()).getString("customer_phone", "");
+
+
+            valuecustBirthdate = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity()).getString("customer_birth_date", "");
+        }
 
     }
 
@@ -278,9 +342,10 @@ public class MakeBookingFragment extends Fragment {
 
                 if (validateData(rootView)) {
 
-                    HashMap<String, String> params = getFieldValues(rootView);
+                    HashMap<String, String> params = getFieldValues();
 
-                    MakeBookingAsyncTask task = new MakeBookingAsyncTask(getActivity(), params);
+                    MakeBookingAsyncTask task = new MakeBookingAsyncTask(getActivity(), params,
+                            getFragmentManager());
                     task.execute();
                 } else {
                     Toast.makeText(getActivity(),
@@ -290,32 +355,58 @@ public class MakeBookingFragment extends Fragment {
                 }
             }
         });
-        EditText custName = (EditText) rootView.findViewById(R.id.customerName);
-        EditText custLastName = (EditText) rootView.findViewById(R.id.customerSurname);
-        EditText custBirthdate = (EditText) rootView.findViewById(R.id.customerBirthdate);
-        EditText custEmail = (EditText) rootView.findViewById(R.id.customerEmail);
-        EditText custPhone = (EditText) rootView.findViewById(R.id.customerPhone);
+        custName = (EditText) rootView.findViewById(R.id.customerName);
+        custLastName = (EditText) rootView.findViewById(R.id.customerSurname);
+        custBirthdate = (EditText) rootView.findViewById(R.id.customerBirthdate);
+        custEmail = (EditText) rootView.findViewById(R.id.customerEmail);
+        custPhone = (EditText) rootView.findViewById(R.id.customerPhone);
+        comments = (EditText) rootView.findViewById(R.id.comments);
 
-        custName.setText(PreferenceManager
-                .getDefaultSharedPreferences(getActivity()).getString("customer_name", ""));
-        custLastName.setText(PreferenceManager
-                .getDefaultSharedPreferences(getActivity()).getString("customer_surname", ""));
-        custEmail.setText(PreferenceManager
-                .getDefaultSharedPreferences(getActivity()).getString("customer_email", ""));
-        custPhone.setText(PreferenceManager
-                .getDefaultSharedPreferences(getActivity()).getString("customer_phone", ""));
-        custBirthdate.setText(PreferenceManager
-                .getDefaultSharedPreferences(getActivity()).getString("customer_birth_date", ""));
+        custName.setText(valuecustName);
+        custLastName.setText(valuecustLastName);
+        custEmail.setText(valuecustEmail);
+        custPhone.setText(valuecustPhone);
+        custBirthdate.setText(valuecustBirthdate);
+
+        if (valuecomments != null) {
+            comments.setText(valuecomments);
+        }
 
 
         if (!mFlightNumMandatory) {
-            EditText flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
+            flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
             flightNum.setVisibility(View.GONE);
+        } else {
+            if (valueflightNum != null) {
+                flightNum.setText(valueflightNum);
+            }
         }
 
         getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking) + " - " + getString(R.string.title_fragment_make_booking));
 
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        if (custName != null)
+            outState.putString(Config.ARG_CUSTOMER_NAME, custName.getText().toString());
+        if (custLastName != null)
+            outState.putString(Config.ARG_CUSTOMER_LASTNAME, custLastName.getText().toString());
+        if (custEmail != null)
+            outState.putString(Config.ARG_CUSTOMER_EMAIL, custEmail.getText().toString());
+        if (custBirthdate != null)
+            outState.putString(Config.ARG_CUSTOMER_BIRTHDATE, custBirthdate.getText().toString());
+        if (custPhone != null)
+            outState.putString(Config.ARG_CUSTOMER_PHONE, custPhone.getText().toString());
+        if (comments != null)
+            outState.putString(Config.ARG_COMMENTS, comments.getText().toString());
+        if (flightNum != null)
+            outState.putString(Config.ARG_FLIGHT_NUMBER, flightNum.getText().toString());
+
+
+        super.onSaveInstanceState(outState);
     }
 
     private boolean validateData(View rootView) {
@@ -358,7 +449,7 @@ public class MakeBookingFragment extends Fragment {
 
     }
 
-    private HashMap<String, String> getFieldValues(View rootView) {
+    private HashMap<String, String> getFieldValues() {
 
         HashMap<String, String> map = new HashMap<String, String>();
 
@@ -400,13 +491,13 @@ public class MakeBookingFragment extends Fragment {
         map.put(Config.ARG_CAR_MODEL, args.getString(Config.ARG_CAR_MODEL));
 
 
-        EditText custName = (EditText) rootView.findViewById(R.id.customerName);
-        EditText custLastName = (EditText) rootView.findViewById(R.id.customerSurname);
-        EditText custBirthdate = (EditText) rootView.findViewById(R.id.customerBirthdate);
-        EditText custEmail = (EditText) rootView.findViewById(R.id.customerEmail);
-        EditText custPhone = (EditText) rootView.findViewById(R.id.customerPhone);
-        EditText flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
-        EditText comments = (EditText) rootView.findViewById(R.id.comments);
+        /*custName = (EditText) rootView.findViewById(R.id.customerName);
+        custLastName = (EditText) rootView.findViewById(R.id.customerSurname);
+        custBirthdate = (EditText) rootView.findViewById(R.id.customerBirthdate);
+        custEmail = (EditText) rootView.findViewById(R.id.customerEmail);
+        custPhone = (EditText) rootView.findViewById(R.id.customerPhone);
+        flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
+        comments = (EditText) rootView.findViewById(R.id.comments);*/
 
         map.put(Config.ARG_CUSTOMER_NAME, custName.getText().toString().trim());
         map.put(Config.ARG_CUSTOMER_LASTNAME, custLastName.getText().toString().trim());

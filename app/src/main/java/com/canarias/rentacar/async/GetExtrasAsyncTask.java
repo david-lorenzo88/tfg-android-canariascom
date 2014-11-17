@@ -24,6 +24,7 @@ import com.canarias.rentacar.model.webservice.GetExtrasResponse;
 import com.canarias.rentacar.model.webservice.Response;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class GetExtrasAsyncTask extends
@@ -34,7 +35,7 @@ public class GetExtrasAsyncTask extends
     private AlertDialog loadingDialog;
     private ProgressDialog progress;
     private LinearLayout extrasContainer;
-    private List<Extra> currentExtras;
+
     private LayoutInflater inflater;
     private HashMap<Integer, Integer> extrasQuantity;
     private ViewGroup container;
@@ -42,15 +43,18 @@ public class GetExtrasAsyncTask extends
 
     public GetExtrasAsyncTask(Context context,
                               HashMap<String, String> params, LinearLayout extrasContainer,
-                              List<Extra> currentExtras, LayoutInflater inflater,
-                              ViewGroup container) {
+                               LayoutInflater inflater,
+                              ViewGroup container, HashMap<Integer, Integer> extrasQuantity) {
         this.params = params;
         this.context = context;
         this.extrasContainer = extrasContainer;
-        this.currentExtras = currentExtras;
+
         this.inflater = inflater;
-        this.extrasQuantity = new HashMap<Integer, Integer>();
+        this.extrasQuantity = extrasQuantity;
         this.container = container;
+
+
+
     }
 
     @Override
@@ -69,12 +73,11 @@ public class GetExtrasAsyncTask extends
 
             GetExtrasResponse resp = (GetExtrasResponse) result;
 
-
+            Log.v("KEYS_MAP", "Bucle interno");
             for (Extra extra : resp.getExtras()) {
-                for (Extra e : currentExtras) {
-                    if (e.getModelCode() == extra.getModelCode()) {
-                        extra.setQuantity(e.getQuantity());
-                    }
+                Log.v("KEYS_MAP", "Resp: " + extra.getCode() + " - "+extra.getQuantity());
+                if(extrasQuantity.containsKey(extra.getCode())){
+                    extra.setQuantity(extrasQuantity.get(extra.getCode()));
                 }
             }
 
@@ -95,6 +98,8 @@ public class GetExtrasAsyncTask extends
 
 
             for (Extra extra : result) {
+                Log.v("KEYS_MAP", "Bucle final");
+                Log.v("KEYS_MAP", extra.getCode() + " - "+extra.getQuantity());
                 View extraWrap = inflater.inflate(R.layout.extra_item, container, false);
 
                 if (!extrasQuantity.containsKey(extra.getCode())) {
@@ -105,7 +110,8 @@ public class GetExtrasAsyncTask extends
                     @Override
                     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                         extrasQuantity.put(Integer.parseInt(picker.getTag().toString()), newVal);
-
+                        Log.v("KEYS_MAP", "onValueChange");
+                        printMap();
                     }
                 });
                 ImageView extraIcon = (ImageView) extraWrap.findViewById(R.id.extraIcon);
@@ -148,6 +154,8 @@ public class GetExtrasAsyncTask extends
                 extrasContainer.addView(extraWrap);
 
             }
+            Log.v("KEYS_MAP", "FINAL");
+            printMap();
 
 
         } else {
@@ -191,8 +199,18 @@ public class GetExtrasAsyncTask extends
 
     }
 
+
+    private void printMap() {
+        Iterator<Integer> it = extrasQuantity.keySet().iterator();
+        while (it.hasNext()) {
+            Integer c = it.next();
+            Log.v("KEYS_MAP", c.toString() + " - " + extrasQuantity.get(c).toString());
+        }
+    }
+
     public HashMap<Integer, Integer> getExtrasQuantity() {
-        return this.extrasQuantity;
+        Log.v("KEYS_MAP", "Getter");
+        printMap(); return this.extrasQuantity;
     }
 
     public List<Extra> getResult(){ return result; }

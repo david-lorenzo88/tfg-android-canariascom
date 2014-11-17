@@ -32,13 +32,23 @@ public class ExtrasAdapter extends ArrayAdapter<Extra> {
     public ExtrasAdapter(Context context, int resourceId,
                          List<Extra> objects) {
         super(context, resourceId, objects);
+
+        this.extrasQuantity = new HashMap<Integer, Integer>();
+
         for (Extra e : objects) {
             Log.v("TEST_EXTRA", e.getCode() + " " + e.getName());
+
+            if (!extrasQuantity.containsKey(e.getCode())) {
+                extrasQuantity.put(e.getCode(), e.getQuantity());
+            }
+
         }
         resource = resourceId;
         inflater = LayoutInflater.from(context);
         this.context = context;
-        this.extrasQuantity = new HashMap<Integer, Integer>();
+
+
+
 
     }
 

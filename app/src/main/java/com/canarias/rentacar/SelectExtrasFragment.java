@@ -45,6 +45,12 @@ public class SelectExtrasFragment extends Fragment {
     private static final int SUMMARY_STATUS_COLLAPSED = 1;
     private SelectExtrasFragment mReference;
 
+    private HashMap<Integer, Integer> extrasQuantity;
+
+    private ListView extrasListView;
+
+    private String extrasSavedState = null;
+
     public SelectExtrasFragment() {
         // Required empty public constructor
     }
@@ -77,6 +83,34 @@ public class SelectExtrasFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mReference = this;
+
+        extrasQuantity = new HashMap<Integer, Integer>();
+        Log.v("EXTRAS", "onCreate MemorySavedState... "+extrasSavedState);
+        if(savedInstanceState != null){
+
+
+
+            String extras = savedInstanceState.getString(Config.ARG_EXTRAS);
+
+            if(extras != null && !extras.isEmpty()){
+                extrasSavedState = extras;
+            }
+
+            Log.v("EXTRAS", "Restoring State... "+extras);
+            if(extras != null && !extras.isEmpty()){
+                String[] parts = extras.split(";");
+                for(String e : parts){
+                    String[] eParts = e.split("-");
+                    if(eParts.length == 2){
+                        try {
+                            extrasQuantity.put(Integer.parseInt(eParts[0]), Integer.parseInt(eParts[1]));
+                        }catch (NumberFormatException ex){
+                            ex.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -115,13 +149,18 @@ public class SelectExtrasFragment extends Fragment {
                         oExtra.setName(extraParts[2]);
                         oExtra.setModelCode(Integer.parseInt(extraParts[1]));
                         oExtra.setCode(Integer.parseInt(extraParts[0]));
+
+                        if(extrasQuantity.containsKey(oExtra.getCode())){
+                            oExtra.setQuantity(extrasQuantity.get(oExtra.getCode()));
+                        }
+
                         extras.add(oExtra);
                     }
                 }
             }
         }
 
-        final ListView extrasListView = (ListView) rootView.findViewById(R.id.listViewSelectExtras);
+        extrasListView = (ListView) rootView.findViewById(R.id.listViewSelectExtras);
         extrasListView.setAdapter(new ExtrasAdapter(getActivity(), R.layout.extra_item, extras));
 
         TextView lblPickupPoint = (TextView) rootView.findViewById(R.id.selectExtrasPickupPointValue);
@@ -253,6 +292,37 @@ public class SelectExtrasFragment extends Fragment {
 
 
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        if(extrasListView != null) {
+            ExtrasAdapter adapter = (ExtrasAdapter) extrasListView.getAdapter();
+
+            HashMap<Integer, Integer> extrasQuantity = adapter.getExtrasQuantity();
+
+
+            Iterator<Integer> it = extrasQuantity.keySet().iterator();
+
+            String extras = "";
+
+            while (it.hasNext()) {
+                int key = it.next();
+                extras += key + "-" + extrasQuantity.get(key) + ";";
+            }
+            if (extras.length() > 0)
+                extras = extras.substring(0, extras.length() - 1);
+            outState.putString(Config.ARG_EXTRAS, extras);
+
+
+
+            Log.v("EXTRAS", "onSaveInstanceState: " + extras);
+
+        } else if(extrasSavedState != null)
+            outState.putString(Config.ARG_EXTRAS, extrasSavedState);
+
+        super.onSaveInstanceState(outState);
     }
 
     private Extra searchExtra(List<Extra> extras, int code) {

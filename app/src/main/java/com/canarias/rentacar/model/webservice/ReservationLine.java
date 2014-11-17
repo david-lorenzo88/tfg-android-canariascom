@@ -24,7 +24,7 @@ public class ReservationLine {
     @Element(name = "tax")
     private String tax;
 
-    @Element(name = "modelCode")
+    @Element(name = "modelCode", required = false)
     private int modelCode;
 
     public int getModelCode() {

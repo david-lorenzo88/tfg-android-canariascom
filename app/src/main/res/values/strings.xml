@@ -357,7 +357,8 @@
     <string name="dummyDevolucion">Nombre oficina (Nombre zona)</string>
     <string name="comentarios">Comentarios</string>
     <string name="dummyComentarios">Comentarios de la reserva...</string>
-    <string name="error">Error General</string>
+    <string name="error">Error General.</string>
+
     <string name="confirmed_booking">¡Reserva Confirmada!</string>
     <string name="navigation_drawer_help">Ayuda</string>
     <string name="navigation_drawer_home">Inicio</string>
@@ -456,5 +457,7 @@
     <string name="help_search_office_subtitle_action">Aprende como encontrar y localizar nuestras oficians.</string>
     <string name="help_settings_subtitle_action">Saca el máximo partido de la aplicación conociendo los ajustes.</string>
     <string name="title_activity_slide">Presentación</string>
+    <string name="availability_error_dialog_title">Consulta de Disponibilidad</string>
+    <string name="availability_error_dialog_msg">No hemos podido conectar con el servicio web. Comprueba tu conexión a Internet y vuelva a intentarlo.</string>
 
 </resources>
