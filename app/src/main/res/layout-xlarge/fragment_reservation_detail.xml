@@ -1,0 +1,239 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reservation_detail_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffeeeeee"
+    tools:context="com.canarias.rentacar.ReservationDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_bottom"
+                android:paddingLeft="50dp"
+                android:paddingTop="10dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="30dp">
+
+                <ImageView
+                    android:id="@+id/car_image"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/vw_touran"
+
+                    />
+
+                <TextView
+                    android:id="@+id/resDetailReservaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/reserva"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/car_image"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="50dp" />
+
+                <TextView
+                    android:id="@+id/localizer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/dummyLocalizer"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/resDetailReservaLabel"
+                    android:layout_alignBaseline="@+id/resDetailReservaLabel" />
+
+                <ImageView
+                    android:id="@+id/status_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_done_black_48dp"
+                    android:layout_toRightOf="@+id/car_image"
+                    android:layout_below="@+id/resDetailReservaLabel" />
+
+                <TextView
+                    android:id="@id/reservation_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/status_icon"
+                    android:layout_marginLeft="110dp"
+
+                    android:text="@string/dummyStatus"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold"
+                    android:layout_toRightOf="@+id/car_image" />
+
+                <TextView
+                    android:id="@+id/bookingDetailsCarModel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/car_image"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/dummyCarModel"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/bookingDetailsTxtCarPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/bookingDetailsCarModel"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="6dp"
+                    android:text="155,86 €"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <RelativeLayout
+                    android:id="@+id/extrasFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bookingDetailsCarModel"
+                    android:layout_margin="6dp"></RelativeLayout>
+
+                <TextView
+                    android:id="@+id/bookingDetailsTotalLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/extrasFrame"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/total"
+                    android:textSize="@dimen/text_size_xlarge" />
+
+                <TextView
+                    android:id="@+id/bookingDetailsTotalValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/bookingDetailsTotalLabel"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="6dp"
+                    android:text="155,86 €"
+                    android:textSize="@dimen/text_size_xlarge" />
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_bottom"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/resDetailTitularLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/titular"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resDetailTitularNombreFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_y_fechanac"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/resDetailTitularEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyEmail"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/resDetailRecogidaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/recogida"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resDetailRecogidaZona"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyRecogida"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/resDetailRecogidaFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyRecogidaFecha"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/resDetailDevolucionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/recogida"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resDetailDevolucionZona"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyDevolucion"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/resDetailDevolucionFecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyRecogidaFecha"
+                    android:textSize="@dimen/text_size_medium" />
+
+                <TextView
+                    android:id="@+id/resDetailCommentsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/comentarios"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/resDetailComments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyComentarios"
+                    android:textSize="@dimen/text_size_medium" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

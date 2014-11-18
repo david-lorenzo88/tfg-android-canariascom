@@ -174,27 +174,32 @@ public class OfficeDetailFragment extends Fragment {
             rootView.findViewById(R.id.mapOpen).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FragmentMap fragment = FragmentMap.newInstance(mItem.getCode());
+                    FragmentMap fragment = FragmentMap.newInstance(mItem.getCode(), -1);
                     getFragmentManager().beginTransaction()
                             .replace(R.id.office_detail_container, fragment)
                             .commit();
                 }
             });
 
-            mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.actionbar_background);
-            mActionBarBackgroundDrawable.setAlpha(0);
+            boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
+            if (!isTablet) {
 
-            getActivity().getActionBar().setBackgroundDrawable(mActionBarBackgroundDrawable);
-            getActivity().getActionBar().setDisplayShowTitleEnabled(false);
-            getActivity().getActionBar().setDisplayShowHomeEnabled(false);
+                mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.actionbar_background);
+                mActionBarBackgroundDrawable.setAlpha(0);
 
-            ((ObservableScrollView) rootView.findViewById(R.id.office_detail_container))
-                    .setOnScrollChangedListener(mOnScrollChangedListener);
+                getActivity().getActionBar().setBackgroundDrawable(mActionBarBackgroundDrawable);
+                getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+                getActivity().getActionBar().setDisplayShowHomeEnabled(false);
 
-            //Fix for pre-JELLY_BEAN_MR1 devices
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
+                ((ObservableScrollView) rootView.findViewById(R.id.office_detail_container))
+                        .setOnScrollChangedListener(mOnScrollChangedListener);
+
+                //Fix for pre-JELLY_BEAN_MR1 devices
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
+                }
             }
+
         }
 
         return rootView;

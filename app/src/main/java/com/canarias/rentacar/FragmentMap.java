@@ -41,6 +41,7 @@ public class FragmentMap extends MapFragment {
     private Double latitude, longitude;
 
     private static final String ARG_MAP_POINTS = "map_points";
+    private static final String ARG_FRAGMENT_CONTAINER_ID = "fragment_container_id";
 
     public static final String ARG_ALL_OFFICES = "all_offices";
 
@@ -48,6 +49,8 @@ public class FragmentMap extends MapFragment {
 
     private String mMapPoints;
     private HashMap<String, Office> offices;
+
+    private int fragmentContainerId = -1;
 
 
     /**
@@ -57,10 +60,11 @@ public class FragmentMap extends MapFragment {
      * @return A new instance of fragment MapFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentMap newInstance(String mapPoints) {
+    public static FragmentMap newInstance(String mapPoints, int fragmentContainerId) {
         FragmentMap fragment = new FragmentMap();
         Bundle args = new Bundle();
         args.putString(ARG_MAP_POINTS, mapPoints);
+        args.putInt(ARG_FRAGMENT_CONTAINER_ID, fragmentContainerId);
 
         fragment.setArguments(args);
         return fragment;
@@ -75,6 +79,7 @@ public class FragmentMap extends MapFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mMapPoints = getArguments().getString(ARG_MAP_POINTS);
+            fragmentContainerId = getArguments().getInt(ARG_FRAGMENT_CONTAINER_ID);
 
             //Get Offices from DB
             String[] offices = mMapPoints.split(";");
@@ -187,9 +192,13 @@ public class FragmentMap extends MapFragment {
         map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Intent intent = new Intent(getActivity(), OfficeDetailActivity.class);
-                intent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, marker.getSnippet());
-                startActivity(intent);
+                if(fragmentContainerId != -1){
+
+                } else {
+                    Intent intent = new Intent(getActivity(), OfficeDetailActivity.class);
+                    intent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, marker.getSnippet());
+                    startActivity(intent);
+                }
             }
         });
 

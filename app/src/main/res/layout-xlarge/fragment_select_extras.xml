@@ -1,0 +1,213 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffeeeeee"
+    android:orientation="vertical"
+    tools:context="com.canarias.rentacar.SelectExtrasFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_bottom"
+            android:orientation="vertical"
+            android:padding="6dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="6dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/selectExtrasIconCollapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/selectExtrasTxtCarPrice"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:src="@drawable/ic_keyboard_arrow_up"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/selectExtrasSummaryCollapsedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:textColor="@color/red_canarias"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/selectExtrasSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:baselineAligned="false"
+                    android:clickable="true"
+                    android:id="@+id/changeBtn"
+                    android:orientation="vertical"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_change"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/change"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_size_medium"
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/selectExtrasSummaryParameters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:orientation="vertical"
+                    android:layout_below="@+id/changeBtn"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pickup"
+                        android:textColor="@color/red_canarias"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/selectExtrasPickupPointValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummyPickupPoint"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <TextView
+                        android:id="@+id/selectExtraspickupDateValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummyDate"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dropoff"
+                        android:textColor="@color/red_canarias"
+                        android:textSize="@dimen/text_size_large"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/selectExtrasDropoffPointValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummyPickupPoint"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <TextView
+                        android:id="@+id/selectExtrasDropoffDateValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummyDate"
+                        android:textSize="@dimen/text_size_small" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/selectExtrasCarModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/selectExtrasSummaryParameters"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/dummyCarModel"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_large"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/selectExtrasImageCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/selectExtrasCarModel"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="5dp"
+                    android:contentDescription="@string/car_image"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/vw_touran" />
+
+                <TextView
+                    android:id="@+id/selectExtrasTxtCarPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/selectExtrasImageCar"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="37dp"
+                    android:layout_marginRight="6dp"
+                    android:text="155,86 €"
+                    android:textSize="@dimen/text_size_xlarge" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/selectExtrasContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/selectExtrasLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/border_bottom"
+                android:padding="10dp"
+                android:text="@string/selectExtrasLabel"
+                android:textColor="@color/red_canarias"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/listViewSelectExtras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/selectExtrasLabel"></ListView>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnSelectExtras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/red_canarias"
+        android:text="@string/continueText"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+</LinearLayout>

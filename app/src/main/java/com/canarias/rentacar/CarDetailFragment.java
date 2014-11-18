@@ -221,24 +221,24 @@ public class CarDetailFragment extends Fragment {
         //if (mItem != null) {
         //((TextView) rootView.findViewById(R.id.car_detail)).setText(mItem.content);
         //}
+        boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
+        if(!isTablet) {
+            mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.actionbar_background);
+            mActionBarBackgroundDrawable.setAlpha(0);
 
-        mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.actionbar_background);
-        mActionBarBackgroundDrawable.setAlpha(0);
-
-        getActivity().getActionBar().setBackgroundDrawable(mActionBarBackgroundDrawable);
-        getActivity().getActionBar().setDisplayShowTitleEnabled(false);
-        getActivity().getActionBar().setDisplayShowHomeEnabled(false);
+            getActivity().getActionBar().setBackgroundDrawable(mActionBarBackgroundDrawable);
+            getActivity().getActionBar().setDisplayShowTitleEnabled(false);
+            getActivity().getActionBar().setDisplayShowHomeEnabled(false);
 
 
+            ((ObservableScrollView) rootView.findViewById(R.id.car_detail_container))
+                    .setOnScrollChangedListener(mOnScrollChangedListener);
 
-        ((ObservableScrollView) rootView.findViewById(R.id.car_detail_container))
-                .setOnScrollChangedListener(mOnScrollChangedListener);
-
-        //Fix for pre-JELLY_BEAN_MR1 devices
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
+            //Fix for pre-JELLY_BEAN_MR1 devices
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
+            }
         }
-
 
         return rootView;
     }

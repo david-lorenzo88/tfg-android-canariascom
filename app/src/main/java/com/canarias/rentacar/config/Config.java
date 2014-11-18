@@ -45,7 +45,7 @@ public final class Config {
     public static String DEFAULT_LANGUAGE = "en";
     public static int SUMMARY_TEXT_CAR_MODEL_MAX_SIZE = 20;
     public static float TAX = 13.5F;
-    public static int DAYS_TO_SYNC_CONTENT = 1;
+    public static int DAYS_TO_SYNC_CONTENT = 30;
 
     public static double DEFAULT_LAT = 28.267417;
     public static double DEFAULT_LNG = -16.607208;

@@ -206,6 +206,9 @@ public class SelectExtrasFragment extends Fragment {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        } finally{
+            zoneDS.close();
+            officeDS.close();
         }
 
         final TextView summaryCollapsedText = (TextView) rootView.findViewById(R.id.selectExtrasSummaryCollapsedText);
@@ -273,21 +276,22 @@ public class SelectExtrasFragment extends Fragment {
 
             }
         });
+        boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
+        if(!isTablet) {
+            new CountDownTimer(700, 700) {
 
-        new CountDownTimer(700, 700) {
+                public void onTick(long millisUntilFinished) {
 
-            public void onTick(long millisUntilFinished) {
+                }
 
-            }
-
-            public void onFinish() {
-                AnimationHelper.collapse(rootView.findViewById(R.id.selectExtrasSummary));
-                mSummaryStatus = SUMMARY_STATUS_COLLAPSED;
-                summaryCollapsedText.setVisibility(View.VISIBLE);
-                AnimationHelper.rotate(collapseBtn, 0, 180, 500);
-            }
-        }.start();
-
+                public void onFinish() {
+                    AnimationHelper.collapse(rootView.findViewById(R.id.selectExtrasSummary));
+                    mSummaryStatus = SUMMARY_STATUS_COLLAPSED;
+                    summaryCollapsedText.setVisibility(View.VISIBLE);
+                    AnimationHelper.rotate(collapseBtn, 0, 180, 500);
+                }
+            }.start();
+        }
         getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking) + " - " + getString(R.string.title_fragment_select_extras));
 
 

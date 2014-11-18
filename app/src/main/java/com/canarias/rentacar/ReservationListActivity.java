@@ -91,7 +91,9 @@ public class ReservationListActivity extends FragmentActivity
             ReservationDetailFragment fragment = new ReservationDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                     .replace(R.id.reservation_detail_container, fragment)
+
                     .commit();
 
         } else {

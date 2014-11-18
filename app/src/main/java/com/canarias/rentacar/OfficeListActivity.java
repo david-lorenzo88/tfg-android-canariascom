@@ -62,7 +62,8 @@ public class OfficeListActivity extends Activity
                 if (mapFragment != null && mapFragment.isVisible()) {
                     // add your code here
                     Log.v("MENU", "Map Fragment is visible");
-                    mShowMenuMapAction = false;
+                    if(!mTwoPane)
+                        mShowMenuMapAction = false;
                 } else {
                     Log.v("MENU", "Map Fragment is NOT visible");
                     mShowMenuMapAction = true;
@@ -86,7 +87,7 @@ public class OfficeListActivity extends Activity
             // In two-pane mode, list items should be given the
             // 'activated' state when touched.
             ((OfficeListFragment) getFragmentManager()
-                    .findFragmentById(R.id.office_fragment))
+                    .findFragmentById(R.id.office_list))
                     .setActivateOnItemClick(true);
         }
 
@@ -117,16 +118,25 @@ public class OfficeListActivity extends Activity
             return true;
         }
         if(id == R.id.action_show_offices_in_map){
-            mShowMenuMapAction = false;
-            invalidateOptionsMenu();
 
-            FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES);
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.office_fragment, fragment, TAG_MAP)
 
-                    .addToBackStack(null)
-                    .commit();
+            if (mTwoPane) {
+                FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES, R.id.office_detail_container);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.office_detail_container, fragment, TAG_MAP)
 
+                        .addToBackStack(null)
+                        .commit();
+            } else {
+                mShowMenuMapAction = false;
+                invalidateOptionsMenu();
+                FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES, -1);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.office_fragment, fragment, TAG_MAP)
+
+                        .addToBackStack(null)
+                        .commit();
+            }
 
 
 
@@ -134,8 +144,9 @@ public class OfficeListActivity extends Activity
         if(id == R.id.action_show_offices_in_list){
             mShowMenuMapAction = true;
             invalidateOptionsMenu();
-
             OfficeListFragment fragment = new OfficeListFragment();
+
+
             getFragmentManager().beginTransaction()
                     .replace(R.id.office_fragment, fragment, TAG_LIST)
 

@@ -212,6 +212,9 @@ public class MakeBookingFragment extends Fragment {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        } finally{
+            zoneDS.close();
+            officeDS.close();
         }
 
         //Comprobamos si el numero de vuelo debe ser obligatorio.
@@ -318,21 +321,22 @@ public class MakeBookingFragment extends Fragment {
                 }
             }
         });
+        boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
+        if(!isTablet) {
+            new CountDownTimer(700, 700) {
 
-        new CountDownTimer(700, 700) {
+                public void onTick(long millisUntilFinished) {
 
-            public void onTick(long millisUntilFinished) {
+                }
 
-            }
-
-            public void onFinish() {
-                AnimationHelper.collapse(rootView.findViewById(R.id.makeBookingSummary));
-                mSummaryStatus = SUMMARY_STATUS_COLLAPSED;
-                summaryCollapsedText.setVisibility(View.VISIBLE);
-                AnimationHelper.rotate(collapseBtn, 0, 180, 500);
-            }
-        }.start();
-
+                public void onFinish() {
+                    AnimationHelper.collapse(rootView.findViewById(R.id.makeBookingSummary));
+                    mSummaryStatus = SUMMARY_STATUS_COLLAPSED;
+                    summaryCollapsedText.setVisibility(View.VISIBLE);
+                    AnimationHelper.rotate(collapseBtn, 0, 180, 500);
+                }
+            }.start();
+        }
         Button confirmBtn = (Button) rootView.findViewById(R.id.btnConfirmBooking);
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override

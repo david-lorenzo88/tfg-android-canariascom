@@ -316,20 +316,22 @@ public class UpdateReservationFragment extends Fragment {
                 }
             });
 
-            new CountDownTimer(700, 700) {
+            boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
+            if(!isTablet) {
+                new CountDownTimer(700, 700) {
 
-                public void onTick(long millisUntilFinished) {
+                    public void onTick(long millisUntilFinished) {
 
-                }
+                    }
 
-                public void onFinish() {
-                    AnimationHelper.collapse(rootView.findViewById(R.id.bookingSummary));
-                    mSummaryStatus = SUMMARY_STATUS_COLLAPSED;
-                    summaryCollapsedText.setVisibility(View.VISIBLE);
-                    AnimationHelper.rotate(collapseBtn, 0, 180, 500);
-                }
-            }.start();
-
+                    public void onFinish() {
+                        AnimationHelper.collapse(rootView.findViewById(R.id.bookingSummary));
+                        mSummaryStatus = SUMMARY_STATUS_COLLAPSED;
+                        summaryCollapsedText.setVisibility(View.VISIBLE);
+                        AnimationHelper.rotate(collapseBtn, 0, 180, 500);
+                    }
+                }.start();
+            }
             LinearLayout extrasLinearLayout =
                     (LinearLayout) rootView.findViewById(R.id.selectExtrasFrame);
 

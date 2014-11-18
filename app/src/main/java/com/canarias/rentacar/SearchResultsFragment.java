@@ -128,6 +128,9 @@ public class SearchResultsFragment extends Fragment {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+        } finally{
+            zoneDS.close();
+            officeDS.close();
         }
     }
 

@@ -1,0 +1,296 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffeeeeee"
+    android:orientation="vertical"
+    tools:context="com.canarias.rentacar.MakeBookingFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/border_bottom"
+        android:orientation="vertical"
+        android:padding="6dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/makeBookingSummaryCollapsedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="@color/red_canarias"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/makeBookingSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:baselineAligned="false"
+                android:clickable="true"
+                android:id="@+id/changeBtn"
+                android:orientation="vertical"
+                android:padding="6dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_change"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_size_medium"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/makeBookingSummaryParameters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="6dp"
+                android:orientation="vertical"
+                android:layout_below="@+id/changeBtn">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pickup"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_large"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/makeBookingPickupPointValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyPickupPoint"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/makeBookingpickupDateValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyDate"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dropoff"
+                    android:textColor="@color/red_canarias"
+                    android:textSize="@dimen/text_size_large"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/makeBookingDropoffPointValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyPickupPoint"
+                    android:textSize="@dimen/text_size_small" />
+
+                <TextView
+                    android:id="@+id/makeBookingDropoffDateValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dummyDate"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/makeBookingImageCarWrap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/makeBookingSummaryParameters">
+
+                <ImageView
+                    android:id="@+id/makeBookingImageCar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:contentDescription="@string/car_image"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/vw_touran" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/makeBookingCarModel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/makeBookingImageCarWrap"
+                android:layout_marginLeft="6dp"
+                android:text="@string/dummyCarModel"
+                android:textSize="@dimen/text_size_medium" />
+
+            <TextView
+                android:id="@+id/makeBookingTxtCarPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/makeBookingCarModel"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:text="155,86 €"
+                android:textSize="@dimen/text_size_medium" />
+
+            <RelativeLayout
+                android:id="@+id/extrasFrame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/makeBookingCarModel"
+                android:layout_margin="6dp"></RelativeLayout>
+
+            <TextView
+                android:id="@+id/makeBookingTotalLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/extrasFrame"
+                android:layout_marginLeft="6dp"
+                android:text="@string/total"
+                android:textSize="@dimen/text_size_xlarge" />
+
+            <TextView
+                android:id="@+id/makeBookingTotalValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/makeBookingTotalLabel"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="6dp"
+                android:text="155,86 €"
+                android:textSize="@dimen/text_size_xlarge" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/makeBookingIconCollapse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/makeBookingTxtCarPrice"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:src="@drawable/ic_keyboard_arrow_up"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/border_bottom"
+            android:orientation="vertical"
+            android:padding="6dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="6dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/selectExtrasLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/border_bottom"
+                android:padding="10dp"
+                android:text="@string/makeBookingCustomerDataLabel"
+                android:textColor="@color/red_canarias"
+                android:textSize="@dimen/text_size_large"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/customerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/customerNameHint" />
+
+            <EditText
+                android:id="@+id/customerSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/customerSurnameHint" />
+
+            <EditText
+                android:id="@+id/customerEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/customerEmailHint"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/customerPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/customerPhoneHint"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/customerBirthdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/customerBirthdateHint"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/flightNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/flightNumberHint" />
+
+            <EditText
+                android:id="@+id/comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:hint="@string/commentsHint"
+                android:inputType="textMultiLine" />
+        </LinearLayout>
+</LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnConfirmBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/red_canarias"
+        android:text="@string/confirmReservation"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+</LinearLayout>

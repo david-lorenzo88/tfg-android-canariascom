@@ -8,8 +8,8 @@
 
     <RelativeLayout
         android:id="@+id/searchResultSummary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:background="@drawable/border_bottom"
         android:padding="6dp"
@@ -18,11 +18,41 @@
         android:paddingTop="10dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:baselineAligned="false"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:padding="6dp"
+            android:id="@+id/changeBtn"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_change"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change"
+                android:textAlignment="center"
+                android:textSize="@dimen/text_size_medium"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_margin="6dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_below="@+id/changeBtn"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="6dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,29 +98,6 @@
                 android:text="@string/dummyDate"
                 android:textSize="@dimen/text_size_small" />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:baselineAligned="false"
-            android:clickable="true"
-            android:orientation="vertical"
-            android:padding="6dp"
-            android:id="@+id/changeBtn">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_change" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/change"
-                android:textAlignment="center"
-                android:textSize="@dimen/text_size_medium" />
-        </LinearLayout>
     </RelativeLayout>
 
 
@@ -98,8 +105,9 @@
         android:id="@+id/loadingLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/searchResultSummary"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/searchResultSummary"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/lblLoading"
@@ -124,7 +132,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/loadingLayout"
         android:layout_margin="10dp"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_toRightOf="@+id/searchResultSummary">
 
         <ListView
             android:id="@+id/listViewSearchResults"

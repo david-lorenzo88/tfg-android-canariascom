@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
@@ -365,8 +366,7 @@ public class ReservationDetailFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //Cancel reservation
-                            String reservationId = getActivity().getIntent()
-                                    .getStringExtra(ReservationDetailFragment.ARG_ITEM_ID);
+                            String reservationId = mItem.getLocalizer();
                             Log.v("TEST", "Cancelling: " + reservationId);
 
                             Fragment fragment = getFragmentManager().findFragmentByTag(FRAGMENT_TAG);
@@ -402,15 +402,29 @@ public class ReservationDetailFragment extends Fragment {
                     .getColor(R.color.white));
 
         } else if (action.equals(ACTION_UPDATE)){
+
+
             UpdateReservationFragment fragment = UpdateReservationFragment
-                    .newInstance(getActivity().getIntent().getStringExtra(ReservationDetailFragment.ARG_ITEM_ID));
+                    .newInstance(mItem.getLocalizer());
 
 
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.reservation_detail_container, fragment, UPDATE_FRAGMENT_TAG)
-                    .addToBackStack("Reservation_Detail")
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .commit();
+            if(Build.VERSION.SDK_INT >= 13) {
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(
+                                R.animator.card_flip_right_in, R.animator.card_flip_right_out,
+                                R.animator.card_flip_left_in, R.animator.card_flip_left_out)
+                        .replace(R.id.reservation_detail_container, fragment, UPDATE_FRAGMENT_TAG)
+                        .addToBackStack("Reservation_Detail")
+
+                        .commit();
+            } else {
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                        .replace(R.id.reservation_detail_container, fragment, UPDATE_FRAGMENT_TAG)
+                        .addToBackStack("Reservation_Detail")
+
+                        .commit();
+            }
         }
     }
 

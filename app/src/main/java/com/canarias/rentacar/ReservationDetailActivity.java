@@ -67,6 +67,7 @@ public class ReservationDetailActivity extends Activity {
             ReservationDetailFragment fragment = new ReservationDetailFragment();
             fragment.setArguments(arguments);
             getFragmentManager().beginTransaction()
+                    .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
                     .add(R.id.reservation_detail_container, fragment, FRAGMENT_TAG)
 
                     .commit();

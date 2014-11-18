@@ -30,4 +30,6 @@
     <!-- Number of grid columns spanned by the hero on wide layout.
     Recommended: 1 less than explore_1st_level_grid_columns -->
     <integer name="explore_wide_layout_hero_weight">1</integer>
+    <integer name="card_flip_time_full">700</integer>
+    <integer name="card_flip_time_half">350</integer>
 </resources>
