@@ -30,12 +30,15 @@ public class HomeActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private final static int DRAWER_POSITION_HOME = 0;
-    private final static int DRAWER_POSITION_NEW_BOOKING = 1;
+    public final static int DRAWER_POSITION_NEW_BOOKING = 1;
     private final static int DRAWER_POSITION_MY_BOOKINGS = 2;
     private final static int DRAWER_POSITION_CARS = 3;
     private final static int DRAWER_POSITION_OFFICES = 4;
     private final static int DRAWER_POSITION_HELP = 5;
     private final static int DRAWER_POSITION_SETTINGS = 6;
+    public static final String DEFAULT_ACTION = "default_action";
+
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
@@ -64,11 +67,19 @@ public class HomeActivity extends Activity
 
         prefs = getSharedPreferences("com.canarias.rentacar", MODE_PRIVATE);
 
+
         if(savedInstanceState == null){
             Log.v("HOME", "onCreate - savedInstanceState NULL");
             getFragmentManager().beginTransaction()
                     .replace(R.id.container, new HomeFragment())
                     .commit();
+        }
+
+        if(getIntent().getExtras() != null && getIntent().getExtras().containsKey(DEFAULT_ACTION)){
+            int action = getIntent().getExtras().getInt(DEFAULT_ACTION);
+
+            onNavigationDrawerItemSelected(action);
+
         }
 
     }
@@ -86,13 +97,35 @@ public class HomeActivity extends Activity
 
             case DRAWER_POSITION_NEW_BOOKING:
 
+                if(getIntent().getExtras() != null &&
+                        getIntent().getExtras().containsKey(SearchFragment.TAG_PICKUP_ZONE) &&
+                        getIntent().getExtras().containsKey(SearchFragment.TAG_DROPOFF_ZONE)){
+                    fragmentManager.beginTransaction()
 
-                fragmentManager.beginTransaction()
+                            .replace(R.id.container,
+                                    SearchFragment.newInstance(DRAWER_POSITION_NEW_BOOKING,
+                                            getIntent().getExtras().getString(SearchFragment.TAG_PICKUP_ZONE),
+                                    getIntent().getExtras().getString(SearchFragment.TAG_DROPOFF_ZONE)))
+                            .addToBackStack("New_Booking")
+                            .commit();
+                } else if(getIntent().getExtras() != null &&
+                        getIntent().getExtras().containsKey(SearchFragment.TAG_SELECTED_MODEL)){
+                    fragmentManager.beginTransaction()
 
-                        .replace(R.id.container,
-                                SearchFragment.newInstance(DRAWER_POSITION_NEW_BOOKING))
-                        .addToBackStack("New_Booking")
-                        .commit();
+                            .replace(R.id.container,
+                                    SearchFragment.newInstance(DRAWER_POSITION_NEW_BOOKING,
+                                            getIntent().getExtras()
+                                                    .getString(SearchFragment.TAG_SELECTED_MODEL)))
+                            .addToBackStack("New_Booking")
+                            .commit();
+                } else {
+                    fragmentManager.beginTransaction()
+
+                            .replace(R.id.container,
+                                    SearchFragment.newInstance(DRAWER_POSITION_NEW_BOOKING))
+                            .addToBackStack("New_Booking")
+                            .commit();
+                }
                 mTitle = getString(R.string.title_fragment_new_booking);
                 getActionBar().setTitle(mTitle);
 

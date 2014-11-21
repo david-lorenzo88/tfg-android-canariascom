@@ -141,4 +141,5 @@
     <color name="red_canarias">#F92522</color>
     <color name="red_canarias_alpha50">#AAF92522</color>
     <color name="blue_canarias">#0192C7</color>
+    <color name="blue_canarias_alpha50">#AA0192C7</color>
 </resources>

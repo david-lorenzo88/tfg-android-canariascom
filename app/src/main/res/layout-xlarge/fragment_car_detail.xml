@@ -112,7 +112,7 @@
                     />
             </LinearLayout>
 
-            <LinearLayout
+                <LinearLayout
                 android:id="@+id/car_detail_sipp_wrap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,6 +149,37 @@
 
                     />
             </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bookThisCarLayout"
+                    android:layout_below="@+id/office_general_info"
+                    android:padding="16dp"
+                    android:background="@drawable/button_blue_bg"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btnBookThisCar"
+                        android:id="@+id/bookThisCarLabel"
+                        android:textSize="@dimen/text_size_xlarge"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bookThisCarIcon"
+                        android:layout_weight="1"
+                        android:layout_gravity="right"
+                        android:src="@drawable/ic_keyboard_arrow_right"
+                        android:layout_marginLeft="16dp" />
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>

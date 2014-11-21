@@ -38,6 +38,7 @@ public final class Config {
     public static final String ARG_PICKUP_TIME_LAYOUT_STATE = "pickup_time_layout_state";
     public static final String ARG_DROPOFF_TIME_LAYOUT_STATE = "dropoff_time_layout_state";
     public static final java.lang.String ARG_OPEN_CANCEL_DIALOG = "open_cancel_dialog";
+    public static final String ARG_SELECTED_CAR = "selected_car";
     public static String WEBSERVICE_PATH = "http://rentacar.canarias.com/CarHireXML_android.asp";
     public static String AGENCY_CODE = "4O7GMLV8J1";
     public static String AGENCY_PASS = "tenerife2";

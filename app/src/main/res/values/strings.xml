@@ -459,5 +459,12 @@
     <string name="title_activity_slide">Presentación</string>
     <string name="availability_error_dialog_title">Consulta de Disponibilidad</string>
     <string name="availability_error_dialog_msg">No hemos podido conectar con el servicio web. Comprueba tu conexión a Internet y vuelva a intentarlo.</string>
+    <string name="btnBookThisOffice">Reservar en esta oficina</string>
+    <string name="selectedCarTitle">Coche Seleccionado</string>
+    <string name="btnBookThisCar">Reservar este coche</string>
+    <string name="availability_error_dialog_msg_no_results">No hemos encontrado disponibilidad para las fechas y oficinas seleccionadas.</string>
+    <string name="remove_selected_car_dialog_title">Eliminar el coche seleccionado</string>
+    <string name="remove_selected_car_dialog_msg">Se eliminará el coche seleccionado. La búsqueda se realizará para todos los coches disponibles.</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

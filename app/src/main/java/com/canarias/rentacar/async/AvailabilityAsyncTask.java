@@ -40,6 +40,7 @@ public class AvailabilityAsyncTask extends
     Context context;
     private String mExtrasString;
     private Bundle currentArgs;
+    private String selectedModel;
 
     public AvailabilityAsyncTask(View rootView,
                                  HashMap<String, String> params, Context context,
@@ -48,6 +49,16 @@ public class AvailabilityAsyncTask extends
         this.rootView = rootView;
         this.context = context;
         this.currentArgs = currentArgs;
+    }
+
+    public AvailabilityAsyncTask(View rootView,
+                                 HashMap<String, String> params, Context context,
+                                 Bundle currentArgs, String selectedModel) {
+        this.params = params;
+        this.rootView = rootView;
+        this.context = context;
+        this.currentArgs = currentArgs;
+        this.selectedModel = selectedModel;
     }
 
     @Override
@@ -84,9 +95,16 @@ public class AvailabilityAsyncTask extends
                     if (current.getCar() == null)
                         current.setCar(new Car());
 
-                    current.getCar().setAttributes(
-                            (ArrayList<CarAttribute>) ds.getCarAttributes(current.getDescription()));
-                    resultWithAtts.add(current);
+                    if(selectedModel == null || selectedModel.equals(current.getDescription())) {
+
+                        current.getCar().setAttributes(
+                                (ArrayList<CarAttribute>) ds.getCarAttributes(current.getDescription()));
+
+
+                        resultWithAtts.add(current);
+
+                    }
+
                 }
 
                 ds.close();
@@ -119,7 +137,7 @@ public class AvailabilityAsyncTask extends
     protected void onPostExecute(List<SearchResult> result) {
         // Meter los resultados en el listview
 
-        if (result != null) {
+        if (result != null && result.size() > 0) {
             //Hay resultados
             SearchResultAdapter resultsAdapter = new SearchResultAdapter(
                     context, R.layout.search_result, result, mExtrasString,
@@ -165,7 +183,11 @@ public class AvailabilityAsyncTask extends
                         }
                     });
 
-            loadingDialog.setMessage(context.getString(R.string.availability_error_dialog_msg));
+            if(result == null)
+                loadingDialog.setMessage(context.getString(R.string.availability_error_dialog_msg));
+
+            if(result != null && result.size() == 0)
+                loadingDialog.setMessage(context.getString(R.string.availability_error_dialog_msg_no_results));
 
             loadingDialog.show();
         }

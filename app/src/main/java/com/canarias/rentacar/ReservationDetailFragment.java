@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -310,6 +311,8 @@ public class ReservationDetailFragment extends Fragment {
         ImageDownloader downloader = new ImageDownloader(9999, getActivity());
         downloader.download(mItem.getCar().getImageUrl(), carImage);
 
+
+
         if (mToastText != null && !mToastText.isEmpty()) {
             Toast.makeText(getActivity(), mToastText, Toast.LENGTH_SHORT).show();
         }
@@ -396,8 +399,13 @@ public class ReservationDetailFragment extends Fragment {
 
             dialog.show();
 
-            dialog.getButton(Dialog.BUTTON_POSITIVE).setBackgroundColor(
-                    getResources().getColor(R.color.red_canarias));
+            if(Build.VERSION.SDK_INT >= 16)
+                dialog.getButton(Dialog.BUTTON_POSITIVE).setBackground(
+                        getResources().getDrawable(R.drawable.button_bg));
+            else
+                dialog.getButton(Dialog.BUTTON_POSITIVE).setBackgroundColor(
+                        getResources().getColor(R.color.red_canarias));
+
             dialog.getButton(Dialog.BUTTON_POSITIVE).setTextColor(getResources()
                     .getColor(R.color.white));
 

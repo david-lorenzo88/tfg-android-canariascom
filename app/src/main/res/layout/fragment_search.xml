@@ -25,6 +25,63 @@
             android:scrollbars="vertical"
             tools:context=".Search">
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/selectedCarExternalWrap"
+                android:background="@drawable/border_bottom"
+                android:layout_margin="10dp"
+                android:padding="16dp"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/selectedCarTitle"
+                        android:textSize="@dimen/text_size_xlarge"
+                        android:id="@+id/txtSelectedCarLabel"
+                        android:layout_weight="0.1"
+                        android:layout_gravity="center_vertical" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnRemoveSelectedCar"
+                        android:src="@drawable/ic_highlight_remove_grey600_36dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:clickable="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/selectedCarWrap">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/carImage"
+                        android:src="@drawable/vw_touran" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dummyCarModel"
+                        android:id="@+id/carModel"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:textSize="@dimen/text_size_medium" />
+                </LinearLayout>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -292,7 +349,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/red_canarias"
+        android:background="@drawable/button_bg"
         android:text="@string/consultar_disponibilidad"
         android:textColor="@color/white"
         android:textStyle="bold" />

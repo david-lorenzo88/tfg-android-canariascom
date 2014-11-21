@@ -3,7 +3,7 @@
     android:id="@+id/searchResultWrapperLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/border_bottom"
+    android:background="@drawable/list_selector"
     android:orientation="vertical"
     android:padding="10dp">
 

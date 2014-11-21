@@ -19,21 +19,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:minHeight="55dp">
+            android:minHeight="55dp"
+            android:padding="16dp">
 
             <ImageView
                 android:id="@+id/drawer_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_action_new"
+                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/drawer_itemName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/darker_gray"
+                android:text="@string/navigation_drawer_my_bookings"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/text_size_xlarge" />
         </LinearLayout>
 
         <View

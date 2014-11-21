@@ -1,6 +1,7 @@
 package com.canarias.rentacar;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -199,6 +201,19 @@ public class OfficeDetailFragment extends Fragment {
                     mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
                 }
             }
+
+            LinearLayout btnBookThisOffice = (LinearLayout) rootView.findViewById(R.id.btnBookThisOffice);
+            btnBookThisOffice.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), HomeActivity.class);
+                    intent.putExtra(SearchFragment.TAG_PICKUP_ZONE, mItem.getCode());
+                    intent.putExtra(SearchFragment.TAG_DROPOFF_ZONE, mItem.getCode());
+                    intent.putExtra(HomeActivity.DEFAULT_ACTION,
+                            HomeActivity.DRAWER_POSITION_NEW_BOOKING);
+                    startActivity(intent);
+                }
+            });
 
         }
 

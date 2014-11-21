@@ -1,7 +1,10 @@
 package com.canarias.rentacar;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,18 +12,24 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.canarias.rentacar.async.ImageDownloader;
 import com.canarias.rentacar.config.Config;
+import com.canarias.rentacar.db.dao.CarDataSource;
 import com.canarias.rentacar.db.dao.OfficeDataSource;
 import com.canarias.rentacar.db.dao.ZoneDataSource;
 import com.canarias.rentacar.dialogs.CalendarDatePickerDialog;
 import com.canarias.rentacar.dialogs.TimePickerDialog;
 import com.canarias.rentacar.dialogs.ZonePickerDialog;
+import com.canarias.rentacar.model.Car;
 import com.canarias.rentacar.model.Office;
 import com.canarias.rentacar.model.Zone;
+import com.canarias.rentacar.utils.AnimationHelper;
 import com.canarias.rentacar.widgets.StatusRelativeLayout;
+import com.google.android.gms.plus.model.people.Person;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -33,6 +42,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
 
     public static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
+
+    public static final String TAG_SELECTED_MODEL = "selected_model";
 
     public static final String TAG_PICKUP_DATE = "pickup_date";
     public static final String TAG_PICKUP_ZONE = "pickup_zone";
@@ -67,6 +78,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
     private String pickupTime;
     private String dropoffTime;
 
+    private Car selectedCar;
+
     private int pickupPointLayoutStatus = StatusRelativeLayout.STATUS_PENDING;
     private int dropoffPointLayoutStatus = StatusRelativeLayout.STATUS_PENDING;
     private int pickupDateLayoutStatus = StatusRelativeLayout.STATUS_PENDING;
@@ -90,12 +103,32 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         return fragment;
     }
 
+    public static SearchFragment newInstance(int sectionNumber, String pickupOfficeCode,
+                                             String dropoffOfficeCode) {
+        SearchFragment fragment = new SearchFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        args.putString(TAG_PICKUP_ZONE, pickupOfficeCode);
+        args.putString(TAG_DROPOFF_ZONE, dropoffOfficeCode);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public static SearchFragment newInstance(int sectionNumber, String selectedModel) {
+        SearchFragment fragment = new SearchFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        args.putString(TAG_SELECTED_MODEL, selectedModel);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Restore instance state
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
 
 
             pickupPointLayoutStatus = savedInstanceState.getInt(Config.ARG_PICKUP_POINT_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
@@ -111,18 +144,18 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
             OfficeDataSource officeDS = new OfficeDataSource(getActivity());
 
-            try{
+            try {
                 officeDS.open();
 
-                if(pickupPointCode != null){
+                if (pickupPointCode != null) {
                     pickupOffice = officeDS.getOffice(pickupPointCode);
                 }
 
-                if(dropoffPointCode != null){
+                if (dropoffPointCode != null) {
                     dropoffOffice = officeDS.getOffice(dropoffPointCode);
                 }
 
-            }catch (SQLException ex){
+            } catch (SQLException ex) {
                 ex.printStackTrace();
             } finally {
                 officeDS.close();
@@ -133,17 +166,17 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
             ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
 
-            try{
+            try {
                 zoneDS.open();
 
-                if(pickupZoneCode != 0){
+                if (pickupZoneCode != 0) {
                     pickupZone = zoneDS.getZone(pickupZoneCode);
                 }
-                if(dropoffZoneCode != 0){
+                if (dropoffZoneCode != 0) {
                     dropoffZone = zoneDS.getZone(dropoffZoneCode);
                 }
 
-            } catch (SQLException ex){
+            } catch (SQLException ex) {
                 ex.printStackTrace();
             } finally {
                 zoneDS.close();
@@ -153,6 +186,71 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
             dropoffDate = savedInstanceState.getString(Config.ARG_DROPOFF_DATE);
             pickupTime = savedInstanceState.getString(Config.ARG_PICKUP_TIME);
             dropoffTime = savedInstanceState.getString(Config.ARG_DROPOFF_TIME);
+        } else if (getArguments() != null && getArguments().containsKey(TAG_PICKUP_ZONE)
+                && getArguments().containsKey(TAG_DROPOFF_ZONE)) {
+
+            //Selected offices
+
+            String pickupCode = getArguments().getString(TAG_PICKUP_ZONE);
+            String dropoffCode = getArguments().getString(TAG_DROPOFF_ZONE);
+
+            OfficeDataSource officeDS = new OfficeDataSource(getActivity());
+
+            try {
+                officeDS.open();
+
+                if (pickupCode != null) {
+                    pickupOffice = officeDS.getOffice(pickupCode);
+                }
+
+                if (dropoffCode != null) {
+                    dropoffOffice = officeDS.getOffice(dropoffCode);
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                officeDS.close();
+            }
+
+            int pickupZoneCode = pickupOffice.getZone().getCode();
+            int dropoffZoneCode = dropoffOffice.getZone().getCode();
+
+            ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
+
+            try {
+                zoneDS.open();
+
+                if (pickupZoneCode != 0) {
+                    pickupZone = zoneDS.getZone(pickupZoneCode);
+                }
+                if (dropoffZoneCode != 0) {
+                    dropoffZone = zoneDS.getZone(dropoffZoneCode);
+                }
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                zoneDS.close();
+            }
+
+
+        }
+
+        if(getArguments() != null && getArguments().containsKey(TAG_SELECTED_MODEL)){
+            CarDataSource carDS = new CarDataSource(getActivity());
+
+            try{
+                carDS.open();
+                selectedCar = carDS.getCar(getArguments().getString(TAG_SELECTED_MODEL));
+
+            } catch (SQLException ex){
+
+                ex.printStackTrace();
+
+            } finally {
+                carDS.close();
+            }
         }
 
     }
@@ -166,8 +264,10 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
         getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking));
 
+
         return rootView;
     }
+
 
     @Override
     public void onAttach(Activity activity) {
@@ -185,11 +285,11 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         pickupTimeLabel = (TextView) rootView.findViewById(R.id.pickupTimeDefaultLabel);
         dropoffTimeLabel = (TextView) rootView.findViewById(R.id.dropoffTimeDefaultLabel);
 
-        if(pickupOffice != null && pickupZone != null){
+        if (pickupOffice != null && pickupZone != null) {
             pickupZoneLabel.setText(pickupOffice.getName() + " (" + pickupZone.getName() + ")");
         }
 
-        if(dropoffOffice != null && dropoffZone != null){
+        if (dropoffOffice != null && dropoffZone != null) {
             dropoffZoneLabel.setText(dropoffOffice.getName() + " (" + dropoffZone.getName() + ")");
         }
 
@@ -200,17 +300,17 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         cal.setTime(new Date());
         cal.add(Calendar.DATE, 1);
 
-        if(pickupDate == null)
+        if (pickupDate == null)
             pickupDate = sdf.format(cal.getTime());
 
         cal.add(Calendar.DATE, 5);
 
-        if(dropoffDate == null)
+        if (dropoffDate == null)
             dropoffDate = sdf.format(cal.getTime());
 
-        if(pickupTime == null)
+        if (pickupTime == null)
             pickupTime = "12:00";
-        if(dropoffTime == null)
+        if (dropoffTime == null)
             dropoffTime = "12:00";
 
 
@@ -404,6 +504,9 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 args.putString(Config.ARG_PICKUP_TIME, pickupTime);
                 args.putString(Config.ARG_DROPOFF_TIME, dropoffTime);
 
+                if(selectedCar != null)
+                    args.putString(Config.ARG_SELECTED_CAR, selectedCar.getModel());
+
                 fragment.setArguments(args);
 
                 getFragmentManager().beginTransaction()
@@ -416,35 +519,84 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         });
 
 
+        //if there is selected car, load layout
+        if(selectedCar != null) {
+            ImageView carImage = (ImageView) rootView.findViewById(R.id.carImage);
+            ImageDownloader downloader = new ImageDownloader(9999, getActivity());
+            downloader.download(selectedCar.getImageUrl(), carImage);
+
+            ((TextView)rootView.findViewById(R.id.carModel)).setText(selectedCar.getModel());
+
+            rootView.findViewById(R.id.selectedCarExternalWrap).setVisibility(View.VISIBLE);
+
+            ((ImageView)rootView.findViewById(R.id.btnRemoveSelectedCar)).setOnClickListener(
+                    new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog confirmDialog = new AlertDialog.Builder(getActivity()).create();
+
+                    confirmDialog.setTitle(getString(R.string.remove_selected_car_dialog_title));
+
+                    confirmDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(R.string.cancel),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    confirmDialog.dismiss();
+                                }
+                            });
+
+                    confirmDialog.setButton(Dialog.BUTTON_POSITIVE, getString(R.string.accept),
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    AnimationHelper.collapse(
+                                            rootView.findViewById(R.id.selectedCarExternalWrap));
+
+                                    selectedCar = null;
+
+                                    confirmDialog.dismiss();
+                                }
+                            });
+
+
+                    confirmDialog.setMessage(getString(R.string.remove_selected_car_dialog_msg));
+
+
+
+                    confirmDialog.show();
+                }
+            });
+        }
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
-        if(pickupOffice != null)
+        if (pickupOffice != null)
             outState.putString(Config.ARG_PICKUP_POINT, pickupOffice.getCode());
-        if(dropoffOffice != null)
+        if (dropoffOffice != null)
             outState.putString(Config.ARG_DROPOFF_POINT, dropoffOffice.getCode());
-        if(pickupZone != null)
+        if (pickupZone != null)
             outState.putInt(Config.ARG_PICKUP_ZONE, pickupZone.getCode());
-        if(dropoffZone != null)
+        if (dropoffZone != null)
             outState.putInt(Config.ARG_DROPOFF_ZONE, dropoffZone.getCode());
         outState.putString(Config.ARG_PICKUP_DATE, pickupDate);
         outState.putString(Config.ARG_DROPOFF_DATE, dropoffDate);
         outState.putString(Config.ARG_PICKUP_TIME, pickupTime);
         outState.putString(Config.ARG_DROPOFF_TIME, dropoffTime);
 
-        if(pickupZoneLayout != null)
+        if (pickupZoneLayout != null)
             outState.putInt(Config.ARG_PICKUP_POINT_LAYOUT_STATE, pickupZoneLayout.getStatus());
-        if(dropoffZoneLayout != null)
+        if (dropoffZoneLayout != null)
             outState.putInt(Config.ARG_DROPOFF_POINT_LAYOUT_STATE, dropoffZoneLayout.getStatus());
-        if(pickupDateLayout != null)
+        if (pickupDateLayout != null)
             outState.putInt(Config.ARG_PICKUP_DATE_LAYOUT_STATE, pickupDateLayout.getStatus());
-        if(dropoffDateLayout != null)
+        if (dropoffDateLayout != null)
             outState.putInt(Config.ARG_DROPOFF_DATE_LAYOUT_STATE, dropoffDateLayout.getStatus());
-        if(pickupTimeLayout != null)
+        if (pickupTimeLayout != null)
             outState.putInt(Config.ARG_PICKUP_TIME_LAYOUT_STATE, pickupTimeLayout.getStatus());
-        if(dropoffTimeLayout != null)
+        if (dropoffTimeLayout != null)
             outState.putInt(Config.ARG_DROPOFF_TIME_LAYOUT_STATE, dropoffTimeLayout.getStatus());
 
 
@@ -466,13 +618,13 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
     }
 
     private void validateDateLayoutStatus() {
-        Date pickupCal,dropoffCal;
+        Date pickupCal, dropoffCal;
 
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             dropoffCal = sdf.parse(dropoffDate + " " + dropoffTime);
             //dropoffCal = sdf.getCalendar();
-            pickupCal = sdf.parse(pickupDate + " " + pickupTime) ;
+            pickupCal = sdf.parse(pickupDate + " " + pickupTime);
             //pickupCal = sdf.getCalendar();
 
             //dropoffCal.set(Calendar.HOUR, 0);
@@ -487,12 +639,12 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
             //pickupCal.set(Calendar.SECOND, 0);
             //pickupCal.set(Calendar.MILLISECOND, 0);
 
-            if(pickupOffice == null || pickupZone == null)
+            if (pickupOffice == null || pickupZone == null)
                 pickupZoneLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
             else
                 pickupZoneLayout.setStatus(StatusRelativeLayout.STATUS_OK);
 
-            if(dropoffOffice == null || dropoffZone == null)
+            if (dropoffOffice == null || dropoffZone == null)
                 dropoffZoneLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
             else
                 dropoffZoneLayout.setStatus(StatusRelativeLayout.STATUS_OK);

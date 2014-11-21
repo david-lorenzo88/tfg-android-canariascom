@@ -123,7 +123,12 @@ public class SearchResultsFragment extends Fragment {
                     bundle.getString(Config.ARG_DROPOFF_DATE));
             params.put(Config.ARG_DROPOFF_TIME,
                     bundle.getString(Config.ARG_DROPOFF_TIME));
-            availAsync = new AvailabilityAsyncTask(rootView, params, getActivity(), getArguments());
+            if(bundle != null && bundle.containsKey(Config.ARG_SELECTED_CAR)) {
+                availAsync = new AvailabilityAsyncTask(rootView, params, getActivity(),
+                        getArguments(), bundle.getString(Config.ARG_SELECTED_CAR));
+            } else {
+                availAsync = new AvailabilityAsyncTask(rootView, params, getActivity(), getArguments());
+            }
             availAsync.execute();
 
         } catch (Exception ex) {

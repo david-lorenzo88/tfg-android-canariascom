@@ -15,7 +15,7 @@
         android:id="@+id/btnSelectHour"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red_canarias"
+        android:background="@drawable/button_bg"
         android:text="@string/accept"
         android:textColor="@color/white"
         android:textStyle="bold" />

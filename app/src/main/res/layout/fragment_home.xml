@@ -45,7 +45,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/border_bottom"
+                    android:background="@drawable/list_selector"
                     android:orientation="vertical"
                     android:paddingTop="20dp"
                     android:clickable="true">
@@ -74,7 +74,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/action_home_new_booking"
                     android:layout_weight="1"
-                    android:background="@drawable/border_bottom"
+                    android:background="@drawable/list_selector"
                     android:orientation="vertical"
                     android:paddingTop="20dp"
                     android:clickable="true">
@@ -112,7 +112,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/border_bottom"
+                    android:background="@drawable/list_selector"
                     android:orientation="vertical"
                     android:paddingTop="20dp"
                     android:clickable="true">
@@ -141,7 +141,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/action_home_cars"
                     android:layout_weight="1"
-                    android:background="@drawable/border_bottom"
+                    android:background="@drawable/list_selector"
                     android:orientation="vertical"
                     android:paddingTop="20dp"
                     android:clickable="true">
@@ -178,7 +178,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/border_bottom"
+                    android:background="@drawable/list_selector"
                     android:orientation="vertical"
                     android:paddingTop="20dp"
                     android:clickable="true">
@@ -207,7 +207,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_toRightOf="@id/action_home_help"
                     android:layout_weight="1"
-                    android:background="@drawable/border_bottom"
+                    android:background="@drawable/list_selector"
                     android:orientation="vertical"
                     android:paddingTop="20dp"
                     android:clickable="true">

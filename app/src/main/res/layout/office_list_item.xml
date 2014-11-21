@@ -3,9 +3,11 @@
     android:id="@+id/reservationListItemWrapperLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/border_bottom"
+    android:background="@drawable/list_selector"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:baselineAligned="false"
+    android:clickable="false">
 
     <ImageView
         android:id="@+id/office_list_icon_status"

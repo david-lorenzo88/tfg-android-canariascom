@@ -32,8 +32,8 @@
 
                 android:id="@+id/mapOpen"
 
-                android:src="@drawable/ic_add_box_grey600_36dp"
-                android:background="@color/red_canarias"
+                android:src="@drawable/ic_fullscreen_exit_white_36dp"
+                android:background="@drawable/button_bg"
                 android:clickable="true"
                 />
                 </FrameLayout>
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtOfficeName"
-                android:background="@drawable/border_bottom"
+                android:background="@color/white"
                 android:paddingBottom="20dp"
                 android:id="@+id/office_general_info">
 
@@ -151,16 +151,45 @@
 
             </RelativeLayout>
 
-        <RelativeLayout
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBookThisOffice"
+                android:layout_below="@+id/office_general_info"
+                android:padding="16dp"
+                android:background="@drawable/button_blue_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btnBookThisOffice"
+                    android:id="@+id/txtBookThisOffice"
+                    android:textSize="@dimen/text_size_xlarge"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:layout_weight="1"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_keyboard_arrow_right" />
+            </LinearLayout>
+
+            <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/office_general_info"
-            android:background="@drawable/border_bottom"
+                android:background="@drawable/border_bottom"
             android:paddingBottom="20dp"
             android:paddingTop="20dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:id="@+id/office_delivery_conditions">
+            android:id="@+id/office_delivery_conditions"
+                android:layout_below="@+id/btnBookThisOffice">
 
             <TextView
                 android:layout_width="wrap_content"

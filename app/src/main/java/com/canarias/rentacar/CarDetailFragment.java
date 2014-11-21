@@ -1,6 +1,7 @@
 package com.canarias.rentacar;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -239,6 +240,19 @@ public class CarDetailFragment extends Fragment {
                 mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
             }
         }
+
+        LinearLayout btnBookThisCar = (LinearLayout) rootView.findViewById(R.id.bookThisCarLayout);
+        btnBookThisCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), HomeActivity.class);
+                intent.putExtra(SearchFragment.TAG_SELECTED_MODEL, car.getModel());
+
+                intent.putExtra(HomeActivity.DEFAULT_ACTION,
+                        HomeActivity.DRAWER_POSITION_NEW_BOOKING);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
