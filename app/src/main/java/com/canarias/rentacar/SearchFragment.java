@@ -126,11 +126,12 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.v("MY", "onCreate");
+        printBundle(savedInstanceState);
         //Restore instance state
         if (savedInstanceState != null) {
 
-
+            Log.v("MY", "onCreate savedInstanceState != null");
             pickupPointLayoutStatus = savedInstanceState.getInt(Config.ARG_PICKUP_POINT_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
             dropoffPointLayoutStatus = savedInstanceState.getInt(Config.ARG_DROPOFF_POINT_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
             pickupDateLayoutStatus = savedInstanceState.getInt(Config.ARG_PICKUP_DATE_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
@@ -186,9 +187,27 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
             dropoffDate = savedInstanceState.getString(Config.ARG_DROPOFF_DATE);
             pickupTime = savedInstanceState.getString(Config.ARG_PICKUP_TIME);
             dropoffTime = savedInstanceState.getString(Config.ARG_DROPOFF_TIME);
+
+            if(savedInstanceState.containsKey(Config.ARG_SELECTED_CAR)) {
+                CarDataSource carDS = new CarDataSource(getActivity());
+
+                try {
+                    carDS.open();
+                    selectedCar = carDS.getCar(savedInstanceState.getString(Config.ARG_SELECTED_CAR));
+
+                } catch (SQLException ex) {
+
+                    ex.printStackTrace();
+
+                } finally {
+                    carDS.close();
+                }
+            }
+
+
         } else if (getArguments() != null && getArguments().containsKey(TAG_PICKUP_ZONE)
                 && getArguments().containsKey(TAG_DROPOFF_ZONE)) {
-
+            Log.v("MY", "onCreate arguments zones");
             //Selected offices
 
             String pickupCode = getArguments().getString(TAG_PICKUP_ZONE);
@@ -236,10 +255,9 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
 
         }
-
-        if(getArguments() != null && getArguments().containsKey(TAG_SELECTED_MODEL)){
+        else if(getArguments() != null && getArguments().containsKey(TAG_SELECTED_MODEL)){
             CarDataSource carDS = new CarDataSource(getActivity());
-
+            Log.v("MY", "onCreate arguments model");
             try{
                 carDS.open();
                 selectedCar = carDS.getCar(getArguments().getString(TAG_SELECTED_MODEL));
@@ -255,11 +273,20 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
     }
 
+    private void printBundle(Bundle bundle){
+        if(bundle != null) {
+            for (String key : bundle.keySet()) {
+                Log.v("MY", key + " - " + bundle.get(key));
+            }
+        }
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
-
+        Log.v("MY", "onCreateView");
         initActivity(rootView);
 
         getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking));
@@ -271,6 +298,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
     @Override
     public void onAttach(Activity activity) {
+        Log.v("MY", "onAttach");
         super.onAttach(activity);
         ((HomeActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
@@ -572,7 +600,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-
+        Log.v("MY", "onSaveInstanceState");
         if (pickupOffice != null)
             outState.putString(Config.ARG_PICKUP_POINT, pickupOffice.getCode());
         if (dropoffOffice != null)
@@ -599,7 +627,10 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         if (dropoffTimeLayout != null)
             outState.putInt(Config.ARG_DROPOFF_TIME_LAYOUT_STATE, dropoffTimeLayout.getStatus());
 
+        if(selectedCar != null)
+            outState.putString(Config.ARG_SELECTED_CAR, selectedCar.getModel());
 
+        printBundle(outState);
         super.onSaveInstanceState(outState);
     }
 

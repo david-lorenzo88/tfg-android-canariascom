@@ -80,6 +80,8 @@ public class HomeActivity extends Activity
 
             onNavigationDrawerItemSelected(action);
 
+            getIntent().removeExtra(DEFAULT_ACTION);
+
         }
 
     }
@@ -108,6 +110,8 @@ public class HomeActivity extends Activity
                                     getIntent().getExtras().getString(SearchFragment.TAG_DROPOFF_ZONE)))
                             .addToBackStack("New_Booking")
                             .commit();
+                    getIntent().removeExtra(SearchFragment.TAG_PICKUP_ZONE);
+                    getIntent().removeExtra(SearchFragment.TAG_DROPOFF_ZONE);
                 } else if(getIntent().getExtras() != null &&
                         getIntent().getExtras().containsKey(SearchFragment.TAG_SELECTED_MODEL)){
                     fragmentManager.beginTransaction()
@@ -118,6 +122,7 @@ public class HomeActivity extends Activity
                                                     .getString(SearchFragment.TAG_SELECTED_MODEL)))
                             .addToBackStack("New_Booking")
                             .commit();
+                    getIntent().removeExtra(SearchFragment.TAG_SELECTED_MODEL);
                 } else {
                     fragmentManager.beginTransaction()
 
