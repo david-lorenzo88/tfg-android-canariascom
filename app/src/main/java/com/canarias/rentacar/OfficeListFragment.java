@@ -14,8 +14,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.canarias.rentacar.adapters.OfficeListAdapter;
-import com.canarias.rentacar.async.FilterCarsAsyncTask;
-import com.canarias.rentacar.async.FilterOfficesAsyncTask;
 import com.canarias.rentacar.db.dao.OfficeDataSource;
 
 import com.canarias.rentacar.db.dao.ZoneDataSource;
@@ -58,11 +56,12 @@ public class OfficeListFragment extends Fragment {
      * clicks.
      */
     private Callbacks mCallbacks = sDummyCallbacks;
-    List<Office> offices;
-    List<Office> filteredOffices;
-    ListView listView;
-    List<Zone> zones;
-    Spinner filterSpinner;
+    private List<Office> offices;
+    private List<Office> filteredOffices;
+    private ListView listView;
+    private List<Zone> zones;
+    private Spinner filterSpinner;
+    private OfficeListAdapter adapter;
     /**
      * The current activated item position. Only used on tablets.
      */
@@ -80,6 +79,10 @@ public class OfficeListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
+    }
+
+    public final OfficeListAdapter getAdapter(){
+        return adapter;
     }
 
     @Override
@@ -115,6 +118,7 @@ public class OfficeListFragment extends Fragment {
         listView.setFooterDividersEnabled(true);
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));
+        setActivateOnItemClick(true);
 
         OfficeDataSource ds = new OfficeDataSource(getActivity());
         ZoneDataSource dsZones = new ZoneDataSource(getActivity());
@@ -134,13 +138,18 @@ public class OfficeListFragment extends Fragment {
             ds.close();
             dsZones.close();
 
-            listView.setAdapter(new OfficeListAdapter(getActivity(),
-                    R.layout.office_list_item, offices));
+            Log.v("ADAPTER", "Creando Adapter...");
+            adapter = new OfficeListAdapter(getActivity(),
+                    R.layout.office_list_item, offices);
+
+            listView.setAdapter(adapter);
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     mCallbacks.onItemSelected(filteredOffices.get(position - 1).getCode());
+                    Log.v("ADAPTER", "Callback position: "+(position - 1));
+                    adapter.setSelectedIndex(position - 1);
                 }
             });
 
@@ -154,9 +163,13 @@ public class OfficeListFragment extends Fragment {
             filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    FilterOfficesAsyncTask task = new FilterOfficesAsyncTask(listView);
-                    task.execute(((Zone)parent.getItemAtPosition(position)).getCode());
+                    //FilterOfficesAsyncTask task = new FilterOfficesAsyncTask(listView);
+                    //task.execute(((Zone)parent.getItemAtPosition(position)).getCode());
                     filterOfficeList(((Zone) parent.getItemAtPosition(position)).getCode());
+
+                    getAdapter().getFilter()
+                            .filter(String.valueOf(
+                                    ((Zone)parent.getItemAtPosition(position)).getCode()));
                 }
 
                 @Override

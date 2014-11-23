@@ -13,7 +13,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.canarias.rentacar.adapters.CarListAdapter;
-import com.canarias.rentacar.async.FilterCarsAsyncTask;
 import com.canarias.rentacar.db.dao.CarDataSource;
 import com.canarias.rentacar.model.Car;
 
@@ -57,6 +56,7 @@ public class CarListFragment extends ListFragment {
     List<Car> cars;
     List<Car> filteredCars;
     List<String> categories;
+    CarListAdapter adapter;
 
     Spinner filterSpinner;
 
@@ -90,6 +90,9 @@ public class CarListFragment extends ListFragment {
 
         return view;
     }
+    public final CarListAdapter getAdapter(){
+        return adapter;
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -114,6 +117,7 @@ public class CarListFragment extends ListFragment {
         listView.setFooterDividersEnabled(true);
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));
+        setActivateOnItemClick(true);
 
 
         CarDataSource ds = new CarDataSource(getActivity());
@@ -131,22 +135,26 @@ public class CarListFragment extends ListFragment {
             categories.add(0, getActivity().getString(R.string.spinnerAllText));
 
             ds.close();
-
-            setListAdapter(new CarListAdapter(
+            adapter = new CarListAdapter(
                     getActivity(),
                     R.layout.car_list_item,
-                    cars));
+                    cars);
+            setListAdapter(adapter);
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+            final ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(),
                     R.layout.category_spinner, R.id.category_item_name, categories);
-            filterSpinner.setAdapter(adapter); // this will set list of values to spinner
+            filterSpinner.setAdapter(spinnerAdapter); // this will set list of values to spinner
 
             filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    FilterCarsAsyncTask task = new FilterCarsAsyncTask(listView);
-                    task.execute((String) parent.getItemAtPosition(position));
+                    //FilterCarsAsyncTask task = new FilterCarsAsyncTask(listView);
+                    //task.execute((String) parent.getItemAtPosition(position));
+
                     filterCarList((String)parent.getItemAtPosition(position));
+
+                    getAdapter().getFilter()
+                            .filter((String)parent.getItemAtPosition(position));
                 }
 
                 @Override
@@ -206,6 +214,8 @@ public class CarListFragment extends ListFragment {
         // fragment is attached to one) that an item has been selected.
 
         mCallbacks.onItemSelected(filteredCars.get(position - 1).getModel());
+
+        adapter.setSelectedIndex(position - 1);
     }
 
     @Override

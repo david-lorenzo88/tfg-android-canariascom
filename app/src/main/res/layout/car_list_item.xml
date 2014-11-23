@@ -1,137 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/carListItemWrapper"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:descendantFocusability="beforeDescendants"
-    android:paddingLeft="15dp"
-    android:paddingRight="15dp">
+    android:layout_marginRight="16dp">
+
+    <TextView
+        android:id="@+id/car_model"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="Nombre del coche"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_xlarge"
+        android:textStyle="bold"
+
+        />
+
+    <ImageView
+        android:id="@+id/car_photo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:minHeight="50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/vw_touran" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/selector_card_background"
-        android:descendantFocusability="afterDescendants"
-        android:orientation="vertical"
-        android:paddingBottom="15dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:paddingTop="15dp">
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/car_model"
-            android:layout_width="match_parent"
+            android:id="@+id/car_list_category_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="start"
             android:singleLine="true"
-            android:text="Nombre del coche"
-            android:textAlignment="center"
+            android:text="@string/category_label"
+            android:textAlignment="textStart"
+            android:textColor="@color/red_canarias"
+            android:textSize="@dimen/text_size_medium"
             android:textStyle="bold"
-            android:textSize="@dimen/text_size_xlarge"
 
             />
 
-        <ImageView
-            android:id="@+id/car_photo"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:minHeight="50dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/vw_touran" />
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/car_list_category_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginLeft="10dp"
 
-            <TextView
-                android:id="@+id/car_list_category_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:gravity="start"
-                android:singleLine="true"
-                android:text="@string/category_label"
-                android:textAlignment="textStart"
-                android:textColor="@color/red_canarias"
-                android:textSize="@dimen/text_size_medium"
-                android:textStyle="bold"
+            android:gravity="start"
+            android:singleLine="true"
+            android:text="Turismo"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/text_size_medium"
 
-                />
-
-            <TextView
-                android:id="@+id/car_list_category_value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-
-                android:gravity="start"
-                android:singleLine="true"
-                android:text="Turismo"
-                android:textAlignment="textStart"
-                android:textSize="@dimen/text_size_medium"
-
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/car_list_group_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:gravity="start"
-                android:singleLine="true"
-                android:text="@string/group_label"
-                android:textAlignment="textStart"
-                android:textColor="@color/red_canarias"
-                android:textSize="@dimen/text_size_medium"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:id="@+id/car_list_group_value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-
-                android:gravity="start"
-                android:singleLine="true"
-                android:text="B"
-                android:textAlignment="textStart"
-                android:textSize="@dimen/text_size_medium"
-
-                />
-        </LinearLayout>
-
-        <FrameLayout
-            android:id="@+id/car_list_select_button"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_margin="@dimen/list_item_action_margin"
-            android:background="@color/red_canarias"
-            android:contentDescription="@string/car_detail_link">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawableLeft="@drawable/ic_action_accept"
-                android:drawablePadding="10dp"
-                android:gravity="center_vertical"
-                android:paddingRight="20dp"
-                android:text="@string/car_detail_link"
-                android:textAllCaps="true"
-                android:textColor="#fff"
-                android:textSize="@dimen/text_size_large"
-                android:textStyle="bold" />
-        </FrameLayout>
+            />
     </LinearLayout>
-</FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/car_list_group_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:singleLine="true"
+            android:text="@string/group_label"
+            android:textAlignment="textStart"
+            android:textColor="@color/red_canarias"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/car_list_group_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+
+            android:gravity="start"
+            android:singleLine="true"
+            android:text="B"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/text_size_medium"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/car_list_select_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/list_item_action_margin"
+        android:background="@color/red_canarias"
+        android:contentDescription="@string/car_detail_link"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_action_accept"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/car_detail_link"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

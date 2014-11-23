@@ -45,6 +45,8 @@ public class ReservationListFragment extends ListFragment {
     private Callbacks mCallbacks = sDummyCallbacks;
     List<Reservation> reservations;
     ListView listView;
+
+    private ReservationListAdapter adapter;
     /**
      * The current activated item position. Only used on tablets.
      */
@@ -68,6 +70,8 @@ public class ReservationListFragment extends ListFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
         // Restore the previously serialized activated item position.
         if (savedInstanceState != null
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
@@ -84,7 +88,8 @@ public class ReservationListFragment extends ListFragment {
         listView.setFooterDividersEnabled(true);
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));
-
+        setActivateOnItemClick(true);
+        //listView.setSelector(R.drawable.border_bottom_selected);
 
         ReservationDataSource resDS = new ReservationDataSource(getActivity());
 
@@ -95,8 +100,11 @@ public class ReservationListFragment extends ListFragment {
 
             resDS.close();
 
-            setListAdapter(new ReservationListAdapter(getActivity(),
-                    R.layout.reservation_list_item, reservations));
+            adapter = new ReservationListAdapter(getActivity(),
+                    R.layout.reservation_list_item, reservations);
+
+
+            setListAdapter(adapter);
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -130,6 +138,9 @@ public class ReservationListFragment extends ListFragment {
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
         mCallbacks.onItemSelected(reservations.get(position - 1).getLocalizer());
+
+
+        adapter.setSelectedIndex(position - 1);
     }
 
     @Override

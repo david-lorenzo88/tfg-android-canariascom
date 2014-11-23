@@ -2,11 +2,13 @@ package com.canarias.rentacar.adapters;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.canarias.rentacar.R;
@@ -26,6 +28,7 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
     Context context;
     List<Reservation> resList;
     int layoutResID;
+    private int selectedIndex = -1;
 
     public ReservationListAdapter(Context context, int layoutResourceID,
                                   List<Reservation> listItems) {
@@ -35,10 +38,18 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
         this.layoutResID = layoutResourceID;
     }
 
+    public void setSelectedIndex(int ind)
+    {
+        selectedIndex = ind;
+        notifyDataSetChanged();
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ReservationItemHolder drawerHolder;
         View view = convertView;
+
+
 
         if (view == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
@@ -62,6 +73,9 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
 
             drawerHolder.extras = (TextView) view
                     .findViewById(R.id.reservationExtras);
+
+            drawerHolder.wrap = (LinearLayout) view.findViewById(
+                    R.id.reservationListItemWrapperLayout);
 
 
             view.setTag(drawerHolder);
@@ -94,6 +108,26 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
 
         drawerHolder.localizer.setText(dItem.getLocalizer());
 
+        if(selectedIndex!= -1 && position == selectedIndex)
+        {
+            view.setSelected(true);
+            if(Build.VERSION.SDK_INT >= 16)
+                drawerHolder.wrap.setBackground(context.getResources().getDrawable(
+                    R.drawable.border_bottom_selected));
+            else
+                drawerHolder.wrap.setBackgroundDrawable(context.getResources().getDrawable(
+                        R.drawable.border_bottom_selected));
+        } else {
+            view.setSelected(false);
+            if(Build.VERSION.SDK_INT >= 16)
+                drawerHolder.wrap.setBackground(context.getResources().getDrawable(
+                    R.drawable.list_selector));
+            else
+                drawerHolder.wrap.setBackgroundDrawable(context.getResources().getDrawable(
+                        R.drawable.list_selector));
+        }
+
+
         return view;
     }
 
@@ -114,7 +148,7 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
         TextView extras;
         TextView price;
         ImageView statusIcon;
-
+        LinearLayout wrap;
     }
 }
 
