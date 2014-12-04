@@ -1,11 +1,7 @@
 package com.canarias.rentacar.adapters;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,15 +21,23 @@ import com.canarias.rentacar.model.SearchResult;
 import java.util.Iterator;
 import java.util.List;
 
-@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+/**
+ * Created by David on 30/10/2014.
+ * Adapter que gestiona la lista de resultados de búsqueda
+ */
 public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
 
+    //Módulo que descarga las imágenes
     private final ImageDownloader imageDownloader;
+    //Argumentos actuales de la Activity para pasar al siguiente paso
+    //de la reserva
     Bundle currentArgs;
     private int resource;
     private LayoutInflater inflater;
     private Context context;
-    private Point screen;
+
+    //String con los extras que se han obtenido en la respuesta de disponibilidad
+    //serializados para pasar al siguiente paso de la reserva
     private String extrasString;
 
     public SearchResultAdapter(Context context, int resourceId,
@@ -44,41 +48,38 @@ public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
         this.context = context;
         this.extrasString = extrasString;
         this.currentArgs = currentArgs;
-        /*Display display = context.getWindowManager().getDefaultDisplay();
-		screen = new Point();
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-			display.getSize(screen);
-		} else {
-			screen.x = display.getWidth();
-			screen.y = display.getHeight();
-		}*/
-
         imageDownloader = new ImageDownloader(9999, getContext());
     }
-
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Log.v("CANARIAS", "View pos: " + position);
+
         final SearchResult sr = getItem(position);
 
         SearchResultViewCache viewCache;
 
         if (convertView == null) {
-            convertView = (LinearLayout) inflater.inflate(resource, null);
+            convertView = inflater.inflate(resource, null);
             viewCache = new SearchResultViewCache(convertView);
             convertView.setTag(viewCache);
         } else {
-            convertView = (LinearLayout) convertView;
             viewCache = (SearchResultViewCache) convertView.getTag();
         }
 
-        TextView txtModel = viewCache.getCarModel(resource);
+        TextView txtModel = viewCache.getCarModel();
         txtModel.setText(sr.getDescription());
 
-        TextView txtPrice = viewCache.getPrice(resource);
+        TextView txtPrice = viewCache.getPrice();
         txtPrice.setText(sr.getTotalPrice() + "€");
 
-        LinearLayout attContainer = viewCache.getAttributesContainer(resource);
+        //Mostramos los iconos de las características del coche
+        LinearLayout attContainer = viewCache.getAttributesContainer();
         attContainer.removeAllViews();
         if (sr.getCar() != null && sr.getCar().getAttributes() != null) {
             Iterator<CarAttribute> atts = sr.getCar().getAttributes().iterator();
@@ -103,19 +104,17 @@ public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
                 }
             }
         }
-        LinearLayout wrapView = viewCache.getWrapView(resource);
-
+        LinearLayout wrapView = viewCache.getWrapView();
+        //Establecemos el evento click para mostrar el siguiente paso
+        //de la reserva al seleccionar un coche de la lista.
         wrapView.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-
                 SelectExtrasFragment fragment = SelectExtrasFragment.newInstance(1,
                         sr.getIdentifier(),
                         sr.getImageUrl(),
-                        Float.parseFloat(sr.getTotalPrice().replace(" Euro", "").replace(",", ".")),
+                        Float.parseFloat(sr.getTotalPrice().replace(" Euro", "").replace(".", "").replace(",", ".")),
                         sr.getDescription(),
                         extrasString
                 );
@@ -133,24 +132,21 @@ public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
 
         });
 
-        ImageView imageCar = viewCache.getImageCar(resource);
-        //imageCar.setLayoutParams(new RelativeLayout.LayoutParams(
-        //		(int) (screen.x * 0.30), /*btnBook.getHeight()
-        //				+ txtModel.getHeight()*/(int) (screen.x * 0.30)));
+        ImageView imageCar = viewCache.getImageCar();
 
         // Convertimos los espacios a %20 en la url de la imagen
-
+        // para evitar errores en la descarga
         imageDownloader.download(sr.getImageUrl()
                 .replaceAll(" ", "%20"), imageCar);
 
         return convertView;
 
     }
-
-    public ImageDownloader getImageDownloader() {
-        return imageDownloader;
-    }
-
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private class SearchResultViewCache {
         private LinearLayout wrapView;
         private View baseView;
@@ -164,39 +160,37 @@ public class SearchResultAdapter extends ArrayAdapter<SearchResult> {
             this.baseView = baseView;
         }
 
-        public View getViewBase() {
-            return baseView;
-        }
 
-        public LinearLayout getWrapView(int resource) {
+
+        public LinearLayout getWrapView() {
             if (wrapView == null) {
                 wrapView = (LinearLayout) baseView.findViewById((R.id.searchResultWrapperLayout));
             }
             return wrapView;
         }
 
-        public TextView getCarModel(int resource) {
+        public TextView getCarModel() {
             if (carModel == null) {
                 carModel = (TextView) baseView.findViewById(R.id.txtCarModel);
             }
             return carModel;
         }
 
-        public TextView getPrice(int resource) {
+        public TextView getPrice() {
             if (price == null) {
                 price = (TextView) baseView.findViewById(R.id.txtCarPrice);
             }
             return price;
         }
 
-        public ImageView getImageCar(int resource) {
+        public ImageView getImageCar() {
             if (imageCar == null) {
                 imageCar = (ImageView) baseView.findViewById(R.id.imageCar);
             }
             return imageCar;
         }
 
-        public LinearLayout getAttributesContainer(int resource) {
+        public LinearLayout getAttributesContainer() {
             if (attributesContainer == null) {
                 attributesContainer = (LinearLayout) baseView
                         .findViewById(R.id.searchResultAttributesContainer);

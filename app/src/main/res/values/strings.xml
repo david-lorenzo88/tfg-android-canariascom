@@ -466,5 +466,9 @@
     <string name="remove_selected_car_dialog_title">Eliminar el coche seleccionado</string>
     <string name="remove_selected_car_dialog_msg">Se eliminará el coche seleccionado. La búsqueda se realizará para todos los coches disponibles.</string>
     <string name="cancel">Cancelar</string>
+    <string name="vuelo">Vuelo</string>
+    <string name="downloading_cars_msg">Actualizando la base de datos de coches.</string>
+    <string name="downloading_offices_msg">Actualizando la base de datos de oficinas.</string>
+    <string name="default_zone">-- Selecciona una zona --</string>
 
 </resources>

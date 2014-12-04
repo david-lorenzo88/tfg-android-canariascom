@@ -20,6 +20,9 @@ import com.canarias.rentacar.model.webservice.Response;
 import java.sql.SQLException;
 import java.util.Locale;
 
+/**
+ * Tarea en segundo plano que realiza la cancelación de una reserva
+ */
 public class CancelReservationAsyncTask extends
         AsyncTask<Void, Void, String> {
     String resId;
@@ -38,18 +41,24 @@ public class CancelReservationAsyncTask extends
         this.statusImRef = statusIcon;
     }
 
+    /**
+     * Metodo que se ejecuta en segundo plano y realiza la cancelación de la reserva
+     * @param params Void
+     * @return Resultado
+     */
     @Override
     protected String doInBackground(Void... params) {
-        // TODO Auto-generated method stub
+        //Realizamos la cancelación de la reserva al servicio web
         WebServiceController wsc = new WebServiceController(
         );
         Response result = wsc.cancelReservation(resId);
 
+        //Comprobamos si el tipo devuelto es de tipo CancelReservationResponse
         if (result != null && result.getClass().equals(CancelReservationResponse.class)) {
 
             CancelReservationResponse resp = (CancelReservationResponse) result;
 
-            //Update Reservation Status
+            //Actualizamos el estado de la reserva en la base de datos local
             ReservationDataSource ds = new ReservationDataSource(context);
             try {
                 ds.open();
@@ -60,9 +69,10 @@ public class CancelReservationAsyncTask extends
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-
+            //Devolvemos el estado devuelto
             return resp.getStatus();
         } else {
+            //Manejamos el error
             if (result != null && result.getClass().equals(ErrorResponse.class)) {
                 error = (ErrorResponse) result;
             }
@@ -70,13 +80,20 @@ public class CancelReservationAsyncTask extends
         }
     }
 
+    /**
+     * Ejecutado al finalizar el doInBackground().
+     * Actualiza la interfaz gráfica mostrando el resultado
+     * @param result Resultado generado por el doInBackground()
+     */
     protected void onPostExecute(String result) {
 
+        //Cerramos el diálogo que inició el onPreExecute()
         progress.dismiss();
+
         if (result != null) {
-            //Cancel OK
+            //Cancelación OK
 
-
+            //Mostramos diálogo con mensaje
             loadingDialog = new AlertDialog.Builder(context).create();
 
             loadingDialog.setTitle(context.getString(R.string.cancel_reservation));
@@ -98,6 +115,8 @@ public class CancelReservationAsyncTask extends
 
             loadingDialog.show();
 
+            //Cambiamos el icono y mensaje de estado en la interfaz de detalle de la reserva
+            //que actualmente se está mostrando por detrás del diálogo
             if (statusTvRef != null) {
                 String sStatus = result.replace("&nbsp;", " ").substring(0, 10);
                 try {
@@ -116,8 +135,8 @@ public class CancelReservationAsyncTask extends
 
 
         } else {
-            //Error
-            //Check for error
+            //Error cancelando la reserva
+            //Mostramos diálogo con error
 
 
             loadingDialog = new AlertDialog.Builder(context).create();
@@ -146,6 +165,11 @@ public class CancelReservationAsyncTask extends
         }
     }
 
+    /**
+     * Ejecutado antes de comenzar el doInBackground()
+     * Mostramos un diálogo indicando que se está cancelando
+     * la reserva.
+     */
     protected void onPreExecute() {
 
         progress = new ProgressDialog(context);

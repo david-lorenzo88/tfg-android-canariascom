@@ -7,7 +7,10 @@ import org.simpleframework.xml.Root;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;
-
+/**
+ * Modelo que define un resultado de búsqueda. Se anotan los atributos para
+ * parsearlos desde el XML
+ */
 @Root(name = "car")
 public class SearchResult {
 

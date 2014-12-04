@@ -22,6 +22,9 @@ import android.util.AttributeSet;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.ViewAnimator;
 
+/**
+ * Clase usada por el calendario
+ */
 public class AccessibleDateAnimator extends ViewAnimator {
 
     private long mDateMillis;

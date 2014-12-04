@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * Created by David on 30/10/2014.
+ * Adapter que gestiona la lista de reservas
  */
 public class ReservationListAdapter extends ArrayAdapter<Reservation> {
 
@@ -37,13 +38,19 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
         this.resList = listItems;
         this.layoutResID = layoutResourceID;
     }
-
+    //Establece el ítem seleccionado
     public void setSelectedIndex(int ind)
     {
         selectedIndex = ind;
         notifyDataSetChanged();
     }
-
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ReservationItemHolder drawerHolder;
@@ -85,11 +92,12 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
 
         }
 
-        Reservation dItem = (Reservation) this.resList.get(position);
+        Reservation dItem = this.resList.get(position);
 
         drawerHolder.model.setText(Utils.trimStringToMaxSize(dItem.getCar().getModel(), 23));
         drawerHolder.price.setText(String.format("%.02f", dItem.getPrice().getAmount()) + "€");
 
+        //Contamos el número de extras que tiene la reserva
         int extrasCount = 0;
         Iterator<Extra> it = dItem.getExtras().iterator();
 
@@ -98,16 +106,19 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
         }
         drawerHolder.extras.setText(extrasCount + " " + context.getString(R.string.extras));
 
-        //fecha
+        //Formateamos las fechas de recogida y devolución
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yy");
         String dateText = sdf.format(dItem.getStartDate()) + " - " + sdf.format(dItem.getEndDate());
         drawerHolder.date.setText(dateText);
 
-        drawerHolder.statusIcon.setImageDrawable(context.getResources().getDrawable(getStatusIconDrawableId(dItem.getState())));
-
+        drawerHolder.statusIcon.setImageDrawable(
+                context.getResources().getDrawable(getStatusIconDrawableId(dItem.getState())));
 
         drawerHolder.localizer.setText(dItem.getLocalizer());
 
+        //Establecemos el color de fondo si el ítem es seleccionado
+        //Controlamos la versión del SDK en ejecución para
+        //hacerlo siempre de forma compatible.
         if(selectedIndex!= -1 && position == selectedIndex)
         {
             view.setSelected(true);
@@ -131,6 +142,11 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
         return view;
     }
 
+    /**
+     * Establece el icono según el estado de la reserva
+     * @param state Estado de la reserva
+     * @return el identificador del recurso del icono a mostrar
+     */
     private int getStatusIconDrawableId(String state) {
         if (state.toLowerCase().contains("confirm")) {
             return R.drawable.ic_done_black_48dp;
@@ -140,7 +156,11 @@ public class ReservationListAdapter extends ArrayAdapter<Reservation> {
             return R.drawable.ic_cancel_black_48dp;
         }
     }
-
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private static class ReservationItemHolder {
         TextView model;
         TextView date;

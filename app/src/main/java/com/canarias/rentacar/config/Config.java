@@ -5,9 +5,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Clase Final que define algunos parámetros de configuración
+ * usados en el resto de la aplicación, así como las claves usadas
+ * para transferir los datos entre fragments y activities.
+ */
 public final class Config {
 
-
+    //Claves
     public static final String ARG_AVAILABILITY_IDENTIFIER = "availability_identifier";
     public static final String ARG_PICKUP_ZONE = "pickup_zone";
     public static final String ARG_PICKUP_POINT = "pickup_point";
@@ -39,21 +44,37 @@ public final class Config {
     public static final String ARG_DROPOFF_TIME_LAYOUT_STATE = "dropoff_time_layout_state";
     public static final java.lang.String ARG_OPEN_CANCEL_DIALOG = "open_cancel_dialog";
     public static final String ARG_SELECTED_CAR = "selected_car";
-    public static String WEBSERVICE_PATH = "http://rentacar.canarias.com/CarHireXML_android.asp";
+
+    //URL del Servicio Web
+    public static String WEBSERVICE_PATH = "https://rentacar.canarias.com/CarHireXML_android.asp";
+    //Código de Agente en el sistema de Canarias.com
     public static String AGENCY_CODE = "4O7GMLV8J1";
+    //Contraseña de Agente en el sistema de Canarias.com
     public static String AGENCY_PASS = "tenerife2";
+    //Código de Moneda
     public static String CURRENCY = "EUR";
+    //Idioma por defecto
     public static String DEFAULT_LANGUAGE = "en";
-    public static int SUMMARY_TEXT_CAR_MODEL_MAX_SIZE = 20;
+    //Porcentaje de Impuesto
     public static float TAX = 13.5F;
+    //Días para volver a sincronizar el contenido de vehículos y zonas
     public static int DAYS_TO_SYNC_CONTENT = 30;
-
+    //Latitud por defecto para situar el mapa
     public static double DEFAULT_LAT = 28.267417;
+    //Longitud por defecto para situar el mapa
     public static double DEFAULT_LNG = -16.607208;
-
-    public static int HTTP_TIMEOUT = 10000;
+    //Tiempo límite para las conexiones HTTP
+    public static int HTTP_TIMEOUT = 20000;
+    //Habilitar el uso del tiempo límite en las conexiones HTTP
     public static boolean ENABLE_HTTP_TIMEOUT = true;
 
+
+    /**
+     * Devuelve el código de idioma soportado por el sistema de Canarias.com
+     * @param lang idioma de la aplicación
+     * @return el código de idioma del servicio web correspondiente al
+     * codigo de idioma de la aplicacion
+     */
     public final static String getLanguageCode(String lang) {
         List<String> supportedLangs =
                 new ArrayList<String>(Arrays.asList("es", "en", "fr", "de", "it", "ru"));
@@ -65,6 +86,8 @@ public final class Config {
         return DEFAULT_LANGUAGE;
     }
 
+    //Traducción de la palabra 'Sí' en los idiomas soportados
+    //por el servicio web.
     public static HashMap<String, String> yesTranslations;
 
     static {

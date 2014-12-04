@@ -11,7 +11,9 @@ import org.simpleframework.xml.Root;
 import java.util.ArrayList;
 
 /**
- * Created by David on 03/09/2014.
+ * Created by David on 03/11/2014.
+ * Clase para deserializar la respuesta de disponibilidad.
+ * Se anotan los atributos para parsearlos desde el XML
  */
 @Root
 public class AvailabilityResponse extends Response {
@@ -32,7 +34,7 @@ public class AvailabilityResponse extends Response {
     @ElementList
     private ArrayList<Extra> extras;
 
-    @ElementList(inline = true, entry = "car")
+    @ElementList(inline = true, entry = "car", required = false)
     private ArrayList<SearchResult> cars;
 
     public Office getDeliveryOffice() {

@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 11/08/2014.
+ * Created by David on 11/10/2014.
+ * Data Source para persistir las características de los coches
  */
 public class AttributeDataSource {
 
@@ -35,6 +36,11 @@ public class AttributeDataSource {
         dbHelper.close();
     }
 
+    /**
+     * Inserta un atributo
+     * @param att el atributo
+     * @return el resultado de la inserción
+     */
     public long insert(CarAttribute att) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_NAME, att.getName());
@@ -60,6 +66,11 @@ public class AttributeDataSource {
 
     }
 
+    /**
+     * Elimina un atributo
+     * @param att el atributo
+     * @return el resultado del borrado
+     */
     public int delete(CarAttribute att) {
         String carModel = att.getCarModel();
         String name = att.getName();
@@ -69,6 +80,12 @@ public class AttributeDataSource {
                 new String[]{name, carModel});
     }
 
+    /**
+     * Obtiene un atributo a partir de su nombre y modelo de coche asociado
+     * @param name Nombre
+     * @param carModel El coche asociado
+     * @return el atributo
+     */
     public CarAttribute getAttribute(String name, String carModel) {
         CarAttribute att = null;
 
@@ -85,6 +102,11 @@ public class AttributeDataSource {
         return att;
     }
 
+    /**
+     * Obtiene los atributos de un modelo específico
+     * @param carModel el modelo
+     * @return La lista de Atributos
+     */
     public List<CarAttribute> getCarAttributes(String carModel) {
         List<CarAttribute> atts = new ArrayList<CarAttribute>();
 
@@ -102,6 +124,11 @@ public class AttributeDataSource {
         return atts;
     }
 
+    /**
+     * Transforma un cursor a un atributo
+     * @param cursor el cursor
+     * @return el atributo
+     */
     private CarAttribute cursorToAttribute(Cursor cursor) {
         CarAttribute att = new CarAttribute();
         att.setName(cursor.getString(0));

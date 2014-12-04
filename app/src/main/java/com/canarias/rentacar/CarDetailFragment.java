@@ -212,10 +212,7 @@ public class CarDetailFragment extends Fragment {
                 }
             }
 
-            /*attributes.setAdapter(new CarAttributeAdapter(
-                    getActivity(),
-                    R.layout.fragment_car_detail_attribute,
-                    car.getAttributes()));*/
+
 
         }
         // Show the dummy content as text in a TextView.
@@ -232,7 +229,7 @@ public class CarDetailFragment extends Fragment {
             getActivity().getActionBar().setDisplayShowHomeEnabled(false);
 
 
-            ((ObservableScrollView) rootView.findViewById(R.id.car_detail_container))
+            ((ObservableScrollView) rootView.findViewById(R.id.car_detail_container_inner))
                     .setOnScrollChangedListener(mOnScrollChangedListener);
 
             //Fix for pre-JELLY_BEAN_MR1 devices

@@ -1,13 +1,11 @@
 package com.canarias.rentacar.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
@@ -15,17 +13,19 @@ import com.canarias.rentacar.R;
 import com.canarias.rentacar.model.Extra;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by David on 26/10/2014.
+ * Adapter que gestiona las listas de extras
  */
 public class ExtrasAdapter extends ArrayAdapter<Extra> {
     private int resource;
     private LayoutInflater inflater;
     private Context context;
 
+    //HashMap que almacena la cantidad de cada extra seleccionada
+    //en el momento
     private HashMap<Integer, Integer> extrasQuantity;
 
 
@@ -35,8 +35,8 @@ public class ExtrasAdapter extends ArrayAdapter<Extra> {
 
         this.extrasQuantity = new HashMap<Integer, Integer>();
 
+        //Inicializamos el HashMap con la cantidad de cada extra
         for (Extra e : objects) {
-            Log.v("TEST_EXTRA", e.getCode() + " " + e.getName());
 
             if (!extrasQuantity.containsKey(e.getCode())) {
                 extrasQuantity.put(e.getCode(), e.getQuantity());
@@ -52,79 +52,87 @@ public class ExtrasAdapter extends ArrayAdapter<Extra> {
 
     }
 
+    /**
+     * Getter
+     * @return el HashMap de la cantidad de extras seleccionada
+     */
     public HashMap<Integer, Integer> getExtrasQuantity() {
         return extrasQuantity;
     }
 
-
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         final Extra extra = getItem(position);
 
-        Log.v("TEST2", extra.getName());
-        Log.v("TEST2", String.valueOf(extra.getPrice()));
-        Log.v("TEST2", String.valueOf(extra.getCode()));
-        Log.v("TEST2", String.valueOf(extra.getModelCode()));
-
         ExtraViewCache viewCache;
 
         if (convertView == null) {
-            convertView = (LinearLayout) inflater.inflate(resource, null);
+            convertView = inflater.inflate(resource, null);
             viewCache = new ExtraViewCache(convertView);
             convertView.setTag(viewCache);
 
-            //Init Listeners and HashMaps
+            //Inicializamos la cantidad de extras seleccionados si aún no se ha hecho
             if (!extrasQuantity.containsKey(extra.getCode())) {
                 extrasQuantity.put(extra.getCode(), extra.getQuantity());
             }
 
-
-            NumberPicker numPicker = viewCache.getExtraNumber(resource);
+            //Establecemos un listener en el NumberPicker para que actualice la cantidad
+            //de extras seleccionados cada vez que se produzca un evento de cambio de valor
+            NumberPicker numPicker = viewCache.getExtraNumber();
             numPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                 @Override
                 public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                     extrasQuantity.put(Integer.parseInt(picker.getTag().toString()), newVal);
-                    printMap();
+
                 }
             });
         } else {
-            convertView = (LinearLayout) convertView;
+
             viewCache = (ExtraViewCache) convertView.getTag();
         }
 
-        ImageView extraIcon = viewCache.getExtraIcon(resource);
+
+        ImageView extraIcon = viewCache.getExtraIcon();
         if (Extra.extraIcons.containsKey(String.valueOf(extra.getModelCode()))) {
-            //Set icon from mapping
+            //Establecemos el icono personalizado para este extra
             extraIcon.setImageDrawable(context.getResources()
                     .getDrawable(Extra.extraIcons.get(String.valueOf(extra.getModelCode()))));
         } else {
-            //Set default icon
+            //Establecemos el icono por defecto
             extraIcon.setImageDrawable(context.getResources()
                     .getDrawable(R.drawable.ic_action_new));
         }
 
-        TextView extraName = viewCache.getExtraName(resource);
+        TextView extraName = viewCache.getExtraName();
         extraName.setText(extra.getName());
 
-        TextView extraPrice = viewCache.getExtraPrice(resource);
+        //Establecemos el tipo de precio para el extra (Por día, Por alquiler)
+        TextView extraPrice = viewCache.getExtraPrice();
         if (Extra.extraPriceType.containsKey(String.valueOf(extra.getModelCode()))) {
-            //Set text
+
             extraPrice.setText(
                     String.format("%.02f", extra.getPrice()) + "€ / " + context.getString(
                             Extra.extraPriceType.get(String.valueOf(extra.getModelCode())).equals(Extra.PriceType.DAILY) ? R.string.priceTypeDaily : R.string.priceTypeTotal));
         } else {
-            //Set default text
+
             extraPrice.setText(
                     String.format("%.02f", extra.getPrice()) + "€ / " + context.getString(R.string.priceTypeTotal));
         }
-        NumberPicker extraNumber = viewCache.getExtraNumber(resource);
+        //Inicializamos el NumberPicker
+        NumberPicker extraNumber = viewCache.getExtraNumber();
         extraNumber.setMaxValue(9);
         extraNumber.setMinValue(0);
         extraNumber.setWrapSelectorWheel(false);
         extraNumber.setTag(extra.getCode());
-        if (extra != null && extrasQuantity.containsKey(extra.getCode())) {
-            Log.v("KEYS", String.valueOf(extra.getCode()));
+        if (extrasQuantity.containsKey(extra.getCode())) {
             extraNumber.setValue(extrasQuantity.get(extra.getCode()));
         } else {
             extraNumber.setValue(0);
@@ -133,15 +141,13 @@ public class ExtrasAdapter extends ArrayAdapter<Extra> {
         return convertView;
     }
 
-    private void printMap() {
-        Iterator<Integer> it = extrasQuantity.keySet().iterator();
-        while (it.hasNext()) {
-            Integer c = it.next();
-            Log.v("KEYS", c.toString() + " - " + extrasQuantity.get(c).toString());
-        }
-    }
 
 
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private class ExtraViewCache {
 
         private ImageView extraIcon;
@@ -155,32 +161,30 @@ public class ExtrasAdapter extends ArrayAdapter<Extra> {
             this.baseView = baseView;
         }
 
-        public View getViewBase() {
-            return baseView;
-        }
 
-        public ImageView getExtraIcon(int resource) {
+
+        public ImageView getExtraIcon() {
             if (extraIcon == null) {
                 extraIcon = (ImageView) baseView.findViewById(R.id.extraIcon);
             }
             return extraIcon;
         }
 
-        public TextView getExtraName(int resource) {
+        public TextView getExtraName() {
             if (extraName == null) {
                 extraName = (TextView) baseView.findViewById(R.id.extraName);
             }
             return extraName;
         }
 
-        public TextView getExtraPrice(int resource) {
+        public TextView getExtraPrice() {
             if (extraPrice == null) {
                 extraPrice = (TextView) baseView.findViewById(R.id.extraPrice);
             }
             return extraPrice;
         }
 
-        public NumberPicker getExtraNumber(int resource) {
+        public NumberPicker getExtraNumber() {
             if (extraNumber == null) {
                 extraNumber = (NumberPicker) baseView.findViewById(R.id.extraSelector);
             }

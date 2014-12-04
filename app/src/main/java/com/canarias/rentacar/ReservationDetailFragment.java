@@ -296,7 +296,10 @@ public class ReservationDetailFragment extends Fragment {
         sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
         lblPickupPoint.setText(mItem.getDeliveryOffice().getName()
-                + " (" + mItem.getDeliveryOffice().getZone().getName() + ")");
+                + " (" + mItem.getDeliveryOffice().getZone().getName() + ")" +
+                (mItem.getFlightNumber() != null && !mItem.getFlightNumber().isEmpty() ?
+                        " - ("+getString(R.string.vuelo) + ": "+mItem.getFlightNumber() + ")" :
+                        ""));
         lblDropoffPoint.setText(mItem.getReturnOffice().getName()
                 + " (" + mItem.getReturnOffice().getZone().getName() + ")");
         lblPickupDateTime.setText(
@@ -323,7 +326,9 @@ public class ReservationDetailFragment extends Fragment {
         menu.clear();
         inflater.inflate(R.menu.reservation_detail, menu);
 
-        if(mItem != null && mItem.getState().toLowerCase().contains("cancel")){
+        if(mItem != null &&
+                (mItem.getState().toLowerCase().contains("cancel")
+                        || mItem.getStartDate().compareTo(new Date()) < 0)){
             menu.removeItem(R.id.action_cancel_reservation);
             menu.removeItem(R.id.action_update_reservation);
         }

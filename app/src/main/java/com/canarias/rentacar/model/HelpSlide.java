@@ -1,7 +1,7 @@
 package com.canarias.rentacar.model;
 
 /**
- * Created by David on 11/11/2014.
+ * Modelo que define un slide de la pantalla de ayuda.
  */
 public class HelpSlide {
 

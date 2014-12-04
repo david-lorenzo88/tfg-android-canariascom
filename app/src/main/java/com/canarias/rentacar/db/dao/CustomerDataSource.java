@@ -14,7 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by David on 02/09/2014.
+ * Created by David on 11/10/2014.
+ * DataSource para gestionar la persistencia de los datos de los clientes
  */
 public class CustomerDataSource {
 
@@ -37,6 +38,12 @@ public class CustomerDataSource {
         dbHelper.close();
     }
 
+    /**
+     * Inserta un cliente
+     * @param cust el cliente
+     * @param reservationCode el codigo de reserva asociado al cliente
+     * @return el resultado de la inserción
+     */
     public long insert(Customer cust, String reservationCode) {
         ContentValues values = new ContentValues();
 
@@ -55,6 +62,12 @@ public class CustomerDataSource {
 
     }
 
+    /**
+     * Actualiza los datos de un cliente
+     * @param cust el cliente
+     * @param reservationCode el codigo de reserva asociado al cliente
+     * @return el resultado de la actualización
+     */
     public int update(Customer cust, String reservationCode){
         ContentValues values = new ContentValues();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -72,6 +85,11 @@ public class CustomerDataSource {
                 new String[]{cust.getEmail(), reservationCode});
     }
 
+    /**
+     * Elimina un cliente
+     * @param cust el cliente
+     * @return el resultado de la eliminación
+     */
     public int delete(Customer cust) {
         String email = cust.getEmail();
 
@@ -80,6 +98,12 @@ public class CustomerDataSource {
                 + " = ?", new String[]{email});
     }
 
+    /**
+     * Obtiene un cliente a partir de su email y el código de la reserva
+     * @param email el email
+     * @param reservationCode el codigo de reserva asociado al cliente
+     * @return el cliente
+     */
     public Customer getCustomer(String email, String reservationCode) {
         Customer cust = null;
 
@@ -99,6 +123,11 @@ public class CustomerDataSource {
         return cust;
     }
 
+    /**
+     * Convierte un cursor en un cliente
+     * @param cursor el cursor
+     * @return el cliente
+     */
     private Customer cursorToCustomer(Cursor cursor) {
         Customer cust = new Customer();
         cust.setEmail(cursor.getString(0));

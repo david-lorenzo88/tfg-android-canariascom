@@ -1,7 +1,8 @@
 package com.canarias.rentacar.adapters;
 
 /**
- * Created by David on 05/09/2014.
+ * Created by David on 05/11/2014.
+ * Adapter que gestiona los items del menú principal NavigationDrawer
  */
 
 import android.app.Activity;
@@ -32,7 +33,13 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
         this.layoutResID = layoutResourceID;
 
     }
-
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
@@ -56,7 +63,7 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
 
         }
 
-        DrawerItem dItem = (DrawerItem) this.drawerItemList.get(position);
+        DrawerItem dItem = this.drawerItemList.get(position);
 
         drawerHolder.icon.setImageDrawable(view.getResources().getDrawable(
                 dItem.getImgResID()));
@@ -64,7 +71,11 @@ public class DrawerAdapter extends ArrayAdapter<DrawerItem> {
 
         return view;
     }
-
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private static class DrawerItemHolder {
         TextView ItemName;
         ImageView icon;

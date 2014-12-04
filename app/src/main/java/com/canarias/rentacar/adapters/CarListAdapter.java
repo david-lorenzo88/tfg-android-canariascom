@@ -3,38 +3,44 @@ package com.canarias.rentacar.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.canarias.rentacar.CarListFragment;
-import com.canarias.rentacar.OfficeListFragment;
 import com.canarias.rentacar.R;
 import com.canarias.rentacar.async.ImageDownloader;
 import com.canarias.rentacar.model.Car;
-import com.canarias.rentacar.model.Office;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 05/09/2014.
+ * Created by David on 05/11/2014.
+ * Adapter que gestiona las lista de vehículos que se
+ * muestran en la aplicación.
+ * Implementa la intefaz Filterable para permitir el filtrado de la lista
+ * de items.
  */
-public class CarListAdapter extends ArrayAdapter<Car> {
+public class CarListAdapter extends ArrayAdapter<Car> implements Filterable {
 
+    //Módulo para descargar imágenes
     private final ImageDownloader imageDownloader;
     Context context;
+    //Lista original
     List<Car> carItemList;
+    //Lista filtrada
     List<Car> filteredData;
     int layoutResID;
     private int selectedIndex = -1;
+    //Filtrador
     private ItemFilter mFilter = new ItemFilter();
+
 
     public CarListAdapter(Context context, int layoutResourceID,
                           List<Car> listItems) {
@@ -45,13 +51,13 @@ public class CarListAdapter extends ArrayAdapter<Car> {
         this.filteredData = listItems;
         imageDownloader = new ImageDownloader(99999, context);
 
-        Log.v("CAR", "CarListAdapter Creation "+listItems.size());
+
     }
 
+    //Establece el ítem seleccionado
     public void setSelectedIndex(int ind)
     {
         selectedIndex = ind;
-        Log.v("ADAPTER", "selectedIndex SETTER = " + selectedIndex);
         notifyDataSetChanged();
     }
 
@@ -70,6 +76,13 @@ public class CarListAdapter extends ArrayAdapter<Car> {
         return mFilter;
     }
 
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
@@ -77,6 +90,8 @@ public class CarListAdapter extends ArrayAdapter<Car> {
         CarItemHolder drawerHolder;
         View view = convertView;
 
+        //Reciclamos la vista si ya ha sido usada para evitar errores
+        //de OutOfMemory
         if (view == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             drawerHolder = new CarItemHolder();
@@ -97,18 +112,20 @@ public class CarListAdapter extends ArrayAdapter<Car> {
 
         }
 
+        //Obtenemos el ítem de la lista filtrada
         Car dItem = this.filteredData.get(position);
 
+        //Descargamos la imagen
         imageDownloader.download(dItem.getImageUrl()
                 .replaceAll(" ", "%20"), drawerHolder.image);
-        //drawerHolder.icon.setImageDrawable(view.getResources().getDrawable(
-        //        dItem.getImageUrl()));
-        drawerHolder.model.setText(dItem.getModel());
 
+        drawerHolder.model.setText(dItem.getModel());
         drawerHolder.category.setText(dItem.getCategory());
         drawerHolder.group.setText(dItem.getGroup());
 
-
+        //Establecemos el color de fondo si el ítem es seleccionado
+        //Controlamos la versión del SDK en ejecución para
+        //hacerlo siempre de forma compatible.
         if(selectedIndex!= -1 && position == selectedIndex)
         {
             view.setSelected(true);
@@ -131,13 +148,17 @@ public class CarListAdapter extends ArrayAdapter<Car> {
         return view;
     }
 
+    //Clase Helper para filtrar la lista de coches
     private class ItemFilter extends Filter {
+        /**
+         * Método que realiza el filtrado
+         * @param constraint restricción para filtrar la lista
+         * @return Resultados del filtrado
+         */
         @Override
         protected Filter.FilterResults performFiltering(CharSequence constraint) {
 
             String filterString = constraint.toString();
-            Log.v("CAR", "Filtering... "+filterString);
-
             FilterResults results = new FilterResults();
 
             final List<Car> list = carItemList;
@@ -169,6 +190,11 @@ public class CarListAdapter extends ArrayAdapter<Car> {
             return results;
         }
 
+        /**
+         * Callback Ejecutado al finalizar el filtrado para publicar los resultados
+         * @param constraint restricción de filtrado
+         * @param results resultados del filtrado
+         */
         @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
@@ -179,6 +205,11 @@ public class CarListAdapter extends ArrayAdapter<Car> {
 
     }
 
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private static class CarItemHolder {
         TextView model;
         ImageView image;

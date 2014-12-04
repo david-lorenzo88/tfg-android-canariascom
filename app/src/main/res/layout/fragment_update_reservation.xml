@@ -301,17 +301,21 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"></LinearLayout>
 
+
+
+
             </LinearLayout>
+            <Button
+                android:id="@+id/btnUpdateBooking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:text="@string/updateReservation"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_margin="10dp" />
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnUpdateBooking"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button_bg"
-        android:text="@string/updateReservation"
-        android:textColor="@color/white"
-        android:textStyle="bold" />
+
 </LinearLayout>

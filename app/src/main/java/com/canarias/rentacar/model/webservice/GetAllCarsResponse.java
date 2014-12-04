@@ -15,7 +15,10 @@ import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
 
-
+/**
+ * Clase para deserializar la respuesta de descarga de vehículos.
+ * Se anotan los atributos para parsearlos desde el XML
+ */
 @Root
 public class GetAllCarsResponse extends Response {
     @ElementList

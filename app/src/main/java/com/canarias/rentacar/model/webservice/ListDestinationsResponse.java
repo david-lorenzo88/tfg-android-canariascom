@@ -8,7 +8,9 @@ import org.simpleframework.xml.Root;
 import java.util.ArrayList;
 
 /**
- * Created by David on 03/09/2014.
+ * Created by David on 03/11/2014.
+ * Clase para deserializar la respuesta de descarga de oficinas.
+ * Se anotan los atributos para parsearlos desde el XML
  */
 @Root
 public class ListDestinationsResponse extends Response {

@@ -193,7 +193,7 @@ public class OfficeDetailFragment extends Fragment {
                 getActivity().getActionBar().setDisplayShowTitleEnabled(false);
                 getActivity().getActionBar().setDisplayShowHomeEnabled(false);
 
-                ((ObservableScrollView) rootView.findViewById(R.id.office_detail_container))
+                ((ObservableScrollView) rootView.findViewById(R.id.office_detail_container_inner))
                         .setOnScrollChangedListener(mOnScrollChangedListener);
 
                 //Fix for pre-JELLY_BEAN_MR1 devices

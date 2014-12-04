@@ -12,6 +12,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Modelo que define un coche. Se anotan los atributos para
+ * parsearlos desde el XML
+ */
 @Root
 public class Car {
     private static HashMap<String, String> modelTranslations;

@@ -6,22 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.canarias.rentacar.R;
-import com.canarias.rentacar.model.Extra;
 import com.canarias.rentacar.model.HelpSlide;
-import com.canarias.rentacar.model.Office;
-import com.canarias.rentacar.model.Reservation;
-import com.canarias.rentacar.utils.Utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by David on 30/10/2014.
+ * Adapter que gestiona las listas de items en la pantalla
+ * Temas de Ayuda (HelpListFragment)
  */
 public class HelpListAdapter extends ArrayAdapter<HelpSlide> {
 
@@ -36,7 +31,13 @@ public class HelpListAdapter extends ArrayAdapter<HelpSlide> {
         this.list = listItems;
         this.layoutResID = layoutResourceID;
     }
-
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemHolder drawerHolder;
@@ -69,7 +70,11 @@ public class HelpListAdapter extends ArrayAdapter<HelpSlide> {
     }
 
 
-
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private static class ItemHolder {
         TextView title;
         TextView subtitle;

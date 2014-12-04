@@ -15,7 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 02/09/2014.
+ * Created by David on 11/10/2014.
+ * DataSource para gestionar la persistencia de las oficinas
  */
 public class OfficeDataSource {
     private static final String TAG = "OfficeDataSource";
@@ -42,6 +43,11 @@ public class OfficeDataSource {
         dbHelper.close();
     }
 
+    /**
+     * Inserta una oficina
+     * @param office la oficina
+     * @return el resultado de la inserción
+     */
     public long insert(Office office) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_OFFICECODE, office.getCode());
@@ -69,6 +75,11 @@ public class OfficeDataSource {
 
     }
 
+    /**
+     * Elimina una oficina
+     * @param office la oficina
+     * @return el resultado del borrado
+     */
     public int delete(Office office) {
         String code = office.getCode();
 
@@ -77,8 +88,13 @@ public class OfficeDataSource {
                 + " = ?", new String[]{code});
     }
 
-    //Permitimos el paso de un parametro para sacar las oficinas de una zona
-    //O si quieremos sacarlas todas pasamos 'null' como parámetro.
+    /**
+     * Obtiene las oficinas
+     * Permitimos el paso de un parametro para sacar las oficinas de una zona
+     * O si quieremos sacarlas todas pasamos 'null' como parámetro.
+     * @param zoneCode el codigo de zona
+     * @return el listado de oficinas
+     */
     public List<Office> getOffices(String zoneCode) {
         List<Office> offices = new ArrayList<Office>();
 
@@ -107,13 +123,18 @@ public class OfficeDataSource {
 
         if (zoneDAO != null) {
             zoneDAO.close();
-            zoneDAO = null;
+
         }
 
         cursor.close();
         return offices;
     }
 
+    /**
+     * Obtiene una oficina a partir de su codigo
+     * @param code el codigo de la oficina
+     * @return la oficina
+     */
     public Office getOffice(String code) {
         Office office = null;
 
@@ -142,13 +163,18 @@ public class OfficeDataSource {
 
         if (zoneDAO != null) {
             zoneDAO.close();
-            zoneDAO = null;
+
         }
 
         cursor.close();
         return office;
     }
 
+    /**
+     * Convierte un cursor en una oficina
+     * @param cursor el cursor
+     * @return la oficina
+     */
     private Office cursorToOffice(Cursor cursor) {
         Office office = new Office();
         office.setCode(cursor.getString(0));

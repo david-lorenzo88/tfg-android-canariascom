@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 02/09/2014.
+ * Created by David on 11/10/2014.
+ * DataSource para manejar la persistencia de los extras
  */
 public class ExtraDataSource {
 
@@ -36,6 +37,11 @@ public class ExtraDataSource {
         dbHelper.close();
     }
 
+    /**
+     * Inserta un extra
+     * @param extra el extra
+     * @return el resultado de la inserción
+     */
     public long insert(Extra extra) {
         ContentValues values = new ContentValues();
 
@@ -51,17 +57,32 @@ public class ExtraDataSource {
                 values);
     }
 
+    /**
+     * Elimina un extra
+     * @param extra el extra
+     * @return el resultado del borrado
+     */
     public int delete(Extra extra) {
         return database.delete(DBHelper.TABLE_EXTRA, DBHelper.COLUMN_EXTRACODE
                         + " = " + extra.getCode() + " AND " + DBHelper.COLUMN_RESERVATION + " = ?",
                 new String[]{extra.getReservationCode()});
     }
 
+    /**
+     * Elimina los extras de una reserva
+     * @param locata el localizador de la reserva
+     * @return el resultado del borrado
+     */
     public int deleteExtrasFromReservation(String locata) {
         return database.delete(DBHelper.TABLE_EXTRA, DBHelper.COLUMN_RESERVATION + " = ?",
                 new String[]{locata});
     }
 
+    /**
+     * Obtiene los extras de una reserva
+     * @param localizer el localizador de la reserva
+     * @return la lista de extras de esa reserva
+     */
     public List<Extra> getReservationExtras(String localizer) {
         List<Extra> extras = new ArrayList<Extra>();
 
@@ -80,6 +101,11 @@ public class ExtraDataSource {
         return extras;
     }
 
+    /**
+     * Convierte un cursor en un extra
+     * @param cursor el cursor
+     * @return el extra
+     */
     private Extra cursorToExtra(Cursor cursor) {
         Extra e = new Extra();
         e.setCode(cursor.getInt(0));

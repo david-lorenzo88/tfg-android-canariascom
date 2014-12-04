@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 11/08/2014.
+ * Created by David on 11/10/2014.
+ * DataSource para persistir los coches
  */
 public class CarDataSource {
 
@@ -36,6 +37,11 @@ public class CarDataSource {
         dbHelper.close();
     }
 
+    /**
+     * Inserta un coche
+     * @param car el coche
+     * @return el resultado de la inserción
+     */
     public long insert(Car car) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_MODEL, car.getModel());
@@ -58,6 +64,11 @@ public class CarDataSource {
 
     }
 
+    /**
+     * Elimina un coche
+     * @param car el coche
+     * @return el resultado del borrado
+     */
     public int delete(Car car) {
         String id = car.getModel();
 
@@ -65,7 +76,10 @@ public class CarDataSource {
                 + " = ?", new String[]{id});
     }
 
-
+    /**
+     * Obtiene la lista de categorías de los coches
+     * @return la lista de categorías
+     */
     public List<String> getCarCategories() {
         List<String> categories = new ArrayList<String>();
 
@@ -82,7 +96,10 @@ public class CarDataSource {
         return categories;
     }
 
-
+    /**
+     * Obtiene todos los coches
+     * @return listado de coches
+     */
     public List<Car> getAllCars() {
         List<Car> cars = new ArrayList<Car>();
 
@@ -100,6 +117,11 @@ public class CarDataSource {
         return cars;
     }
 
+    /**
+     * Obtiene un coche a partir de su modelo
+     * @param model el modelo
+     * @return el coche
+     */
     public Car getCar(String model) {
         Car car = null;
 
@@ -117,6 +139,11 @@ public class CarDataSource {
         return car;
     }
 
+    /**
+     * Obtiene una lista de coches a partir de su categoría
+     * @param category la cateogoria
+     * @return la lista de coches perteneciente a esa categoria
+     */
     public List<Car> getCarsByCategory(String category) {
         List<Car> cars = new ArrayList<Car>();
 
@@ -138,6 +165,11 @@ public class CarDataSource {
         return cars;
     }
 
+    /**
+     * Convierte un cursor a un coche
+     * @param cursor el cursor
+     * @return el coche
+     */
     private Car cursorToCar(Cursor cursor) {
         Car car = new Car();
         car.setModel(cursor.getString(0));

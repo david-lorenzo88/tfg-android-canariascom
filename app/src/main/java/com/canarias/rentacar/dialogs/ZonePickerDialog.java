@@ -17,21 +17,25 @@ import com.canarias.rentacar.db.dao.ZoneDataSource;
 import com.canarias.rentacar.model.Office;
 import com.canarias.rentacar.model.Zone;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by David on 07/09/2014.
+ * Diálogo usado para seleccionar la oficina al realizar una búsqueda de disponibilidad
  */
 public class ZonePickerDialog extends Dialog {
 
 
-    private final static String DEFAULT_ZONE_CODE = "10";
+    private final static int DEFAULT_ZONE_CODE = -1;
 
     private Spinner selectorZone;
     private Spinner selectorOffice;
     private Button btnAccept;
     private String mTag;
+    private Context context;
 
+    //Callback usado para avisar a la activity del valor seleccionado
     private OnZoneChangedListener mCallback;
 
     private String selectedZoneCode;
@@ -48,16 +52,26 @@ public class ZonePickerDialog extends Dialog {
     public ZonePickerDialog(Context context, String tag) {
         super(context);
         mTag = tag;
+        this.context = context;
     }
-
+    /**
+     * Obtiene el callback
+     * @return el callback
+     */
     public OnZoneChangedListener getCallback() {
         return mCallback;
     }
-
+    /**
+     * Establece el callback
+     * @param mCallback el callback
+     */
     public void setCallback(OnZoneChangedListener mCallback) {
         this.mCallback = mCallback;
     }
-
+    /**
+     * Ejecutado al crear el diálogo. Inicializa la interfaz gráfica
+     * @param savedInstanceState Información de recuperación de Activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +90,14 @@ public class ZonePickerDialog extends Dialog {
             officeDS.open();
 
             final List<Zone> zones = zoneDS.getZones();
-            List<Office> offices = officeDS.getOffices(selectedZoneCode != null ? selectedZoneCode : DEFAULT_ZONE_CODE);
+            List<Office> offices = new ArrayList<Office>();
+            if(selectedZoneCode != null)
+                offices = officeDS.getOffices(selectedZoneCode);
+
+            Zone defaultZone = new Zone();
+            defaultZone.setCode(-1);
+            defaultZone.setName(context.getString(R.string.default_zone));
+            zones.add(0, defaultZone);
 
             selectorZone.setAdapter(new ArrayAdapter<Zone>(
                     getContext(),
@@ -107,20 +128,25 @@ public class ZonePickerDialog extends Dialog {
             selectorZone.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    OfficeDataSource ds = new OfficeDataSource(getContext());
-                    try {
-                        ds.open();
-                        List<Office> offices = ds.getOffices(String.valueOf(zones.get(position).getCode()));
+                    if(zones.get(position).getCode() != DEFAULT_ZONE_CODE) {
+                        OfficeDataSource ds = new OfficeDataSource(getContext());
+                        try {
+                            ds.open();
+                            List<Office> offices = ds.getOffices(String.valueOf(zones.get(position).getCode()));
 
-                        selectorOffice.setAdapter(new ArrayAdapter<Office>(
-                                getContext(),
-                                R.layout.office_spinner,
-                                R.id.office_item_name,
-                                offices
-                        ));
-                        ds.close();
-                    } catch (Exception ex) {
-                        Log.v("TEST", ex.getMessage());
+                            selectorOffice.setAdapter(new ArrayAdapter<Office>(
+                                    getContext(),
+                                    R.layout.office_spinner,
+                                    R.id.office_item_name,
+                                    offices
+                            ));
+                            selectorOffice.setVisibility(View.VISIBLE);
+                            ds.close();
+                        } catch (Exception ex) {
+                            Log.v("TEST", ex.getMessage());
+                        }
+                    } else {
+                        selectorOffice.setVisibility(View.GONE);
                     }
                 }
 
@@ -161,6 +187,10 @@ public class ZonePickerDialog extends Dialog {
                         Toast.makeText(getContext(), getContext().getString(R.string.officeValidator), Toast.LENGTH_LONG);
                         return;
                     }
+                    if(zone != null && zone.getCode() == DEFAULT_ZONE_CODE) {
+                        Toast.makeText(getContext(), getContext().getString(R.string.zoneValidator), Toast.LENGTH_LONG);
+                        return;
+                    }
 
                     callback.onZoneChanged(mTag, zone, office);
 
@@ -174,7 +204,7 @@ public class ZonePickerDialog extends Dialog {
     }
 
     /**
-     * The callback used to notify selected zone and office to source activity.
+     * El Callback usado para notificar la hora seleccionada a la Activity fuente
      */
     public interface OnZoneChangedListener {
 

@@ -7,7 +7,10 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 import java.util.HashMap;
-
+/**
+ * Modelo que define un atributo de un coche. Se anotan los atributos para
+ * parsearlos desde el XML
+ */
 @Root(name = "attribute")
 public class CarAttribute {
     public static HashMap<String, Integer> attributeIcons;

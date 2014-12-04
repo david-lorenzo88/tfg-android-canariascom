@@ -4,7 +4,10 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 import java.util.Date;
-
+/**
+ * Modelo que define un cliente. Se anotan los atributos para
+ * parsearlos desde el XML
+ */
 @Root
 public class Customer {
     @Element(name = "name")

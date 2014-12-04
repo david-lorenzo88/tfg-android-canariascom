@@ -6,10 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by David on 11/08/2014.
+ * Created by David on 11/10/2014.
+ *
+ * Clase que interactúa con la base de datos SQLite de la aplicación.
+ * Permite crearla, actualizar su esquema y obtener una referencia para realizar operaciones
+ * sobre ella.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    //Table Car
+    //Definición Tabla Car
     public static final String TABLE_CAR = "Car";
     public static final String COLUMN_MODEL = "model";
     public static final String COLUMN_GROUP = "car_group";
@@ -25,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_SIPPCODE + " text"
             + ");";
 
-    //Table CarAttribute
+    //Definición Tabla CarAttribute
     public static final String TABLE_ATTRIBUTE = "CarAttribute";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_VALUE = "value";
@@ -42,7 +46,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + ");";
 
 
-    //Table Zone
+    //Definición Tabla Zone
     public static final String TABLE_ZONE = "Zone";
     public static final String COLUMN_ZONENAME = "name";
     public static final String COLUMN_ZONECODE = "code";
@@ -52,7 +56,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + COLUMN_ZONENAME + " text not null"
             + ");";
 
-    //Table Office
+    //Definición Tabla Office
     public static final String TABLE_OFFICE = "Office";
     public static final String COLUMN_OFFICECODE = "code";
     public static final String COLUMN_OFFICENAME = "name";
@@ -79,7 +83,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + " FOREIGN KEY (" + COLUMN_ZONE + ") REFERENCES " + TABLE_ZONE + " (" + COLUMN_ZONECODE + ")"
             + ");";
 
-    //Table Customer
+    //Definición Tabla Customer
     public static final String TABLE_CUSTOMER = "Customer";
     public static final String COLUMN_CUSTOMERNAME = "name";
     public static final String COLUMN_CUSTOMERSURNAME = "surname";
@@ -100,7 +104,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + "PRIMARY KEY (" + COLUMN_CUSTOMEREMAIL + "," + COLUMN_CUSTOMERRESERVATIONCODE + ")"
             + ");";
 
-    //Table Reservation
+    //Definición Tabla Reservation
     public static final String TABLE_RESERVATION = "Reservation";
     public static final String COLUMN_LOCALIZER = "localizer";
     public static final String COLUMN_AVAILABILITYIDENTIFIER = "availability_identifier";
@@ -135,7 +139,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + ");";
 
 
-    //Table Extra
+    //Definición Tabla Extra
     public static final String TABLE_EXTRA = "Extra";
     public static final String COLUMN_EXTRACODE = "code";
     public static final String COLUMN_EXTRAMODELCODE = "model_code";
@@ -156,19 +160,22 @@ public class DBHelper extends SQLiteOpenHelper {
             + "PRIMARY KEY (" + COLUMN_EXTRACODE + "," + COLUMN_RESERVATION + "),"
             + " FOREIGN KEY (" + COLUMN_RESERVATION + ") REFERENCES " + TABLE_RESERVATION + " (" + COLUMN_LOCALIZER + ")"
             + ");";
-    // Database creation sql statement
-    private static final String DATABASE_CREATE = TABLE_CAR_CREATE
-            + TABLE_ATTRIBUTE_CREATE + TABLE_ZONE_CREATE
-            + TABLE_OFFICE_CREATE + TABLE_CUSTOMER_CREATE
-            + TABLE_RESERVATION_CREATE + TABLE_EXTRA_CREATE;
+
+    //Nombre de la base de datos
     private static final String DATABASE_NAME = "rentacarcanarias.db";
+    //Versión de la base de datos. Al incrementar este número, en la siguiente actualización
+    //de la aplicación se ejecutará el método onUpgrade
     private static final int DATABASE_VERSION = 7;
 
+    //Constructor. Recibe el contexto por parámetro
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-
+    /**
+     * Crea la base de datos. Ejecutado la primera vez que se lanza la aplicación
+     * @param db la base de datos
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -183,6 +190,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * Actualiza la base de datos. Ejecutado cada vez que se incrementa la versión.
+     * @param db la base de datos
+     * @param oldVersion antigua versión
+     * @param newVersion nueva versión
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(DBHelper.class.getName(),

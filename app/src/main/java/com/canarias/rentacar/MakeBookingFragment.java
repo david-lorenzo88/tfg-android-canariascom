@@ -376,9 +376,9 @@ public class MakeBookingFragment extends Fragment {
             comments.setText(valuecomments);
         }
 
-
+        flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
         if (!mFlightNumMandatory) {
-            flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
+
             flightNum.setVisibility(View.GONE);
         } else {
             if (valueflightNum != null) {

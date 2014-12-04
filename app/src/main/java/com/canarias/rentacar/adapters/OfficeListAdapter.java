@@ -3,39 +3,39 @@ package com.canarias.rentacar.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.canarias.rentacar.OfficeListFragment;
 import com.canarias.rentacar.R;
-import com.canarias.rentacar.model.Extra;
 import com.canarias.rentacar.model.Office;
-import com.canarias.rentacar.model.Reservation;
 import com.canarias.rentacar.utils.Utils;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * Created by David on 30/10/2014.
+ * Adapter que gestiona las listas de oficinas mostradas en la aplicación.
+ * Implementa la intefaz Filterable para permitir el filtrado de la lista
+ * de items.
  */
 public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterable {
 
     Context context;
+    //Lista original
     List<Office> resList;
+    //Lista filtrada
     List<Office> filteredData;
     int layoutResID;
     private int selectedIndex = -1;
+    //Filtrador
     private ItemFilter mFilter = new ItemFilter();
 
     public OfficeListAdapter (Context context, int layoutResourceID,
@@ -47,10 +47,10 @@ public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterabl
         this.filteredData = listItems;
     }
 
+    //Establece el ítem seleccionado
     public void setSelectedIndex(int ind)
     {
         selectedIndex = ind;
-        Log.v("ADAPTER", "selectedIndex SETTER = "+selectedIndex);
         notifyDataSetChanged();
     }
 
@@ -66,7 +66,13 @@ public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterabl
         return position;
     }
 
-
+    /**
+     * Construye la vista del item de la lista
+     * @param position posición del item
+     * @param convertView vista usada anteriormente
+     * @param parent vista padre
+     * @return la nueva vista construída
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemHolder drawerHolder;
@@ -107,8 +113,9 @@ public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterabl
         drawerHolder.address.setText(dItem.getAddress());
 
 
-        Log.v("ADAPTER", "selectedIndex = "+selectedIndex);
-        Log.v("ADAPTER", "position = "+position);
+        //Establecemos el color de fondo si el ítem es seleccionado
+        //Controlamos la versión del SDK en ejecución para
+        //hacerlo siempre de forma compatible.
         if(selectedIndex!= -1 && position == selectedIndex)
         {
             view.setSelected(true);
@@ -134,8 +141,13 @@ public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterabl
     public Filter getFilter() {
         return mFilter;
     }
-
+    //Clase Helper para filtrar la lista de oficinas
     private class ItemFilter extends Filter {
+        /**
+         * Método que realiza el filtrado
+         * @param constraint restricción para filtrar la lista
+         * @return Resultados del filtrado
+         */
         @Override
         protected Filter.FilterResults performFiltering(CharSequence constraint) {
 
@@ -171,7 +183,11 @@ public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterabl
 
             return results;
         }
-
+        /**
+         * Callback Ejecutado al finalizar el filtrado para publicar los resultados
+         * @param constraint restricción de filtrado
+         * @param results resultados del filtrado
+         */
         @SuppressWarnings("unchecked")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
@@ -182,7 +198,11 @@ public class OfficeListAdapter extends ArrayAdapter<Office> implements Filterabl
 
     }
 
-
+    /**
+     * Wrapper que se asocia a la vista de cada item de la lista
+     * para almacenar las vistas que se van a modificar
+     * en el método getView()
+     */
     private static class ItemHolder {
         TextView name;
         TextView zone;

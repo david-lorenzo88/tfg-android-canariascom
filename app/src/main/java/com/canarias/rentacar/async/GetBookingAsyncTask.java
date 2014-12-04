@@ -42,7 +42,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * Created by David on 04/11/2014.
+ * Tarea en segundo plano que realiza la descarga de una reserva desde el servicio web
+ */
 public class GetBookingAsyncTask extends
         AsyncTask<Void, Void, Reservation> {
 
@@ -53,6 +56,7 @@ public class GetBookingAsyncTask extends
     ErrorResponse error;
     AlertDialog loadingDialog;
     ProgressDialog progress;
+    //Referencia al fragmentManager
     FragmentManager fragmentManager;
 
     public GetBookingAsyncTask(Context context,
@@ -61,21 +65,28 @@ public class GetBookingAsyncTask extends
         this.context = context;
         this.fragmentManager = fragmentManager;
     }
-
+    /**
+     * Metodo que se ejecuta en segundo plano y realiza la descarga de la reserva
+     * @param params Void
+     * @return Resultado
+     */
     @Override
     protected Reservation doInBackground(Void... params) {
-        // TODO Auto-generated method stub
+        //Realizamos la descarga de la reserva desde el servicio web
         WebServiceController wsc = new WebServiceController(
         );
         Response result = wsc.getReservation(this.params.get(Config.ARG_ORDER_ID));
 
+        //Comprobamos si el tipo devuelto es de tipo GetReservationResponse
         if (result != null && result.getClass().equals(GetReservationResponse.class)) {
 
+
+            //Actualizamos la reserva en la base de datos local
             GetReservationResponse resp = (GetReservationResponse) result;
 
             Reservation res = null;
 
-            //Init DataSources
+
             OfficeDataSource officeDS = new OfficeDataSource(context);
             CustomerDataSource customerDS = new CustomerDataSource(context);
             CarDataSource carDS = new CarDataSource(context);
@@ -92,13 +103,13 @@ public class GetBookingAsyncTask extends
                 reservationDS.open();
                 extraDS.open();
 
-                //Delivery Office
+                //Oficina de recogida
                 Office deliveryOffice = officeDS.getOffice(this.params.get(Config.ARG_PICKUP_POINT));
                 res.setDeliveryOffice(deliveryOffice);
-                //Return Office
+                //Oficina de devolucion
                 Office returnOffice = officeDS.getOffice(this.params.get(Config.ARG_DROPOFF_POINT));
                 res.setReturnOffice(returnOffice);
-                //Customer Data
+                //Datos del cliente
                 Customer cust = new Customer();
                 cust.setEmail(resp.getCustomer().getEmail());
                 cust.setSurname(resp.getCustomer().getSurname());
@@ -108,10 +119,10 @@ public class GetBookingAsyncTask extends
                 cust.setBirthDate(sdfDate.parse(resp.getCustomer().getBirthDateXml()));
                 cust.setName(resp.getCustomer().getName());
                 res.setCustomer(cust);
-                //Car
+                //Coche
                 Car car = carDS.getCar(resp.getCar());
                 res.setCar(car);
-                //Other values
+                //Otros valores
                 res.setLocalizer(resp.getCode());
                 res.setAvailabilityIdentifier(this.params.get(Config.ARG_AVAILABILITY_IDENTIFIER));
                 res.setComments(resp.getComments());
@@ -123,7 +134,7 @@ public class GetBookingAsyncTask extends
                 res.setFlightNumber(resp.getFlightNum());
                 res.setPrice(
                         new Price(
-                                Float.parseFloat(resp.getTotal().replace(" eur", "").replace(",", ".")),
+                                Float.parseFloat(resp.getTotal().replace(" eur", "").replace(".", "").replace(",", ".")),
                                 "EUR"
                         )
                 );
@@ -136,14 +147,14 @@ public class GetBookingAsyncTask extends
                 for(ReservationLine l:resp.getLines()){
 
                     if(isFirst){
-                        //Remove first line because is the car
+                        //Eliminamos la primera linea de reserva porque corresponde al vehículo
                         isFirst = false;
 
                     } else {
 
                         Extra ex = searchExtra(l.getItemCode(), newExtras);
                         if (ex == null) {
-                            //New extra
+                            //Nuevo extra
                             ex = new Extra();
                             ex.setPrice(Float.parseFloat(l.getAmount().replace(",", ".")));
                             ex.setQuantity(1);
@@ -154,7 +165,7 @@ public class GetBookingAsyncTask extends
                             ex.setName(l.getItem());
                             newExtras.add(ex);
                         } else {
-                            //Existing extra, add 1
+                            //Extra existente, sumamos 1 a la cantidad
                             ex.setQuantity(ex.getQuantity() + 1);
                         }
                     }
@@ -164,7 +175,7 @@ public class GetBookingAsyncTask extends
 
                 res.setExtras(newExtras);
 
-                //Save objects to database
+                //Almacenamos los objetos en la BD
                 customerDS.update(cust, res.getLocalizer());
                 reservationDS.update(res);
 
@@ -199,23 +210,34 @@ public class GetBookingAsyncTask extends
         }
     }
 
+    /**
+     * Busca un extra en una lista de extras
+     * @param code el codigo del extra a buscar
+     * @param extras lista de extras
+     * @return el extra si se encuentra o null en otro caso
+     */
     private Extra searchExtra(int code, List<Extra> extras) {
         for(Extra e: extras)
             if(e.getCode() == code)
                 return e;
         return null;
     }
-
+    /**
+     * Ejecutado al finalizar el doInBackground().
+     * Actualiza la interfaz gráfica mostrando el resultado
+     * @param result Resultado generado por el doInBackground()
+     */
     protected void onPostExecute(Reservation result) {
-
+        //Cerramos el dialogo de descarga
         progress.dismiss();
+
         if (result != null) {
             //Reserva OK
 
 
 
 
-            //Show res detail
+            //Mostramos detalle de la reserva
             Bundle arguments = new Bundle();
             arguments.putString(ReservationDetailFragment.ARG_ITEM_ID,
                     result.getLocalizer());
@@ -229,13 +251,10 @@ public class GetBookingAsyncTask extends
 
                     .commit();
 
-            //fragmentManager.popBackStack("Reservation_Detail", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
         } else {
             //Error
-            //Check for error
-
-
-
+            //Mostramos un diálogo con el error
             loadingDialog = new AlertDialog.Builder(context).create();
 
             loadingDialog.setTitle(context.getString(R.string.updating_booking_title));
@@ -254,14 +273,13 @@ public class GetBookingAsyncTask extends
             } else {
                 loadingDialog.setMessage(context.getString(R.string.error));
             }
-
-
             loadingDialog.show();
-
-
         }
     }
-
+    /**
+     * Ejecutado antes de comenzar el doInBackground()
+     * Mostramos un diálogo indicando que se está descargando la reserva
+     */
     protected void onPreExecute() {
 
         progress = new ProgressDialog(context);

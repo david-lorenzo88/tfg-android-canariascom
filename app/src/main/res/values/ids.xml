@@ -9,4 +9,6 @@
     <item name="iconSelectCar" type="id">iconSelectCar</item>
     <item name="iconSelectReservation" type="id">iconSelectReservation</item>
     <item name="reservation_status" type="id">reservation_status</item>
+    <item name="vuelo" type="id">Vuelo</item>
+
 </resources>

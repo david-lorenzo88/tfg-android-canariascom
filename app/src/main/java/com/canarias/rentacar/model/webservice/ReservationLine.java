@@ -4,7 +4,9 @@ import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 
 /**
- * Created by David on 03/09/2014.
+ * Created by David on 03/11/2014.
+ * Clase para deserializar las lineas de reserva.
+ * Se anotan los atributos para parsearlos desde el XML
  */
 @Root(name = "line")
 public class ReservationLine {

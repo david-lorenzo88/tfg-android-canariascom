@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by David on 11/08/2014.
+ * Created by David on 11/10/2014.
+ * DataSource para gestionar la persistencia de Zonas
  */
 public class ZoneDataSource {
 
@@ -35,6 +36,11 @@ public class ZoneDataSource {
         dbHelper.close();
     }
 
+    /**
+     * Inserta una zona
+     * @param zone la zona
+     * @return el resultado de la inserción
+     */
     public long insert(Zone zone) {
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_ZONENAME, zone.getName());
@@ -55,6 +61,11 @@ public class ZoneDataSource {
 
     }
 
+    /**
+     * Elimina una zona
+     * @param zone la zona
+     * @return el resultado del borrado
+     */
     public int delete(Zone zone) {
         int code = zone.getCode();
 
@@ -63,6 +74,10 @@ public class ZoneDataSource {
                 + " = " + code, null);
     }
 
+    /**
+     * Obtiene las zonas disponibles
+     * @return el listado de zonas
+     */
     public List<Zone> getZones() {
         List<Zone> zones = new ArrayList<Zone>();
 
@@ -80,6 +95,11 @@ public class ZoneDataSource {
         return zones;
     }
 
+    /**
+     * Obtiene una zona a partir de su codigo
+     * @param code el codigo de la zona
+     * @return la zona
+     */
     public Zone getZone(int code) {
 
         Zone zone = null;
@@ -98,6 +118,11 @@ public class ZoneDataSource {
         return zone;
     }
 
+    /**
+     * Convierte un cursor en una zona
+     * @param cursor el cursor
+     * @return la zona
+     */
     private Zone cursorToZone(Cursor cursor) {
         Zone zone = new Zone();
         zone.setCode(cursor.getInt(0));

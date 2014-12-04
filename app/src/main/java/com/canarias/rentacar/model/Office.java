@@ -3,7 +3,10 @@ package com.canarias.rentacar.model;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementUnion;
 import org.simpleframework.xml.Root;
-
+/**
+ * Modelo que define una oficina. Se anotan los atributos para
+ * parsearlos desde el XML
+ */
 @Root
 public class Office {
     @Element(name = "code")

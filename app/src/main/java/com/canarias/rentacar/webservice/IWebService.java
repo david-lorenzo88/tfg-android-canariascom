@@ -6,7 +6,8 @@ package com.canarias.rentacar.webservice;
 import com.canarias.rentacar.model.webservice.Response;
 
 /**
- * @author David Lorenzo López
+ * Created by David on 26/10/2014.
+ * Interfaz que define las operaciones a realizar por el servicio web
  */
 public interface IWebService {
     public Response availability(String startDate,

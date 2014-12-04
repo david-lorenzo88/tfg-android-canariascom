@@ -76,7 +76,7 @@ public class HelpFragmentList extends Fragment {
     }
 
 
-    public void initHelpÌtems() {
+    private void initHelpÌtems() {
 
         items = new ArrayList<HelpSlide>();
 

@@ -10,10 +10,12 @@ import android.widget.TimePicker;
 import com.canarias.rentacar.R;
 
 /**
- * Created by David on 07/09/2014.
+ * Created by David on 07/11/2014.
+ * Diálogo usado para seleccionar la hora al realizar una búsqueda de disponibilidad
  */
 public class TimePickerDialog extends Dialog {
 
+    //Callback usado para avisar a la activity del valor seleccionado
     private OnTimeChangedListener mCallback;
 
     private TimePicker timePicker;
@@ -34,14 +36,26 @@ public class TimePickerDialog extends Dialog {
         mTag = tag;
     }
 
+    /**
+     * Obtiene el callback
+     * @return el callback
+     */
     public OnTimeChangedListener getCallback() {
         return mCallback;
     }
 
+    /**
+     * Establece el callback
+     * @param callback el callback
+     */
     public void setCallback(OnTimeChangedListener callback) {
         mCallback = callback;
     }
 
+    /**
+     * Ejecutado al crear el diálogo. Inicializa la interfaz gráfica
+     * @param savedInstanceState Información de recuperación de Activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +90,7 @@ public class TimePickerDialog extends Dialog {
     }
 
     /**
-     * The callback used to notify selected time to source activity.
+     * El Callback usado para notificar la hora seleccionada a la Activity fuente
      */
     public interface OnTimeChangedListener {
 

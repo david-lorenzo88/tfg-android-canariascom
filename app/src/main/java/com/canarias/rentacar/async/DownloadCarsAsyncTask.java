@@ -21,7 +21,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by David on 04/09/2014.
+ * Created by David on 04/11/2014.
+ * Tarea en segundo plano que realiza la descarga de vehiculos desde el servicio web
  */
 public class DownloadCarsAsyncTask extends
         AsyncTask<Void, Void, String> {
@@ -36,16 +37,22 @@ public class DownloadCarsAsyncTask extends
     }
 
 
-
+    /**
+     * Metodo que se ejecuta en segundo plano y realiza la descarga de vehículos
+     * @param params Void
+     * @return Mensaje de resultado
+     */
     @Override
     protected String doInBackground(Void... params) {
-        // TODO Auto-generated method stub
+        //Realizamos la descarga de vehiculos desde el servicio web
         WebServiceController wsc = new WebServiceController();
         Response result = wsc.getAllCars();
 
+        //Comprobamos si el tipo devuelto es de tipo GetAllCarsResponse
         if (result.getClass().equals(GetAllCarsResponse.class)) {
             List<Car> cars = ((GetAllCarsResponse) result).getCars();
 
+            //Actualizamos los vehículos en la base de datos local
             try {
                 CarDataSource ds = new CarDataSource(context);
                 ds.open();
@@ -76,6 +83,8 @@ public class DownloadCarsAsyncTask extends
                 }
                 attDS.close();
                 ds.close();
+
+                //Devolvemos el resultado
                 return context.getString(R.string.cars_download_ok);
 
             } catch (SQLException ex) {
@@ -85,13 +94,18 @@ public class DownloadCarsAsyncTask extends
         } else
             return context.getString(R.string.no_cars_downloaded);
     }
-
+    /**
+     * Ejecutado al finalizar el doInBackground().
+     * Actualiza la interfaz gráfica mostrando el resultado
+     * @param result Resultado generado por el doInBackground()
+     */
     protected void onPostExecute(String result) {
-        // Meter los resultados en el listview
-        //progress.setMessage(result);
 
+
+        //Cerramos el dialogo de descarga
         progress.dismiss();
 
+        //Mostramos un dialogo con el resultado
         AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
         builder1.setMessage(result);
         builder1.setCancelable(true);
@@ -104,45 +118,17 @@ public class DownloadCarsAsyncTask extends
 
         AlertDialog alert11 = builder1.create();
         alert11.show();
-        /*if (result != null) {
-            //Hay resultados
-            SearchResultAdapter resultsAdapter = new SearchResultAdapter(
-                    searchResultsActivity, R.layout.search_result, result);
 
-
-            ListView resultsListView = (ListView) searchResultsActivity
-                    .findViewById(R.id.listViewSearchResults);
-
-            resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-
-                    RelativeLayout p = (RelativeLayout) view;
-                    Toast.makeText(searchResultsActivity, "aqui", Toast.LENGTH_LONG).show();
-                }
-
-            });
-
-            resultsListView.setAdapter(resultsAdapter);
-
-
-            searchResultsActivity.findViewById(R.id.searchResultsContainer)
-                    .setVisibility(View.VISIBLE);
-            searchResultsActivity.findViewById(R.id.loadingLayout)
-                    .setVisibility(View.GONE);
-        } else{
-            //No hay resultados, mostrar mensaje
-        }*/
     }
-
+    /**
+     * Ejecutado antes de comenzar el doInBackground()
+     * Mostramos un diálogo indicando que se están descargando los vehículos
+     */
     protected void onPreExecute() {
-        /*searchResultsActivity.findViewById(R.id.loadingLayout).setVisibility(
-                View.VISIBLE);*/
+
         progress = new ProgressDialog(context);
         progress.setTitle(context.getString(R.string.downloading_cars));
-        progress.setMessage(context.getString(R.string.downloading_cars));
+        progress.setMessage(context.getString(R.string.downloading_cars_msg));
         progress.show();
 
     }

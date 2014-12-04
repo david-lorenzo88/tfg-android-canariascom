@@ -2,7 +2,9 @@ package com.canarias.rentacar.model;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+ * Modelo que define una reserva.
+ */
 public class Reservation {
     private String localizer;
     private String availabilityIdentifier;

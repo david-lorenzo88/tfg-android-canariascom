@@ -9,9 +9,14 @@ import android.view.animation.Transformation;
 
 /**
  * Created by David on 26/10/2014.
+ * Clase de apoyo que define algunas animaciones que se pueden aplicar a las
+ * vistas
  */
 public class AnimationHelper {
-
+    /**
+     * Expande una vista
+     * @param v la vista
+     */
     public static void expand(final View v) {
         v.measure(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         final int targetHeight = v.getMeasuredHeight();
@@ -38,6 +43,10 @@ public class AnimationHelper {
         v.startAnimation(a);
     }
 
+    /**
+     * Colapsa una vista
+     * @param v la vista
+     */
     public static void collapse(final View v) {
         final int initialHeight = v.getMeasuredHeight();
 
@@ -63,6 +72,13 @@ public class AnimationHelper {
         v.startAnimation(a);
     }
 
+    /**
+     * Rota una vista
+     * @param v la vista
+     * @param fromDegrees grados iniciales
+     * @param toDegrees grados finales
+     * @param duration duración del movimiento
+     */
     public static void rotate(final View v, int fromDegrees, int toDegrees, int duration) {
 
         RotateAnimation a = new RotateAnimation(fromDegrees, toDegrees,

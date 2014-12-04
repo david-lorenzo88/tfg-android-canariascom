@@ -207,6 +207,12 @@ public class ImageDownloader {
         }
     }
 
+    /**
+     * Saves Image to internal storage
+     * @param bitmapImage image to save
+     * @param name name
+     * @return directory path
+     */
     private String saveToInternalSorage(Bitmap bitmapImage, String name) {
 
         // path to /data/data/yourapp/app_data/cars_images
@@ -228,6 +234,11 @@ public class ImageDownloader {
         return directory.getAbsolutePath();
     }
 
+    /**
+     * Load image from internal storage, if not found, then try to download it from url
+     * @param url remote image Url
+     * @param imageView View to assign image to
+     */
     private void loadImageFromStorage(String url, ImageView imageView) {
 
         try {
@@ -253,11 +264,15 @@ public class ImageDownloader {
 
     }
 
+    /**
+     * Returns filename part of a url
+     * @param url the url
+     * @return the filename part
+     */
     private String getUrlFilename(String url) {
 
         String[] urlParts = url.split("/");
         String filename = urlParts[urlParts.length - 1];
-        Log.v("TEST", filename);
         return filename;
 
     }

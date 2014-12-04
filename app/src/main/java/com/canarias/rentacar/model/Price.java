@@ -1,5 +1,7 @@
 package com.canarias.rentacar.model;
-
+/**
+ * Modelo que define un precio.
+ */
 public class Price {
     private float amount;
     private String unit;

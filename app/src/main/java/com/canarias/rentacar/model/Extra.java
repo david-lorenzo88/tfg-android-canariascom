@@ -8,7 +8,8 @@ import org.simpleframework.xml.Root;
 import java.util.HashMap;
 
 /**
- * Created by David on 20/08/2014.
+ * Modelo que define un extra. Se anotan los atributos para
+ * parsearlos desde el XML
  */
 @Root
 public class Extra {

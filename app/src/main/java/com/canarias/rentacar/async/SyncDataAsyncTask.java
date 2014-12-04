@@ -26,6 +26,8 @@ import java.util.List;
 
 /**
  * Created by David on 09/11/2014.
+ * Tarea en segundo plano que realiza la descarga de zonas y luego de reservas
+ * en un solo proceso
  */
 public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
     ProgressDialog progress;
@@ -35,14 +37,23 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
         this.context = context;
     }
 
+
+    /**
+     * Metodo que se ejecuta en segundo plano y realiza la descarga de vehículos y zonas
+     * desde el servicio web
+     * @param params Void
+     * @return objeto Reservation con los datos de la reserva
+     */
     @Override
     protected String doInBackground(Void... params) {
+        //Realizamos la descarga de los vehículos
         WebServiceController wsc = new WebServiceController();
         Response result = wsc.getAllCars();
 
+        //Comprobamos si el tipo devuelto es GetAllCarsResponse
         if (result.getClass().equals(GetAllCarsResponse.class)) {
             List<Car> cars = ((GetAllCarsResponse) result).getCars();
-
+            //Actualizamos los vehiculos en la base de datos local
             try {
                 CarDataSource ds = new CarDataSource(context);
                 ds.open();
@@ -74,13 +85,16 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
                 attDS.close();
                 ds.close();
 
+                //Publicamos un mensaje indicando que ahora comienza la descarga de oficinas
                 publishProgress(context.getString(R.string.downloading_offices));
 
+                //Realizamos la descarga de las zonas desde el servicio wev
                 result = wsc.listDestinations();
 
+                //Comprobamos si el tipo devuelto es ListDestinationsResponse
                 if (result.getClass().equals(ListDestinationsResponse.class)) {
                     List<Office> offices = ((ListDestinationsResponse) result).getServicePoints();
-
+                    //Actualizamos las zonas en la base de datos local
                     try {
                         OfficeDataSource dsO = new OfficeDataSource(context);
                         dsO.open();
@@ -104,6 +118,8 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
                         }
                         dsO.close();
                         zoneDS.close();
+
+                        //Devolvemos el resultado
                         return context.getString(R.string.offices_and_cars_download_ok);
 
                     } catch (SQLException ex) {
@@ -124,11 +140,15 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
 
 
     }
-
+    /**
+     * Ejecutado al finalizar el doInBackground().
+     * Actualiza la interfaz gráfica mostrando el resultado
+     * @param result Resultado generado por el doInBackground()
+     */
     protected void onPostExecute(String result) {
 
         progress.dismiss();
-
+        //Mostramos un dialogo con el resultado
         AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
         builder1.setMessage(result);
         builder1.setCancelable(true);
@@ -144,6 +164,11 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
 
     }
 
+    /**
+     * Actualiza la interfaz gráfica durante la ejecución del doInBackground()
+     * cada vez que se llama a progressUpdate(...)
+     * @param values Array de Strings con los valores
+     */
     @Override
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
@@ -155,7 +180,10 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
         }
 
     }
-
+    /**
+     * Ejecutado antes de comenzar el doInBackground()
+     * Mostramos un diálogo indicando que se están sincronizando los datos
+     */
     protected void onPreExecute() {
 
         progress = new ProgressDialog(context);

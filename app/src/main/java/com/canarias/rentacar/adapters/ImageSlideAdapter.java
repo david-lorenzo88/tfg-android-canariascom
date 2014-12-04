@@ -14,9 +14,16 @@ import com.canarias.rentacar.model.HelpSlide;
 
 import java.util.List;
 
-
+/**
+ * Created by David on 30/10/2014.
+ * Adapter que gestiona la lista de imágenes del Slider
+ * En este caso hereda de PagerAdapter a diferencia del resto.
+ * Está preparado para gestionar las páginas que contiene un ViewPager
+ * que en este caso se usará para mostrar el contenido de la Ayuda.
+ */
 public class ImageSlideAdapter extends PagerAdapter {
 
+    //Items de la ayuda
 	List<HelpSlide> items;
     Context context;
 
@@ -31,6 +38,12 @@ public class ImageSlideAdapter extends PagerAdapter {
 
 	}
 
+    /**
+     * Crea la página para la posición dada
+     * @param container ViewPager
+     * @param position posición actual
+     * @return la página de la posición
+     */
 	@Override
 	public View instantiateItem(ViewGroup container, final int position) {
 		LayoutInflater inflater = (LayoutInflater) context
@@ -58,11 +71,24 @@ public class ImageSlideAdapter extends PagerAdapter {
 
 	}
 
+    /**
+     * Elimina una página
+     * @param container ViewPager
+     * @param position posición a eliminar
+     * @param object objeto a eliminar
+     */
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
 		container.removeView((View) object);
 	}
 
+    /**
+     * Determina si una vista está asociada con un objeto
+     * @param view la vista
+     * @param object el objeto
+     * @return true si la vista está asociada al objeto, o false en
+     * caso contrario
+     */
 	@Override
 	public boolean isViewFromObject(View view, Object object) {
 		return view == object;

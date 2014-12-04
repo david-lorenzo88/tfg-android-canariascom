@@ -1,7 +1,9 @@
 package com.canarias.rentacar.items;
 
 /**
- * Created by David on 05/09/2014.
+ * Created by David on 05/11/2014.
+ * Item usado para almacenar la información de cada
+ * item del NavigationDrawer, el menú colapsable de la Home.
  */
 public class DrawerItem {
 

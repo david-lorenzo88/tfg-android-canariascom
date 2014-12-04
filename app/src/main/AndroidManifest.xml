@@ -8,24 +8,24 @@
         android:minSdkVersion="11"
         android:targetSdkVersion="17" />
 
+    <!-- Acceso a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Vibración del Teléfono -->
     <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- My Location -->
+    <!-- Localización -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- Maps API needs OpenGL ES 2.0. -->
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-
+    <!-- OpenGL ES 2.0. para la API de Google Maps -->
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+    <!-- Escribir en el almacenamiento externo -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Leer el estado del teléfono -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Leer desde el almacenamiento externo -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!-- Permissions -->
-
+    <!-- Acceder al estado de la red -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Leer de Google Services -->
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
@@ -33,9 +33,14 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.TranslucentActionBar" >
+        <!-- Debug -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyAsRHSeTzOeWLr2Y3g4w82efpoZlyO_zLY" />
+        <!-- Release -->
+        <!--<meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCfME3ZIn5wiS6ORDry4XKH2n8yVp97maw" />-->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

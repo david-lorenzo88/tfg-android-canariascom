@@ -5,7 +5,10 @@ import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Text;
 
 import java.util.HashMap;
-
+/**
+ * Modelo que define una zona. Se anotan los atributos para
+ * parsearlos desde el XML
+ */
 @Root
 public class Zone {
 

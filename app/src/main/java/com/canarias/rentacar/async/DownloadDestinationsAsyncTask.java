@@ -20,7 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by David on 04/09/2014.
+ * Created by David on 04/11/2014.
+ * Tarea en segundo plano que realiza la descarga de zonas desde el servicio web
  */
 public class DownloadDestinationsAsyncTask extends
         AsyncTask<Void, Void, String> {
@@ -32,16 +33,22 @@ public class DownloadDestinationsAsyncTask extends
 
         this.context = context;
     }
-
+    /**
+     * Metodo que se ejecuta en segundo plano y realiza la descarga de zonas
+     * @param params Void
+     * @return Mensaje de resultado
+     */
     @Override
     protected String doInBackground(Void... params) {
-        // TODO Auto-generated method stub
+        //Realizamos la descarga de zonas desde el servicio web
         WebServiceController wsc = new WebServiceController();
         Response result = wsc.listDestinations();
 
+        //Comprobamos si el tipo devuelto es de tipo ListDestinationsResponse
         if (result.getClass().equals(ListDestinationsResponse.class)) {
             List<Office> offices = ((ListDestinationsResponse) result).getServicePoints();
 
+            //Actualizamos las zonas en la base de datos local
             try {
                 OfficeDataSource ds = new OfficeDataSource(context);
                 ds.open();
@@ -65,6 +72,8 @@ public class DownloadDestinationsAsyncTask extends
                 }
                 ds.close();
                 zoneDS.close();
+
+                //Devolvemos el resultado
                 return context.getString(R.string.offices_download_ok);
 
             } catch (SQLException ex) {
@@ -73,13 +82,15 @@ public class DownloadDestinationsAsyncTask extends
         } else
             return context.getString(R.string.no_offices_downloaded);
     }
-
+    /**
+     * Ejecutado al finalizar el doInBackground().
+     * Actualiza la interfaz gráfica mostrando el resultado
+     * @param result Resultado generado por el doInBackground()
+     */
     protected void onPostExecute(String result) {
-        // Meter los resultados en el listview
-        //progress.setMessage(result);
-
+        //Cerramos el dialogo de descarga
         progress.dismiss();
-
+        //Mostramos un dialogo con el resultado
         AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
         builder1.setMessage(result);
         builder1.setCancelable(true);
@@ -93,45 +104,17 @@ public class DownloadDestinationsAsyncTask extends
         AlertDialog alert11 = builder1.create();
         alert11.show();
 
-        /*if (result != null) {
-            //Hay resultados
-            SearchResultAdapter resultsAdapter = new SearchResultAdapter(
-                    searchResultsActivity, R.layout.search_result, result);
 
-
-            ListView resultsListView = (ListView) searchResultsActivity
-                    .findViewById(R.id.listViewSearchResults);
-
-            resultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-
-                    RelativeLayout p = (RelativeLayout) view;
-                    Toast.makeText(searchResultsActivity, "aqui", Toast.LENGTH_LONG).show();
-                }
-
-            });
-
-            resultsListView.setAdapter(resultsAdapter);
-
-
-            searchResultsActivity.findViewById(R.id.searchResultsContainer)
-                    .setVisibility(View.VISIBLE);
-            searchResultsActivity.findViewById(R.id.loadingLayout)
-                    .setVisibility(View.GONE);
-        } else{
-            //No hay resultados, mostrar mensaje
-        }*/
     }
-
+    /**
+     * Ejecutado antes de comenzar el doInBackground()
+     * Mostramos un diálogo indicando que se están descargando las zonas
+     */
     protected void onPreExecute() {
-        /*searchResultsActivity.findViewById(R.id.loadingLayout).setVisibility(
-                View.VISIBLE);*/
+
         progress = new ProgressDialog(context);
         progress.setTitle(context.getString(R.string.downloading_offices));
-        progress.setMessage(context.getString(R.string.downloading_offices));
+        progress.setMessage(context.getString(R.string.downloading_offices_msg));
         progress.show();
 
     }

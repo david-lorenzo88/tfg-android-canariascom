@@ -34,16 +34,30 @@ import java.util.Locale;
 import java.util.Set;
 
 /**
- * Created by David on 03/09/2014.
+ * Created by David on 03/11/2014.
+ * Implementación de la interfaz IWebService. Es la clase que gestiona las conexiones
+ * con el servicio web de Canarias.com y realiza todas las operaciones, parsea el resultado
+ * xml y devuelve objetos de negocio listos para procesar.
  */
 public class WebServiceController implements IWebService {
 
+    /**
+     * Consulta de disponibilidad de vehículos
+     * @param startDate Fecha de inicio
+     * @param startTime Hora de inicio
+     * @param endDate Fecha de fin
+     * @param endTime Hora de fin
+     * @param deliverySP Punto de recogida (código)
+     * @param returnSP Punto de devolución (código)
+     * @return Respuesta de disponibilidad
+     */
     public Response availability(String startDate,
                                  String startTime, String endDate, String endTime,
                                  String deliverySP, String returnSP) {
 
         try {
 
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "availability");
             params.put("start_date",
@@ -55,19 +69,23 @@ public class WebServiceController implements IWebService {
             params.put("return_service_point",
                     URLEncoder.encode(returnSP, "UTF-8"));
 
+            //Ejecutamos la petición HTTPS
             InputStream result = httpRequest(params);
 
+
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
 
+                    //Deserializamos el XML en objetos de negocio
                     AvailabilityResponse resp = serializer.read(AvailabilityResponse.class, result);
 
-
+                    //Devolvemos la respuesta
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -83,11 +101,24 @@ public class WebServiceController implements IWebService {
         return null;
     }
 
-
+    /**
+     * Confirma una reserva con el servicio web
+     * @param identifier Identificador de disponibilidad recibido en la respuesta de disponibilidad
+     * @param customerName Nombre del cliente
+     * @param customerSurname Apellidos del cliente
+     * @param customerPhone Teléfono del cliente
+     * @param customerEmail E-mail del cliente
+     * @param flightNumber Número de vuelo (solo requerido en aeropuertos)
+     * @param comments Comentarios
+     * @param birthDate Fecha de nacimiento del cliente
+     * @param extras Extras (códigos separados por coma)
+     * @return Respuesta de reserva
+     */
     @Override
     public Response doReservation(String identifier, String customerName, String customerSurname, String customerPhone, String customerEmail, String flightNumber, String comments, String birthDate, String extras) {
 
         try {
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "make_reservation");
             params.put("identifier", identifier);
@@ -100,23 +131,26 @@ public class WebServiceController implements IWebService {
             params.put("flight_number", URLEncoder.encode(flightNumber, "utf-8"));
             params.put("extras", extras);
 
+            //Ejecutamos la petición HTTPS
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
 
+                    //Deserializamos el XML en objetos de negocio
                     MakeReservationResponse resp = serializer.read(MakeReservationResponse.class, result);
 
 
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
-                    ErrorResponse error = serializer.read(ErrorResponse.class, result);
+                    return serializer.read(ErrorResponse.class, result);
 
-                    return error;
+
                 }
             }
 
@@ -127,9 +161,23 @@ public class WebServiceController implements IWebService {
         return null;
     }
 
+    /**
+     * Actualiza una reserva con el servicio web
+     * @param identifier Identificador de disponibilidad recibido en la respuesta de disponibilidad
+     * @param customerName Nombre del cliente
+     * @param customerSurname Apellidos del cliente
+     * @param customerPhone Teléfono del cliente
+     * @param flightNumber Número de vuelo (solo requerido en aeropuertos)
+     * @param comments Comentarios
+     * @param birthDate Fecha de nacimiento del cliente
+     * @param extras Extras (códigos separados por coma)
+     * @param orderId Localizador de la reserva
+     * @return Respuesta de reserva
+     */
     @Override
     public Response updateReservation(String identifier, String customerName, String customerSurname, String customerPhone, String flightNumber, String comments, String birthDate, String extras, String orderId) {
         try {
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "update_reservation");
             params.put("order_id", orderId);
@@ -148,16 +196,17 @@ public class WebServiceController implements IWebService {
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
-
+                    //Deserializamos el XML en objetos de negocio
                     UpdateReservationResponse resp = serializer.read(UpdateReservationResponse.class, result);
 
 
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -172,9 +221,15 @@ public class WebServiceController implements IWebService {
         return null;
     }
 
+    /**
+     * Obtiene una reserva desde el servicio web
+     * @param orderId Localizador de la reserva
+     * @return Respuesta de reserva
+     */
     @Override
     public Response getReservation(String orderId) {
         try {
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "get_reservation");
             params.put("order_id", orderId);
@@ -183,16 +238,17 @@ public class WebServiceController implements IWebService {
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
-
+                    //Deserializamos el XML en objetos de negocio
                     GetReservationResponse resp = serializer.read(GetReservationResponse.class, result);
 
 
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -208,10 +264,20 @@ public class WebServiceController implements IWebService {
 
     }
 
+    /**
+     * Consulta la disponibilidad de los extras
+     * @param startDate Fecha de inicio
+     * @param startTime Hora de inicio
+     * @param endDate Fecha de fin
+     * @param endTime Hora de fin
+     * @param deliverySP Punto de recogida (código)
+     * @param returnSP Punto de devolución (código)
+     * @return Respuesta de disponibilidad de extras
+     */
     @Override
     public Response getExtras(String startDate, String startTime, String endDate, String endTime, String deliverySP, String returnSP) {
         try {
-
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "get_extras");
             params.put("start_date",
@@ -226,16 +292,17 @@ public class WebServiceController implements IWebService {
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
-
+                    //Deserializamos el XML en objetos de negocio
                     GetExtrasResponse resp = serializer.read(GetExtrasResponse.class, result);
 
 
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -251,10 +318,16 @@ public class WebServiceController implements IWebService {
         return null;
     }
 
+    /**
+     * Cancela una reserva con el servicio web
+     * @param orderId Localizador de la reserva
+     * @return Respuesta de cancelación
+     */
     @Override
     public Response cancelReservation(String orderId) {
 
         try {
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "cancel_reservation");
             params.put("order_id", orderId);
@@ -263,16 +336,17 @@ public class WebServiceController implements IWebService {
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
-
+                    //Deserializamos el XML en objetos de negocio
                     CancelReservationResponse resp = serializer.read(CancelReservationResponse.class, result);
 
 
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -288,26 +362,31 @@ public class WebServiceController implements IWebService {
 
     }
 
+    /**
+     * Descarga las zonas y oficinas disponibles desde el servicio web
+     * @return Respuesta de oficinas
+     */
     public Response listDestinations() {
         List<SearchResult> srs = new ArrayList<SearchResult>();
         try {
-
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "list_destinations");
 
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
-
+                    //Deserializamos el XML en objetos de negocio
                     ListDestinationsResponse resp = serializer.read(ListDestinationsResponse.class, result);
 
 
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -323,24 +402,29 @@ public class WebServiceController implements IWebService {
         return null;
     }
 
+    /**
+     * Descarga los vehículos disponibles desde el servicio web
+     * @return La respuesta de vehículos
+     */
     public Response getAllCars() {
         List<SearchResult> srs = new ArrayList<SearchResult>();
         try {
-
+            //Generamos el HashMap de parámetros
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("function", "get_all_cars");
 
             InputStream result = httpRequest(params);
 
             if (result != null) {
+                //Si hay resultado, creamos un serlizador para convertir el XML en objetos
                 Serializer serializer = new Persister();
                 try {
-
+                    //Deserializamos el XML en objetos de negocio
                     GetAllCarsResponse resp = serializer.read(GetAllCarsResponse.class, result);
                     return resp;
 
                 } catch (Exception ex) {
-
+                    //Manejo de errores
                     Log.e("TEST", ex.getMessage());
                     ErrorResponse error = serializer.read(ErrorResponse.class, result);
 
@@ -355,10 +439,19 @@ public class WebServiceController implements IWebService {
         return null;
     }
 
+    /**
+     * Realiza una petición HTTP y devuelve un Stream de respuesta
+     * @param params Parámetros de la petición
+     * @return Stream resultante
+     */
     private InputStream httpRequest(HashMap<String, String> params) {
+        //Se genera la URL de consulta
+        //Primero se añaden los parámetros genéricos, que van en todas las
+        //peticiones
         String sUrl = Config.WEBSERVICE_PATH + "?" + "agency_code="
                 + Config.AGENCY_CODE + "&agency_pwd=" + Config.AGENCY_PASS +
                 "&language=" + Config.getLanguageCode(Locale.getDefault().getLanguage());
+        //Si hay parámetros extra, se añaden también
         if (params != null) {
             Set<String> keySet = params.keySet();
             Iterator<String> it = keySet.iterator();
@@ -368,17 +461,19 @@ public class WebServiceController implements IWebService {
             }
 
         }
-        Log.v("WS", sUrl);
+
+
         try {
+            //Realizamos la petición
             URL url = new URL(sUrl);
 
             URLConnection urlConnection = url.openConnection();
-
+            //Si hemos activado el Timeout, lo configuramos
             if(Config.ENABLE_HTTP_TIMEOUT) {
                 urlConnection.setConnectTimeout(Config.HTTP_TIMEOUT);
                 urlConnection.setReadTimeout(Config.HTTP_TIMEOUT);
             }
-
+            //Obtenemos el resultado
             InputStream in = new BufferedInputStream(
                     urlConnection.getInputStream());
 
