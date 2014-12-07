@@ -18,6 +18,9 @@ import com.canarias.rentacar.model.Zone;
 
 import java.util.HashMap;
 
+/**
+ * Fragmento que muestra los resultados de busqueda de disponibilidad.
+ */
 public class SearchResultsFragment extends Fragment {
 
     public static final String ARG_EXTRAS_STRING = "extras_string";
@@ -44,11 +47,22 @@ public class SearchResultsFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -61,7 +75,10 @@ public class SearchResultsFragment extends Fragment {
         return rootView;
     }
 
-
+    /**
+     * Ejecutado cuando el fragmento se asocia a la activity
+     * @param activity la activity
+     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -69,7 +86,10 @@ public class SearchResultsFragment extends Fragment {
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
 
-
+    /**
+     * Inicializa la interfaz
+     * @param rootView vista raiz
+     */
     private void initActivity(final View rootView) {
 
         Bundle bundle = getArguments();
@@ -123,6 +143,8 @@ public class SearchResultsFragment extends Fragment {
                     bundle.getString(Config.ARG_DROPOFF_DATE));
             params.put(Config.ARG_DROPOFF_TIME,
                     bundle.getString(Config.ARG_DROPOFF_TIME));
+
+            //Lanzamos la busqueda de disponibilidad
             if(bundle != null && bundle.containsKey(Config.ARG_SELECTED_CAR)) {
                 availAsync = new AvailabilityAsyncTask(rootView, params, getActivity(),
                         getArguments(), bundle.getString(Config.ARG_SELECTED_CAR));

@@ -45,35 +45,38 @@ public class OfficeListActivity extends Activity
     private boolean mShowMenuMapAction = true;
 
 
-
+    /**
+     * Crea la activity
+     * @param savedInstanceState estado previo
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_list);
 
 
-        // Show the Up button in the action bar.
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //Listener para gestionar la pulsación del botón Atrás del dispositivo
         getFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
             public void onBackStackChanged() {
-                Log.v("MENU", "onBackStackChanged");
+                //Obtenemos el Fragmento del mapa
                 Fragment mapFragment = getFragmentManager().findFragmentByTag(TAG_MAP);
                 if (mapFragment != null && mapFragment.isVisible()) {
-                    // add your code here
-                    Log.v("MENU", "Map Fragment is visible");
+                    //Si el mapa es visible y no estamos en modo "2 paneles"
+                    //mostramos el botón de la lista
                     if(!mTwoPane)
                         mShowMenuMapAction = false;
                 } else {
-                    Log.v("MENU", "Map Fragment is NOT visible");
+                    //Si el mapa no está visible mostramos el botón del mapa
                     mShowMenuMapAction = true;
                 }
 
-
+                //invalidamos el menu para forzar su reconstrucción con
+                //la nueva configuración de botones
                 invalidateOptionsMenu();
             }
         });
-
+        //Restauramos estado previo
         if(savedInstanceState != null)
             mShowMenuMapAction = savedInstanceState.getBoolean("mShowMenuMapAction");
 
@@ -91,18 +94,25 @@ public class OfficeListActivity extends Activity
                     .setActivateOnItemClick(true);
         }
 
-        // TODO: If exposing deep links into your app, handle intents here.
+
     }
 
 
-
+    /**
+     * Almacenamos el estado
+     * @param outState estado
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Log.v("MENU", "onSaveInstanceState");
         super.onSaveInstanceState(outState);
         outState.putBoolean("mShowMenuMapAction", mShowMenuMapAction);
     }
 
+    /**
+     * Gestiona los clicks en los elementos del menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -118,9 +128,10 @@ public class OfficeListActivity extends Activity
             return true;
         }
         if(id == R.id.action_show_offices_in_map){
-
+            //Pulsado el botón de mostrar en mapa
 
             if (mTwoPane) {
+                //Si estamos en 2 paneles reemplazamos el office_detail_container
                 FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES, R.id.office_detail_container);
                 getFragmentManager().beginTransaction()
                         .replace(R.id.office_detail_container, fragment, TAG_MAP)
@@ -128,6 +139,7 @@ public class OfficeListActivity extends Activity
                         .addToBackStack(null)
                         .commit();
             } else {
+                //Si NO estamos en 2 paneles reemplazamos el office_fragment
                 mShowMenuMapAction = false;
                 invalidateOptionsMenu();
                 FragmentMap fragment = FragmentMap.newInstance(FragmentMap.ARG_ALL_OFFICES, -1);
@@ -142,11 +154,13 @@ public class OfficeListActivity extends Activity
 
         }
         if(id == R.id.action_show_offices_in_list){
+            //Mostramos las oficinas en lista
+
+            //Forzamos la reconstrucción del menu para cambiar el botón que se muestra
             mShowMenuMapAction = true;
             invalidateOptionsMenu();
+
             OfficeListFragment fragment = new OfficeListFragment();
-
-
             getFragmentManager().beginTransaction()
                     .replace(R.id.office_fragment, fragment, TAG_LIST)
 
@@ -187,16 +201,26 @@ public class OfficeListActivity extends Activity
 
     }
 
+    /**
+     * Crea el menú
+     * @param menu el menú
+     * @return true para mostrar el menu o false en caso contrario
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.v("MENU", "onCreateOptionsMenu");
+
         getMenuInflater().inflate(R.menu.office_list, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Prepara el menu
+     * @param menu el menu
+     * @return true para mostrar el menu o false en caso contrario
+     */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        Log.v("MENU", "onPrepareOptionsMenu");
+
         MenuInflater inflater = getMenuInflater();
         menu.clear();
         inflater.inflate(R.menu.office_list, menu);

@@ -44,7 +44,7 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragmento que muestra el detalle de una reserva
  */
 public class ReservationDetailFragment extends Fragment {
 
@@ -54,7 +54,7 @@ public class ReservationDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
     public static final String ARG_LAUNCH_UPDATE = "launch_update";
     public static final String SHOW_TOAST = "show_toast";
-    public static final String ARG_STATUS = "status";
+
     private Reservation mItem;
     private String mToastText;
 
@@ -63,21 +63,23 @@ public class ReservationDetailFragment extends Fragment {
 
     private boolean openCancelDialog = false;
 
-    private boolean mViewIsCreated = false;
+
 
     public ReservationDetailFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState estado previo para restaurar
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.v("DET", "onCreate");
 
         if(savedInstanceState != null){
             openCancelDialog = savedInstanceState.getBoolean(Config.ARG_OPEN_CANCEL_DIALOG, false);
         }
-
 
         if (getArguments().containsKey(SHOW_TOAST)) {
             mToastText = getArguments().getString(SHOW_TOAST);
@@ -88,6 +90,10 @@ public class ReservationDetailFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    /**
+     * Salvamos el estado del fragmento para restaurarlo despues
+     * @param outState parametros para almacenar los datos
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
@@ -96,14 +102,21 @@ public class ReservationDetailFragment extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_reservation_detail, container, false);
-        Log.v("DET", "onCreateView");
+
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            Log.v("DET", "Loading Reservation");
+            //Cargamos la reserva
             ReservationDataSource ds = new ReservationDataSource(getActivity());
 
             try {
@@ -148,8 +161,10 @@ public class ReservationDetailFragment extends Fragment {
     }
 
 
-
-
+    /**
+     * Inicializa la interfaz
+     * @param rootView vista raíz
+     */
     private void initLayout(View rootView) {
         Date pickupDate, dropoffDate;
         long dateDiff = 1;
@@ -203,34 +218,12 @@ public class ReservationDetailFragment extends Fragment {
             Extra e = it.next();
 
             //Calculamos el precio total del extra
-
-
             float price = e.getQuantity() * e.getPrice();
 
 
             if (e.getPriceType().equals(Extra.PriceType.DAILY)) {
-                Log.v("TEST", "Precio por dia, " + dateDiff + " dias");
                 price = price * dateDiff;
-            } else {
-                Log.v("TEST", "Precio por alquiler");
-                price = price;
             }
-
-                /*if(Extra.extraPriceType.containsKey(e.getModelCode())){
-                    int str = Extra.extraPriceType.get(e.getModelCode());
-                    if(str == R.string.priceTypeDaily){
-                        //Precio por dia
-                        Log.v("TEST", "Precio por dia, " + dateDiff + " dias");
-                        price = price * dateDiff * (1 + (Config.TAX / 100));
-                    } else {
-                        //Precio por alquiler
-                        Log.v("TEST", "Precio por alquiler");
-                        price = price * (1 + (Config.TAX / 100));
-                    }
-                } else {
-                    Log.v("TEST", "Tipo de precio no encontrado, default por alquiler");
-                    price = price * (1 + (Config.TAX / 100));
-                }*/
 
             price = Utils.round(price);
 
@@ -260,7 +253,7 @@ public class ReservationDetailFragment extends Fragment {
             lp.setMargins(0, 6, 6, 6);
             TextView tvPrice = new TextView(getActivity());
             tvPrice.setLayoutParams(lp);
-            //Generate a different id for price TextView
+            //Generamos un id diferente para el TextView del precio
             tvPrice.setId(Integer.parseInt(e.getCode() + "12"));
 
             tvPrice.setText(String.format("%.02f", price) + "€");
@@ -280,7 +273,7 @@ public class ReservationDetailFragment extends Fragment {
         TextView totalPrice = (TextView) rootView.findViewById(R.id.bookingDetailsTotalValue);
         totalPrice.setText(String.format("%.02f", mItem.getPrice().getAmount()) + "€");
 
-        //Customer Data
+        //Datos del cliente
         TextView customerNameDateBirth = (TextView) rootView.findViewById(R.id.resDetailTitularNombreFecha);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         customerNameDateBirth.setText(mItem.getCustomer().getName() + " - " + sdf.format(mItem.getCustomer().getBirthDate()));
@@ -313,19 +306,23 @@ public class ReservationDetailFragment extends Fragment {
         ImageView carImage = (ImageView) rootView.findViewById(R.id.car_image);
         ImageDownloader downloader = new ImageDownloader(9999, getActivity());
         downloader.download(mItem.getCar().getImageUrl(), carImage);
-
-
-
+        //Si hemos pasado texto para mostrar en Toast, lo hacemos
         if (mToastText != null && !mToastText.isEmpty()) {
             Toast.makeText(getActivity(), mToastText, Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Crea el menú de opciones
+     * @param menu el menu
+     * @param inflater el objeto para inflar la interfaz del menu
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(R.menu.reservation_detail, menu);
-
+        //Si la reserva está cancelada, o ha pasado el día de recogida
+        //eliminamos los iconos de cancelar y actualizar reserva del menú
         if(mItem != null &&
                 (mItem.getState().toLowerCase().contains("cancel")
                         || mItem.getStartDate().compareTo(new Date()) < 0)){
@@ -336,6 +333,11 @@ public class ReservationDetailFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    /**
+     * Callback para manejar el evento click en los items del menu
+     * @param item el item presionado
+     * @return true para para el evento o false para dejar su curso
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -350,7 +352,7 @@ public class ReservationDetailFragment extends Fragment {
             NavUtils.navigateUpTo(getActivity(), new Intent(getActivity(), ReservationListActivity.class));
             return true;
         } else if (id == R.id.action_cancel_reservation) {
-            //Cancel reservation, show confirmation dialog
+
             optionItemAction(ACTION_CANCEL);
 
         } else if (id == R.id.action_update_reservation) {
@@ -360,9 +362,13 @@ public class ReservationDetailFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Gestiona las acciones a realizar cuando se presiona un item del menu
+     * @param action acción a realizar
+     */
     private void optionItemAction(String action){
         if(action.equals(ACTION_CANCEL)){
-
+            //Cancelar reserva, mostramos diálogo de confirmación
             openCancelDialog = true;
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -416,7 +422,7 @@ public class ReservationDetailFragment extends Fragment {
 
         } else if (action.equals(ACTION_UPDATE)){
 
-
+            //Actualizar reserva, realizamos la transición del fragment
             UpdateReservationFragment fragment = UpdateReservationFragment
                     .newInstance(mItem.getLocalizer());
 

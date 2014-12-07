@@ -43,6 +43,7 @@ public class ReservationListFragment extends ListFragment {
      * clicks.
      */
     private Callbacks mCallbacks = sDummyCallbacks;
+    //Lista de reservas
     List<Reservation> reservations;
     ListView listView;
 
@@ -59,6 +60,10 @@ public class ReservationListFragment extends ListFragment {
     public ReservationListFragment() {
     }
 
+    /**
+     * Crea el fragment
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +71,11 @@ public class ReservationListFragment extends ListFragment {
 
     }
 
+    /**
+     * Ejecutado cuando la vista ha sido ya creada
+     * @param view la vista
+     * @param savedInstanceState el estado previo
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -77,7 +87,7 @@ public class ReservationListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
-
+        //Inicializamos la ListView
         listView = getListView();
 
         listView.setDivider(null);
@@ -89,8 +99,8 @@ public class ReservationListFragment extends ListFragment {
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));
         setActivateOnItemClick(true);
-        //listView.setSelector(R.drawable.border_bottom_selected);
 
+        //Cargamos la lista de reservas
         ReservationDataSource resDS = new ReservationDataSource(getActivity());
 
         try {
@@ -111,6 +121,10 @@ public class ReservationListFragment extends ListFragment {
         }
     }
 
+    /**
+     * Ejecutado cuando el fragmento se asocia a la activity
+     * @param activity la activity
+     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -123,6 +137,9 @@ public class ReservationListFragment extends ListFragment {
         mCallbacks = (Callbacks) activity;
     }
 
+    /**
+     * Ejecutado cuando el fragmento se desasocia de la activity
+     */
     @Override
     public void onDetach() {
         super.onDetach();
@@ -131,6 +148,13 @@ public class ReservationListFragment extends ListFragment {
         mCallbacks = sDummyCallbacks;
     }
 
+    /**
+     * Maneja el evento click de los items de la lista
+     * @param listView la lista
+     * @param view la vista del item seleccionado
+     * @param position la posicion del item seleccionado
+     * @param id la id del item seleccionado
+     */
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
@@ -143,6 +167,10 @@ public class ReservationListFragment extends ListFragment {
         adapter.setSelectedIndex(position - 1);
     }
 
+    /**
+     * Almacena el estado del fragment
+     * @param outState parametros para almacenar los datos
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -164,6 +192,10 @@ public class ReservationListFragment extends ListFragment {
                 : ListView.CHOICE_MODE_NONE);
     }
 
+    /**
+     * Establece la posicion activa en la ListView
+     * @param position la posicion del item seleccionado
+     */
     private void setActivatedPosition(int position) {
         if (position == ListView.INVALID_POSITION) {
             getListView().setItemChecked(mActivatedPosition, false);

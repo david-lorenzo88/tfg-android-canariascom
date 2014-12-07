@@ -40,18 +40,18 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link UpdateReservationFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Fragmento que muestra el formulario para actualizar una reserva
  */
 public class UpdateReservationFragment extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_RES_ID = "res_id";
 
+    //Estado del panel de resumen
     private static final int SUMMARY_STATUS_EXPANDED = 0;
-    private int mSummaryStatus = SUMMARY_STATUS_EXPANDED;
     private static final int SUMMARY_STATUS_COLLAPSED = 1;
+    private int mSummaryStatus = SUMMARY_STATUS_EXPANDED;
+
     private boolean mFlightNumMandatory = false;
     private String mResId;
     private Reservation mItem;
@@ -70,7 +70,6 @@ public class UpdateReservationFragment extends Fragment {
      *
      * @return A new instance of fragment UpdateReservationFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static UpdateReservationFragment newInstance(String resId) {
         UpdateReservationFragment fragment = new UpdateReservationFragment();
         Bundle args = new Bundle();
@@ -80,13 +79,17 @@ public class UpdateReservationFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Crea el fragment
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mResId = getArguments().getString(ARG_RES_ID);
 
-
+            //Cargamos la reserva
             ReservationDataSource ds = new ReservationDataSource(getActivity());
 
             try {
@@ -105,11 +108,12 @@ public class UpdateReservationFragment extends Fragment {
 
 
                 if(savedInstanceState != null){
+                    //Restauramos el estado previo
                     String extras = savedInstanceState.getString(Config.ARG_EXTRAS);
 
 
-                    //Replace any DB value with the restored one
-                    Log.v("EXTRAS", "Restoring State... "+extras);
+                    //Reemplazamos cualquier valor obtenido de base de datos
+                    // con el valor restaurado
                     if(extras != null && !extras.isEmpty()){
                         String[] parts = extras.split(";");
                         for(String e : parts){
@@ -137,6 +141,13 @@ public class UpdateReservationFragment extends Fragment {
         }
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -183,20 +194,11 @@ public class UpdateReservationFragment extends Fragment {
                 Extra e = it.next();
 
                 //Calculamos el precio total del extra
-
-
                 float price = e.getQuantity() * e.getPrice();
-
-
                 if (e.getPriceType().equals(Extra.PriceType.DAILY)) {
-                    Log.v("TEST", "Precio por dia, " + dateDiff + " dias");
+
                     price = price * dateDiff;
-                } else {
-                    Log.v("TEST", "Precio por alquiler");
-                    price = price;
                 }
-
-
                 price = Utils.round(price);
 
                 calculatedTotal += price;
@@ -225,7 +227,7 @@ public class UpdateReservationFragment extends Fragment {
                 lp.setMargins(0, 6, 6, 6);
                 TextView tvPrice = new TextView(getActivity());
                 tvPrice.setLayoutParams(lp);
-                //Generate a different id for price TextView
+                //ID diferente para el TextView del precio
                 tvPrice.setId(Integer.parseInt(e.getCode() + "12"));
 
                 tvPrice.setText(String.format("%.02f", price) + "€");
@@ -244,7 +246,7 @@ public class UpdateReservationFragment extends Fragment {
             TextView totalPrice = (TextView) rootView.findViewById(R.id.totalValue);
             totalPrice.setText(String.format("%.02f", mItem.getPrice().getAmount()) + "€");
 
-            //Customer Data
+            //Datos del cliente
             EditText customerBirthDate = (EditText) rootView.findViewById(R.id.customerBirthdate);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             customerBirthDate.setText(sdf.format(mItem.getCustomer().getBirthDate()));
@@ -315,7 +317,7 @@ public class UpdateReservationFragment extends Fragment {
                     }
                 }
             });
-
+            //Configuracion especifica para smartphones
             boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
             if(!isTablet) {
                 new CountDownTimer(700, 700) {
@@ -353,12 +355,14 @@ public class UpdateReservationFragment extends Fragment {
             params.put(Config.ARG_DROPOFF_TIME,
                     sdfTime.format(mItem.getEndDate()));
 
+            //Buscamos disponibilidad de los extras
             extrasTask = new GetExtrasAsyncTask(
                     getActivity(), params, extrasLinearLayout,
                     inflater, container, extrasQuantity);
             extrasTask.execute();
 
 
+            //Evento para actualizar reserva
             Button btnUpdateBooking = (Button) rootView.findViewById(R.id.btnUpdateBooking);
 
             btnUpdateBooking.setOnClickListener(new View.OnClickListener() {
@@ -388,14 +392,16 @@ public class UpdateReservationFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Almacenamos el estado del fragmento para poder restaurarlo despues
+     * @param outState parametros para almacenar el estado
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
         if(extrasTask != null) {
 
             HashMap<Integer, Integer> extrasQuantity = extrasTask.getExtrasQuantity();
-
-
             Iterator<Integer> it = extrasQuantity.keySet().iterator();
 
             String extras = "";
@@ -413,6 +419,11 @@ public class UpdateReservationFragment extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Validamos los datos de la interfaz antes de permitir la confirmación de la reserva
+     * @param rootView vista raiz
+     * @return true si el estado es valido o false en otro caso
+     */
     private boolean validateData(View rootView) {
 
         EditText custName = (EditText) rootView.findViewById(R.id.customerName);
@@ -453,20 +464,22 @@ public class UpdateReservationFragment extends Fragment {
 
     }
 
+    /**
+     * Obtiene los datos de las vistas y genera un HashMap de parametros
+     * @param rootView vista raiz
+     * @param extrasQuantity cantidad de cada extra
+     * @param res reserva
+     * @param extrasResult listado de extras
+     * @return HashMap de parametros para confirmar la actualización de la reserva
+     */
     private HashMap<String, String> getFieldValues(View rootView, HashMap<Integer, Integer> extrasQuantity,
                                                    Reservation res, List<Extra> extrasResult) {
 
         HashMap<String, String> map = new HashMap<String, String>();
-
-        Bundle args = getArguments();
-
-
         String extrasToXml = "", extras = "";
-
-
         Set<Integer> keys = extrasQuantity.keySet();
 
-        //Serialize extras for XML request
+        //Serializamos los extras con el formato de la petición XML
         for (Integer line : keys) {
 
             int count = Integer.parseInt(extrasQuantity.get(line).toString());
@@ -480,7 +493,7 @@ public class UpdateReservationFragment extends Fragment {
 
         map.put(Config.ARG_EXTRAS_TO_XML, extrasToXml);
 
-        //Serialize extras for internal use
+        //Serializamos los extras para uso interno
         for (Integer line : keys) {
 
             int qty = Integer.parseInt(extrasQuantity.get(line).toString());

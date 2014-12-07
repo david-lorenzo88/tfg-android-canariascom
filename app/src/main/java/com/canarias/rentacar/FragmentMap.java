@@ -1,18 +1,11 @@
 package com.canarias.rentacar;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.util.Log;
-import android.view.InflateException;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.canarias.rentacar.config.Config;
@@ -31,25 +24,18 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
-
+/**
+ * Fragmento que hereda de MapFragment
+ * y muestra un mapa en el que se pueden añadir elementos
+ */
 public class FragmentMap extends MapFragment {
 
-
-
-
-
-    private Double latitude, longitude;
-
+    //Keys para los argumentos
     private static final String ARG_MAP_POINTS = "map_points";
     private static final String ARG_FRAGMENT_CONTAINER_ID = "fragment_container_id";
-
     public static final String ARG_ALL_OFFICES = "all_offices";
-
-
-
-    private String mMapPoints;
+    //Oficinas a mostrar en el mapa
     private HashMap<String, Office> offices;
-
     private int fragmentContainerId = -1;
 
 
@@ -59,7 +45,6 @@ public class FragmentMap extends MapFragment {
      *
      * @return A new instance of fragment MapFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static FragmentMap newInstance(String mapPoints, int fragmentContainerId) {
         FragmentMap fragment = new FragmentMap();
         Bundle args = new Bundle();
@@ -74,14 +59,18 @@ public class FragmentMap extends MapFragment {
         // Required empty public constructor
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState estado para restaurar los valores previos
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mMapPoints = getArguments().getString(ARG_MAP_POINTS);
+            String mMapPoints = getArguments().getString(ARG_MAP_POINTS);
             fragmentContainerId = getArguments().getInt(ARG_FRAGMENT_CONTAINER_ID);
 
-            //Get Offices from DB
+            //Obtenemos las oficinas desde la base de datos
             String[] offices = mMapPoints.split(";");
             OfficeDataSource ds = new OfficeDataSource(getActivity());
             this.offices = new HashMap<String, Office>();
@@ -89,13 +78,13 @@ public class FragmentMap extends MapFragment {
                 ds.open();
 
                 if(mMapPoints.equals(ARG_ALL_OFFICES)){
-                    //Showing all offices
+                    //Mostramos todas las oficinas
                     List<Office> tempOffices = ds.getOffices(null);
                     for(Office o : tempOffices){
                         this.offices.put(o.getCode(), o);
                     }
                 }else {
-                    //Showing certain offices
+                    //Mostramos solo algunas oficinas
                     for (String o : offices) {
                         this.offices.put(o, ds.getOffice(o));
                     }
@@ -109,9 +98,15 @@ public class FragmentMap extends MapFragment {
 
         }
         setRetainInstance(true);
-        Log.v("MAP", "onCreate");
     }
 
+    /**
+     * Ejecutado para crear la vista del mapa
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -124,13 +119,14 @@ public class FragmentMap extends MapFragment {
 
 
     /**
-     * This is where we can add markers or lines, add listeners or move the
-     * camera.
+     * Configura el mapa. Aqui se pueden añadir marcadores, lineas, listeners o mover
+     * la cámara, entre otras funcionalidades.
      */
     private void setUpMap() {
         GoogleMap map = getMap();
         map.setMyLocationEnabled(true);
 
+        //Establecemos el adaptador para mostrar los popups
         map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoWindow(Marker marker) {
@@ -139,6 +135,7 @@ public class FragmentMap extends MapFragment {
 
             @Override
             public View getInfoContents(Marker marker) {
+                //Inflamos la interfaz y configuramos las vistas
                 View v = getActivity().getLayoutInflater().inflate(R.layout.info_window_office, null);
                 final String officeCode = marker.getSnippet();
                 if(officeCode != null) {
@@ -167,11 +164,11 @@ public class FragmentMap extends MapFragment {
             }
         });
 
-        // For dropping a marker at a point on the Map
+        // Icono para los marcadores
         BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.marker);
 
 
-        //Loop to show markers
+        //Mostramos un marcador para cada oficina
         if(this.offices != null) {
             for (Office o : this.offices.values()) {
 
@@ -189,12 +186,12 @@ public class FragmentMap extends MapFragment {
                 }
             }
         }
+        //Establecemos el evento click del popup, que abrirá el detalle de la oficina
+        //seleccionada
         map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                if(fragmentContainerId != -1){
-
-                } else {
+                if(fragmentContainerId == -1){
                     Intent intent = new Intent(getActivity(), OfficeDetailActivity.class);
                     intent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, marker.getSnippet());
                     startActivity(intent);
@@ -202,7 +199,7 @@ public class FragmentMap extends MapFragment {
             }
         });
 
-        // For zooming automatically to the Dropped PIN Location
+        // Zoom automático a la Latitud y Longitud por defecto, con un zoom de 9
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Config.DEFAULT_LAT,
                 Config.DEFAULT_LNG), 9.0f));
     }

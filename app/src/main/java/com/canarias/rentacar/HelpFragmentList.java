@@ -18,15 +18,16 @@ import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link HelpFragmentList#newInstance} factory method to
- * create an instance of this fragment.
+ * Fragmento que muestra la lista de temas de ayuda
  */
 public class HelpFragmentList extends Fragment {
-
+    //Lista de items de ayuda
     private List<HelpSlide> items;
 
-
+    /**
+     * Crea una instancia del fragmento
+     * @return el fragmento
+     */
     public static HelpFragmentList newInstance() {
         HelpFragmentList fragment = new HelpFragmentList();
 
@@ -37,27 +38,41 @@ public class HelpFragmentList extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
     }
 
+    /**
+     * Crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Infla la interfaz
         View v = inflater.inflate(R.layout.fragment_help_fragment_list, container, false);
 
         ListView lv = (ListView) v.findViewById(R.id.helpThemesListView);
 
+        //Inicializa los temas de la ayuda
         initHelpÌtems();
 
         lv.setDivider(null);
         lv.setDividerHeight(10);
 
         lv.setAdapter(new HelpListAdapter(getActivity(), R.layout.help_list_item, items));
-
+        //Establece el evento click para cada elemento de la lista
+        //que abre la activity de presentaciones (SlideActivity)
+        // con el tema seleccionado
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -75,7 +90,9 @@ public class HelpFragmentList extends Fragment {
         return v;
     }
 
-
+    /**
+     * Inicializa la lista de items de ayuda
+     */
     private void initHelpÌtems() {
 
         items = new ArrayList<HelpSlide>();

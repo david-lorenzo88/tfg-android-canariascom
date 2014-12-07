@@ -25,10 +25,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/**
+ * Activity principal, que contiene el grid con los accesos a las partes de la aplicación.
+ * Además implementa el patrón NavigationDrawer para mostrar el menú lateral colapsable
+ */
 public class HomeActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
+    //Posiciones de los elementos del Menu
     private final static int DRAWER_POSITION_HOME = 0;
     public final static int DRAWER_POSITION_NEW_BOOKING = 1;
     private final static int DRAWER_POSITION_MY_BOOKINGS = 2;
@@ -47,34 +51,39 @@ public class HomeActivity extends Activity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-
+    //Preferencias del usuario
     private SharedPreferences prefs = null;
 
+    /**
+     * Crea la activity
+     * @param savedInstanceState estado previo
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Log.v("HOME", "onCreate");
 
+        //Obtiene el NavigationDrawer, el menu
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        // Set up the drawer.
+        // Configura el NavigationDrawer
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
-
+        //Obtiene las preferencias del usuario
         prefs = getSharedPreferences("com.canarias.rentacar", MODE_PRIVATE);
 
 
         if(savedInstanceState == null){
-            Log.v("HOME", "onCreate - savedInstanceState NULL");
+            //Iniciamos por primera vez, mostramos el HomeFragment
             getFragmentManager().beginTransaction()
                     .replace(R.id.container, new HomeFragment())
                     .commit();
         }
-
+        //Si hemos pasado una acción por defecto a seleccionar, realizamos la transición
+        //para mostrar el fragmento en cuestión
         if(getIntent().getExtras() != null && getIntent().getExtras().containsKey(DEFAULT_ACTION)){
             int action = getIntent().getExtras().getInt(DEFAULT_ACTION);
 
@@ -86,19 +95,24 @@ public class HomeActivity extends Activity
 
     }
 
+    /**
+     * Ejecutado cuando se pulsa sobre un item en el Menu
+     * @param position
+     */
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        Log.v("HOME", "onNavigationDrawerItemSelected - "+position);
+
         FragmentManager fragmentManager = getFragmentManager();
 
         switch (position) {
             case DRAWER_POSITION_MY_BOOKINGS:
+                //Mis Reservas
                 Intent reservationListIntent = new Intent(this, ReservationListActivity.class);
                 startActivity(reservationListIntent);
                 break;
 
             case DRAWER_POSITION_NEW_BOOKING:
-
+                //Reservar un coche
                 if(getIntent().getExtras() != null &&
                         getIntent().getExtras().containsKey(SearchFragment.TAG_PICKUP_ZONE) &&
                         getIntent().getExtras().containsKey(SearchFragment.TAG_DROPOFF_ZONE)){
@@ -136,23 +150,27 @@ public class HomeActivity extends Activity
 
                 break;
             case DRAWER_POSITION_SETTINGS:
+                //Ajustes
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
                 break;
             case DRAWER_POSITION_CARS:
+                //Buscar un coche
                 Intent carsIntent = new Intent(this, CarListActivity.class);
                 startActivity(carsIntent);
                 break;
             case DRAWER_POSITION_OFFICES:
+                //Buscar Oficinas
                 Intent officesIntent = new Intent(this, OfficeListActivity.class);
                 startActivity(officesIntent);
                 break;
             case DRAWER_POSITION_HELP:
+                //Ayuda
                 Intent helpIntent = new Intent(this, HelpActivity.class);
                 startActivity(helpIntent);
                 break;
             case DRAWER_POSITION_HOME:
-                // update the main content by replacing fragments
+                // Home
 
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, new HomeFragment())
@@ -164,6 +182,10 @@ public class HomeActivity extends Activity
 
     }
 
+    /**
+     * Ejecutado cuando se cambia el fragmento
+     * @param number numero de seccion
+     */
     public void onSectionAttached(int number) {
 
         switch (number) {
@@ -178,6 +200,9 @@ public class HomeActivity extends Activity
         }
     }
 
+    /**
+     * Restaura la barra de acciones superior
+     */
     public void restoreActionBar() {
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
@@ -185,7 +210,12 @@ public class HomeActivity extends Activity
         actionBar.setTitle(mTitle);
     }
 
-
+    /**
+     * Ejecutado al crear el menú de opciones, es el sitio para manejar y decidir que elementos
+     * se muestran en el menu así como cargar el archivo de configuración del menu
+     * @param menu el menu
+     * @return true para que el menú sea mostrado o false en caso contrario
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -210,10 +240,16 @@ public class HomeActivity extends Activity
         }*/
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Ejecutado al activar la activity.
+     * Usado para comprobar la ultima sincronización de vehículos y oficinas
+     * y ejecutarla en caso necesario.
+     */
     @Override
     protected void onResume() {
         super.onResume();
-        Log.v("HOME", "onResume");
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date today = new Date();
         Calendar cal = Calendar.getInstance();
@@ -225,19 +261,22 @@ public class HomeActivity extends Activity
         calDaysAgo.add(Calendar.DATE, (Config.DAYS_TO_SYNC_CONTENT + 1) * -1);
 
         try {
-            Date lastSync = sdf.parse(prefs.getString("last_sync", sdf.format(calDaysAgo.getTime())));
+            //Cargamos la ultima fecha de sincronización
+            Date lastSync = sdf.parse(prefs.getString("last_sync",
+                    sdf.format(calDaysAgo.getTime())));
             Calendar lastSyncCal = Calendar.getInstance();
             lastSyncCal.setTime(lastSync);
             lastSyncCal.add(Calendar.DATE, Config.DAYS_TO_SYNC_CONTENT);
 
             if (cal.compareTo(lastSyncCal) >= 0) {
 
-                //Sync Data Here
-                Toast.makeText(this, "Last Sync: "+sdf.format(lastSync), Toast.LENGTH_LONG).show();
+                //Sincronizamos los datos
+                Toast.makeText(this, getString(R.string.last_sync)+": "+sdf.format(lastSync),
+                        Toast.LENGTH_LONG).show();
 
                 SyncDataAsyncTask syncTask = new SyncDataAsyncTask(this);
                 syncTask.execute();
-
+                //Establecemos la nueva fecha de última sincronización
                 prefs.edit().putString("last_sync", sdf.format(today)).commit();
             }
         } catch (ParseException e) {

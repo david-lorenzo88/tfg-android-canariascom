@@ -37,6 +37,10 @@ public class ReservationDetailActivity extends Activity {
 
     Context mContext;
 
+    /**
+     * Crea la Activity
+     * @param savedInstanceState estado previo para restaurar
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -5,9 +5,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
+/**
+ * Activity que encapsula las presentaciones en slide de los temas de ayuda
+ */
 public class SlideActivity extends ActionBarActivity {
     public static String ARG_ITEM_ID = "item_id";
+
+    /**
+     * Crea la activity
+     * @param savedInstanceState estado previo
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

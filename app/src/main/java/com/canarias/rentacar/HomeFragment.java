@@ -11,10 +11,11 @@ import android.widget.LinearLayout;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragmento que muestra el grid de la pantalla principal
  */
 public class HomeFragment extends Fragment {
 
+    //Posiciones del menu
     private final static int DRAWER_POSITION_HOME = 0;
     private final static int DRAWER_POSITION_NEW_BOOKING = 1;
     private final static int DRAWER_POSITION_MY_BOOKINGS = 2;
@@ -27,7 +28,13 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,6 +90,10 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Ejecutado al activar el fragment.
+     * Establecemos el titulo de la activity
+     */
     @Override
     public void onResume() {
         super.onResume();

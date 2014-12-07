@@ -56,9 +56,12 @@ public class OfficeListFragment extends Fragment {
      * clicks.
      */
     private Callbacks mCallbacks = sDummyCallbacks;
+    //Lista de oficinas
     private List<Office> offices;
+    //Lista de oficinas filtrada
     private List<Office> filteredOffices;
     private ListView listView;
+    //Lista de zonas para el filtro
     private List<Zone> zones;
     private Spinner filterSpinner;
     private OfficeListAdapter adapter;
@@ -85,6 +88,13 @@ public class OfficeListFragment extends Fragment {
         return adapter;
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -98,6 +108,11 @@ public class OfficeListFragment extends Fragment {
         return view;
     }
 
+    /**
+     * llamado cuando la vista ha sido creada
+     * @param view la vista
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -107,9 +122,8 @@ public class OfficeListFragment extends Fragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
-
+        //Inicializamos la ListView
         listView = (ListView) view.findViewById(android.R.id.list);
-
         listView.setDivider(null);
         listView.setDividerHeight(10);
         listView.setSelector(R.color.transparent);
@@ -120,6 +134,7 @@ public class OfficeListFragment extends Fragment {
         listView.addFooterView(new View(getActivity()));
         setActivateOnItemClick(true);
 
+        //Obtenemos la lista de oficinas y zonas
         OfficeDataSource ds = new OfficeDataSource(getActivity());
         ZoneDataSource dsZones = new ZoneDataSource(getActivity());
 
@@ -138,21 +153,21 @@ public class OfficeListFragment extends Fragment {
             ds.close();
             dsZones.close();
 
-            Log.v("ADAPTER", "Creando Adapter...");
+
             adapter = new OfficeListAdapter(getActivity(),
                     R.layout.office_list_item, offices);
 
             listView.setAdapter(adapter);
-
+            //Manejamos el evento click en los items de la lista
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     mCallbacks.onItemSelected(filteredOffices.get(position - 1).getCode());
-                    Log.v("ADAPTER", "Callback position: "+(position - 1));
                     adapter.setSelectedIndex(position - 1);
                 }
             });
 
+            //Adapter para el filtro de zonas
             ArrayAdapter<Zone> adapter = new ArrayAdapter<Zone>(getActivity(),
                     R.layout.zone_spinner, R.id.zone_item_name, zones);
 
@@ -160,13 +175,11 @@ public class OfficeListFragment extends Fragment {
 
             filterSpinner.setAdapter(adapter); // this will set list of values to spinner
 
+            //Manejamos el evento para filtrar la lista de oficinas por zona
             filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    //FilterOfficesAsyncTask task = new FilterOfficesAsyncTask(listView);
-                    //task.execute(((Zone)parent.getItemAtPosition(position)).getCode());
                     filterOfficeList(((Zone) parent.getItemAtPosition(position)).getCode());
-
                     getAdapter().getFilter()
                             .filter(String.valueOf(
                                     ((Zone)parent.getItemAtPosition(position)).getCode()));
@@ -182,6 +195,10 @@ public class OfficeListFragment extends Fragment {
         }
     }
 
+    /**
+     * Filtra la lista de oficinas en base al codigo de zona
+     * @param zoneCode el codigo de zona
+     */
     private void filterOfficeList(int zoneCode){
         filteredOffices = new ArrayList<Office>(offices);
 
@@ -198,11 +215,13 @@ public class OfficeListFragment extends Fragment {
 
     }
 
+    /**
+     * Ejecutado cuando el fragmento se asocia a la activity
+     * @param activity la activity
+     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        Log.v("MENU", "onAttach OfficeListFragment");
 
         // Activities containing this fragment must implement its callbacks.
         if (!(activity instanceof Callbacks)) {
@@ -215,7 +234,9 @@ public class OfficeListFragment extends Fragment {
     }
 
 
-
+    /**
+     * Ejecutado cuando el fragmento se desasocia de la activity
+     */
     @Override
     public void onDetach() {
         super.onDetach();
@@ -225,15 +246,10 @@ public class OfficeListFragment extends Fragment {
         mCallbacks = sDummyCallbacks;
     }
 
-    /*@Override
-    public void onListItemClick(ListView listView, View view, int position, long id) {
-        super.onListItemClick(listView, view, position, id);
-
-        // Notify the active callbacks interface (the activity, if the
-        // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(filteredOffices.get(position - 1).getCode());
-    }*/
-
+    /**
+     * Almacenamos los datos para una posterior restauración
+     * @param outState parametros para almacenar los datos
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -255,6 +271,10 @@ public class OfficeListFragment extends Fragment {
                 : ListView.CHOICE_MODE_NONE);
     }
 
+    /**
+     * Establece la posicion activa en la ListView
+     * @param position nueva posición
+     */
     private void setActivatedPosition(int position) {
         if (position == ListView.INVALID_POSITION) {
             listView.setItemChecked(mActivatedPosition, false);

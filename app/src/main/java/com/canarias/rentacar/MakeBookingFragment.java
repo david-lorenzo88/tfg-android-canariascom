@@ -36,16 +36,19 @@ import java.util.concurrent.TimeUnit;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link MakeBookingFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Fragmento que muestra el menú para la recogida de
+ * los datos del titular en el proceso de creación de reserva,
+ * así como la acción para Finalizar Reserva.
  */
 public class MakeBookingFragment extends Fragment {
 
-
-    private static final int SUMMARY_STATUS_EXPANDED = 0;
-    private int mSummaryStatus = SUMMARY_STATUS_EXPANDED;
+    //Estados del menú de resumen
     private static final int SUMMARY_STATUS_COLLAPSED = 1;
+    private static final int SUMMARY_STATUS_EXPANDED = 0;
+    //Estado actual. Comienza en expandido
+    private int mSummaryStatus = SUMMARY_STATUS_EXPANDED;
+    //Indica si el numero de vuelo es obligatorio
+    //para mostrar el campo u ocultarlo según el caso.
     private boolean mFlightNumMandatory = false;
 
     private EditText custName;
@@ -75,7 +78,6 @@ public class MakeBookingFragment extends Fragment {
      *
      * @return A new instance of fragment MakeBookingFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static MakeBookingFragment newInstance() {
         MakeBookingFragment fragment = new MakeBookingFragment();
         Bundle args = new Bundle();
@@ -84,12 +86,16 @@ public class MakeBookingFragment extends Fragment {
         return fragment;
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
-
+            //Cargamos la información del estado previo, ya que estamos restaurando el fragmento
             valuecustName = savedInstanceState.getString(Config.ARG_CUSTOMER_NAME);
             if (valuecustName == null)
                 valuecustName = PreferenceManager
@@ -115,7 +121,8 @@ public class MakeBookingFragment extends Fragment {
                 valuecustBirthdate = PreferenceManager
                         .getDefaultSharedPreferences(getActivity()).getString("customer_birth_date", "");
         } else {
-
+            //Buscamos los valores en las preferencias del usuario por si los configuró
+            //en la seccion de Ajustes
             valuecustName = PreferenceManager
                     .getDefaultSharedPreferences(getActivity()).getString("customer_name", "");
 
@@ -138,14 +145,21 @@ public class MakeBookingFragment extends Fragment {
 
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflamos la interfaz
         final View rootView = inflater.inflate(R.layout.fragment_make_booking, container, false);
 
         Bundle args = getArguments();
-
+        //Gestionamos el botón Cambiar
         LinearLayout changeBtn = (LinearLayout) rootView.findViewById(R.id.changeBtn);
         changeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -153,7 +167,7 @@ public class MakeBookingFragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
-
+        //Rellenamos las vistas del resumen
         TextView lblPickupPoint = (TextView) rootView.findViewById(R.id.makeBookingPickupPointValue);
         TextView lblDropoffPoint = (TextView) rootView.findViewById(R.id.makeBookingDropoffPointValue);
         TextView lblPickupDateTime = (TextView) rootView.findViewById(R.id.makeBookingpickupDateValue);
@@ -231,7 +245,7 @@ public class MakeBookingFragment extends Fragment {
         if (args.getString(Config.ARG_EXTRAS).length() > 0) {
             extras = args.getString(Config.ARG_EXTRAS).split("#");
         }
-        Log.v("TEST", args.getString(Config.ARG_EXTRAS));
+
         View lastView = rootView.findViewById(R.id.extrasFrame);
         View lastViewRight = lastView;
         RelativeLayout extrasFrame = (RelativeLayout) rootView.findViewById(R.id.extrasFrame);
@@ -274,12 +288,7 @@ public class MakeBookingFragment extends Fragment {
                     if (priceType.equals(Extra.PriceType.DAILY)) {
                         //Precio por dia
                         extraPrice = extraPrice * dateDiff;
-                    } else {
-                        //Precio por alquiler
-                        extraPrice = extraPrice;
                     }
-                } else {
-                    extraPrice = extraPrice;
                 }
                 extraPrice = Utils.round(extraPrice);
 
@@ -304,6 +313,7 @@ public class MakeBookingFragment extends Fragment {
                 getActivity().getString(R.string.showSummary)
                         + " (" + String.format("%.02f", totalPrice) + "€)");
 
+        //Botón para colapsar / expandir el panel del resumen de la reserva
         final ImageView collapseBtn = (ImageView) rootView.findViewById(R.id.makeBookingIconCollapse);
         collapseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -321,6 +331,7 @@ public class MakeBookingFragment extends Fragment {
                 }
             }
         });
+        //Configuración específica para cuando no es un tablet
         boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
         if(!isTablet) {
             new CountDownTimer(700, 700) {
@@ -337,6 +348,7 @@ public class MakeBookingFragment extends Fragment {
                 }
             }.start();
         }
+        //Botón Confirmar Reserva
         Button confirmBtn = (Button) rootView.findViewById(R.id.btnConfirmBooking);
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -391,6 +403,10 @@ public class MakeBookingFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Almacenamos los valores actuales para restaurarlos posteriormente
+     * @param outState argumentos
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
@@ -413,6 +429,11 @@ public class MakeBookingFragment extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Validamos los datos antes de proceder a confirmar la reserva
+     * @param rootView Vista raíz
+     * @return true si los datos son válidos, o false en otro caso
+     */
     private boolean validateData(View rootView) {
 
         EditText custName = (EditText) rootView.findViewById(R.id.customerName);
@@ -453,6 +474,11 @@ public class MakeBookingFragment extends Fragment {
 
     }
 
+    /**
+     * Construimos un HashMap con los valores necesarios para pasar a la Tarea en Segundo Plano
+     * que confirmará la reserva: MakeBookingAsyncTask
+     * @return
+     */
     private HashMap<String, String> getFieldValues() {
 
         HashMap<String, String> map = new HashMap<String, String>();
@@ -494,14 +520,6 @@ public class MakeBookingFragment extends Fragment {
 
         map.put(Config.ARG_CAR_MODEL, args.getString(Config.ARG_CAR_MODEL));
 
-
-        /*custName = (EditText) rootView.findViewById(R.id.customerName);
-        custLastName = (EditText) rootView.findViewById(R.id.customerSurname);
-        custBirthdate = (EditText) rootView.findViewById(R.id.customerBirthdate);
-        custEmail = (EditText) rootView.findViewById(R.id.customerEmail);
-        custPhone = (EditText) rootView.findViewById(R.id.customerPhone);
-        flightNum = (EditText) rootView.findViewById(R.id.flightNumber);
-        comments = (EditText) rootView.findViewById(R.id.comments);*/
 
         map.put(Config.ARG_CUSTOMER_NAME, custName.getText().toString().trim());
         map.put(Config.ARG_CUSTOMER_LASTNAME, custLastName.getText().toString().trim());

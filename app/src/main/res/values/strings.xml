@@ -470,5 +470,6 @@
     <string name="downloading_cars_msg">Actualizando la base de datos de coches.</string>
     <string name="downloading_offices_msg">Actualizando la base de datos de oficinas.</string>
     <string name="default_zone">-- Selecciona una zona --</string>
+    <string name="last_sync">Última sincronización</string>
 
 </resources>

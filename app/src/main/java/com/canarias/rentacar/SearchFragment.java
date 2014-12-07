@@ -36,15 +36,17 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Fragmento que muestra el formulario de búsqueda para buscar disponibilidad de vehículos.
+ * Implementa las interfaces de los dialogos para el Calendario, Selector de Zona y
+ * Selector de hora.
+ */
 public class SearchFragment extends Fragment implements CalendarDatePickerDialog.OnDateSetListener,
         ZonePickerDialog.OnZoneChangedListener, TimePickerDialog.OnTimeChangedListener {
-    /*parameters names*/
 
-
+    //Parameter names
     public static final String FRAG_TAG_DATE_PICKER = "fragment_date_picker_name";
-
     public static final String TAG_SELECTED_MODEL = "selected_model";
-
     public static final String TAG_PICKUP_DATE = "pickup_date";
     public static final String TAG_PICKUP_ZONE = "pickup_zone";
     public static final String TAG_PICKUP_TIME = "pickup_time";
@@ -78,8 +80,10 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
     private String pickupTime;
     private String dropoffTime;
 
+    //Coche seleccionado (cuando se busca por coche)
     private Car selectedCar;
 
+    //Estados de cada elemento
     private int pickupPointLayoutStatus = StatusRelativeLayout.STATUS_PENDING;
     private int dropoffPointLayoutStatus = StatusRelativeLayout.STATUS_PENDING;
     private int pickupDateLayoutStatus = StatusRelativeLayout.STATUS_PENDING;
@@ -123,15 +127,19 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         return fragment;
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.v("MY", "onCreate");
-        printBundle(savedInstanceState);
-        //Restore instance state
+
+
+        //Restauramos el estado previo
         if (savedInstanceState != null) {
 
-            Log.v("MY", "onCreate savedInstanceState != null");
+
             pickupPointLayoutStatus = savedInstanceState.getInt(Config.ARG_PICKUP_POINT_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
             dropoffPointLayoutStatus = savedInstanceState.getInt(Config.ARG_DROPOFF_POINT_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
             pickupDateLayoutStatus = savedInstanceState.getInt(Config.ARG_PICKUP_DATE_LAYOUT_STATE, StatusRelativeLayout.STATUS_PENDING);
@@ -207,8 +215,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
         } else if (getArguments() != null && getArguments().containsKey(TAG_PICKUP_ZONE)
                 && getArguments().containsKey(TAG_DROPOFF_ZONE)) {
-            Log.v("MY", "onCreate arguments zones");
-            //Selected offices
+
+            //Hay oficinas seleccionadas, las cargamos
 
             String pickupCode = getArguments().getString(TAG_PICKUP_ZONE);
             String dropoffCode = getArguments().getString(TAG_DROPOFF_ZONE);
@@ -257,7 +265,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         }
         else if(getArguments() != null && getArguments().containsKey(TAG_SELECTED_MODEL)){
             CarDataSource carDS = new CarDataSource(getActivity());
-            Log.v("MY", "onCreate arguments model");
+            //Hay un coche seleccionado, lo cargamos
             try{
                 carDS.open();
                 selectedCar = carDS.getCar(getArguments().getString(TAG_SELECTED_MODEL));
@@ -273,20 +281,19 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
     }
 
-    private void printBundle(Bundle bundle){
-        if(bundle != null) {
-            for (String key : bundle.keySet()) {
-                Log.v("MY", key + " - " + bundle.get(key));
-            }
-        }
 
-    }
-
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_search, container, false);
-        Log.v("MY", "onCreateView");
+
         initActivity(rootView);
 
         getActivity().getActionBar().setTitle(getString(R.string.title_fragment_new_booking));
@@ -295,15 +302,22 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         return rootView;
     }
 
-
+    /**
+     * Ejecutado cuando el fragmento se asocia a la activity
+     * @param activity la activity
+     */
     @Override
     public void onAttach(Activity activity) {
-        Log.v("MY", "onAttach");
+
         super.onAttach(activity);
         ((HomeActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
 
+    /**
+     * Inicializa la interfaz
+     * @param rootView la vista raiz
+     */
     private void initActivity(final View rootView) {
 
         pickupZoneLabel = (TextView) rootView.findViewById(R.id.pickupZoneDefaultLabel);
@@ -322,7 +336,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         }
 
 
-        //Default values
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
@@ -422,8 +436,6 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 } catch (Exception ex) {
                     Log.v("TEST", ex.getMessage());
                 }
-                //cal.setTime(new Date());
-                //cal.add(Calendar.DATE, 5);
 
                 Calendar validateCal = Calendar.getInstance();
                 try {
@@ -477,13 +489,13 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
         btnSearchCars = (Button) rootView.findViewById(R.id.btnSearchCars);
 
+        //Boton de buscar disponibilidad
         btnSearchCars.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //Validamos
+                //Validamos el estado de cada item del formulario
                 boolean valid = true;
-
                 validateDateLayoutStatus();
 
                 if (pickupZoneLayout.getStatus() != StatusRelativeLayout.STATUS_OK) {
@@ -512,7 +524,9 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                 }
 
                 if (!valid) {
-                    Toast.makeText(getActivity(), getActivity().getString(R.string.btnSearchCarsInvalidStatus), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),
+                            getActivity().getString(R.string.btnSearchCarsInvalidStatus),
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -521,7 +535,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
                 Bundle args = new Bundle();
 
-                //All fields are valid, replace fragment
+                //Todos los campos son validos, continuamos la busqueda
 
                 args.putString(Config.ARG_PICKUP_POINT, pickupOffice.getCode());
                 args.putString(Config.ARG_DROPOFF_POINT, dropoffOffice.getCode());
@@ -546,8 +560,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
             }
         });
 
+        //Si hay un coche seleccionado, cargamos la interfaz
 
-        //if there is selected car, load layout
         if(selectedCar != null) {
             ImageView carImage = (ImageView) rootView.findViewById(R.id.carImage);
             ImageDownloader downloader = new ImageDownloader(9999, getActivity());
@@ -557,7 +571,7 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
             rootView.findViewById(R.id.selectedCarExternalWrap).setVisibility(View.VISIBLE);
 
-            ((ImageView)rootView.findViewById(R.id.btnRemoveSelectedCar)).setOnClickListener(
+            rootView.findViewById(R.id.btnRemoveSelectedCar).setOnClickListener(
                     new OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -587,10 +601,8 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
                             });
 
 
-                    confirmDialog.setMessage(getString(R.string.remove_selected_car_dialog_msg));
-
-
-
+                    confirmDialog
+                            .setMessage(getString(R.string.remove_selected_car_dialog_msg));
                     confirmDialog.show();
                 }
             });
@@ -598,9 +610,13 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
 
     }
 
+    /**
+     * Guardamos el estado del fragmento para restaurarlo posteriormente
+     * @param outState parametros para almacenar el estado actual
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        Log.v("MY", "onSaveInstanceState");
+
         if (pickupOffice != null)
             outState.putString(Config.ARG_PICKUP_POINT, pickupOffice.getCode());
         if (dropoffOffice != null)
@@ -630,10 +646,18 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         if(selectedCar != null)
             outState.putString(Config.ARG_SELECTED_CAR, selectedCar.getModel());
 
-        printBundle(outState);
+
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Callback que establece la fecha seleccionada en el calendario
+     * @param dialog      The view associated with this listener.
+     * @param year        The year that was set.
+     * @param monthOfYear The month that was set (0-11) for compatibility with {@link java.util.Calendar}.
+     * @param dayOfMonth  The day of the month that was set.
+     * @param tag Indica si es la fecha de recogida o la de devolucion
+     */
     @Override
     public void onDateSet(CalendarDatePickerDialog dialog, int year, int monthOfYear, int dayOfMonth, String tag) {
         if (tag.equals(TAG_PICKUP_DATE)) {
@@ -648,27 +672,16 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         validateDateLayoutStatus();
     }
 
+    /**
+     * Valida el estado de cada elemento y establece su nuevo estado
+     */
     private void validateDateLayoutStatus() {
         Date pickupCal, dropoffCal;
 
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             dropoffCal = sdf.parse(dropoffDate + " " + dropoffTime);
-            //dropoffCal = sdf.getCalendar();
             pickupCal = sdf.parse(pickupDate + " " + pickupTime);
-            //pickupCal = sdf.getCalendar();
-
-            //dropoffCal.set(Calendar.HOUR, 0);
-            //dropoffCal.set(Calendar.HOUR_OF_DAY, 0);
-            //dropoffCal.set(Calendar.MINUTE, 0);
-            //dropoffCal.set(Calendar.SECOND, 0);
-            //dropoffCal.set(Calendar.MILLISECOND, 0);
-
-            //pickupCal.set(Calendar.HOUR, 0);
-            //pickupCal.set(Calendar.HOUR_OF_DAY, 0);
-            //pickupCal.set(Calendar.MINUTE, 0);
-            //pickupCal.set(Calendar.SECOND, 0);
-            //pickupCal.set(Calendar.MILLISECOND, 0);
 
             if (pickupOffice == null || pickupZone == null)
                 pickupZoneLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
@@ -680,8 +693,6 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
             else
                 dropoffZoneLayout.setStatus(StatusRelativeLayout.STATUS_OK);
 
-            Log.v("TEST", "PickupCal: " + pickupCal.getTime());
-            Log.v("TEST", "DropoffCal: " + dropoffCal.getTime());
             if (pickupCal.getTime() >= dropoffCal.getTime()) {
                 dropoffDateLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
                 pickupDateLayout.setStatus(StatusRelativeLayout.STATUS_ERROR);
@@ -698,6 +709,12 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         }
     }
 
+    /**
+     * Callback que establece la oficina y zona seleccionada desde el dialogo selector de zonas
+     * @param tag indica si es la oficina de recogida o la de devolución
+     * @param zone objeto zona
+     * @param office objeto oficina
+     */
     @Override
     public void onZoneChanged(String tag, Zone zone, Office office) {
 
@@ -714,6 +731,11 @@ public class SearchFragment extends Fragment implements CalendarDatePickerDialog
         }
     }
 
+    /**
+     * Callback que establece la hora seleccionada
+     * @param tag indica si es la hora de recogida o la de devolución
+     * @param time la hora
+     */
     @Override
     public void onTimeChanged(String tag, String time) {
         if (tag.equals(TAG_PICKUP_TIME)) {

@@ -53,9 +53,13 @@ public class CarListFragment extends ListFragment {
      * clicks.
      */
     private Callbacks mCallbacks = sDummyCallbacks;
+    //Lista de coches
     List<Car> cars;
+    //lista de coches filtrada
     List<Car> filteredCars;
+    //lista de categorias para el filtro
     List<String> categories;
+
     CarListAdapter adapter;
 
     Spinner filterSpinner;
@@ -73,6 +77,10 @@ public class CarListFragment extends ListFragment {
     public CarListFragment() {
     }
 
+    /**
+     * Crea el Fragment
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +88,13 @@ public class CarListFragment extends ListFragment {
 
     }
 
+    /**
+     * Crea la vista para el fragment
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -90,10 +105,20 @@ public class CarListFragment extends ListFragment {
 
         return view;
     }
+
+    /**
+     * Getter. Devuelve el adapter
+     * @return
+     */
     public final CarListAdapter getAdapter(){
         return adapter;
     }
 
+    /**
+     * Ejecutado cuando la vista ya ha sido creada
+     * @param view la vista del fragment
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     */
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -105,10 +130,8 @@ public class CarListFragment extends ListFragment {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
 
-        //Init ListView for Cards UI
-
+        //Inicializamos la ListView
         listView = getListView();
-
         listView.setDivider(null);
         listView.setDividerHeight(10);
         listView.setSelector(R.color.transparent);
@@ -122,34 +145,35 @@ public class CarListFragment extends ListFragment {
 
         CarDataSource ds = new CarDataSource(getActivity());
 
-
+        //Obtenemos la lista de vehículos
         try {
             ds.open();
 
             cars = ds.getAllCars();
 
-            //Collections.copy(filteredCars, cars);
             filteredCars = new ArrayList<Car>(cars);
 
             categories = ds.getCarCategories();
             categories.add(0, getActivity().getString(R.string.spinnerAllText));
 
             ds.close();
+
+            //Creamos el adapter para los vehículos
             adapter = new CarListAdapter(
                     getActivity(),
                     R.layout.car_list_item,
                     cars);
             setListAdapter(adapter);
 
+            //Creamos el adapter para el filtro
             final ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(),
                     R.layout.category_spinner, R.id.category_item_name, categories);
-            filterSpinner.setAdapter(spinnerAdapter); // this will set list of values to spinner
+            filterSpinner.setAdapter(spinnerAdapter);
 
+            //Evento para filtrar la lista al seleccionar una categoría en el filtro
             filterSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    //FilterCarsAsyncTask task = new FilterCarsAsyncTask(listView);
-                    //task.execute((String) parent.getItemAtPosition(position));
 
                     filterCarList((String)parent.getItemAtPosition(position));
 
@@ -170,6 +194,10 @@ public class CarListFragment extends ListFragment {
 
     }
 
+    /**
+     * filtra la lista de vehículos
+     * @param cat categoría a filtrar
+     */
     private void filterCarList(String cat){
         filteredCars = new ArrayList<Car>(cars);
 
@@ -186,6 +214,10 @@ public class CarListFragment extends ListFragment {
 
     }
 
+    /**
+     * Ejecutado cuando el fragmento se asocia a la activity
+     * @param activity la activity
+     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -198,6 +230,9 @@ public class CarListFragment extends ListFragment {
         mCallbacks = (Callbacks) activity;
     }
 
+    /**
+     * Ejecutado cuando el fragmento se desasocia de la activity
+     */
     @Override
     public void onDetach() {
         super.onDetach();
@@ -206,6 +241,13 @@ public class CarListFragment extends ListFragment {
         mCallbacks = sDummyCallbacks;
     }
 
+    /**
+     * Ejecutado cuando se ha pulsado sobre un item de la lista
+     * @param listView la lista
+     * @param view la vista del item que se ha pulsado
+     * @param position la posicion del item
+     * @param id el identificador del item
+     */
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
@@ -218,6 +260,10 @@ public class CarListFragment extends ListFragment {
         adapter.setSelectedIndex(position - 1);
     }
 
+    /**
+     * Guarda los valores necesarios para restaurar el fragmento
+     * @param outState set de parametros a almacenar
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -239,6 +285,10 @@ public class CarListFragment extends ListFragment {
                 : ListView.CHOICE_MODE_NONE);
     }
 
+    /**
+     * Establece la posicion activa de la lista
+     * @param position posicion a activar
+     */
     private void setActivatedPosition(int position) {
         if (position == ListView.INVALID_POSITION) {
             getListView().setItemChecked(mActivatedPosition, false);

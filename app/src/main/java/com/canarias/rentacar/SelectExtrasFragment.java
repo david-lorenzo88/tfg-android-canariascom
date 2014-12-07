@@ -29,20 +29,25 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-
+/**
+ * Fragment que muestra los extras disponibles para reservar durante el proceso de reserva
+ */
 public class SelectExtrasFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
+    //Nombres de los parametros
     private static final String ARG_AVAILABILITY_IDENTIFIER = "availability_identifier";
     private static final String ARG_CAR_IMAGE = "car_image";
     private static final String ARG_CAR_PRICE = "car_price";
     private static final String ARG_CAR_MODEL = "car_model";
     private static final String ARG_EXTRAS = "extras";
 
+    //Estado del panel del resumen
     private static final int SUMMARY_STATUS_EXPANDED = 0;
-    private int mSummaryStatus = SUMMARY_STATUS_EXPANDED;
     private static final int SUMMARY_STATUS_COLLAPSED = 1;
+    private int mSummaryStatus = SUMMARY_STATUS_EXPANDED;
+
     private SelectExtrasFragment mReference;
 
     private HashMap<Integer, Integer> extrasQuantity;
@@ -79,24 +84,26 @@ public class SelectExtrasFragment extends Fragment {
         mReference = reference;
     }
 
+    /**
+     * Crea el fragment
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mReference = this;
 
         extrasQuantity = new HashMap<Integer, Integer>();
-        Log.v("EXTRAS", "onCreate MemorySavedState... "+extrasSavedState);
+
         if(savedInstanceState != null){
-
-
-
+            //Restauramos el estado previo
             String extras = savedInstanceState.getString(Config.ARG_EXTRAS);
 
             if(extras != null && !extras.isEmpty()){
                 extrasSavedState = extras;
             }
 
-            Log.v("EXTRAS", "Restoring State... "+extras);
+
             if(extras != null && !extras.isEmpty()){
                 String[] parts = extras.split(";");
                 for(String e : parts){
@@ -113,10 +120,17 @@ public class SelectExtrasFragment extends Fragment {
         }
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflamos la interfaz
         final View rootView = inflater.inflate(R.layout.fragment_select_extras, container, false);
 
         Bundle args = getArguments();
@@ -132,18 +146,18 @@ public class SelectExtrasFragment extends Fragment {
 
         final List<Extra> extras = new ArrayList<Extra>();
 
-        //Populate extras list from serialized string
-        //Format: code##modelCode##extraName##dayPrice__code##modelCode##extraName##dayPrice...
+        //Lista de extras desde string serializado
+        //Formato: code##modelCode##extraName##dayPrice__code##modelCode##extraName##dayPrice...
         String serializedExtras = args.getString(SearchResultsFragment.ARG_EXTRAS_STRING);
         if (serializedExtras != null) {
             String[] extrasParts = serializedExtras.split("__");
             if (extrasParts.length > 0) {
-                //There is at least one extra
+                //Hay al menos un extra
                 for (String extra : extrasParts) {
-                    Log.v("TEST2", extra);
+
                     String[] extraParts = extra.split("##");
                     if (extraParts.length == 4) {
-                        //Extra format is OK
+                        //El formato es correcto
                         Extra oExtra = new Extra();
                         oExtra.setPrice(Float.parseFloat(extraParts[3]));
                         oExtra.setName(extraParts[2]);
@@ -179,6 +193,7 @@ public class SelectExtrasFragment extends Fragment {
 
         carPrice.setText(String.format("%.02f", args.getFloat(ARG_CAR_PRICE)) + "€");
 
+        //Cargamos zonas y oficinas
         ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
         OfficeDataSource officeDS = new OfficeDataSource(getActivity());
 
@@ -235,6 +250,7 @@ public class SelectExtrasFragment extends Fragment {
             }
         });
 
+        //Boton continuar
         Button continueBtn = (Button) rootView.findViewById(R.id.btnSelectExtras);
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,6 +292,8 @@ public class SelectExtrasFragment extends Fragment {
 
             }
         });
+
+        //Configuracion para smartphones
         boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
         if(!isTablet) {
             new CountDownTimer(700, 700) {
@@ -298,6 +316,10 @@ public class SelectExtrasFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Almacenamos el estado del fragment
+     * @param outState parametros para salvar el estado
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
@@ -305,7 +327,6 @@ public class SelectExtrasFragment extends Fragment {
             ExtrasAdapter adapter = (ExtrasAdapter) extrasListView.getAdapter();
 
             HashMap<Integer, Integer> extrasQuantity = adapter.getExtrasQuantity();
-
 
             Iterator<Integer> it = extrasQuantity.keySet().iterator();
 
@@ -319,16 +340,18 @@ public class SelectExtrasFragment extends Fragment {
                 extras = extras.substring(0, extras.length() - 1);
             outState.putString(Config.ARG_EXTRAS, extras);
 
-
-
-            Log.v("EXTRAS", "onSaveInstanceState: " + extras);
-
         } else if(extrasSavedState != null)
             outState.putString(Config.ARG_EXTRAS, extrasSavedState);
 
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * Busca un extra en la lista de extras
+     * @param extras lista de extras
+     * @param code codigo del extra a buscar
+     * @return el extra si se encontró o null en otro caso
+     */
     private Extra searchExtra(List<Extra> extras, int code) {
         for (Extra e : extras) {
             if (e.getCode() == code)
@@ -337,7 +360,10 @@ public class SelectExtrasFragment extends Fragment {
         return null;
     }
 
-
+    /**
+     * Ejecutado al asociar el fragment a la activity
+     * @param activity la activity
+     */
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);

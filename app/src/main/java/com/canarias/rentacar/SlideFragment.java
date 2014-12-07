@@ -20,9 +20,7 @@ import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link SlideFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Fragmento para mostrar los slide de los temas de ayuda
  */
 public class SlideFragment extends Fragment {
     public static final String ARG_ITEM_ID = "slide_fragment";
@@ -54,7 +52,6 @@ public class SlideFragment extends Fragment {
      * this fragment using the provided parameters.
      * @return A new instance of fragment HelpFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static SlideFragment newInstance(String type) {
         SlideFragment fragment = new SlideFragment();
 
@@ -69,7 +66,10 @@ public class SlideFragment extends Fragment {
     }
 
 
-
+    /**
+     * Crea el fragment
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,11 +81,19 @@ public class SlideFragment extends Fragment {
         loadItems();
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_help, container, false);
 
+        //Inicializamos el ViewPager
         mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
         mIndicator = (CirclePageIndicator) view.findViewById(R.id.indicator);
 
@@ -170,6 +178,9 @@ public class SlideFragment extends Fragment {
         super.onPause();
     }
 
+    /**
+     * Cargamos los items del tema de ayuda
+     */
     private void loadItems() {
 
         items = new ArrayList<HelpSlide>();
@@ -335,9 +346,6 @@ public class SlideFragment extends Fragment {
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 if (items!= null) {
-                    /*imgNameTxt.setText(""
-                            + ((Product) products.get(mViewPager
-                            .getCurrentItem())).getName());*/
                 }
             }
         }

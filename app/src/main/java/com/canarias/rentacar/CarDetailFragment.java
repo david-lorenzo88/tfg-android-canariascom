@@ -90,6 +90,11 @@ public class CarDetailFragment extends Fragment {
     public CarDetailFragment() {
     }
 
+    /**
+     * Método llamado al crear el Fragment. Obtiene el vehículo de la
+     * base de datos e instancia los objetos necesarios
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +133,13 @@ public class CarDetailFragment extends Fragment {
         }
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -150,7 +162,7 @@ public class CarDetailFragment extends Fragment {
             category.setText(car.getCategory());
 
             if (car.getSippCode() == null || car.getSippCode().isEmpty())
-                ((LinearLayout) rootView.findViewById(R.id.car_detail_sipp_wrap)).setVisibility(View.GONE);
+                rootView.findViewById(R.id.car_detail_sipp_wrap).setVisibility(View.GONE);
             else
                 sippCode.setText(car.getSippCode());
 
@@ -215,10 +227,7 @@ public class CarDetailFragment extends Fragment {
 
 
         }
-        // Show the dummy content as text in a TextView.
-        //if (mItem != null) {
-        //((TextView) rootView.findViewById(R.id.car_detail)).setText(mItem.content);
-        //}
+        //Configuración específica para cuando no es un tablet
         boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
         if(!isTablet) {
             mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.actionbar_background);

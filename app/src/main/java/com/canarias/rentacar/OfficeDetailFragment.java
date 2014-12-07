@@ -52,7 +52,7 @@ public class OfficeDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private Office mItem;
-
+    //Vista del mapa
     private MapView mapView;
 
     private Drawable.Callback mDrawableCallback = new Drawable.Callback() {
@@ -69,6 +69,7 @@ public class OfficeDetailFragment extends Fragment {
         public void unscheduleDrawable(Drawable who, Runnable what) {
         }
     };
+    //Listener para gestionar la ocultación de la ActionBar al hacer scroll
     private ObservableScrollView.OnScrollChangedListener mOnScrollChangedListener = new ObservableScrollView.OnScrollChangedListener() {
         public void onScrollChanged(ScrollView who, int l, int t, int oldl, int oldt) {
             final int headerHeight = who.findViewById(R.id.map).getHeight() - getActivity().getActionBar().getHeight();
@@ -95,14 +96,16 @@ public class OfficeDetailFragment extends Fragment {
     public OfficeDetailFragment() {
     }
 
+    /**
+     * Crea el fragmento
+     * @param savedInstanceState estado previo
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
+            //Cargamos la oficina desde base de datos
             OfficeDataSource ds = new OfficeDataSource(getActivity());
             try {
                 ds.open();
@@ -125,12 +128,19 @@ public class OfficeDetailFragment extends Fragment {
         }
     }
 
+    /**
+     * Llamado cuando el sistema operativo crea la vista del fragmento
+     * @param inflater objeto para inflar las vistas
+     * @param container la vista padre a la que el fragmento será asociado
+     * @param savedInstanceState estado previo del fragmento cuando se está reconstruyendo
+     * @return la vista generada para el fragmento
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_office_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
+
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.txtOfficeName)).setText(mItem.getName());
 
@@ -154,6 +164,7 @@ public class OfficeDetailFragment extends Fragment {
             mapView = (MapView) rootView.findViewById(R.id.map);
             mapView.onCreate(savedInstanceState);
 
+            //Si tenemos las coordenadas de la oficina, mostramos su posición en el mapa
             if (mItem.getLatitude() != 0 && mItem.getLongitude() != 0) {
 
 
@@ -172,7 +183,7 @@ public class OfficeDetailFragment extends Fragment {
                             mItem.getLongitude()), 9.0f));
                 }
             }
-
+            //Evento para abrir el mapa en una nueva Activity
             rootView.findViewById(R.id.mapOpen).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -182,7 +193,7 @@ public class OfficeDetailFragment extends Fragment {
                             .commit();
                 }
             });
-
+            //Configuración específica para smartphones
             boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
             if (!isTablet) {
 
@@ -201,7 +212,8 @@ public class OfficeDetailFragment extends Fragment {
                     mActionBarBackgroundDrawable.setCallback(mDrawableCallback);
                 }
             }
-
+            //Buscar precio en esta oficina, lanza la HomeActivity y realiza la transición al
+            // SearchFragment con la oficina precargada
             LinearLayout btnBookThisOffice = (LinearLayout) rootView.findViewById(R.id.btnBookThisOffice);
             btnBookThisOffice.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -220,6 +232,11 @@ public class OfficeDetailFragment extends Fragment {
         return rootView;
     }
 
+    /**
+     * Añade un esqueleto HTML a un texto
+     * @param html el texto o html
+     * @return el html completo
+     */
     private String wrapHtml(String html){
         return"<html><head><title></title></head><body>"+html+"</body></html>";
     }

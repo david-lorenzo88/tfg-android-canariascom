@@ -33,6 +33,10 @@ public class ReservationListActivity extends FragmentActivity
      */
     private boolean mTwoPane;
 
+    /**
+     * Crea la activity
+     * @param savedInstanceState estado previo
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +58,14 @@ public class ReservationListActivity extends FragmentActivity
                     .setActivateOnItemClick(true);
         }
 
-        // TODO: If exposing deep links into your app, handle intents here.
+
     }
 
+    /**
+     * Maneja el evento click de los items del menu
+     * @param item el item presionado
+     * @return true para para el evento o false para dejar su curso
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -99,7 +108,6 @@ public class ReservationListActivity extends FragmentActivity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
-            Log.v("TEST", "Reservation: " + id);
             Intent detailIntent = new Intent(this, ReservationDetailActivity.class);
             detailIntent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, id);
             detailIntent.putExtra(ReservationDetailFragment.ARG_LAUNCH_UPDATE, true);
