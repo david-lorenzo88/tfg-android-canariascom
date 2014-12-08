@@ -191,10 +191,21 @@ public class FragmentMap extends MapFragment {
         map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
+                Log.v("TEST", "fragmentContainerId: "+fragmentContainerId);
                 if(fragmentContainerId == -1){
                     Intent intent = new Intent(getActivity(), OfficeDetailActivity.class);
-                    intent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, marker.getSnippet());
+                    intent.putExtra(OfficeDetailFragment.ARG_ITEM_ID, marker.getSnippet());
                     startActivity(intent);
+                } else {
+                    Bundle arguments = new Bundle();
+                    arguments.putString(OfficeDetailFragment.ARG_ITEM_ID,
+                            marker.getSnippet());
+                    OfficeDetailFragment fragment = new OfficeDetailFragment();
+                    fragment.setArguments(arguments);
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.office_detail_container, fragment)
+                            .addToBackStack(null)
+                            .commit();
                 }
             }
         });

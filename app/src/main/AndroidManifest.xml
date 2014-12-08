@@ -34,13 +34,13 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.TranslucentActionBar" >
         <!-- Debug -->
-        <meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAsRHSeTzOeWLr2Y3g4w82efpoZlyO_zLY" />
-        <!-- Release -->
         <!--<meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCfME3ZIn5wiS6ORDry4XKH2n8yVp97maw" />-->
+            android:value="AIzaSyAsRHSeTzOeWLr2Y3g4w82efpoZlyO_zLY" />-->
+        <!-- Release -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCfME3ZIn5wiS6ORDry4XKH2n8yVp97maw" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

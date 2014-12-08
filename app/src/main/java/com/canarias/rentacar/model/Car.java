@@ -1,6 +1,8 @@
 package com.canarias.rentacar.model;
 
 
+import com.canarias.rentacar.config.Config;
+
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
@@ -85,7 +87,8 @@ public class Car {
 
     public String getModel() {
         if (model == null && attributes != null && attributes.size() > 0) {
-            CarAttribute att = getAttribute(modelTranslations.get(Locale.getDefault().getLanguage()));
+            CarAttribute att = getAttribute(modelTranslations.get(
+                    Config.getLanguageCode(Locale.getDefault().getLanguage())));
             if (att != null) {
                 model = att.getValue();
             }

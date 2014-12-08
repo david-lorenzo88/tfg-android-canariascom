@@ -16,13 +16,23 @@ import com.canarias.rentacar.db.dao.ZoneDataSource;
 import com.canarias.rentacar.model.Car;
 import com.canarias.rentacar.model.CarAttribute;
 import com.canarias.rentacar.model.Office;
+import com.canarias.rentacar.model.webservice.AvailabilityResponse;
+import com.canarias.rentacar.model.webservice.ErrorResponse;
 import com.canarias.rentacar.model.webservice.GetAllCarsResponse;
 import com.canarias.rentacar.model.webservice.ListDestinationsResponse;
 import com.canarias.rentacar.model.webservice.Response;
 
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by David on 09/11/2014.
@@ -33,7 +43,7 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
     ProgressDialog progress;
     Context context;
 
-    public SyncDataAsyncTask(Context context){
+    public SyncDataAsyncTask(Context context) {
         this.context = context;
     }
 
@@ -41,17 +51,47 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
     /**
      * Metodo que se ejecuta en segundo plano y realiza la descarga de vehículos y zonas
      * desde el servicio web
+     *
      * @param params Void
      * @return objeto Reservation con los datos de la reserva
      */
     @Override
     protected String doInBackground(Void... params) {
+
+        //Establecemos el idioma por defecto en ingles, y solo si el actual es español
+        //lo cargamos en español
+        String langCode = Locale.getDefault().getLanguage().equals("es") ? "es" : "en";
+
+        Response result = null;
+        try {
+            InputStream isResult = context.getAssets().open("cars_"+langCode+".xml");
+
+
+            if (isResult != null) {
+
+                Serializer serializer = new Persister();
+                try {
+                    //Deserializamos el XML en objetos de negocio
+                    result = serializer.read(GetAllCarsResponse.class, isResult);
+
+                } catch (Exception ex) {
+                    //Manejo de errores
+                    Log.e("TEST", ex.getMessage());
+
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         //Realizamos la descarga de los vehículos
-        WebServiceController wsc = new WebServiceController();
-        Response result = wsc.getAllCars();
+        //WebServiceController wsc = new WebServiceController();
+        //Response result = wsc.getAllCars();
 
         //Comprobamos si el tipo devuelto es GetAllCarsResponse
-        if (result.getClass().equals(GetAllCarsResponse.class)) {
+        if (result != null && result.getClass().equals(GetAllCarsResponse.class)) {
             List<Car> cars = ((GetAllCarsResponse) result).getCars();
             //Actualizamos los vehiculos en la base de datos local
             try {
@@ -65,6 +105,9 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
 
                 while (it.hasNext()) {
                     Car cur = it.next();
+                    //Llamamos a getModel para que rellene el modelo del coche antes de insertar
+                    cur.getModel();
+
 
                     long rs = ds.insert(cur);
                     if (rs == -1) {
@@ -89,7 +132,30 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
                 publishProgress(context.getString(R.string.downloading_offices));
 
                 //Realizamos la descarga de las zonas desde el servicio wev
-                result = wsc.listDestinations();
+                //result = wsc.listDestinations();
+
+                result = null;
+                try {
+                    InputStream isResult = context.getAssets().open("offices_"+langCode+".xml");
+
+
+                    if (isResult != null) {
+
+                        Serializer serializer = new Persister();
+                        try {
+                            //Deserializamos el XML en objetos de negocio
+                            result = serializer.read(ListDestinationsResponse.class, isResult);
+
+                        } catch (Exception ex) {
+                            //Manejo de errores
+                            Log.e("TEST", ex.getMessage());
+
+                        }
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
                 //Comprobamos si el tipo devuelto es ListDestinationsResponse
                 if (result.getClass().equals(ListDestinationsResponse.class)) {
@@ -129,7 +195,6 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
                     return context.getString(R.string.no_offices_downloaded);
 
 
-
             } catch (SQLException ex) {
 
                 return context.getString(R.string.cars_download_error) + ": " + ex.getMessage();
@@ -138,11 +203,12 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
             return context.getString(R.string.no_cars_downloaded);
 
 
-
     }
+
     /**
      * Ejecutado al finalizar el doInBackground().
      * Actualiza la interfaz gráfica mostrando el resultado
+     *
      * @param result Resultado generado por el doInBackground()
      */
     protected void onPostExecute(String result) {
@@ -167,19 +233,21 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
     /**
      * Actualiza la interfaz gráfica durante la ejecución del doInBackground()
      * cada vez que se llama a progressUpdate(...)
+     *
      * @param values Array de Strings con los valores
      */
     @Override
     protected void onProgressUpdate(String... values) {
         super.onProgressUpdate(values);
 
-        if(progress != null && values.length > 0){
+        if (progress != null && values.length > 0) {
             progress.setTitle(values[0]);
             progress.setMessage(values[0]);
 
         }
 
     }
+
     /**
      * Ejecutado antes de comenzar el doInBackground()
      * Mostramos un diálogo indicando que se están sincronizando los datos

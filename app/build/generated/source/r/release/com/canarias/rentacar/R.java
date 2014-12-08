@@ -96,17 +96,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int actionButtonStyle=0x7f010009;
-        /**  Default ActionBar dropdown style. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int actionDropDownStyle=0x7f01008a;
-        /** 
-             An optional layout to be used as an action view.
-             See {@link android.view.MenuItem#setActionView(android.view.View)}
-             for more info.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int actionLayout=0x7f010081;
@@ -176,13 +170,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int actionOverflowButtonStyle=0x7f010019;
-        /** 
-             The name of an optional ActionProvider class to instantiate an action view
-             and perform operations such as default action for that menu item.
-             See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
-             for more info.
-        
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -190,12 +178,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int actionProviderClass=0x7f010083;
-        /** 
-             The name of an optional View class to instantiate and use as an
-             action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
-             for more info.
-        
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -207,12 +190,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int activityChooserViewStyle=0x7f01001a;
-        /** 
-    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
-    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
-    &lt;width&gt;x&lt;height&gt;.
-        
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -220,12 +198,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int adSize=0x7f01005d;
-        /** 
-    A comma-separated list of the supported ad sizes. The sizes must be one of
-    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
-    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
-        
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -233,8 +206,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int adSizes=0x7f01005e;
-        /**  The ad unit ID. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -242,20 +214,17 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int adUnitId=0x7f01005f;
-        /**  Specifies a background drawable for the action bar. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int background=0x7f01004b;
-        /**  Specifies a background drawable for the bottom component of a split action bar. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static final int backgroundSplit=0x7f01004d;
-        /**  Specifies a background drawable for a second stacked row of the action bar. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -269,8 +238,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int buttonBarStyle=0x7f01001c;
-        /**  Appearance of the buy button. Must be one of "classic", "grayscale" and "monochrome" 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -282,12 +250,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int buyButtonAppearance=0x7f0100ad;
-        /** 
-             Height of the buy button. This includes an 8dp padding (4dp on each side) used for
-             pressed and focused states of the button. The value can be a specific height, e.g.
-             "48dp", or special values "match_parent" and "wrap_content".
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -306,8 +269,7 @@ containing a value of this type.
 </table>
          */
         public static final int buyButtonHeight=0x7f0100aa;
-        /**  Text on the buy button. Must be one of "buy_with_google", "buy_now" and "book_now" 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -319,12 +281,7 @@ containing a value of this type.
 </table>
          */
         public static final int buyButtonText=0x7f0100ac;
-        /** 
-             Width of the buy button. This includes an 8dp padding (4dp on each side) used for
-             pressed and focused states of the button. The value can be a specific width, e.g.
-             "300dp", or special values "match_parent" and "wrap_content".
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -391,8 +348,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int centered=0x7f01001d;
-        /**  Screen edge padding. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -412,16 +368,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int contentTopClearance=0x7f01006c;
-        /**  Specifies a layout for custom navigation. Overrides navigationMode. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int customNavigationLayout=0x7f01004e;
-        /** 
-             Whether this spinner should mark child views as enabled/disabled when
-             the spinner itself is enabled/disabled.
-        
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -429,8 +380,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int disableChildrenWhenDisabled=0x7f010089;
-        /**  Options affecting how the action bar is displayed. 
-         <p>Must be one or more (separated by '|') of the following constant values.</p>
+        /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -445,8 +395,7 @@ containing a value of this type.
 </table>
          */
         public static final int displayOptions=0x7f010044;
-        /**  Specifies the drawable used for item dividers. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int divider=0x7f01004a;
@@ -454,8 +403,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int dividerHorizontal=0x7f01001e;
-        /**  Size of padding on either end of a divider. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -473,8 +421,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int dropDownListViewStyle=0x7f010020;
-        /**  The preferred item height for dropdown lists. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -484,8 +431,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int dropdownListPreferredItemHeight=0x7f01008b;
-        /**  Google Wallet environment to use 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -497,19 +443,11 @@ containing a value of this type.
 </table>
          */
         public static final int environment=0x7f0100a7;
-        /** 
-             The drawable to show in the button for expanding the activities overflow popup.
-             <strong>Note:</strong> Clients would like to set this drawable
-             as a clue about the action the chosen activity will perform. For
-             example, if share activity is to be chosen the drawable should
-             give a clue that sharing is to be performed.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int expandActivityOverflowButtonDrawable=0x7f01005c;
-        /**  Length of the delay to fade the indicator. 
-         <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -517,8 +455,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fadeDelay=0x7f01009c;
-        /**  Length of the indicator fade to transparent. 
-         <p>Must be an integer value, such as "<code>100</code>".
+        /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -526,8 +463,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fadeLength=0x7f01009d;
-        /**  Whether or not the selected indicator fades. 
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -535,8 +471,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fades=0x7f01009b;
-        /**  Color of the filled circle that represents the current page. 
-         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -545,8 +480,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fillColor=0x7f010066;
-        /**  Color of the footer line and indicator. 
-         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -555,8 +489,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int footerColor=0x7f010091;
-        /**  Height of the indicator above the footer line. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -566,8 +499,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int footerIndicatorHeight=0x7f010094;
-        /**  Style of the indicator. Default is triangle. 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -579,8 +511,7 @@ containing a value of this type.
 </table>
          */
         public static final int footerIndicatorStyle=0x7f010093;
-        /**  Left and right padding of the underline indicator. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -590,8 +521,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int footerIndicatorUnderlinePadding=0x7f010095;
-        /**  Height of the footer line. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -601,8 +531,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int footerLineHeight=0x7f010092;
-        /**  Padding between the bottom of the title and the footer. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -612,8 +541,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int footerPadding=0x7f010096;
-        /**  Fragment mode 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -624,13 +552,11 @@ containing a value of this type.
 </table>
          */
         public static final int fragmentMode=0x7f0100a9;
-        /**  A style resource specifing attributes to customize the look and feel of WalletFragment 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int fragmentStyle=0x7f0100a8;
-        /**  Width of the gap between each indicator line. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -654,21 +580,15 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int homeAsUpIndicator=0x7f010022;
-        /**  Specifies a layout to use for the "home" section of the action bar. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int homeLayout=0x7f01004f;
-        /**  Specifies the drawable used for the application icon. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int icon=0x7f010048;
-        /** 
-             The default state of the SearchView. If true, it will be iconified when not in
-             use and expanded when clicked.
-        
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -676,13 +596,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int iconifiedByDefault=0x7f010084;
-        /**  Specifies a style resource to use for an indeterminate progress spinner. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int indeterminateProgressStyle=0x7f010051;
-        /**  The maximal number of items initially shown in the activity list. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -708,11 +626,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int isLightTheme=0x7f010023;
-        /** 
-             Specifies padding that should be applied to the left and right sides of
-             system-provided items in the bar.
-        
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -722,8 +636,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int itemPadding=0x7f010053;
-        /**  Position of the line. 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -734,8 +647,7 @@ containing a value of this type.
 </table>
          */
         public static final int linePosition=0x7f010097;
-        /**  Width of each indicator line. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -745,8 +657,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int lineWidth=0x7f01006e;
-        /**  Drawable used as a background for selected list items. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int listChoiceBackgroundIndicator=0x7f01008f;
@@ -804,8 +715,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int listPreferredItemPaddingRight=0x7f010029;
-        /**  Specifies the drawable used for the application logo. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int logo=0x7f010049;
@@ -823,32 +733,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int mapType=0x7f010072;
-        /**  Masked wallet details background 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static final int maskedWalletDetailsBackground=0x7f0100b0;
-        /**  "Change" button background in masked wallet details view 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static final int maskedWalletDetailsButtonBackground=0x7f0100b2;
-        /**  TextAppearance for the "Change" button in masked wallet details view 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int maskedWalletDetailsButtonTextAppearance=0x7f0100b1;
-        /**  TextAppearance for headers describing masked wallet details 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int maskedWalletDetailsHeaderTextAppearance=0x7f0100af;
-        /**  Type of the wallet logo image in masked wallet details view 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -859,8 +764,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int maskedWalletDetailsLogoImageType=0x7f0100b4;
-        /**  Color of the Google Wallet logo text in masked wallet details view 
-         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -869,26 +773,23 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int maskedWalletDetailsLogoTextColor=0x7f0100b3;
-        /**  TextAppearance for masked wallet details 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int maskedWalletDetailsTextAppearance=0x7f0100ae;
-        /**  The type of navigation to use. 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>normal</code></td><td>0</td><td> Normal static title text </td></tr>
-<tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
-<tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
+<tr><td><code>normal</code></td><td>0</td><td></td></tr>
+<tr><td><code>listMode</code></td><td>1</td><td></td></tr>
+<tr><td><code>tabMode</code></td><td>2</td><td></td></tr>
 </table>
          */
         public static final int navigationMode=0x7f010043;
-        /**  Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -898,8 +799,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int paddingEnd=0x7f01009f;
-        /**  Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -909,8 +809,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int paddingStart=0x7f01009e;
-        /**  Color of the filled circles that represents pages. 
-         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -919,13 +818,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int pageColor=0x7f010067;
-        /**  Default Panel Menu style. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int panelMenuListTheme=0x7f01008e;
-        /**  Default Panel Menu width. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -955,22 +852,15 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int popupItemBackground=0x7f010064;
-        /**  Default PopupMenu style. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int popupMenuStyle=0x7f01008c;
-        /** 
-             Reference to a layout to use for displaying a prompt in the dropdown for
-             spinnerMode="dropdown". This layout must contain a TextView with the id
-             {@code @android:id/text1} to be populated with the prompt text.
-        
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int popupPromptView=0x7f010088;
-        /**  Specifies the horizontal padding on either end for an embedded progress bar. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -980,18 +870,15 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int progressBarPadding=0x7f010052;
-        /**  Specifies a style resource to use for an embedded progress bar. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int progressBarStyle=0x7f010050;
-        /**  The prompt to display when the spinner's dialog is shown. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int prompt=0x7f010086;
-        /**  An optional query hint string to be displayed in the empty query field. 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -999,8 +886,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int queryHint=0x7f010085;
-        /**  Radius of the circles. This is also the spacing between circles. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -1074,8 +960,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int selectableItemBackgroundBorderless=0x7f010063;
-        /**  Whether or not the selected item is displayed as bold. 
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -1092,42 +977,21 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int selectedColor=0x7f010036;
-        /**  How this item should display in the Action Bar, if present. 
-         <p>Must be one or more (separated by '|') of the following constant values.</p>
+        /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>never</code></td><td>0</td><td>
-                 Never show this item in an action bar, show it in the overflow menu instead.
-                 Mutually exclusive with "ifRoom" and "always".
-            </td></tr>
-<tr><td><code>ifRoom</code></td><td>1</td><td>
-                 Show this item in an action bar if there is room for it as determined
-                 by the system. Favor this option over "always" where possible.
-                 Mutually exclusive with "never" and "always".
-            </td></tr>
-<tr><td><code>always</code></td><td>2</td><td>
-                 Always show this item in an actionbar, even if it would override
-                 the system's limits of how much stuff to put there. This may make
-                 your action bar look bad on some screens. In most cases you should
-                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never".
-            </td></tr>
-<tr><td><code>withText</code></td><td>4</td><td>
-                 When this item is shown as an action in the action bar, show a text
-                 label with it even if it has an icon representation.
-            </td></tr>
-<tr><td><code>collapseActionView</code></td><td>8</td><td>
-                 This item's action view collapses to a normal menu
-                 item. When expanded, the action view takes over a
-                 larger segment of its container.
-            </td></tr>
+<tr><td><code>never</code></td><td>0</td><td></td></tr>
+<tr><td><code>ifRoom</code></td><td>1</td><td></td></tr>
+<tr><td><code>always</code></td><td>2</td><td></td></tr>
+<tr><td><code>withText</code></td><td>4</td><td></td></tr>
+<tr><td><code>collapseActionView</code></td><td>8</td><td></td></tr>
 </table>
          */
         public static final int showAsAction=0x7f010080;
-        /**  Setting for which dividers to show. 
-         <p>Must be one or more (separated by '|') of the following constant values.</p>
+        /** <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -1140,8 +1004,7 @@ containing a value of this type.
 </table>
          */
         public static final int showDividers=0x7f010070;
-        /**  Whether or not the selected indicator snaps to the circles. 
-         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -1163,18 +1026,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int spinnerDropDownItemStyle=0x7f010037;
-        /**  Display mode for spinner options. 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>dialog</code></td><td>0</td><td> Spinner options will be presented to the user as a dialog window. </td></tr>
-<tr><td><code>dropdown</code></td><td>1</td><td>
-                 Spinner options will be presented to the user as an inline dropdown
-                 anchored to the spinner widget itself.
-            </td></tr>
+<tr><td><code>dialog</code></td><td>0</td><td></td></tr>
+<tr><td><code>dropdown</code></td><td>1</td><td></td></tr>
 </table>
          */
         public static final int spinnerMode=0x7f010087;
@@ -1182,8 +1041,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int spinnerStyle=0x7f010038;
-        /**  Color of the open circles. 
-         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -1202,8 +1060,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int strokeWidth=0x7f010039;
-        /**  Specifies subtitle text used for navigationMode="normal" 
-         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
@@ -1211,13 +1068,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int subtitle=0x7f010045;
-        /**  Specifies a style to use for subtitle text. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int subtitleTextStyle=0x7f010047;
-        /**  Present the text in ALL CAPS. This may use a small-caps form when available. 
-         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
@@ -1252,8 +1107,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
         public static final int textColorSearchUrl=0x7f010040;
-        /**  Theme to be used for the Wallet selector 
-         <p>Must be one of the following constant values.</p>
+        /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
@@ -1272,8 +1126,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int title=0x7f010041;
-        /**  Padding between titles when bumping into each other. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -1283,13 +1136,11 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int titlePadding=0x7f010099;
-        /**  Specifies a style to use for title text. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int titleTextStyle=0x7f010046;
-        /**  Padding between titles and the top of the View. 
-         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>This may also be a reference to a resource (in the form
@@ -1364,33 +1215,27 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int useViewLifecycle=0x7f01007e;
-        /**  Style of the circle indicator. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int vpiCirclePageIndicatorStyle=0x7f0100a0;
-        /**  Style of the icon indicator's views. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int vpiIconPageIndicatorStyle=0x7f0100a1;
-        /**  Style of the line indicator. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int vpiLinePageIndicatorStyle=0x7f0100a2;
-        /**  Style of the tab indicator's tabs. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int vpiTabPageIndicatorStyle=0x7f0100a4;
-        /**  Style of the title indicator. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int vpiTitlePageIndicatorStyle=0x7f0100a3;
-        /**  Style of the underline indicator. 
-         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int vpiUnderlinePageIndicatorStyle=0x7f0100a5;
@@ -1410,12 +1255,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int windowActionBarOverlay=0x7f010055;
-        /** 
-             A fixed height for the window along the major axis of the screen,
-             that is, when in portrait. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
@@ -1428,12 +1268,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int windowFixedHeightMajor=0x7f01005a;
-        /** 
-             A fixed height for the window along the minor axis of the screen,
-             that is, when in landscape. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
@@ -1446,12 +1281,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int windowFixedHeightMinor=0x7f010058;
-        /** 
-             A fixed width for the window along the major axis of the screen,
-             that is, when in landscape. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
@@ -1464,12 +1294,7 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int windowFixedWidthMajor=0x7f010057;
-        /** 
-             A fixed width for the window along the minor axis of the screen,
-             that is, when in portrait. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
-         <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+        /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
 <p>May be a fractional value, which is a floating point number appended with either % or %p, such as "<code>14.5%</code>".
@@ -2017,360 +1842,364 @@ containing a value of this type.
         public static final int vw_touran=0x7f0200c7;
     }
     public static final class id {
-        public static final int DatePicker=0x7f0a0097;
-        public static final int TimePicker=0x7f0a0156;
-        public static final int action_bar=0x7f0a003b;
+        public static final int DatePicker=0x7f0a0098;
+        public static final int TimePicker=0x7f0a015a;
+        public static final int action_bar=0x7f0a003c;
         public static final int action_bar_activity_content=0x7f0a002a;
-        public static final int action_bar_container=0x7f0a003a;
-        public static final int action_bar_overlay_layout=0x7f0a003e;
-        public static final int action_bar_root=0x7f0a0039;
-        public static final int action_bar_subtitle=0x7f0a0042;
-        public static final int action_bar_title=0x7f0a0041;
-        public static final int action_cancel_reservation=0x7f0a0160;
-        public static final int action_context_bar=0x7f0a003c;
-        public static final int action_home_cars=0x7f0a00b6;
-        public static final int action_home_help=0x7f0a00b9;
-        public static final int action_home_my_bookings=0x7f0a00b4;
-        public static final int action_home_new_booking=0x7f0a00b3;
-        public static final int action_home_offices=0x7f0a00b7;
-        public static final int action_home_settings=0x7f0a00ba;
+        public static final int action_bar_container=0x7f0a003b;
+        public static final int action_bar_overlay_layout=0x7f0a003f;
+        public static final int action_bar_root=0x7f0a003a;
+        public static final int action_bar_subtitle=0x7f0a0043;
+        public static final int action_bar_title=0x7f0a0042;
+        public static final int action_cancel_reservation=0x7f0a0164;
+        public static final int action_context_bar=0x7f0a003d;
+        public static final int action_home_cars=0x7f0a00b8;
+        public static final int action_home_help=0x7f0a00bb;
+        public static final int action_home_my_bookings=0x7f0a00b6;
+        public static final int action_home_new_booking=0x7f0a00b5;
+        public static final int action_home_offices=0x7f0a00b9;
+        public static final int action_home_settings=0x7f0a00bc;
         public static final int action_menu_divider=0x7f0a002b;
         public static final int action_menu_presenter=0x7f0a002c;
-        public static final int action_mode_close_button=0x7f0a0043;
-        public static final int action_settings=0x7f0a015d;
-        public static final int action_show_offices_in_list=0x7f0a015f;
-        public static final int action_show_offices_in_map=0x7f0a015e;
-        public static final int action_update_reservation=0x7f0a0161;
-        public static final int activity_chooser_view_content=0x7f0a0044;
+        public static final int action_mode_close_button=0x7f0a0044;
+        public static final int action_settings=0x7f0a0161;
+        public static final int action_show_offices_in_list=0x7f0a0163;
+        public static final int action_show_offices_in_map=0x7f0a0162;
+        public static final int action_update_reservation=0x7f0a0165;
+        public static final int activity_chooser_view_content=0x7f0a0045;
         public static final int always=0x7f0a0012;
-        public static final int animator=0x7f0a008c;
+        public static final int animator=0x7f0a008d;
         public static final int beginning=0x7f0a000a;
-        public static final int bookFormWrapper=0x7f0a006b;
-        public static final int bookSummary=0x7f0a005d;
-        public static final int bookTableRow1=0x7f0a0060;
-        public static final int bookTableRow2=0x7f0a0063;
-        public static final int bookTableRow3=0x7f0a005e;
-        public static final int bookThisCarIcon=0x7f0a00a8;
-        public static final int bookThisCarLabel=0x7f0a00a7;
-        public static final int bookThisCarLayout=0x7f0a00a5;
-        public static final int bookWrapperLayout=0x7f0a005c;
+        public static final int bookFormWrapper=0x7f0a006c;
+        public static final int bookSummary=0x7f0a005e;
+        public static final int bookTableRow1=0x7f0a0061;
+        public static final int bookTableRow2=0x7f0a0064;
+        public static final int bookTableRow3=0x7f0a005f;
+        public static final int bookThisCarIcon=0x7f0a00aa;
+        public static final int bookThisCarLabel=0x7f0a00a9;
+        public static final int bookThisCarLayout=0x7f0a00a7;
+        public static final int bookWrapperLayout=0x7f0a005d;
         public static final int book_now=0x7f0a0026;
-        public static final int bookingDetailsCarModel=0x7f0a00f1;
-        public static final int bookingDetailsTotalLabel=0x7f0a00f3;
-        public static final int bookingDetailsTotalValue=0x7f0a00f4;
-        public static final int bookingDetailsTxtCarPrice=0x7f0a00f2;
-        public static final int bookingSummary=0x7f0a0130;
+        public static final int bookingDetailsCarModel=0x7f0a00f4;
+        public static final int bookingDetailsTotalLabel=0x7f0a00f6;
+        public static final int bookingDetailsTotalValue=0x7f0a00f7;
+        public static final int bookingDetailsTxtCarPrice=0x7f0a00f5;
+        public static final int bookingSummary=0x7f0a0133;
         public static final int bottom=0x7f0a0019;
-        public static final int btnBookThisOffice=0x7f0a00e3;
-        public static final int btnConfirmBooking=0x7f0a00d3;
-        public static final int btnMakeBooking=0x7f0a007a;
-        public static final int btnRemoveSelectedCar=0x7f0a0105;
-        public static final int btnSearchCars=0x7f0a0115;
-        public static final int btnSelectExtras=0x7f0a012e;
-        public static final int btnSelectHour=0x7f0a0155;
-        public static final int btnSelectZone=0x7f0a015b;
-        public static final int btnUpdateBooking=0x7f0a013d;
+        public static final int btnBookThisOffice=0x7f0a00e6;
+        public static final int btnConfirmBooking=0x7f0a00d5;
+        public static final int btnMakeBooking=0x7f0a007b;
+        public static final int btnRemoveSelectedCar=0x7f0a0108;
+        public static final int btnSearchCars=0x7f0a0118;
+        public static final int btnSelectExtras=0x7f0a0131;
+        public static final int btnSelectHour=0x7f0a0159;
+        public static final int btnSelectZone=0x7f0a015f;
+        public static final int btnUpdateBooking=0x7f0a0140;
         public static final int buyButton=0x7f0a0020;
         public static final int buy_now=0x7f0a0025;
         public static final int buy_with_google=0x7f0a0024;
-        public static final int carImage=0x7f0a0107;
-        public static final int carListItemWrapper=0x7f0a008e;
-        public static final int carModel=0x7f0a0108;
-        public static final int carPrice=0x7f0a0138;
-        public static final int carWrapperBook=0x7f0a0066;
-        public static final int carWrapperBookBoxTopRight=0x7f0a0068;
-        public static final int car_detail_attribute_icon=0x7f0a00aa;
-        public static final int car_detail_attribute_name=0x7f0a00ab;
-        public static final int car_detail_attribute_value=0x7f0a00ac;
-        public static final int car_detail_category_value=0x7f0a009f;
-        public static final int car_detail_container=0x7f0a007b;
-        public static final int car_detail_group_label=0x7f0a00a0;
-        public static final int car_detail_group_value=0x7f0a00a1;
-        public static final int car_detail_sipp_label=0x7f0a00a3;
-        public static final int car_detail_sipp_value=0x7f0a00a4;
-        public static final int car_detail_sipp_wrap=0x7f0a00a2;
-        public static final int car_details_attributes=0x7f0a00a9;
-        public static final int car_image=0x7f0a00f0;
-        public static final int car_list=0x7f0a007c;
-        public static final int car_list_category_label=0x7f0a0091;
-        public static final int car_list_category_value=0x7f0a0092;
-        public static final int car_list_detail_label=0x7f0a009e;
-        public static final int car_list_group_label=0x7f0a0093;
-        public static final int car_list_group_value=0x7f0a0094;
-        public static final int car_list_select_button=0x7f0a0095;
-        public static final int car_model=0x7f0a008f;
-        public static final int car_photo=0x7f0a0090;
-        public static final int category_item_name=0x7f0a0096;
-        public static final int changeBtn=0x7f0a00c2;
-        public static final int checkbox=0x7f0a004c;
+        public static final int carImage=0x7f0a010a;
+        public static final int carListItemWrapper=0x7f0a008f;
+        public static final int carModel=0x7f0a010b;
+        public static final int carPrice=0x7f0a013b;
+        public static final int carWrapperBook=0x7f0a0067;
+        public static final int carWrapperBookBoxTopRight=0x7f0a0069;
+        public static final int car_detail_attribute_icon=0x7f0a00ac;
+        public static final int car_detail_attribute_name=0x7f0a00ad;
+        public static final int car_detail_attribute_value=0x7f0a00ae;
+        public static final int car_detail_category_value=0x7f0a00a1;
+        public static final int car_detail_container=0x7f0a007c;
+        public static final int car_detail_container_inner=0x7f0a009e;
+        public static final int car_detail_group_label=0x7f0a00a2;
+        public static final int car_detail_group_value=0x7f0a00a3;
+        public static final int car_detail_sipp_label=0x7f0a00a5;
+        public static final int car_detail_sipp_value=0x7f0a00a6;
+        public static final int car_detail_sipp_wrap=0x7f0a00a4;
+        public static final int car_details_attributes=0x7f0a00ab;
+        public static final int car_image=0x7f0a00f3;
+        public static final int car_list=0x7f0a007d;
+        public static final int car_list_category_label=0x7f0a0092;
+        public static final int car_list_category_value=0x7f0a0093;
+        public static final int car_list_detail_label=0x7f0a00a0;
+        public static final int car_list_group_label=0x7f0a0094;
+        public static final int car_list_group_value=0x7f0a0095;
+        public static final int car_list_select_button=0x7f0a0096;
+        public static final int car_model=0x7f0a0090;
+        public static final int car_photo=0x7f0a0091;
+        public static final int category_item_name=0x7f0a0097;
+        public static final int changeBtn=0x7f0a00c4;
+        public static final int checkbox=0x7f0a004d;
         public static final int classic=0x7f0a0027;
         public static final int collapseActionView=0x7f0a0014;
-        public static final int comments=0x7f0a00d2;
-        public static final int container=0x7f0a007d;
-        public static final int customerBirthdate=0x7f0a00d0;
-        public static final int customerEmail=0x7f0a00ce;
-        public static final int customerName=0x7f0a00cc;
-        public static final int customerPhone=0x7f0a00cf;
-        public static final int customerSurname=0x7f0a00cd;
-        public static final int date_picker_day=0x7f0a008a;
-        public static final int date_picker_header=0x7f0a0086;
-        public static final int date_picker_month=0x7f0a0089;
-        public static final int date_picker_month_and_day=0x7f0a0088;
-        public static final int date_picker_year=0x7f0a008b;
-        public static final int day_picker_selected_date_layout=0x7f0a0087;
-        public static final int default_activity_button=0x7f0a0047;
-        public static final int description=0x7f0a0158;
+        public static final int comments=0x7f0a00d4;
+        public static final int container=0x7f0a007e;
+        public static final int customerBirthdate=0x7f0a00d2;
+        public static final int customerEmail=0x7f0a00d0;
+        public static final int customerName=0x7f0a00ce;
+        public static final int customerPhone=0x7f0a00d1;
+        public static final int customerSurname=0x7f0a00cf;
+        public static final int date_picker_day=0x7f0a008b;
+        public static final int date_picker_header=0x7f0a0087;
+        public static final int date_picker_month=0x7f0a008a;
+        public static final int date_picker_month_and_day=0x7f0a0089;
+        public static final int date_picker_year=0x7f0a008c;
+        public static final int day_picker_selected_date_layout=0x7f0a0088;
+        public static final int default_activity_button=0x7f0a0048;
+        public static final int description=0x7f0a015c;
         public static final int dialog=0x7f0a0015;
         public static final int disableHome=0x7f0a0008;
-        public static final int done=0x7f0a0085;
-        public static final int drawer_icon=0x7f0a00d6;
-        public static final int drawer_itemName=0x7f0a00d7;
-        public static final int drawer_layout=0x7f0a007e;
+        public static final int done=0x7f0a0086;
+        public static final int drawer_icon=0x7f0a00d8;
+        public static final int drawer_itemName=0x7f0a00d9;
+        public static final int drawer_layout=0x7f0a007f;
         public static final int dropdown=0x7f0a0016;
-        public static final int dropoffDate=0x7f0a0136;
-        public static final int dropoffDateDefaultLabel=0x7f0a0112;
+        public static final int dropoffDate=0x7f0a0139;
+        public static final int dropoffDateDefaultLabel=0x7f0a0115;
         public static final int dropoffDateIcon=0x7f0a002d;
-        public static final int dropoffDateLayout=0x7f0a0111;
-        public static final int dropoffPoint=0x7f0a0135;
-        public static final int dropoffTimeDefaultLabel=0x7f0a0114;
+        public static final int dropoffDateLayout=0x7f0a0114;
+        public static final int dropoffPoint=0x7f0a0138;
+        public static final int dropoffTimeDefaultLabel=0x7f0a0117;
         public static final int dropoffTimeIcon=0x7f0a002e;
-        public static final int dropoffTimeLayout=0x7f0a0113;
-        public static final int dropoffZoneDefaultLabel=0x7f0a010c;
+        public static final int dropoffTimeLayout=0x7f0a0116;
+        public static final int dropoffZoneDefaultLabel=0x7f0a010f;
         public static final int dropoffZoneIcon=0x7f0a002f;
-        public static final int dropoffZoneLayout=0x7f0a010b;
-        public static final int edit_query=0x7f0a004f;
+        public static final int dropoffZoneLayout=0x7f0a010e;
+        public static final int edit_query=0x7f0a0050;
         public static final int end=0x7f0a000c;
-        public static final int expand_activities_button=0x7f0a0045;
-        public static final int expanded_menu=0x7f0a004b;
-        public static final int extraIcon=0x7f0a0098;
-        public static final int extraName=0x7f0a0099;
-        public static final int extraPrice=0x7f0a009a;
-        public static final int extraSelector=0x7f0a009b;
-        public static final int extrasFrame=0x7f0a00c7;
-        public static final int filterSpinner=0x7f0a009c;
-        public static final int flightNumber=0x7f0a00d1;
+        public static final int expand_activities_button=0x7f0a0046;
+        public static final int expanded_menu=0x7f0a004c;
+        public static final int extraIcon=0x7f0a0099;
+        public static final int extraName=0x7f0a009a;
+        public static final int extraPrice=0x7f0a009b;
+        public static final int extraSelector=0x7f0a009c;
+        public static final int extrasFrame=0x7f0a00c9;
+        public static final int filterSpinner=0x7f0a009d;
+        public static final int flightNumber=0x7f0a00d3;
+        public static final int frame=0x7f0a014e;
         public static final int grayscale=0x7f0a0028;
-        public static final int helpThemesListView=0x7f0a00af;
+        public static final int helpThemesListView=0x7f0a00b1;
         public static final int holo_dark=0x7f0a001b;
         public static final int holo_light=0x7f0a001c;
         public static final int home=0x7f0a0030;
         public static final int homeAsUp=0x7f0a0005;
         public static final int hybrid=0x7f0a000f;
-        public static final int icon=0x7f0a0049;
-        public static final int iconCollapse=0x7f0a013b;
+        public static final int icon=0x7f0a004a;
+        public static final int iconCollapse=0x7f0a013e;
         public static final int iconSelectCar=0x7f0a0031;
-        public static final int iconSelectOffice=0x7f0a0143;
+        public static final int iconSelectOffice=0x7f0a0146;
         public static final int iconSelectReservation=0x7f0a0032;
         public static final int ifRoom=0x7f0a0011;
-        public static final int image=0x7f0a0046;
-        public static final int imageCar=0x7f0a0137;
-        public static final int imageCarBook=0x7f0a0067;
-        public static final int imageRight=0x7f0a013e;
-        public static final int imageView=0x7f0a00e5;
-        public static final int indicator=0x7f0a00ae;
-        public static final int infoWindowOfficeAddress=0x7f0a0141;
-        public static final int infoWindowOfficeName=0x7f0a0140;
-        public static final int infoWindowOfficePhone=0x7f0a0144;
-        public static final int infoWindowOfficeZone=0x7f0a0142;
-        public static final int itemLayout=0x7f0a00d5;
-        public static final int label_address=0x7f0a00dd;
-        public static final int label_delivery_conditions=0x7f0a00e7;
-        public static final int label_fax=0x7f0a00e1;
-        public static final int label_phone=0x7f0a00df;
-        public static final int label_return_conditions=0x7f0a00ea;
-        public static final int label_zone=0x7f0a00db;
-        public static final int lblComments=0x7f0a0078;
-        public static final int lblDriverBornDate=0x7f0a0074;
-        public static final int lblDriverEmail=0x7f0a0070;
-        public static final int lblDriverName=0x7f0a006c;
-        public static final int lblDriverPhone=0x7f0a0072;
-        public static final int lblDriverSurname=0x7f0a006e;
-        public static final int lblDropoffDateTimeBook=0x7f0a0065;
-        public static final int lblDropoffPointBook=0x7f0a0064;
-        public static final int lblFlightNumber=0x7f0a0076;
-        public static final int lblLoading=0x7f0a011d;
-        public static final int lblPickupDateTimeBook=0x7f0a0062;
-        public static final int lblPickupPointBook=0x7f0a0061;
-        public static final int linearLayout1=0x7f0a00b2;
-        public static final int linearLayout2=0x7f0a00b5;
-        public static final int linearLayout3=0x7f0a00b8;
+        public static final int image=0x7f0a0047;
+        public static final int imageCar=0x7f0a013a;
+        public static final int imageCarBook=0x7f0a0068;
+        public static final int imageRight=0x7f0a0141;
+        public static final int imageView=0x7f0a00e8;
+        public static final int indicator=0x7f0a00b0;
+        public static final int infoWindowOfficeAddress=0x7f0a0144;
+        public static final int infoWindowOfficeName=0x7f0a0143;
+        public static final int infoWindowOfficePhone=0x7f0a0147;
+        public static final int infoWindowOfficeZone=0x7f0a0145;
+        public static final int itemLayout=0x7f0a00d7;
+        public static final int label_address=0x7f0a00e0;
+        public static final int label_delivery_conditions=0x7f0a00ea;
+        public static final int label_fax=0x7f0a00e4;
+        public static final int label_phone=0x7f0a00e2;
+        public static final int label_return_conditions=0x7f0a00ed;
+        public static final int label_zone=0x7f0a00de;
+        public static final int lblComments=0x7f0a0079;
+        public static final int lblDriverBornDate=0x7f0a0075;
+        public static final int lblDriverEmail=0x7f0a0071;
+        public static final int lblDriverName=0x7f0a006d;
+        public static final int lblDriverPhone=0x7f0a0073;
+        public static final int lblDriverSurname=0x7f0a006f;
+        public static final int lblDropoffDateTimeBook=0x7f0a0066;
+        public static final int lblDropoffPointBook=0x7f0a0065;
+        public static final int lblFlightNumber=0x7f0a0077;
+        public static final int lblLoading=0x7f0a011b;
+        public static final int lblPickupDateTimeBook=0x7f0a0063;
+        public static final int lblPickupPointBook=0x7f0a0062;
+        public static final int linearLayout1=0x7f0a00b4;
+        public static final int linearLayout2=0x7f0a00b7;
+        public static final int linearLayout3=0x7f0a00ba;
         public static final int listMode=0x7f0a0001;
-        public static final int listViewSearchResults=0x7f0a0120;
-        public static final int listViewSelectExtras=0x7f0a012d;
-        public static final int list_item=0x7f0a0048;
-        public static final int loadingDialogProgressBar=0x7f0a0146;
-        public static final int loadingDialogText=0x7f0a0147;
-        public static final int loadingDialogWrapper=0x7f0a0145;
-        public static final int loadingLayout=0x7f0a011c;
-        public static final int localizer=0x7f0a00ee;
-        public static final int logo=0x7f0a00b0;
-        public static final int makeBookingCarModel=0x7f0a00c5;
-        public static final int makeBookingDropoffDateValue=0x7f0a00c1;
-        public static final int makeBookingDropoffPointValue=0x7f0a00c0;
-        public static final int makeBookingIconCollapse=0x7f0a00ca;
-        public static final int makeBookingImageCar=0x7f0a00c4;
-        public static final int makeBookingImageCarWrap=0x7f0a00c3;
-        public static final int makeBookingPickupPointValue=0x7f0a00be;
-        public static final int makeBookingSummary=0x7f0a00bc;
-        public static final int makeBookingSummaryCollapsedText=0x7f0a00bb;
-        public static final int makeBookingSummaryParameters=0x7f0a00bd;
-        public static final int makeBookingTotalLabel=0x7f0a00c8;
-        public static final int makeBookingTotalValue=0x7f0a00c9;
-        public static final int makeBookingTxtCarPrice=0x7f0a00c6;
-        public static final int makeBookingpickupDateValue=0x7f0a00bf;
-        public static final int map=0x7f0a00d4;
-        public static final int mapOpen=0x7f0a00d9;
-        public static final int mapWrap=0x7f0a00d8;
+        public static final int listViewSearchResults=0x7f0a011e;
+        public static final int listViewSelectExtras=0x7f0a0130;
+        public static final int list_item=0x7f0a0049;
+        public static final int loadingDialogProgressBar=0x7f0a0149;
+        public static final int loadingDialogText=0x7f0a014a;
+        public static final int loadingDialogWrapper=0x7f0a0148;
+        public static final int loadingLayout=0x7f0a011a;
+        public static final int localizer=0x7f0a00f1;
+        public static final int logo=0x7f0a00b2;
+        public static final int makeBookingCarModel=0x7f0a00c7;
+        public static final int makeBookingDropoffDateValue=0x7f0a00c3;
+        public static final int makeBookingDropoffPointValue=0x7f0a00c2;
+        public static final int makeBookingIconCollapse=0x7f0a00cc;
+        public static final int makeBookingImageCar=0x7f0a00c6;
+        public static final int makeBookingImageCarWrap=0x7f0a00c5;
+        public static final int makeBookingPickupPointValue=0x7f0a00c0;
+        public static final int makeBookingSummary=0x7f0a00be;
+        public static final int makeBookingSummaryCollapsedText=0x7f0a00bd;
+        public static final int makeBookingSummaryParameters=0x7f0a00bf;
+        public static final int makeBookingTotalLabel=0x7f0a00ca;
+        public static final int makeBookingTotalValue=0x7f0a00cb;
+        public static final int makeBookingTxtCarPrice=0x7f0a00c8;
+        public static final int makeBookingpickupDateValue=0x7f0a00c1;
+        public static final int map=0x7f0a00d6;
+        public static final int mapOpen=0x7f0a00dc;
+        public static final int mapWrap=0x7f0a00db;
         public static final int match_parent=0x7f0a0022;
         public static final int middle=0x7f0a000b;
         public static final int monochrome=0x7f0a0029;
-        public static final int month_text_view=0x7f0a008d;
-        public static final int navigation_drawer=0x7f0a007f;
+        public static final int month_text_view=0x7f0a008e;
+        public static final int navigation_drawer=0x7f0a0080;
         public static final int never=0x7f0a0010;
         public static final int none=0x7f0a0009;
         public static final int normal=0x7f0a0000;
-        public static final int officeListItemWrapperLayout=0x7f0a0148;
-        public static final int office_delivery_conditions=0x7f0a00e6;
-        public static final int office_detail_container=0x7f0a0080;
-        public static final int office_fragment=0x7f0a0081;
-        public static final int office_general_info=0x7f0a00a6;
-        public static final int office_item_name=0x7f0a014a;
-        public static final int office_list=0x7f0a0082;
-        public static final int office_list_icon_status=0x7f0a0149;
-        public static final int office_return_conditions=0x7f0a00e9;
-        public static final int pickupDate=0x7f0a0134;
-        public static final int pickupDateDefaultLabel=0x7f0a010e;
+        public static final int officeListItemWrapperLayout=0x7f0a014b;
+        public static final int office_delivery_conditions=0x7f0a00e9;
+        public static final int office_detail_container=0x7f0a0081;
+        public static final int office_detail_container_inner=0x7f0a00da;
+        public static final int office_fragment=0x7f0a0082;
+        public static final int office_general_info=0x7f0a00a8;
+        public static final int office_item_name=0x7f0a014d;
+        public static final int office_list=0x7f0a0083;
+        public static final int office_list_icon_status=0x7f0a014c;
+        public static final int office_return_conditions=0x7f0a00ec;
+        public static final int pickupDate=0x7f0a0137;
+        public static final int pickupDateDefaultLabel=0x7f0a0111;
         public static final int pickupDateIcon=0x7f0a0033;
-        public static final int pickupDateLayout=0x7f0a010d;
-        public static final int pickupPoint=0x7f0a0133;
-        public static final int pickupTimeDefaultLabel=0x7f0a0110;
+        public static final int pickupDateLayout=0x7f0a0110;
+        public static final int pickupPoint=0x7f0a0136;
+        public static final int pickupTimeDefaultLabel=0x7f0a0113;
         public static final int pickupTimeIcon=0x7f0a0034;
-        public static final int pickupTimeLayout=0x7f0a010f;
-        public static final int pickupZoneDefaultLabel=0x7f0a010a;
+        public static final int pickupTimeLayout=0x7f0a0112;
+        public static final int pickupZoneDefaultLabel=0x7f0a010d;
         public static final int pickupZoneIcon=0x7f0a0035;
-        public static final int pickupZoneLayout=0x7f0a0109;
+        public static final int pickupZoneLayout=0x7f0a010c;
         public static final int production=0x7f0a001d;
-        public static final int progressBarLoading=0x7f0a011e;
+        public static final int progressBarLoading=0x7f0a011c;
         public static final int progress_circular=0x7f0a0036;
         public static final int progress_horizontal=0x7f0a0037;
-        public static final int radio=0x7f0a004e;
-        public static final int resDetailComments=0x7f0a00ff;
-        public static final int resDetailCommentsLabel=0x7f0a00fe;
-        public static final int resDetailDevolucionFecha=0x7f0a00fd;
-        public static final int resDetailDevolucionLabel=0x7f0a00fb;
-        public static final int resDetailDevolucionZona=0x7f0a00fc;
-        public static final int resDetailRecogidaFecha=0x7f0a00fa;
-        public static final int resDetailRecogidaLabel=0x7f0a00f8;
-        public static final int resDetailRecogidaZona=0x7f0a00f9;
-        public static final int resDetailReservaLabel=0x7f0a00ed;
-        public static final int resDetailTitularEmail=0x7f0a00f7;
-        public static final int resDetailTitularLabel=0x7f0a00f5;
-        public static final int resDetailTitularNombreFecha=0x7f0a00f6;
-        public static final int reservaLabel=0x7f0a0131;
-        public static final int reservationDates=0x7f0a0150;
-        public static final int reservationExtras=0x7f0a014e;
-        public static final int reservationListItemWrapperLayout=0x7f0a014b;
-        public static final int reservation_detail_container=0x7f0a0083;
-        public static final int reservation_detail_wrapper=0x7f0a00ec;
-        public static final int reservation_list=0x7f0a0084;
-        public static final int reservation_list_icon_status=0x7f0a014c;
+        public static final int radio=0x7f0a004f;
+        public static final int resDetailComments=0x7f0a0102;
+        public static final int resDetailCommentsLabel=0x7f0a0101;
+        public static final int resDetailDevolucionFecha=0x7f0a0100;
+        public static final int resDetailDevolucionLabel=0x7f0a00fe;
+        public static final int resDetailDevolucionZona=0x7f0a00ff;
+        public static final int resDetailRecogidaFecha=0x7f0a00fd;
+        public static final int resDetailRecogidaLabel=0x7f0a00fb;
+        public static final int resDetailRecogidaZona=0x7f0a00fc;
+        public static final int resDetailReservaLabel=0x7f0a00f0;
+        public static final int resDetailTitularEmail=0x7f0a00fa;
+        public static final int resDetailTitularLabel=0x7f0a00f8;
+        public static final int resDetailTitularNombreFecha=0x7f0a00f9;
+        public static final int reservaLabel=0x7f0a0134;
+        public static final int reservationDates=0x7f0a0154;
+        public static final int reservationExtras=0x7f0a0152;
+        public static final int reservationListItemWrapperLayout=0x7f0a014f;
+        public static final int reservation_detail_container=0x7f0a0084;
+        public static final int reservation_detail_wrapper=0x7f0a00ef;
+        public static final int reservation_list=0x7f0a0085;
+        public static final int reservation_list_icon_status=0x7f0a0150;
         public static final int reservation_status=0x7f0a0038;
         public static final int sandbox=0x7f0a001e;
         public static final int satellite=0x7f0a000d;
-        public static final int scrollView=0x7f0a0101;
-        public static final int scrollView1=0x7f0a005b;
-        public static final int scrollView2=0x7f0a00b1;
-        public static final int scroll_view_child=0x7f0a009d;
-        public static final int searchExternalLayout=0x7f0a0100;
-        public static final int searchResultAttributesContainer=0x7f0a0153;
-        public static final int searchResultBoxTop=0x7f0a0152;
-        public static final int searchResultDropoffDateValue=0x7f0a011b;
-        public static final int searchResultDropoffPointValue=0x7f0a011a;
-        public static final int searchResultPickupPointValue=0x7f0a0118;
-        public static final int searchResultSummary=0x7f0a0117;
-        public static final int searchResultWrapper=0x7f0a0116;
-        public static final int searchResultWrapperLayout=0x7f0a0151;
-        public static final int searchResultpickupDateValue=0x7f0a0119;
-        public static final int searchResultsContainer=0x7f0a011f;
-        public static final int searchWraperLayout=0x7f0a0102;
-        public static final int search_badge=0x7f0a0051;
-        public static final int search_bar=0x7f0a0050;
-        public static final int search_button=0x7f0a0052;
-        public static final int search_close_btn=0x7f0a0057;
-        public static final int search_edit_frame=0x7f0a0053;
-        public static final int search_go_btn=0x7f0a0059;
-        public static final int search_mag_icon=0x7f0a0054;
-        public static final int search_plate=0x7f0a0055;
-        public static final int search_src_text=0x7f0a0056;
-        public static final int search_voice_btn=0x7f0a005a;
-        public static final int selectExtrasCarModel=0x7f0a0128;
-        public static final int selectExtrasContainer=0x7f0a012c;
-        public static final int selectExtrasDropoffDateValue=0x7f0a0127;
-        public static final int selectExtrasDropoffPointValue=0x7f0a0126;
-        public static final int selectExtrasFrame=0x7f0a013c;
-        public static final int selectExtrasIconCollapse=0x7f0a012b;
-        public static final int selectExtrasImageCar=0x7f0a0129;
-        public static final int selectExtrasLabel=0x7f0a00cb;
-        public static final int selectExtrasPickupPointValue=0x7f0a0124;
-        public static final int selectExtrasSummary=0x7f0a0122;
-        public static final int selectExtrasSummaryCollapsedText=0x7f0a0121;
-        public static final int selectExtrasSummaryParameters=0x7f0a0123;
-        public static final int selectExtrasTxtCarPrice=0x7f0a012a;
-        public static final int selectExtraspickupDateValue=0x7f0a0125;
-        public static final int selectedCarExternalWrap=0x7f0a0103;
-        public static final int selectedCarWrap=0x7f0a0106;
+        public static final int scrollView=0x7f0a0104;
+        public static final int scrollView1=0x7f0a005c;
+        public static final int scrollView2=0x7f0a00b3;
+        public static final int scroll_view_child=0x7f0a009f;
+        public static final int searchExternalLayout=0x7f0a0103;
+        public static final int searchResultAttributesContainer=0x7f0a0157;
+        public static final int searchResultBoxTop=0x7f0a0156;
+        public static final int searchResultDropoffDateValue=0x7f0a0123;
+        public static final int searchResultDropoffPointValue=0x7f0a0122;
+        public static final int searchResultPickupPointValue=0x7f0a0120;
+        public static final int searchResultSummary=0x7f0a011f;
+        public static final int searchResultWrapper=0x7f0a0119;
+        public static final int searchResultWrapperLayout=0x7f0a0155;
+        public static final int searchResultpickupDateValue=0x7f0a0121;
+        public static final int searchResultsContainer=0x7f0a011d;
+        public static final int searchWraperLayout=0x7f0a0105;
+        public static final int search_badge=0x7f0a0052;
+        public static final int search_bar=0x7f0a0051;
+        public static final int search_button=0x7f0a0053;
+        public static final int search_close_btn=0x7f0a0058;
+        public static final int search_edit_frame=0x7f0a0054;
+        public static final int search_go_btn=0x7f0a005a;
+        public static final int search_mag_icon=0x7f0a0055;
+        public static final int search_plate=0x7f0a0056;
+        public static final int search_src_text=0x7f0a0057;
+        public static final int search_voice_btn=0x7f0a005b;
+        public static final int selectExtrasCarModel=0x7f0a012b;
+        public static final int selectExtrasContainer=0x7f0a012f;
+        public static final int selectExtrasDropoffDateValue=0x7f0a012a;
+        public static final int selectExtrasDropoffPointValue=0x7f0a0129;
+        public static final int selectExtrasFrame=0x7f0a013f;
+        public static final int selectExtrasIconCollapse=0x7f0a012e;
+        public static final int selectExtrasImageCar=0x7f0a012c;
+        public static final int selectExtrasLabel=0x7f0a00cd;
+        public static final int selectExtrasPickupPointValue=0x7f0a0127;
+        public static final int selectExtrasSummary=0x7f0a0125;
+        public static final int selectExtrasSummaryCollapsedText=0x7f0a0124;
+        public static final int selectExtrasSummaryParameters=0x7f0a0126;
+        public static final int selectExtrasTxtCarPrice=0x7f0a012d;
+        public static final int selectExtraspickupDateValue=0x7f0a0128;
+        public static final int selectedCarExternalWrap=0x7f0a0106;
+        public static final int selectedCarWrap=0x7f0a0109;
         public static final int selectionDetails=0x7f0a0021;
-        public static final int selectorOffice=0x7f0a015a;
-        public static final int selectorZone=0x7f0a0159;
-        public static final int shortcut=0x7f0a004d;
+        public static final int selectorOffice=0x7f0a015e;
+        public static final int selectorZone=0x7f0a015d;
+        public static final int shortcut=0x7f0a004e;
         public static final int showCustom=0x7f0a0007;
         public static final int showHome=0x7f0a0004;
         public static final int showTitle=0x7f0a0006;
-        public static final int split_action_bar=0x7f0a003d;
-        public static final int status_icon=0x7f0a00ef;
+        public static final int split_action_bar=0x7f0a003e;
+        public static final int status_icon=0x7f0a00f2;
         public static final int strict_sandbox=0x7f0a001f;
-        public static final int submit_area=0x7f0a0058;
-        public static final int subtitle=0x7f0a013f;
-        public static final int summaryCollapsedText=0x7f0a012f;
-        public static final int summaryParameters=0x7f0a0132;
+        public static final int submit_area=0x7f0a0059;
+        public static final int subtitle=0x7f0a0142;
+        public static final int summaryCollapsedText=0x7f0a0132;
+        public static final int summaryParameters=0x7f0a0135;
         public static final int tabMode=0x7f0a0002;
         public static final int terrain=0x7f0a000e;
-        public static final int time_picker=0x7f0a0154;
-        public static final int title=0x7f0a004a;
-        public static final int titleAction=0x7f0a0157;
+        public static final int time_picker=0x7f0a0158;
+        public static final int title=0x7f0a004b;
+        public static final int titleAction=0x7f0a015b;
         public static final int top=0x7f0a001a;
-        public static final int top_action_bar=0x7f0a003f;
-        public static final int totalLabel=0x7f0a0139;
-        public static final int totalValue=0x7f0a013a;
+        public static final int top_action_bar=0x7f0a0040;
+        public static final int totalLabel=0x7f0a013c;
+        public static final int totalValue=0x7f0a013d;
         public static final int triangle=0x7f0a0017;
-        public static final int txtBookThisOffice=0x7f0a00e4;
-        public static final int txtCarModel=0x7f0a014d;
-        public static final int txtCarModelBook=0x7f0a0069;
-        public static final int txtCarPrice=0x7f0a014f;
-        public static final int txtComments=0x7f0a0079;
-        public static final int txtDriverBornDate=0x7f0a0075;
-        public static final int txtDriverEmail=0x7f0a0071;
-        public static final int txtDriverName=0x7f0a006d;
-        public static final int txtDriverPhone=0x7f0a0073;
-        public static final int txtDriverSurname=0x7f0a006f;
-        public static final int txtFlightNumber=0x7f0a0077;
-        public static final int txtOfficeAddress=0x7f0a00de;
-        public static final int txtOfficeFax=0x7f0a00e2;
-        public static final int txtOfficeName=0x7f0a00da;
-        public static final int txtOfficePhone=0x7f0a00e0;
-        public static final int txtOfficeZone=0x7f0a00dc;
-        public static final int txtPriceBook=0x7f0a006a;
-        public static final int txtSearchSummaryBook=0x7f0a005f;
-        public static final int txtSelectedCarLabel=0x7f0a0104;
+        public static final int txtBookThisOffice=0x7f0a00e7;
+        public static final int txtCarModel=0x7f0a0151;
+        public static final int txtCarModelBook=0x7f0a006a;
+        public static final int txtCarPrice=0x7f0a0153;
+        public static final int txtComments=0x7f0a007a;
+        public static final int txtDriverBornDate=0x7f0a0076;
+        public static final int txtDriverEmail=0x7f0a0072;
+        public static final int txtDriverName=0x7f0a006e;
+        public static final int txtDriverPhone=0x7f0a0074;
+        public static final int txtDriverSurname=0x7f0a0070;
+        public static final int txtFlightNumber=0x7f0a0078;
+        public static final int txtOfficeAddress=0x7f0a00e1;
+        public static final int txtOfficeFax=0x7f0a00e5;
+        public static final int txtOfficeName=0x7f0a00dd;
+        public static final int txtOfficePhone=0x7f0a00e3;
+        public static final int txtOfficeZone=0x7f0a00df;
+        public static final int txtPriceBook=0x7f0a006b;
+        public static final int txtSearchSummaryBook=0x7f0a0060;
+        public static final int txtSelectedCarLabel=0x7f0a0107;
         public static final int underline=0x7f0a0018;
-        public static final int up=0x7f0a0040;
+        public static final int up=0x7f0a0041;
         public static final int useLogo=0x7f0a0003;
-        public static final int view_pager=0x7f0a00ad;
-        public static final int webViewOfficeDeliveryConditions=0x7f0a00e8;
-        public static final int webViewOfficeReturnConditions=0x7f0a00eb;
+        public static final int view_pager=0x7f0a00af;
+        public static final int vuelo=0x7f0a0039;
+        public static final int webViewOfficeDeliveryConditions=0x7f0a00eb;
+        public static final int webViewOfficeReturnConditions=0x7f0a00ee;
         public static final int withText=0x7f0a0013;
         public static final int wrap_content=0x7f0a0023;
-        public static final int zone_item_name=0x7f0a015c;
+        public static final int zone_item_name=0x7f0a0160;
     }
     public static final class integer {
         public static final int abc_max_action_buttons=0x7f0c0000;
@@ -2453,22 +2282,24 @@ containing a value of this type.
         public static final int fragment_reservation_detail=0x7f03003a;
         public static final int fragment_search=0x7f03003b;
         public static final int fragment_search_results=0x7f03003c;
-        public static final int fragment_select_extras=0x7f03003d;
-        public static final int fragment_update_reservation=0x7f03003e;
-        public static final int help_list_item=0x7f03003f;
-        public static final int info_window_office=0x7f030040;
-        public static final int loading_dialog=0x7f030041;
-        public static final int office_list=0x7f030042;
-        public static final int office_list_item=0x7f030043;
-        public static final int office_spinner=0x7f030044;
-        public static final int reservation_list_item=0x7f030045;
-        public static final int search_result=0x7f030046;
-        public static final int support_simple_spinner_dropdown_item=0x7f030047;
-        public static final int time_dialog=0x7f030048;
-        public static final int timepicker=0x7f030049;
-        public static final int vp_image=0x7f03004a;
-        public static final int zone_dialog=0x7f03004b;
-        public static final int zone_spinner=0x7f03004c;
+        public static final int fragment_search_results_header=0x7f03003d;
+        public static final int fragment_select_extras=0x7f03003e;
+        public static final int fragment_update_reservation=0x7f03003f;
+        public static final int help_list_item=0x7f030040;
+        public static final int info_window_office=0x7f030041;
+        public static final int loading_dialog=0x7f030042;
+        public static final int office_list=0x7f030043;
+        public static final int office_list_item=0x7f030044;
+        public static final int office_spinner=0x7f030045;
+        public static final int qrh_listview_container=0x7f030046;
+        public static final int reservation_list_item=0x7f030047;
+        public static final int search_result=0x7f030048;
+        public static final int support_simple_spinner_dropdown_item=0x7f030049;
+        public static final int time_dialog=0x7f03004a;
+        public static final int timepicker=0x7f03004b;
+        public static final int vp_image=0x7f03004c;
+        public static final int zone_dialog=0x7f03004d;
+        public static final int zone_spinner=0x7f03004e;
     }
     public static final class menu {
         public static final int activity_book=0x7f100000;
@@ -2512,12 +2343,12 @@ containing a value of this type.
         public static final int address_label=0x7f0e0011;
         public static final int ampm_circle_radius_multiplier=0x7f0e0012;
         public static final int app_name=0x7f0e0013;
-        public static final int auth_client_needs_enabling_title=0x7f0e0180;
-        public static final int auth_client_needs_installation_title=0x7f0e0181;
-        public static final int auth_client_needs_update_title=0x7f0e0182;
-        public static final int auth_client_play_services_err_notification_msg=0x7f0e0183;
-        public static final int auth_client_requested_by_msg=0x7f0e0184;
-        public static final int auth_client_using_bad_version_title=0x7f0e0185;
+        public static final int auth_client_needs_enabling_title=0x7f0e0185;
+        public static final int auth_client_needs_installation_title=0x7f0e0186;
+        public static final int auth_client_needs_update_title=0x7f0e0187;
+        public static final int auth_client_play_services_err_notification_msg=0x7f0e0188;
+        public static final int auth_client_requested_by_msg=0x7f0e0189;
+        public static final int auth_client_using_bad_version_title=0x7f0e018a;
         public static final int availability_error_dialog_msg=0x7f0e0014;
         public static final int availability_error_dialog_msg_no_results=0x7f0e0015;
         public static final int availability_error_dialog_title=0x7f0e0016;
@@ -2588,300 +2419,305 @@ containing a value of this type.
         public static final int day_c=0x7f0e0057;
         public static final int day_of_week_label_typeface=0x7f0e0058;
         public static final int day_picker_description=0x7f0e0059;
-        public static final int deleted_key=0x7f0e005a;
-        public static final int delivery_conditions_label=0x7f0e005b;
-        public static final int done_label=0x7f0e005c;
-        public static final int dotdotdot=0x7f0e005d;
-        public static final int downloadCarsDesc=0x7f0e005e;
-        public static final int downloadCarsNegativeBtn=0x7f0e005f;
-        public static final int downloadCarsPositiveBtn=0x7f0e0060;
-        public static final int downloadCarsText=0x7f0e0061;
-        public static final int downloadCarsTitle=0x7f0e0062;
-        public static final int downloadOfficesDesc=0x7f0e0063;
-        public static final int downloadOfficesNegativeBtn=0x7f0e0064;
-        public static final int downloadOfficesPositiveBtn=0x7f0e0065;
-        public static final int downloadOfficesText=0x7f0e0066;
-        public static final int downloadOfficesTitle=0x7f0e0067;
-        public static final int downloading_cars=0x7f0e0068;
-        public static final int downloading_offices=0x7f0e0069;
-        public static final int driver_borndate=0x7f0e006a;
-        public static final int driver_borndate_hint=0x7f0e006b;
-        public static final int driver_email=0x7f0e006c;
-        public static final int driver_email_hint=0x7f0e006d;
-        public static final int driver_name=0x7f0e006e;
-        public static final int driver_name_hint=0x7f0e006f;
-        public static final int driver_phone=0x7f0e0070;
-        public static final int driver_phone_hint=0x7f0e0071;
-        public static final int driver_surname=0x7f0e0072;
-        public static final int driver_surname_hint=0x7f0e0073;
-        public static final int dropoff=0x7f0e0074;
-        public static final int dropoffDateTitle=0x7f0e0075;
-        public static final int dropoffLabel=0x7f0e0076;
-        public static final int dropoffPointTitle=0x7f0e0077;
-        public static final int dropoffTimeDialogTitle=0x7f0e0078;
-        public static final int dropoffZoneDefaultLabel=0x7f0e0079;
-        public static final int dummyCarModel=0x7f0e007a;
-        public static final int dummyComentarios=0x7f0e007b;
-        public static final int dummyDate=0x7f0e007c;
-        public static final int dummyDevolucion=0x7f0e007d;
-        public static final int dummyEmail=0x7f0e007e;
-        public static final int dummyExtra=0x7f0e007f;
-        public static final int dummyExtraPrice=0x7f0e0080;
-        public static final int dummyHelpItemSubTitle=0x7f0e0081;
-        public static final int dummyHelpItemTitle=0x7f0e0082;
-        public static final int dummyHelpText=0x7f0e0083;
-        public static final int dummyHelpTitle=0x7f0e0084;
-        public static final int dummyHelpTitleAction=0x7f0e0085;
-        public static final int dummyLocalizer=0x7f0e0086;
-        public static final int dummyPickupPoint=0x7f0e0087;
-        public static final int dummyRecogida=0x7f0e0088;
-        public static final int dummyRecogidaFecha=0x7f0e0089;
-        public static final int dummyStatus=0x7f0e008a;
-        public static final int endByDate=0x7f0e008b;
-        public static final int error=0x7f0e008c;
-        public static final int every_weekday=0x7f0e008d;
-        public static final int expiration_picker_seperator=0x7f0e008e;
-        public static final int extras=0x7f0e008f;
-        public static final int extras_data=0x7f0e0090;
-        public static final int fax_label=0x7f0e0091;
-        public static final int fecha_devolucion=0x7f0e0092;
-        public static final int fecha_recogida=0x7f0e0093;
-        public static final int filterCarsDialogText=0x7f0e0094;
-        public static final int filterOfficesDialogText=0x7f0e0095;
-        public static final int flightNumberHint=0x7f0e0096;
-        public static final int flight_number=0x7f0e0097;
-        public static final int flight_number_hint=0x7f0e0098;
-        public static final int getting_extras=0x7f0e0099;
-        public static final int getting_extras_title=0x7f0e009a;
-        public static final int group_label=0x7f0e009b;
-        public static final int hello_blank_fragment=0x7f0e009c;
-        public static final int hello_world=0x7f0e009d;
-        public static final int help_bookingdetail1_desc=0x7f0e009e;
-        public static final int help_bookingdetail1_title=0x7f0e009f;
-        public static final int help_bookingdetail2_desc=0x7f0e00a0;
-        public static final int help_bookingdetail2_title=0x7f0e00a1;
-        public static final int help_bookingdetail3_desc=0x7f0e00a2;
-        public static final int help_bookingdetail3_title=0x7f0e00a3;
-        public static final int help_bookingdetail4_desc=0x7f0e00a4;
-        public static final int help_bookingdetail4_title=0x7f0e00a5;
-        public static final int help_bookingdetail5_desc=0x7f0e00a6;
-        public static final int help_bookingdetail5_title=0x7f0e00a7;
-        public static final int help_cancel_update_book_subtitle_action=0x7f0e00a8;
-        public static final int help_cancel_update_book_title_action=0x7f0e00a9;
-        public static final int help_newbook1_desc=0x7f0e00aa;
-        public static final int help_newbook1_title=0x7f0e00ab;
-        public static final int help_newbook2_desc=0x7f0e00ac;
-        public static final int help_newbook2_title=0x7f0e00ad;
-        public static final int help_newbook3_desc=0x7f0e00ae;
-        public static final int help_newbook3_title=0x7f0e00af;
-        public static final int help_newbook4_desc=0x7f0e00b0;
-        public static final int help_newbook4_title=0x7f0e00b1;
-        public static final int help_newbook5_desc=0x7f0e00b2;
-        public static final int help_newbook5_title=0x7f0e00b3;
-        public static final int help_newbook6_desc=0x7f0e00b4;
-        public static final int help_newbook6_title=0x7f0e00b5;
-        public static final int help_newbook_subtitle_action=0x7f0e00b6;
-        public static final int help_newbook_title_action=0x7f0e00b7;
-        public static final int help_search_car_subtitle_action=0x7f0e00b8;
-        public static final int help_search_car_title_action=0x7f0e00b9;
-        public static final int help_search_office_subtitle_action=0x7f0e00ba;
-        public static final int help_search_office_title_action=0x7f0e00bb;
-        public static final int help_searchcar1_desc=0x7f0e00bc;
-        public static final int help_searchcar1_title=0x7f0e00bd;
-        public static final int help_searchcar2_desc=0x7f0e00be;
-        public static final int help_searchcar2_title=0x7f0e00bf;
-        public static final int help_searchcar3_desc=0x7f0e00c0;
-        public static final int help_searchcar3_title=0x7f0e00c1;
-        public static final int help_searchoffice1_desc=0x7f0e00c2;
-        public static final int help_searchoffice1_title=0x7f0e00c3;
-        public static final int help_searchoffice2_desc=0x7f0e00c4;
-        public static final int help_searchoffice2_title=0x7f0e00c5;
-        public static final int help_searchoffice3_desc=0x7f0e00c6;
-        public static final int help_searchoffice3_title=0x7f0e00c7;
-        public static final int help_searchoffice4_desc=0x7f0e00c8;
-        public static final int help_searchoffice4_title=0x7f0e00c9;
-        public static final int help_settings1_desc=0x7f0e00ca;
-        public static final int help_settings1_title=0x7f0e00cb;
-        public static final int help_settings2_desc=0x7f0e00cc;
-        public static final int help_settings2_title=0x7f0e00cd;
-        public static final int help_settings_subtitle_action=0x7f0e00ce;
-        public static final int help_settings_title_action=0x7f0e00cf;
-        public static final int help_welcome=0x7f0e00d0;
-        public static final int help_welcome_subtitle=0x7f0e00d1;
-        public static final int hint_time_zone_search=0x7f0e00d2;
-        public static final int hms_picker_hours_label=0x7f0e00d3;
-        public static final int hms_picker_minutes_label=0x7f0e00d4;
-        public static final int hms_picker_seconds_label=0x7f0e00d5;
-        public static final int hour_picker_description=0x7f0e00d6;
-        public static final int hours_label=0x7f0e00d7;
-        public static final int hours_label_description=0x7f0e00d8;
-        public static final int item_is_selected=0x7f0e00d9;
-        public static final int localizer=0x7f0e00da;
-        public static final int makeBookingCustomerDataLabel=0x7f0e00db;
-        public static final int make_booking=0x7f0e00dc;
-        public static final int making_booking=0x7f0e00dd;
-        public static final int making_booking_title=0x7f0e00de;
-        public static final int max_error=0x7f0e00df;
-        public static final int menu_settings=0x7f0e00e0;
-        public static final int min_error=0x7f0e00e1;
-        public static final int min_max_error=0x7f0e00e2;
-        public static final int minute_picker_description=0x7f0e00e3;
-        public static final int minutes_label=0x7f0e00e4;
-        public static final int minutes_label_description=0x7f0e00e5;
-        public static final int month_c=0x7f0e00e6;
-        public static final int monthly=0x7f0e00e7;
-        public static final int navigation_drawer_close=0x7f0e00e8;
-        public static final int navigation_drawer_help=0x7f0e00e9;
-        public static final int navigation_drawer_home=0x7f0e00ea;
-        public static final int navigation_drawer_models=0x7f0e00eb;
-        public static final int navigation_drawer_my_bookings=0x7f0e00ec;
-        public static final int navigation_drawer_new_booking=0x7f0e00ed;
-        public static final int navigation_drawer_offices=0x7f0e00ee;
-        public static final int navigation_drawer_open=0x7f0e00ef;
-        public static final int navigation_drawer_search_booking=0x7f0e00f0;
-        public static final int navigation_drawer_settings=0x7f0e00f1;
-        public static final int no_cars_downloaded=0x7f0e00f2;
-        public static final int no_offices_downloaded=0x7f0e00f3;
-        public static final int no_results_found=0x7f0e00f4;
-        public static final int nombre_y_fechanac=0x7f0e00f5;
-        public static final int number_delete=0x7f0e00f6;
-        public static final int number_picker_minus_label=0x7f0e00f7;
-        public static final int number_picker_plus_minus=0x7f0e00f8;
-        public static final int number_picker_seperator=0x7f0e00f9;
-        public static final int numbers_radius_multiplier_inner=0x7f0e00fa;
-        public static final int numbers_radius_multiplier_normal=0x7f0e00fb;
-        public static final int numbers_radius_multiplier_outer=0x7f0e00fc;
-        public static final int officeValidator=0x7f0e00fd;
-        public static final int office_address=0x7f0e00fe;
-        public static final int office_fax=0x7f0e00ff;
-        public static final int office_name=0x7f0e0100;
-        public static final int office_phone=0x7f0e0101;
-        public static final int office_zone=0x7f0e0102;
-        public static final int offices_and_cars_download_ok=0x7f0e0103;
-        public static final int offices_download_error=0x7f0e0104;
-        public static final int offices_download_ok=0x7f0e0105;
-        public static final int palestine_display_name=0x7f0e0106;
-        public static final int phone_label=0x7f0e0107;
-        public static final int picker_cancel=0x7f0e0108;
-        public static final int picker_set=0x7f0e0109;
-        public static final int pickup=0x7f0e010a;
-        public static final int pickupDateDefaultLabel=0x7f0e010b;
-        public static final int pickupDateTitle=0x7f0e010c;
-        public static final int pickupLabel=0x7f0e010d;
-        public static final int pickupPointTitle=0x7f0e010e;
-        public static final int pickupTimeDefaultLabel=0x7f0e010f;
-        public static final int pickupTimeDialogTitle=0x7f0e0110;
-        public static final int pickupZoneDefaultLabel=0x7f0e0111;
-        public static final int pickup_equals_dropoff=0x7f0e0112;
-        public static final int placeholder_car_title=0x7f0e0113;
-        public static final int pref_default_display_name=0x7f0e0114;
-        public static final int pref_description_social_recommendations=0x7f0e0115;
-        public static final int pref_header_customer_data=0x7f0e0116;
-        public static final int pref_header_data_sync=0x7f0e0117;
-        public static final int pref_header_general=0x7f0e0118;
-        public static final int pref_header_notifications=0x7f0e0119;
-        public static final int pref_ringtone_silent=0x7f0e011a;
-        public static final int pref_title_add_friends_to_messages=0x7f0e011b;
-        public static final int pref_title_display_customer_birth_date=0x7f0e011c;
-        public static final int pref_title_display_customer_email=0x7f0e011d;
-        public static final int pref_title_display_customer_name=0x7f0e011e;
-        public static final int pref_title_display_customer_phone=0x7f0e011f;
-        public static final int pref_title_display_customer_surname=0x7f0e0120;
-        public static final int pref_title_display_name=0x7f0e0121;
-        public static final int pref_title_new_message_notifications=0x7f0e0122;
-        public static final int pref_title_ringtone=0x7f0e0123;
-        public static final int pref_title_social_recommendations=0x7f0e0124;
-        public static final int pref_title_sync_frequency=0x7f0e0125;
-        public static final int pref_title_system_sync_settings=0x7f0e0126;
-        public static final int pref_title_vibrate=0x7f0e0127;
-        public static final int priceTypeDaily=0x7f0e0128;
-        public static final int priceTypeTotal=0x7f0e0129;
-        public static final int radial_numbers_typeface=0x7f0e012a;
-        public static final int recogida=0x7f0e012b;
-        public static final int recurrence_end_continously=0x7f0e012c;
-        public static final int recurrence_end_count_label=0x7f0e012d;
-        public static final int recurrence_end_date=0x7f0e012e;
-        public static final int recurrence_end_date_label=0x7f0e012f;
-        public static final int recurrence_month_pattern_by_day=0x7f0e0130;
-        public static final int remove_selected_car_dialog_msg=0x7f0e0131;
-        public static final int remove_selected_car_dialog_title=0x7f0e0132;
-        public static final int reserva=0x7f0e0133;
-        public static final int reservar=0x7f0e0134;
-        public static final int reservation_dates=0x7f0e0135;
-        public static final int reservation_extras=0x7f0e0136;
-        public static final int return_conditions_label=0x7f0e0137;
-        public static final int sans_serif=0x7f0e0138;
-        public static final int save_label=0x7f0e0139;
-        public static final int search_summary=0x7f0e013a;
-        public static final int searchview_description_clear=0x7f0e013b;
-        public static final int seconds_label=0x7f0e013c;
-        public static final int seconds_label_description=0x7f0e013d;
-        public static final int selectExtrasLabel=0x7f0e013e;
-        public static final int select_day=0x7f0e013f;
-        public static final int select_hours=0x7f0e0140;
-        public static final int select_minutes=0x7f0e0141;
-        public static final int select_year=0x7f0e0142;
-        public static final int selectedCarTitle=0x7f0e0143;
-        public static final int selection_radius_multiplier=0x7f0e0144;
-        public static final int showSummary=0x7f0e0145;
-        public static final int show_offices_in_lista=0x7f0e0146;
-        public static final int show_offices_in_map=0x7f0e0147;
-        public static final int sipp_label=0x7f0e0148;
-        public static final int spinnerAllText=0x7f0e0149;
-        public static final int status=0x7f0e014a;
-        public static final int step_1=0x7f0e014b;
-        public static final int step_2=0x7f0e014c;
-        public static final int step_3=0x7f0e014d;
-        public static final int step_4=0x7f0e014e;
-        public static final int switch_off=0x7f0e014f;
-        public static final int switch_on=0x7f0e0150;
-        public static final int text_size_multiplier_inner=0x7f0e0151;
-        public static final int text_size_multiplier_normal=0x7f0e0152;
-        public static final int text_size_multiplier_outer=0x7f0e0153;
-        public static final int time_picker_00_label=0x7f0e0154;
-        public static final int time_picker_30_label=0x7f0e0155;
-        public static final int time_picker_ampm_label=0x7f0e0156;
-        public static final int time_picker_time_seperator=0x7f0e0157;
-        public static final int time_placeholder=0x7f0e0158;
-        public static final int time_separator=0x7f0e0159;
-        public static final int timer_delete=0x7f0e015a;
-        public static final int title_activity_book=0x7f0e015b;
-        public static final int title_activity_help=0x7f0e015c;
-        public static final int title_activity_home=0x7f0e015d;
-        public static final int title_activity_search_results=0x7f0e015e;
-        public static final int title_activity_settings=0x7f0e015f;
-        public static final int title_activity_slide=0x7f0e0160;
-        public static final int title_car_detail=0x7f0e0161;
-        public static final int title_car_list=0x7f0e0162;
-        public static final int title_fragment_cars=0x7f0e0163;
-        public static final int title_fragment_make_booking=0x7f0e0164;
-        public static final int title_fragment_new_booking=0x7f0e0165;
-        public static final int title_fragment_offices=0x7f0e0166;
-        public static final int title_fragment_select_extras=0x7f0e0167;
-        public static final int title_office_detail=0x7f0e0168;
-        public static final int title_office_list=0x7f0e0169;
-        public static final int title_reservation_detail=0x7f0e016a;
-        public static final int title_reservation_list=0x7f0e016b;
-        public static final int title_reservation_update=0x7f0e016c;
-        public static final int title_section1=0x7f0e016d;
-        public static final int title_section2=0x7f0e016e;
-        public static final int title_section3=0x7f0e016f;
-        public static final int titular=0x7f0e0170;
-        public static final int total=0x7f0e0171;
-        public static final int txt_image_slider=0x7f0e0172;
-        public static final int updateReservation=0x7f0e0173;
-        public static final int update_reservation=0x7f0e0174;
-        public static final int updated_reservation=0x7f0e0175;
-        public static final int updating_booking=0x7f0e0176;
-        public static final int updating_booking_title=0x7f0e0177;
-        public static final int wallet_buy_button_place_holder=0x7f0e0178;
-        public static final int year_c=0x7f0e0179;
-        public static final int year_picker_description=0x7f0e017a;
-        public static final int yearly_plain=0x7f0e017b;
-        public static final int zona_recogida=0x7f0e017c;
-        public static final int zoneOfficeValidator=0x7f0e017d;
-        public static final int zoneValidator=0x7f0e017e;
-        public static final int zone_label=0x7f0e017f;
+        public static final int default_zone=0x7f0e005a;
+        public static final int deleted_key=0x7f0e005b;
+        public static final int delivery_conditions_label=0x7f0e005c;
+        public static final int done_label=0x7f0e005d;
+        public static final int dotdotdot=0x7f0e005e;
+        public static final int downloadCarsDesc=0x7f0e005f;
+        public static final int downloadCarsNegativeBtn=0x7f0e0060;
+        public static final int downloadCarsPositiveBtn=0x7f0e0061;
+        public static final int downloadCarsText=0x7f0e0062;
+        public static final int downloadCarsTitle=0x7f0e0063;
+        public static final int downloadOfficesDesc=0x7f0e0064;
+        public static final int downloadOfficesNegativeBtn=0x7f0e0065;
+        public static final int downloadOfficesPositiveBtn=0x7f0e0066;
+        public static final int downloadOfficesText=0x7f0e0067;
+        public static final int downloadOfficesTitle=0x7f0e0068;
+        public static final int downloading_cars=0x7f0e0069;
+        public static final int downloading_cars_msg=0x7f0e006a;
+        public static final int downloading_offices=0x7f0e006b;
+        public static final int downloading_offices_msg=0x7f0e006c;
+        public static final int driver_borndate=0x7f0e006d;
+        public static final int driver_borndate_hint=0x7f0e006e;
+        public static final int driver_email=0x7f0e006f;
+        public static final int driver_email_hint=0x7f0e0070;
+        public static final int driver_name=0x7f0e0071;
+        public static final int driver_name_hint=0x7f0e0072;
+        public static final int driver_phone=0x7f0e0073;
+        public static final int driver_phone_hint=0x7f0e0074;
+        public static final int driver_surname=0x7f0e0075;
+        public static final int driver_surname_hint=0x7f0e0076;
+        public static final int dropoff=0x7f0e0077;
+        public static final int dropoffDateTitle=0x7f0e0078;
+        public static final int dropoffLabel=0x7f0e0079;
+        public static final int dropoffPointTitle=0x7f0e007a;
+        public static final int dropoffTimeDialogTitle=0x7f0e007b;
+        public static final int dropoffZoneDefaultLabel=0x7f0e007c;
+        public static final int dummyCarModel=0x7f0e007d;
+        public static final int dummyComentarios=0x7f0e007e;
+        public static final int dummyDate=0x7f0e007f;
+        public static final int dummyDevolucion=0x7f0e0080;
+        public static final int dummyEmail=0x7f0e0081;
+        public static final int dummyExtra=0x7f0e0082;
+        public static final int dummyExtraPrice=0x7f0e0083;
+        public static final int dummyHelpItemSubTitle=0x7f0e0084;
+        public static final int dummyHelpItemTitle=0x7f0e0085;
+        public static final int dummyHelpText=0x7f0e0086;
+        public static final int dummyHelpTitle=0x7f0e0087;
+        public static final int dummyHelpTitleAction=0x7f0e0088;
+        public static final int dummyLocalizer=0x7f0e0089;
+        public static final int dummyPickupPoint=0x7f0e008a;
+        public static final int dummyRecogida=0x7f0e008b;
+        public static final int dummyRecogidaFecha=0x7f0e008c;
+        public static final int dummyStatus=0x7f0e008d;
+        public static final int endByDate=0x7f0e008e;
+        public static final int error=0x7f0e008f;
+        public static final int every_weekday=0x7f0e0090;
+        public static final int expiration_picker_seperator=0x7f0e0091;
+        public static final int extras=0x7f0e0092;
+        public static final int extras_data=0x7f0e0093;
+        public static final int fax_label=0x7f0e0094;
+        public static final int fecha_devolucion=0x7f0e0095;
+        public static final int fecha_recogida=0x7f0e0096;
+        public static final int filterCarsDialogText=0x7f0e0097;
+        public static final int filterOfficesDialogText=0x7f0e0098;
+        public static final int flightNumberHint=0x7f0e0099;
+        public static final int flight_number=0x7f0e009a;
+        public static final int flight_number_hint=0x7f0e009b;
+        public static final int getting_extras=0x7f0e009c;
+        public static final int getting_extras_title=0x7f0e009d;
+        public static final int group_label=0x7f0e009e;
+        public static final int hello_blank_fragment=0x7f0e009f;
+        public static final int hello_world=0x7f0e00a0;
+        public static final int help_bookingdetail1_desc=0x7f0e00a1;
+        public static final int help_bookingdetail1_title=0x7f0e00a2;
+        public static final int help_bookingdetail2_desc=0x7f0e00a3;
+        public static final int help_bookingdetail2_title=0x7f0e00a4;
+        public static final int help_bookingdetail3_desc=0x7f0e00a5;
+        public static final int help_bookingdetail3_title=0x7f0e00a6;
+        public static final int help_bookingdetail4_desc=0x7f0e00a7;
+        public static final int help_bookingdetail4_title=0x7f0e00a8;
+        public static final int help_bookingdetail5_desc=0x7f0e00a9;
+        public static final int help_bookingdetail5_title=0x7f0e00aa;
+        public static final int help_cancel_update_book_subtitle_action=0x7f0e00ab;
+        public static final int help_cancel_update_book_title_action=0x7f0e00ac;
+        public static final int help_newbook1_desc=0x7f0e00ad;
+        public static final int help_newbook1_title=0x7f0e00ae;
+        public static final int help_newbook2_desc=0x7f0e00af;
+        public static final int help_newbook2_title=0x7f0e00b0;
+        public static final int help_newbook3_desc=0x7f0e00b1;
+        public static final int help_newbook3_title=0x7f0e00b2;
+        public static final int help_newbook4_desc=0x7f0e00b3;
+        public static final int help_newbook4_title=0x7f0e00b4;
+        public static final int help_newbook5_desc=0x7f0e00b5;
+        public static final int help_newbook5_title=0x7f0e00b6;
+        public static final int help_newbook6_desc=0x7f0e00b7;
+        public static final int help_newbook6_title=0x7f0e00b8;
+        public static final int help_newbook_subtitle_action=0x7f0e00b9;
+        public static final int help_newbook_title_action=0x7f0e00ba;
+        public static final int help_search_car_subtitle_action=0x7f0e00bb;
+        public static final int help_search_car_title_action=0x7f0e00bc;
+        public static final int help_search_office_subtitle_action=0x7f0e00bd;
+        public static final int help_search_office_title_action=0x7f0e00be;
+        public static final int help_searchcar1_desc=0x7f0e00bf;
+        public static final int help_searchcar1_title=0x7f0e00c0;
+        public static final int help_searchcar2_desc=0x7f0e00c1;
+        public static final int help_searchcar2_title=0x7f0e00c2;
+        public static final int help_searchcar3_desc=0x7f0e00c3;
+        public static final int help_searchcar3_title=0x7f0e00c4;
+        public static final int help_searchoffice1_desc=0x7f0e00c5;
+        public static final int help_searchoffice1_title=0x7f0e00c6;
+        public static final int help_searchoffice2_desc=0x7f0e00c7;
+        public static final int help_searchoffice2_title=0x7f0e00c8;
+        public static final int help_searchoffice3_desc=0x7f0e00c9;
+        public static final int help_searchoffice3_title=0x7f0e00ca;
+        public static final int help_searchoffice4_desc=0x7f0e00cb;
+        public static final int help_searchoffice4_title=0x7f0e00cc;
+        public static final int help_settings1_desc=0x7f0e00cd;
+        public static final int help_settings1_title=0x7f0e00ce;
+        public static final int help_settings2_desc=0x7f0e00cf;
+        public static final int help_settings2_title=0x7f0e00d0;
+        public static final int help_settings_subtitle_action=0x7f0e00d1;
+        public static final int help_settings_title_action=0x7f0e00d2;
+        public static final int help_welcome=0x7f0e00d3;
+        public static final int help_welcome_subtitle=0x7f0e00d4;
+        public static final int hint_time_zone_search=0x7f0e00d5;
+        public static final int hms_picker_hours_label=0x7f0e00d6;
+        public static final int hms_picker_minutes_label=0x7f0e00d7;
+        public static final int hms_picker_seconds_label=0x7f0e00d8;
+        public static final int hour_picker_description=0x7f0e00d9;
+        public static final int hours_label=0x7f0e00da;
+        public static final int hours_label_description=0x7f0e00db;
+        public static final int item_is_selected=0x7f0e00dc;
+        public static final int last_sync=0x7f0e00dd;
+        public static final int localizer=0x7f0e00de;
+        public static final int makeBookingCustomerDataLabel=0x7f0e00df;
+        public static final int make_booking=0x7f0e00e0;
+        public static final int making_booking=0x7f0e00e1;
+        public static final int making_booking_title=0x7f0e00e2;
+        public static final int max_error=0x7f0e00e3;
+        public static final int menu_settings=0x7f0e00e4;
+        public static final int min_error=0x7f0e00e5;
+        public static final int min_max_error=0x7f0e00e6;
+        public static final int minute_picker_description=0x7f0e00e7;
+        public static final int minutes_label=0x7f0e00e8;
+        public static final int minutes_label_description=0x7f0e00e9;
+        public static final int month_c=0x7f0e00ea;
+        public static final int monthly=0x7f0e00eb;
+        public static final int navigation_drawer_close=0x7f0e00ec;
+        public static final int navigation_drawer_help=0x7f0e00ed;
+        public static final int navigation_drawer_home=0x7f0e00ee;
+        public static final int navigation_drawer_models=0x7f0e00ef;
+        public static final int navigation_drawer_my_bookings=0x7f0e00f0;
+        public static final int navigation_drawer_new_booking=0x7f0e00f1;
+        public static final int navigation_drawer_offices=0x7f0e00f2;
+        public static final int navigation_drawer_open=0x7f0e00f3;
+        public static final int navigation_drawer_search_booking=0x7f0e00f4;
+        public static final int navigation_drawer_settings=0x7f0e00f5;
+        public static final int no_cars_downloaded=0x7f0e00f6;
+        public static final int no_offices_downloaded=0x7f0e00f7;
+        public static final int no_results_found=0x7f0e00f8;
+        public static final int nombre_y_fechanac=0x7f0e00f9;
+        public static final int number_delete=0x7f0e00fa;
+        public static final int number_picker_minus_label=0x7f0e00fb;
+        public static final int number_picker_plus_minus=0x7f0e00fc;
+        public static final int number_picker_seperator=0x7f0e00fd;
+        public static final int numbers_radius_multiplier_inner=0x7f0e00fe;
+        public static final int numbers_radius_multiplier_normal=0x7f0e00ff;
+        public static final int numbers_radius_multiplier_outer=0x7f0e0100;
+        public static final int officeValidator=0x7f0e0101;
+        public static final int office_address=0x7f0e0102;
+        public static final int office_fax=0x7f0e0103;
+        public static final int office_name=0x7f0e0104;
+        public static final int office_phone=0x7f0e0105;
+        public static final int office_zone=0x7f0e0106;
+        public static final int offices_and_cars_download_ok=0x7f0e0107;
+        public static final int offices_download_error=0x7f0e0108;
+        public static final int offices_download_ok=0x7f0e0109;
+        public static final int palestine_display_name=0x7f0e010a;
+        public static final int phone_label=0x7f0e010b;
+        public static final int picker_cancel=0x7f0e010c;
+        public static final int picker_set=0x7f0e010d;
+        public static final int pickup=0x7f0e010e;
+        public static final int pickupDateDefaultLabel=0x7f0e010f;
+        public static final int pickupDateTitle=0x7f0e0110;
+        public static final int pickupLabel=0x7f0e0111;
+        public static final int pickupPointTitle=0x7f0e0112;
+        public static final int pickupTimeDefaultLabel=0x7f0e0113;
+        public static final int pickupTimeDialogTitle=0x7f0e0114;
+        public static final int pickupZoneDefaultLabel=0x7f0e0115;
+        public static final int pickup_equals_dropoff=0x7f0e0116;
+        public static final int placeholder_car_title=0x7f0e0117;
+        public static final int pref_default_display_name=0x7f0e0118;
+        public static final int pref_description_social_recommendations=0x7f0e0119;
+        public static final int pref_header_customer_data=0x7f0e011a;
+        public static final int pref_header_data_sync=0x7f0e011b;
+        public static final int pref_header_general=0x7f0e011c;
+        public static final int pref_header_notifications=0x7f0e011d;
+        public static final int pref_ringtone_silent=0x7f0e011e;
+        public static final int pref_title_add_friends_to_messages=0x7f0e011f;
+        public static final int pref_title_display_customer_birth_date=0x7f0e0120;
+        public static final int pref_title_display_customer_email=0x7f0e0121;
+        public static final int pref_title_display_customer_name=0x7f0e0122;
+        public static final int pref_title_display_customer_phone=0x7f0e0123;
+        public static final int pref_title_display_customer_surname=0x7f0e0124;
+        public static final int pref_title_display_name=0x7f0e0125;
+        public static final int pref_title_new_message_notifications=0x7f0e0126;
+        public static final int pref_title_ringtone=0x7f0e0127;
+        public static final int pref_title_social_recommendations=0x7f0e0128;
+        public static final int pref_title_sync_frequency=0x7f0e0129;
+        public static final int pref_title_system_sync_settings=0x7f0e012a;
+        public static final int pref_title_vibrate=0x7f0e012b;
+        public static final int priceTypeDaily=0x7f0e012c;
+        public static final int priceTypeTotal=0x7f0e012d;
+        public static final int radial_numbers_typeface=0x7f0e012e;
+        public static final int recogida=0x7f0e012f;
+        public static final int recurrence_end_continously=0x7f0e0130;
+        public static final int recurrence_end_count_label=0x7f0e0131;
+        public static final int recurrence_end_date=0x7f0e0132;
+        public static final int recurrence_end_date_label=0x7f0e0133;
+        public static final int recurrence_month_pattern_by_day=0x7f0e0134;
+        public static final int remove_selected_car_dialog_msg=0x7f0e0135;
+        public static final int remove_selected_car_dialog_title=0x7f0e0136;
+        public static final int reserva=0x7f0e0137;
+        public static final int reservar=0x7f0e0138;
+        public static final int reservation_dates=0x7f0e0139;
+        public static final int reservation_extras=0x7f0e013a;
+        public static final int return_conditions_label=0x7f0e013b;
+        public static final int sans_serif=0x7f0e013c;
+        public static final int save_label=0x7f0e013d;
+        public static final int search_summary=0x7f0e013e;
+        public static final int searchview_description_clear=0x7f0e013f;
+        public static final int seconds_label=0x7f0e0140;
+        public static final int seconds_label_description=0x7f0e0141;
+        public static final int selectExtrasLabel=0x7f0e0142;
+        public static final int select_day=0x7f0e0143;
+        public static final int select_hours=0x7f0e0144;
+        public static final int select_minutes=0x7f0e0145;
+        public static final int select_year=0x7f0e0146;
+        public static final int selectedCarTitle=0x7f0e0147;
+        public static final int selection_radius_multiplier=0x7f0e0148;
+        public static final int showSummary=0x7f0e0149;
+        public static final int show_offices_in_lista=0x7f0e014a;
+        public static final int show_offices_in_map=0x7f0e014b;
+        public static final int sipp_label=0x7f0e014c;
+        public static final int spinnerAllText=0x7f0e014d;
+        public static final int status=0x7f0e014e;
+        public static final int step_1=0x7f0e014f;
+        public static final int step_2=0x7f0e0150;
+        public static final int step_3=0x7f0e0151;
+        public static final int step_4=0x7f0e0152;
+        public static final int switch_off=0x7f0e0153;
+        public static final int switch_on=0x7f0e0154;
+        public static final int text_size_multiplier_inner=0x7f0e0155;
+        public static final int text_size_multiplier_normal=0x7f0e0156;
+        public static final int text_size_multiplier_outer=0x7f0e0157;
+        public static final int time_picker_00_label=0x7f0e0158;
+        public static final int time_picker_30_label=0x7f0e0159;
+        public static final int time_picker_ampm_label=0x7f0e015a;
+        public static final int time_picker_time_seperator=0x7f0e015b;
+        public static final int time_placeholder=0x7f0e015c;
+        public static final int time_separator=0x7f0e015d;
+        public static final int timer_delete=0x7f0e015e;
+        public static final int title_activity_book=0x7f0e015f;
+        public static final int title_activity_help=0x7f0e0160;
+        public static final int title_activity_home=0x7f0e0161;
+        public static final int title_activity_search_results=0x7f0e0162;
+        public static final int title_activity_settings=0x7f0e0163;
+        public static final int title_activity_slide=0x7f0e0164;
+        public static final int title_car_detail=0x7f0e0165;
+        public static final int title_car_list=0x7f0e0166;
+        public static final int title_fragment_cars=0x7f0e0167;
+        public static final int title_fragment_make_booking=0x7f0e0168;
+        public static final int title_fragment_new_booking=0x7f0e0169;
+        public static final int title_fragment_offices=0x7f0e016a;
+        public static final int title_fragment_select_extras=0x7f0e016b;
+        public static final int title_office_detail=0x7f0e016c;
+        public static final int title_office_list=0x7f0e016d;
+        public static final int title_reservation_detail=0x7f0e016e;
+        public static final int title_reservation_list=0x7f0e016f;
+        public static final int title_reservation_update=0x7f0e0170;
+        public static final int title_section1=0x7f0e0171;
+        public static final int title_section2=0x7f0e0172;
+        public static final int title_section3=0x7f0e0173;
+        public static final int titular=0x7f0e0174;
+        public static final int total=0x7f0e0175;
+        public static final int txt_image_slider=0x7f0e0176;
+        public static final int updateReservation=0x7f0e0177;
+        public static final int update_reservation=0x7f0e0178;
+        public static final int updated_reservation=0x7f0e0179;
+        public static final int updating_booking=0x7f0e017a;
+        public static final int updating_booking_title=0x7f0e017b;
+        public static final int vuelo=0x7f0e017c;
+        public static final int wallet_buy_button_place_holder=0x7f0e017d;
+        public static final int year_c=0x7f0e017e;
+        public static final int year_picker_description=0x7f0e017f;
+        public static final int yearly_plain=0x7f0e0180;
+        public static final int zona_recogida=0x7f0e0181;
+        public static final int zoneOfficeValidator=0x7f0e0182;
+        public static final int zoneValidator=0x7f0e0183;
+        public static final int zone_label=0x7f0e0184;
     }
     public static final class style {
         /** 
@@ -3062,27 +2898,25 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionBar_background com.canarias.rentacar:background}</code></td><td> Specifies a background drawable for the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_backgroundSplit com.canarias.rentacar:backgroundSplit}</code></td><td> Specifies a background drawable for the bottom component of a split action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_backgroundStacked com.canarias.rentacar:backgroundStacked}</code></td><td> Specifies a background drawable for a second stacked row of the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_customNavigationLayout com.canarias.rentacar:customNavigationLayout}</code></td><td> Specifies a layout for custom navigation.</td></tr>
-           <tr><td><code>{@link #ActionBar_displayOptions com.canarias.rentacar:displayOptions}</code></td><td> Options affecting how the action bar is displayed.</td></tr>
-           <tr><td><code>{@link #ActionBar_divider com.canarias.rentacar:divider}</code></td><td> Specifies the drawable used for item dividers.</td></tr>
-           <tr><td><code>{@link #ActionBar_height com.canarias.rentacar:height}</code></td><td> Specifies a fixed height.</td></tr>
-           <tr><td><code>{@link #ActionBar_homeLayout com.canarias.rentacar:homeLayout}</code></td><td> Specifies a layout to use for the "home" section of the action bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_icon com.canarias.rentacar:icon}</code></td><td> Specifies the drawable used for the application icon.</td></tr>
-           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.canarias.rentacar:indeterminateProgressStyle}</code></td><td> Specifies a style resource to use for an indeterminate progress spinner.</td></tr>
-           <tr><td><code>{@link #ActionBar_itemPadding com.canarias.rentacar:itemPadding}</code></td><td>
-             Specifies padding that should be applied to the left and right sides of
-             system-provided items in the bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_logo com.canarias.rentacar:logo}</code></td><td> Specifies the drawable used for the application logo.</td></tr>
-           <tr><td><code>{@link #ActionBar_navigationMode com.canarias.rentacar:navigationMode}</code></td><td> The type of navigation to use.</td></tr>
-           <tr><td><code>{@link #ActionBar_progressBarPadding com.canarias.rentacar:progressBarPadding}</code></td><td> Specifies the horizontal padding on either end for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_progressBarStyle com.canarias.rentacar:progressBarStyle}</code></td><td> Specifies a style resource to use for an embedded progress bar.</td></tr>
-           <tr><td><code>{@link #ActionBar_subtitle com.canarias.rentacar:subtitle}</code></td><td> Specifies subtitle text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #ActionBar_subtitleTextStyle com.canarias.rentacar:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #ActionBar_title com.canarias.rentacar:title}</code></td><td> Specifies title text used for navigationMode="normal" </td></tr>
-           <tr><td><code>{@link #ActionBar_titleTextStyle com.canarias.rentacar:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #ActionBar_background com.canarias.rentacar:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundSplit com.canarias.rentacar:backgroundSplit}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_backgroundStacked com.canarias.rentacar:backgroundStacked}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_customNavigationLayout com.canarias.rentacar:customNavigationLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_displayOptions com.canarias.rentacar:displayOptions}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_divider com.canarias.rentacar:divider}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_height com.canarias.rentacar:height}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_homeLayout com.canarias.rentacar:homeLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_icon com.canarias.rentacar:icon}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_indeterminateProgressStyle com.canarias.rentacar:indeterminateProgressStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_itemPadding com.canarias.rentacar:itemPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_logo com.canarias.rentacar:logo}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_navigationMode com.canarias.rentacar:navigationMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarPadding com.canarias.rentacar:progressBarPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_progressBarStyle com.canarias.rentacar:progressBarStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_subtitle com.canarias.rentacar:subtitle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_subtitleTextStyle com.canarias.rentacar:subtitleTextStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_title com.canarias.rentacar:title}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBar_titleTextStyle com.canarias.rentacar:titleTextStyle}</code></td><td></td></tr>
            </table>
            @see #ActionBar_background
            @see #ActionBar_backgroundSplit
@@ -3112,61 +2946,52 @@ containing a value of this type.
             0x7f010051, 0x7f010052, 0x7f010053
         };
         /**
-          <p>
-          @attr description
-           Specifies a background drawable for the action bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#background}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:background
         */
         public static final int ActionBar_background = 10;
         /**
-          <p>
-          @attr description
-           Specifies a background drawable for the bottom component of a split action bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#backgroundSplit}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:backgroundSplit
         */
         public static final int ActionBar_backgroundSplit = 12;
         /**
-          <p>
-          @attr description
-           Specifies a background drawable for a second stacked row of the action bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#backgroundStacked}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:backgroundStacked
         */
         public static final int ActionBar_backgroundStacked = 11;
         /**
-          <p>
-          @attr description
-           Specifies a layout for custom navigation. Overrides navigationMode. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#customNavigationLayout}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:customNavigationLayout
         */
         public static final int ActionBar_customNavigationLayout = 13;
         /**
-          <p>
-          @attr description
-           Options affecting how the action bar is displayed. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#displayOptions}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -3182,26 +3007,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>showCustom</code></td><td>0x10</td><td></td></tr>
 <tr><td><code>disableHome</code></td><td>0x20</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:displayOptions
         */
         public static final int ActionBar_displayOptions = 3;
         /**
-          <p>
-          @attr description
-           Specifies the drawable used for item dividers. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#divider}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:divider
         */
         public static final int ActionBar_divider = 9;
         /**
-          <p>
-          @attr description
-           Specifies a fixed height. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#height}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3212,53 +3033,42 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:height
         */
         public static final int ActionBar_height = 0;
         /**
-          <p>
-          @attr description
-           Specifies a layout to use for the "home" section of the action bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#homeLayout}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:homeLayout
         */
         public static final int ActionBar_homeLayout = 14;
         /**
-          <p>
-          @attr description
-           Specifies the drawable used for the application icon. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#icon}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:icon
         */
         public static final int ActionBar_icon = 7;
         /**
-          <p>
-          @attr description
-           Specifies a style resource to use for an indeterminate progress spinner. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#indeterminateProgressStyle}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:indeterminateProgressStyle
         */
         public static final int ActionBar_indeterminateProgressStyle = 16;
         /**
-          <p>
-          @attr description
-          
-             Specifies padding that should be applied to the left and right sides of
-             system-provided items in the bar.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#itemPadding}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3269,26 +3079,22 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:itemPadding
         */
         public static final int ActionBar_itemPadding = 18;
         /**
-          <p>
-          @attr description
-           Specifies the drawable used for the application logo. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#logo}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:logo
         */
         public static final int ActionBar_logo = 8;
         /**
-          <p>
-          @attr description
-           The type of navigation to use. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#navigationMode}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -3297,18 +3103,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>normal</code></td><td>0</td><td> Normal static title text </td></tr>
-<tr><td><code>listMode</code></td><td>1</td><td> The action bar will use a selection list for navigation. </td></tr>
-<tr><td><code>tabMode</code></td><td>2</td><td> The action bar will use a series of horizontal tabs for navigation. </td></tr>
+<tr><td><code>normal</code></td><td>0</td><td></td></tr>
+<tr><td><code>listMode</code></td><td>1</td><td></td></tr>
+<tr><td><code>tabMode</code></td><td>2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:navigationMode
         */
         public static final int ActionBar_navigationMode = 2;
         /**
-          <p>
-          @attr description
-           Specifies the horizontal padding on either end for an embedded progress bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#progressBarPadding}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3319,26 +3123,22 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:progressBarPadding
         */
         public static final int ActionBar_progressBarPadding = 17;
         /**
-          <p>
-          @attr description
-           Specifies a style resource to use for an embedded progress bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#progressBarStyle}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:progressBarStyle
         */
         public static final int ActionBar_progressBarStyle = 15;
         /**
-          <p>
-          @attr description
-           Specifies subtitle text used for navigationMode="normal" 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#subtitle}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -3347,26 +3147,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:subtitle
         */
         public static final int ActionBar_subtitle = 4;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for subtitle text. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#subtitleTextStyle}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:subtitleTextStyle
         */
         public static final int ActionBar_subtitleTextStyle = 6;
         /**
-          <p>
-          @attr description
-           Specifies title text used for navigationMode="normal" 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#title}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -3375,19 +3171,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:title
         */
         public static final int ActionBar_title = 1;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for title text. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#titleTextStyle}
+          attribute's value can be found in the {@link #ActionBar} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:titleTextStyle
         */
         public static final int ActionBar_titleTextStyle = 5;
@@ -3418,18 +3211,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <tr><th>Attribute</th><th>Description</th></tr>
            <tr><td><code>{@link #ActionBarWindow_windowActionBar com.canarias.rentacar:windowActionBar}</code></td><td></td></tr>
            <tr><td><code>{@link #ActionBarWindow_windowActionBarOverlay com.canarias.rentacar:windowActionBarOverlay}</code></td><td></td></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowFixedHeightMajor com.canarias.rentacar:windowFixedHeightMajor}</code></td><td>
-             A fixed height for the window along the major axis of the screen,
-             that is, when in portrait.</td></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowFixedHeightMinor com.canarias.rentacar:windowFixedHeightMinor}</code></td><td>
-             A fixed height for the window along the minor axis of the screen,
-             that is, when in landscape.</td></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowFixedWidthMajor com.canarias.rentacar:windowFixedWidthMajor}</code></td><td>
-             A fixed width for the window along the major axis of the screen,
-             that is, when in landscape.</td></tr>
-           <tr><td><code>{@link #ActionBarWindow_windowFixedWidthMinor com.canarias.rentacar:windowFixedWidthMinor}</code></td><td>
-             A fixed width for the window along the minor axis of the screen,
-             that is, when in portrait.</td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedHeightMajor com.canarias.rentacar:windowFixedHeightMajor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedHeightMinor com.canarias.rentacar:windowFixedHeightMinor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedWidthMajor com.canarias.rentacar:windowFixedWidthMajor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionBarWindow_windowFixedWidthMinor com.canarias.rentacar:windowFixedWidthMinor}</code></td><td></td></tr>
            <tr><td><code>{@link #ActionBarWindow_windowSplitActionBar com.canarias.rentacar:windowSplitActionBar}</code></td><td></td></tr>
            </table>
            @see #ActionBarWindow_windowActionBar
@@ -3473,13 +3258,8 @@ containing a value of this type.
         */
         public static final int ActionBarWindow_windowActionBarOverlay = 1;
         /**
-          <p>
-          @attr description
-          
-             A fixed height for the window along the major axis of the screen,
-             that is, when in portrait. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#windowFixedHeightMajor}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3493,18 +3273,12 @@ some parent container.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:windowFixedHeightMajor
         */
         public static final int ActionBarWindow_windowFixedHeightMajor = 6;
         /**
-          <p>
-          @attr description
-          
-             A fixed height for the window along the minor axis of the screen,
-             that is, when in landscape. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#windowFixedHeightMinor}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3518,18 +3292,12 @@ some parent container.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:windowFixedHeightMinor
         */
         public static final int ActionBarWindow_windowFixedHeightMinor = 4;
         /**
-          <p>
-          @attr description
-          
-             A fixed width for the window along the major axis of the screen,
-             that is, when in landscape. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#windowFixedWidthMajor}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3543,18 +3311,12 @@ some parent container.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:windowFixedWidthMajor
         */
         public static final int ActionBarWindow_windowFixedWidthMajor = 3;
         /**
-          <p>
-          @attr description
-          
-             A fixed width for the window along the minor axis of the screen,
-             that is, when in portrait. Can be either an absolute dimension
-             or a fraction of the screen size in that dimension.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#windowFixedWidthMinor}
+          attribute's value can be found in the {@link #ActionBarWindow} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3568,7 +3330,6 @@ some parent container.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:windowFixedWidthMinor
         */
         public static final int ActionBarWindow_windowFixedWidthMinor = 5;
@@ -3605,7 +3366,7 @@ containing a value of this type.
           @attr name android:minWidth
         */
         public static final int ActionMenuItemView_android_minWidth = 0;
-        /**  Size of padding on either end of a divider. 
+        /** Attributes that can be used with a ActionMenuView.
          */
         public static final int[] ActionMenuView = {
             
@@ -3616,11 +3377,11 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActionMode_background com.canarias.rentacar:background}</code></td><td> Specifies a background for the action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_backgroundSplit com.canarias.rentacar:backgroundSplit}</code></td><td> Specifies a background for the split action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_height com.canarias.rentacar:height}</code></td><td> Specifies a fixed height for the action mode bar.</td></tr>
-           <tr><td><code>{@link #ActionMode_subtitleTextStyle com.canarias.rentacar:subtitleTextStyle}</code></td><td> Specifies a style to use for subtitle text.</td></tr>
-           <tr><td><code>{@link #ActionMode_titleTextStyle com.canarias.rentacar:titleTextStyle}</code></td><td> Specifies a style to use for title text.</td></tr>
+           <tr><td><code>{@link #ActionMode_background com.canarias.rentacar:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionMode_backgroundSplit com.canarias.rentacar:backgroundSplit}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionMode_height com.canarias.rentacar:height}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionMode_subtitleTextStyle com.canarias.rentacar:subtitleTextStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActionMode_titleTextStyle com.canarias.rentacar:titleTextStyle}</code></td><td></td></tr>
            </table>
            @see #ActionMode_background
            @see #ActionMode_backgroundSplit
@@ -3633,35 +3394,30 @@ containing a value of this type.
             0x7f01004d
         };
         /**
-          <p>
-          @attr description
-           Specifies a background for the action mode bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#background}
+          attribute's value can be found in the {@link #ActionMode} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:background
         */
         public static final int ActionMode_background = 3;
         /**
-          <p>
-          @attr description
-           Specifies a background for the split action mode bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#backgroundSplit}
+          attribute's value can be found in the {@link #ActionMode} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:backgroundSplit
         */
         public static final int ActionMode_backgroundSplit = 4;
         /**
-          <p>
-          @attr description
-           Specifies a fixed height for the action mode bar. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#height}
+          attribute's value can be found in the {@link #ActionMode} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -3672,31 +3428,26 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:height
         */
         public static final int ActionMode_height = 0;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for subtitle text. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#subtitleTextStyle}
+          attribute's value can be found in the {@link #ActionMode} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:subtitleTextStyle
         */
         public static final int ActionMode_subtitleTextStyle = 2;
         /**
-          <p>
-          @attr description
-           Specifies a style to use for title text. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#titleTextStyle}
+          attribute's value can be found in the {@link #ActionMode} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:titleTextStyle
         */
         public static final int ActionMode_titleTextStyle = 1;
@@ -3706,9 +3457,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.canarias.rentacar:expandActivityOverflowButtonDrawable}</code></td><td>
-             The drawable to show in the button for expanding the activities overflow popup.</td></tr>
-           <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.canarias.rentacar:initialActivityCount}</code></td><td> The maximal number of items initially shown in the activity list.</td></tr>
+           <tr><td><code>{@link #ActivityChooserView_expandActivityOverflowButtonDrawable com.canarias.rentacar:expandActivityOverflowButtonDrawable}</code></td><td></td></tr>
+           <tr><td><code>{@link #ActivityChooserView_initialActivityCount com.canarias.rentacar:initialActivityCount}</code></td><td></td></tr>
            </table>
            @see #ActivityChooserView_expandActivityOverflowButtonDrawable
            @see #ActivityChooserView_initialActivityCount
@@ -3717,27 +3467,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01005b, 0x7f01005c
         };
         /**
-          <p>
-          @attr description
-          
-             The drawable to show in the button for expanding the activities overflow popup.
-             <strong>Note:</strong> Clients would like to set this drawable
-             as a clue about the action the chosen activity will perform. For
-             example, if share activity is to be chosen the drawable should
-             give a clue that sharing is to be performed.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#expandActivityOverflowButtonDrawable}
+          attribute's value can be found in the {@link #ActivityChooserView} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:expandActivityOverflowButtonDrawable
         */
         public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
         /**
-          <p>
-          @attr description
-           The maximal number of items initially shown in the activity list. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#initialActivityCount}
+          attribute's value can be found in the {@link #ActivityChooserView} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -3746,7 +3487,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:initialActivityCount
         */
         public static final int ActivityChooserView_initialActivityCount = 0;
@@ -3756,11 +3496,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #AdsAttrs_adSize com.canarias.rentacar:adSize}</code></td><td>
-    The size of the ad.</td></tr>
-           <tr><td><code>{@link #AdsAttrs_adSizes com.canarias.rentacar:adSizes}</code></td><td>
-    A comma-separated list of the supported ad sizes.</td></tr>
-           <tr><td><code>{@link #AdsAttrs_adUnitId com.canarias.rentacar:adUnitId}</code></td><td> The ad unit ID.</td></tr>
+           <tr><td><code>{@link #AdsAttrs_adSize com.canarias.rentacar:adSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #AdsAttrs_adSizes com.canarias.rentacar:adSizes}</code></td><td></td></tr>
+           <tr><td><code>{@link #AdsAttrs_adUnitId com.canarias.rentacar:adUnitId}</code></td><td></td></tr>
            </table>
            @see #AdsAttrs_adSize
            @see #AdsAttrs_adSizes
@@ -3770,13 +3508,8 @@ containing a value of this type.
             0x7f01005d, 0x7f01005e, 0x7f01005f
         };
         /**
-          <p>
-          @attr description
-          
-    The size of the ad. It must be one of BANNER, FULL_BANNER, LEADERBOARD,
-    MEDIUM_RECTANGLE, SMART_BANNER, WIDE_SKYSCRAPER, or
-    &lt;width&gt;x&lt;height&gt;.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#adSize}
+          attribute's value can be found in the {@link #AdsAttrs} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -3785,18 +3518,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:adSize
         */
         public static final int AdsAttrs_adSize = 0;
         /**
-          <p>
-          @attr description
-          
-    A comma-separated list of the supported ad sizes. The sizes must be one of
-    BANNER, FULL_BANNER, LEADERBOARD, MEDIUM_RECTANGLE, SMART_BANNER,
-    WIDE_SKYSCRAPER, or &lt;width&gt;x&lt;height&gt;.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#adSizes}
+          attribute's value can be found in the {@link #AdsAttrs} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -3805,14 +3532,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:adSizes
         */
         public static final int AdsAttrs_adSizes = 1;
         /**
-          <p>
-          @attr description
-           The ad unit ID. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#adUnitId}
+          attribute's value can be found in the {@link #AdsAttrs} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -3821,7 +3546,6 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:adUnitId
         */
         public static final int AdsAttrs_adUnitId = 2;
@@ -3951,15 +3675,15 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_centered com.canarias.rentacar:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_fillColor com.canarias.rentacar:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_pageColor com.canarias.rentacar:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_radius com.canarias.rentacar:radius}</code></td><td> Radius of the circles.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_snap com.canarias.rentacar:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.canarias.rentacar:strokeColor}</code></td><td> Color of the open circles.</td></tr>
-           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.canarias.rentacar:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_centered com.canarias.rentacar:centered}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_fillColor com.canarias.rentacar:fillColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_pageColor com.canarias.rentacar:pageColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_radius com.canarias.rentacar:radius}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_snap com.canarias.rentacar:snap}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.canarias.rentacar:strokeColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.canarias.rentacar:strokeWidth}</code></td><td></td></tr>
            </table>
            @see #CirclePageIndicator_android_background
            @see #CirclePageIndicator_android_orientation
@@ -3977,27 +3701,20 @@ containing a value of this type.
             0x7f01006a
         };
         /**
-          <p>
-          @attr description
-           View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
+          <p>This symbol is the offset where the {@link android.R.attr#background}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
           @attr name android:background
         */
         public static final int CirclePageIndicator_android_background = 1;
         /**
-          <p>
-          @attr description
-           Orientation of the indicator. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orientation}.
+          <p>This symbol is the offset where the {@link android.R.attr#orientation}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
           @attr name android:orientation
         */
         public static final int CirclePageIndicator_android_orientation = 0;
         /**
-          <p>
-          @attr description
-           Whether or not the indicators should be centered. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#centered}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -4006,14 +3723,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:centered
         */
         public static final int CirclePageIndicator_centered = 2;
         /**
-          <p>
-          @attr description
-           Color of the filled circle that represents the current page. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#fillColor}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -4023,14 +3738,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:fillColor
         */
         public static final int CirclePageIndicator_fillColor = 4;
         /**
-          <p>
-          @attr description
-           Color of the filled circles that represents pages. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#pageColor}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -4040,14 +3753,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:pageColor
         */
         public static final int CirclePageIndicator_pageColor = 5;
         /**
-          <p>
-          @attr description
-           Radius of the circles. This is also the spacing between circles. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#radius}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -4058,14 +3769,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:radius
         */
         public static final int CirclePageIndicator_radius = 6;
         /**
-          <p>
-          @attr description
-           Whether or not the selected indicator snaps to the circles. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#snap}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -4074,14 +3783,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:snap
         */
         public static final int CirclePageIndicator_snap = 7;
         /**
-          <p>
-          @attr description
-           Color of the open circles. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#strokeColor}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -4091,14 +3798,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:strokeColor
         */
         public static final int CirclePageIndicator_strokeColor = 8;
         /**
-          <p>
-          @attr description
-           Width of the stroke used to draw the circles. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#strokeWidth}
+          attribute's value can be found in the {@link #CirclePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -4109,7 +3814,6 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:strokeWidth
         */
         public static final int CirclePageIndicator_strokeWidth = 3;
@@ -4166,7 +3870,7 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #CompatTextView_textAllCaps com.canarias.rentacar:textAllCaps}</code></td><td> Present the text in ALL CAPS.</td></tr>
+           <tr><td><code>{@link #CompatTextView_textAllCaps com.canarias.rentacar:textAllCaps}</code></td><td></td></tr>
            </table>
            @see #CompatTextView_textAllCaps
          */
@@ -4174,15 +3878,13 @@ containing a value of this type.
             0x7f01006d
         };
         /**
-          <p>
-          @attr description
-           Present the text in ALL CAPS. This may use a small-caps form when available. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#textAllCaps}
+          attribute's value can be found in the {@link #CompatTextView} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:textAllCaps
         */
         public static final int CompatTextView_textAllCaps = 0;
@@ -4192,13 +3894,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #LinePageIndicator_centered com.canarias.rentacar:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_gapWidth com.canarias.rentacar:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_lineWidth com.canarias.rentacar:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_selectedColor com.canarias.rentacar:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.canarias.rentacar:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
-           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.canarias.rentacar:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_centered com.canarias.rentacar:centered}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_gapWidth com.canarias.rentacar:gapWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_lineWidth com.canarias.rentacar:lineWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_selectedColor com.canarias.rentacar:selectedColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.canarias.rentacar:strokeWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.canarias.rentacar:unselectedColor}</code></td><td></td></tr>
            </table>
            @see #LinePageIndicator_android_background
            @see #LinePageIndicator_centered
@@ -4213,18 +3915,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010042, 0x7f01006e, 0x7f01006f
         };
         /**
-          <p>
-          @attr description
-           View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
+          <p>This symbol is the offset where the {@link android.R.attr#background}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
           @attr name android:background
         */
         public static final int LinePageIndicator_android_background = 0;
         /**
-          <p>
-          @attr description
-           Whether or not the indicators should be centered. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#centered}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -4233,14 +3931,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:centered
         */
         public static final int LinePageIndicator_centered = 1;
         /**
-          <p>
-          @attr description
-           Width of the gap between each indicator line. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#gapWidth}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -4251,14 +3947,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:gapWidth
         */
         public static final int LinePageIndicator_gapWidth = 6;
         /**
-          <p>
-          @attr description
-           Width of each indicator line. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#lineWidth}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -4269,14 +3963,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:lineWidth
         */
         public static final int LinePageIndicator_lineWidth = 5;
         /**
-          <p>
-          @attr description
-           Color of the selected line that represents the current page. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#selectedColor}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -4286,14 +3978,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:selectedColor
         */
         public static final int LinePageIndicator_selectedColor = 2;
         /**
-          <p>
-          @attr description
-           Width of each indicator line's stroke. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#strokeWidth}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -4304,14 +3994,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:strokeWidth
         */
         public static final int LinePageIndicator_strokeWidth = 3;
         /**
-          <p>
-          @attr description
-           Color of the unselected lines that represent the pages. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#unselectedColor}
+          attribute's value can be found in the {@link #LinePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -4321,7 +4009,6 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:unselectedColor
         */
         public static final int LinePageIndicator_unselectedColor = 4;
@@ -4331,9 +4018,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #LinearLayoutICS_divider com.canarias.rentacar:divider}</code></td><td> Drawable to use as a vertical divider between buttons.</td></tr>
-           <tr><td><code>{@link #LinearLayoutICS_dividerPadding com.canarias.rentacar:dividerPadding}</code></td><td> Size of padding on either end of a divider.</td></tr>
-           <tr><td><code>{@link #LinearLayoutICS_showDividers com.canarias.rentacar:showDividers}</code></td><td> Setting for which dividers to show.</td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_divider com.canarias.rentacar:divider}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_dividerPadding com.canarias.rentacar:dividerPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #LinearLayoutICS_showDividers com.canarias.rentacar:showDividers}</code></td><td></td></tr>
            </table>
            @see #LinearLayoutICS_divider
            @see #LinearLayoutICS_dividerPadding
@@ -4343,21 +4030,18 @@ containing a value of this type.
             0x7f01004a, 0x7f010070, 0x7f010071
         };
         /**
-          <p>
-          @attr description
-           Drawable to use as a vertical divider between buttons. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#divider}
+          attribute's value can be found in the {@link #LinearLayoutICS} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:divider
         */
         public static final int LinearLayoutICS_divider = 0;
         /**
-          <p>
-          @attr description
-           Size of padding on either end of a divider. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#dividerPadding}
+          attribute's value can be found in the {@link #LinearLayoutICS} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -4368,14 +4052,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:dividerPadding
         */
         public static final int LinearLayoutICS_dividerPadding = 2;
         /**
-          <p>
-          @attr description
-           Setting for which dividers to show. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#showDividers}
+          attribute's value can be found in the {@link #LinearLayoutICS} array.
 
 
           <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -4389,7 +4071,6 @@ containing a value of this type.
 <tr><td><code>middle</code></td><td>2</td><td></td></tr>
 <tr><td><code>end</code></td><td>4</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:showDividers
         */
         public static final int LinearLayoutICS_showDividers = 1;
@@ -4643,14 +4324,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td> Whether the items are capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_enabled android:enabled}</code></td><td> Whether the items are enabled.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_id android:id}</code></td><td> The ID of the group.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_menuCategory android:menuCategory}</code></td><td>
-             The category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_orderInCategory android:orderInCategory}</code></td><td>
-             The order within the category applied to all items within this group.</td></tr>
-           <tr><td><code>{@link #MenuGroup_android_visible android:visible}</code></td><td> Whether the items are shown/visible.</td></tr>
+           <tr><td><code>{@link #MenuGroup_android_checkableBehavior android:checkableBehavior}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuGroup_android_enabled android:enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuGroup_android_id android:id}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuGroup_android_menuCategory android:menuCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuGroup_android_orderInCategory android:orderInCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuGroup_android_visible android:visible}</code></td><td></td></tr>
            </table>
            @see #MenuGroup_android_checkableBehavior
            @see #MenuGroup_android_enabled
@@ -4664,62 +4343,38 @@ containing a value of this type.
             0x010101df, 0x010101e0
         };
         /**
-          <p>
-          @attr description
-           Whether the items are capable of displaying a check mark. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checkableBehavior}.
+          <p>This symbol is the offset where the {@link android.R.attr#checkableBehavior}
+          attribute's value can be found in the {@link #MenuGroup} array.
           @attr name android:checkableBehavior
         */
         public static final int MenuGroup_android_checkableBehavior = 5;
         /**
-          <p>
-          @attr description
-           Whether the items are enabled. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#enabled}.
+          <p>This symbol is the offset where the {@link android.R.attr#enabled}
+          attribute's value can be found in the {@link #MenuGroup} array.
           @attr name android:enabled
         */
         public static final int MenuGroup_android_enabled = 0;
         /**
-          <p>
-          @attr description
-           The ID of the group. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#id}.
+          <p>This symbol is the offset where the {@link android.R.attr#id}
+          attribute's value can be found in the {@link #MenuGroup} array.
           @attr name android:id
         */
         public static final int MenuGroup_android_id = 1;
         /**
-          <p>
-          @attr description
-          
-             The category applied to all items within this group.
-             (This will be or'ed with the orderInCategory attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#menuCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#menuCategory}
+          attribute's value can be found in the {@link #MenuGroup} array.
           @attr name android:menuCategory
         */
         public static final int MenuGroup_android_menuCategory = 3;
         /**
-          <p>
-          @attr description
-          
-             The order within the category applied to all items within this group.
-             (This will be or'ed with the category attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orderInCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#orderInCategory}
+          attribute's value can be found in the {@link #MenuGroup} array.
           @attr name android:orderInCategory
         */
         public static final int MenuGroup_android_orderInCategory = 4;
         /**
-          <p>
-          @attr description
-           Whether the items are shown/visible. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#visible}.
+          <p>This symbol is the offset where the {@link android.R.attr#visible}
+          attribute's value can be found in the {@link #MenuGroup} array.
           @attr name android:visible
         */
         public static final int MenuGroup_android_visible = 2;
@@ -4729,37 +4384,23 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuItem_actionLayout com.canarias.rentacar:actionLayout}</code></td><td>
-             An optional layout to be used as an action view.</td></tr>
-           <tr><td><code>{@link #MenuItem_actionProviderClass com.canarias.rentacar:actionProviderClass}</code></td><td>
-             The name of an optional ActionProvider class to instantiate an action view
-             and perform operations such as default action for that menu item.</td></tr>
-           <tr><td><code>{@link #MenuItem_actionViewClass com.canarias.rentacar:actionViewClass}</code></td><td>
-             The name of an optional View class to instantiate and use as an
-             action view.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td>
-             The alphabetic shortcut key.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td> Whether the item is capable of displaying a check mark.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_checked android:checked}</code></td><td>
-             Whether the item is checked.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_enabled android:enabled}</code></td><td> Whether the item is enabled.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_icon android:icon}</code></td><td>
-             The icon associated with this item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_id android:id}</code></td><td> The ID of the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_menuCategory android:menuCategory}</code></td><td>
-             The category applied to the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_numericShortcut android:numericShortcut}</code></td><td>
-             The numeric shortcut key.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_onClick android:onClick}</code></td><td>
-             Name of a method on the Context used to inflate the menu that will be
-             called when the item is clicked.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_orderInCategory android:orderInCategory}</code></td><td>
-             The order within the category applied to the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_title android:title}</code></td><td> The title associated with the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_titleCondensed android:titleCondensed}</code></td><td>
-             The condensed title associated with the item.</td></tr>
-           <tr><td><code>{@link #MenuItem_android_visible android:visible}</code></td><td> Whether the item is shown/visible.</td></tr>
-           <tr><td><code>{@link #MenuItem_showAsAction com.canarias.rentacar:showAsAction}</code></td><td> How this item should display in the Action Bar, if present.</td></tr>
+           <tr><td><code>{@link #MenuItem_actionLayout com.canarias.rentacar:actionLayout}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_actionProviderClass com.canarias.rentacar:actionProviderClass}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_actionViewClass com.canarias.rentacar:actionViewClass}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_alphabeticShortcut android:alphabeticShortcut}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_checkable android:checkable}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_checked android:checked}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_enabled android:enabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_icon android:icon}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_id android:id}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_menuCategory android:menuCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_numericShortcut android:numericShortcut}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_onClick android:onClick}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_orderInCategory android:orderInCategory}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_title android:title}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_titleCondensed android:titleCondensed}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_android_visible android:visible}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuItem_showAsAction com.canarias.rentacar:showAsAction}</code></td><td></td></tr>
            </table>
            @see #MenuItem_actionLayout
            @see #MenuItem_actionProviderClass
@@ -4787,30 +4428,18 @@ containing a value of this type.
             0x7f010083
         };
         /**
-          <p>
-          @attr description
-          
-             An optional layout to be used as an action view.
-             See {@link android.view.MenuItem#setActionView(android.view.View)}
-             for more info.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#actionLayout}
+          attribute's value can be found in the {@link #MenuItem} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:actionLayout
         */
         public static final int MenuItem_actionLayout = 14;
         /**
-          <p>
-          @attr description
-          
-             The name of an optional ActionProvider class to instantiate an action view
-             and perform operations such as default action for that menu item.
-             See {@link android.view.MenuItem#setActionProvider(android.view.ActionProvider)}
-             for more info.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#actionProviderClass}
+          attribute's value can be found in the {@link #MenuItem} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -4819,18 +4448,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:actionProviderClass
         */
         public static final int MenuItem_actionProviderClass = 16;
         /**
-          <p>
-          @attr description
-          
-             The name of an optional View class to instantiate and use as an
-             action view. See {@link android.view.MenuItem#setActionView(android.view.View)}
-             for more info.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#actionViewClass}
+          attribute's value can be found in the {@link #MenuItem} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -4839,155 +4462,90 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:actionViewClass
         */
         public static final int MenuItem_actionViewClass = 15;
         /**
-          <p>
-          @attr description
-          
-             The alphabetic shortcut key.  This is the shortcut when using a keyboard
-             with alphabetic keys.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#alphabeticShortcut}.
+          <p>This symbol is the offset where the {@link android.R.attr#alphabeticShortcut}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:alphabeticShortcut
         */
         public static final int MenuItem_android_alphabeticShortcut = 9;
         /**
-          <p>
-          @attr description
-           Whether the item is capable of displaying a check mark. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checkable}.
+          <p>This symbol is the offset where the {@link android.R.attr#checkable}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:checkable
         */
         public static final int MenuItem_android_checkable = 11;
         /**
-          <p>
-          @attr description
-          
-             Whether the item is checked.  Note that you must first have enabled checking with
-             the checkable attribute or else the check mark will not appear.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#checked}.
+          <p>This symbol is the offset where the {@link android.R.attr#checked}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:checked
         */
         public static final int MenuItem_android_checked = 3;
         /**
-          <p>
-          @attr description
-           Whether the item is enabled. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#enabled}.
+          <p>This symbol is the offset where the {@link android.R.attr#enabled}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:enabled
         */
         public static final int MenuItem_android_enabled = 1;
         /**
-          <p>
-          @attr description
-          
-             The icon associated with this item.  This icon will not always be shown, so
-             the title should be sufficient in describing this item.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#icon}.
+          <p>This symbol is the offset where the {@link android.R.attr#icon}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:icon
         */
         public static final int MenuItem_android_icon = 0;
         /**
-          <p>
-          @attr description
-           The ID of the item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#id}.
+          <p>This symbol is the offset where the {@link android.R.attr#id}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:id
         */
         public static final int MenuItem_android_id = 2;
         /**
-          <p>
-          @attr description
-          
-             The category applied to the item.
-             (This will be or'ed with the orderInCategory attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#menuCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#menuCategory}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:menuCategory
         */
         public static final int MenuItem_android_menuCategory = 5;
         /**
-          <p>
-          @attr description
-          
-             The numeric shortcut key.  This is the shortcut when using a numeric (e.g., 12-key)
-             keyboard.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#numericShortcut}.
+          <p>This symbol is the offset where the {@link android.R.attr#numericShortcut}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:numericShortcut
         */
         public static final int MenuItem_android_numericShortcut = 10;
         /**
-          <p>
-          @attr description
-          
-             Name of a method on the Context used to inflate the menu that will be
-             called when the item is clicked.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#onClick}.
+          <p>This symbol is the offset where the {@link android.R.attr#onClick}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:onClick
         */
         public static final int MenuItem_android_onClick = 12;
         /**
-          <p>
-          @attr description
-          
-             The order within the category applied to the item.
-             (This will be or'ed with the category attribute.)
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#orderInCategory}.
+          <p>This symbol is the offset where the {@link android.R.attr#orderInCategory}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:orderInCategory
         */
         public static final int MenuItem_android_orderInCategory = 6;
         /**
-          <p>
-          @attr description
-           The title associated with the item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#title}.
+          <p>This symbol is the offset where the {@link android.R.attr#title}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:title
         */
         public static final int MenuItem_android_title = 7;
         /**
-          <p>
-          @attr description
-          
-             The condensed title associated with the item.  This is used in situations where the
-             normal title may be too long to be displayed.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#titleCondensed}.
+          <p>This symbol is the offset where the {@link android.R.attr#titleCondensed}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:titleCondensed
         */
         public static final int MenuItem_android_titleCondensed = 8;
         /**
-          <p>
-          @attr description
-           Whether the item is shown/visible. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#visible}.
+          <p>This symbol is the offset where the {@link android.R.attr#visible}
+          attribute's value can be found in the {@link #MenuItem} array.
           @attr name android:visible
         */
         public static final int MenuItem_android_visible = 4;
         /**
-          <p>
-          @attr description
-           How this item should display in the Action Bar, if present. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#showAsAction}
+          attribute's value can be found in the {@link #MenuItem} array.
 
 
           <p>Must be one or more (separated by '|') of the following constant values.</p>
@@ -4996,32 +4554,12 @@ containing a value of this type.
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>never</code></td><td>0</td><td>
-                 Never show this item in an action bar, show it in the overflow menu instead.
-                 Mutually exclusive with "ifRoom" and "always".
-            </td></tr>
-<tr><td><code>ifRoom</code></td><td>1</td><td>
-                 Show this item in an action bar if there is room for it as determined
-                 by the system. Favor this option over "always" where possible.
-                 Mutually exclusive with "never" and "always".
-            </td></tr>
-<tr><td><code>always</code></td><td>2</td><td>
-                 Always show this item in an actionbar, even if it would override
-                 the system's limits of how much stuff to put there. This may make
-                 your action bar look bad on some screens. In most cases you should
-                 use "ifRoom" instead. Mutually exclusive with "ifRoom" and "never".
-            </td></tr>
-<tr><td><code>withText</code></td><td>4</td><td>
-                 When this item is shown as an action in the action bar, show a text
-                 label with it even if it has an icon representation.
-            </td></tr>
-<tr><td><code>collapseActionView</code></td><td>8</td><td>
-                 This item's action view collapses to a normal menu
-                 item. When expanded, the action view takes over a
-                 larger segment of its container.
-            </td></tr>
+<tr><td><code>never</code></td><td>0</td><td></td></tr>
+<tr><td><code>ifRoom</code></td><td>1</td><td></td></tr>
+<tr><td><code>always</code></td><td>2</td><td></td></tr>
+<tr><td><code>withText</code></td><td>4</td><td></td></tr>
+<tr><td><code>collapseActionView</code></td><td>8</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:showAsAction
         */
         public static final int MenuItem_showAsAction = 13;
@@ -5031,14 +4569,14 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #MenuView_android_headerBackground android:headerBackground}</code></td><td> Default background for the menu header.</td></tr>
-           <tr><td><code>{@link #MenuView_android_horizontalDivider android:horizontalDivider}</code></td><td> Default horizontal divider between rows of menu items.</td></tr>
-           <tr><td><code>{@link #MenuView_android_itemBackground android:itemBackground}</code></td><td> Default background for each menu item.</td></tr>
-           <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha android:itemIconDisabledAlpha}</code></td><td> Default disabled icon alpha for each menu item that shows an icon.</td></tr>
-           <tr><td><code>{@link #MenuView_android_itemTextAppearance android:itemTextAppearance}</code></td><td> Default appearance of menu item text.</td></tr>
-           <tr><td><code>{@link #MenuView_android_preserveIconSpacing android:preserveIconSpacing}</code></td><td> Whether space should be reserved in layout when an icon is missing.</td></tr>
-           <tr><td><code>{@link #MenuView_android_verticalDivider android:verticalDivider}</code></td><td> Default vertical divider between menu items.</td></tr>
-           <tr><td><code>{@link #MenuView_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td> Default animations for the menu.</td></tr>
+           <tr><td><code>{@link #MenuView_android_headerBackground android:headerBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_horizontalDivider android:horizontalDivider}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_itemBackground android:itemBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_itemIconDisabledAlpha android:itemIconDisabledAlpha}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_itemTextAppearance android:itemTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_preserveIconSpacing android:preserveIconSpacing}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_verticalDivider android:verticalDivider}</code></td><td></td></tr>
+           <tr><td><code>{@link #MenuView_android_windowAnimationStyle android:windowAnimationStyle}</code></td><td></td></tr>
            </table>
            @see #MenuView_android_headerBackground
            @see #MenuView_android_horizontalDivider
@@ -5054,73 +4592,50 @@ containing a value of this type.
             0x0101012f, 0x01010130, 0x01010131, 0x0101040c
         };
         /**
-          <p>
-          @attr description
-           Default background for the menu header. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#headerBackground}.
+          <p>This symbol is the offset where the {@link android.R.attr#headerBackground}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:headerBackground
         */
         public static final int MenuView_android_headerBackground = 4;
         /**
-          <p>
-          @attr description
-           Default horizontal divider between rows of menu items. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#horizontalDivider}.
+          <p>This symbol is the offset where the {@link android.R.attr#horizontalDivider}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:horizontalDivider
         */
         public static final int MenuView_android_horizontalDivider = 2;
         /**
-          <p>
-          @attr description
-           Default background for each menu item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#itemBackground}.
+          <p>This symbol is the offset where the {@link android.R.attr#itemBackground}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:itemBackground
         */
         public static final int MenuView_android_itemBackground = 5;
         /**
-          <p>
-          @attr description
-           Default disabled icon alpha for each menu item that shows an icon. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#itemIconDisabledAlpha}.
+          <p>This symbol is the offset where the {@link android.R.attr#itemIconDisabledAlpha}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:itemIconDisabledAlpha
         */
         public static final int MenuView_android_itemIconDisabledAlpha = 6;
         /**
-          <p>
-          @attr description
-           Default appearance of menu item text. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#itemTextAppearance}.
+          <p>This symbol is the offset where the {@link android.R.attr#itemTextAppearance}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:itemTextAppearance
         */
         public static final int MenuView_android_itemTextAppearance = 1;
         /**
-          <p>
-          @attr description
-           Whether space should be reserved in layout when an icon is missing. 
-          <p>This is a private symbol.
+          <p>This symbol is the offset where the {@link android.R.attr#preserveIconSpacing}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:preserveIconSpacing
         */
         public static final int MenuView_android_preserveIconSpacing = 7;
         /**
-          <p>
-          @attr description
-           Default vertical divider between menu items. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#verticalDivider}.
+          <p>This symbol is the offset where the {@link android.R.attr#verticalDivider}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:verticalDivider
         */
         public static final int MenuView_android_verticalDivider = 3;
         /**
-          <p>
-          @attr description
-           Default animations for the menu. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#windowAnimationStyle}.
+          <p>This symbol is the offset where the {@link android.R.attr#windowAnimationStyle}
+          attribute's value can be found in the {@link #MenuView} array.
           @attr name android:windowAnimationStyle
         */
         public static final int MenuView_android_windowAnimationStyle = 0;
@@ -5130,12 +4645,11 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td> The IME options to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td> The input type to set on the query text field.</td></tr>
-           <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td> An optional maximum width of the SearchView.</td></tr>
-           <tr><td><code>{@link #SearchView_iconifiedByDefault com.canarias.rentacar:iconifiedByDefault}</code></td><td>
-             The default state of the SearchView.</td></tr>
-           <tr><td><code>{@link #SearchView_queryHint com.canarias.rentacar:queryHint}</code></td><td> An optional query hint string to be displayed in the empty query field.</td></tr>
+           <tr><td><code>{@link #SearchView_android_imeOptions android:imeOptions}</code></td><td></td></tr>
+           <tr><td><code>{@link #SearchView_android_inputType android:inputType}</code></td><td></td></tr>
+           <tr><td><code>{@link #SearchView_android_maxWidth android:maxWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #SearchView_iconifiedByDefault com.canarias.rentacar:iconifiedByDefault}</code></td><td></td></tr>
+           <tr><td><code>{@link #SearchView_queryHint com.canarias.rentacar:queryHint}</code></td><td></td></tr>
            </table>
            @see #SearchView_android_imeOptions
            @see #SearchView_android_inputType
@@ -5148,39 +4662,26 @@ containing a value of this type.
             0x7f010085
         };
         /**
-          <p>
-          @attr description
-           The IME options to set on the query text field. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#imeOptions}.
+          <p>This symbol is the offset where the {@link android.R.attr#imeOptions}
+          attribute's value can be found in the {@link #SearchView} array.
           @attr name android:imeOptions
         */
         public static final int SearchView_android_imeOptions = 2;
         /**
-          <p>
-          @attr description
-           The input type to set on the query text field. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#inputType}.
+          <p>This symbol is the offset where the {@link android.R.attr#inputType}
+          attribute's value can be found in the {@link #SearchView} array.
           @attr name android:inputType
         */
         public static final int SearchView_android_inputType = 1;
         /**
-          <p>
-          @attr description
-           An optional maximum width of the SearchView. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#maxWidth}.
+          <p>This symbol is the offset where the {@link android.R.attr#maxWidth}
+          attribute's value can be found in the {@link #SearchView} array.
           @attr name android:maxWidth
         */
         public static final int SearchView_android_maxWidth = 0;
         /**
-          <p>
-          @attr description
-          
-             The default state of the SearchView. If true, it will be iconified when not in
-             use and expanded when clicked.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#iconifiedByDefault}
+          attribute's value can be found in the {@link #SearchView} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -5189,14 +4690,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:iconifiedByDefault
         */
         public static final int SearchView_iconifiedByDefault = 3;
         /**
-          <p>
-          @attr description
-           An optional query hint string to be displayed in the empty query field. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#queryHint}
+          attribute's value can be found in the {@link #SearchView} array.
 
 
           <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -5205,7 +4704,6 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:queryHint
         */
         public static final int SearchView_queryHint = 4;
@@ -5215,24 +4713,16 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td>
-             Horizontal offset from the spinner widget for positioning the dropdown
-             in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownSelector android:dropDownSelector}</code></td><td> List selector to use for spinnerMode="dropdown" display.</td></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td>
-             Vertical offset from the spinner widget for positioning the dropdown in
-             spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td> Width of the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_android_gravity android:gravity}</code></td><td> Gravity setting for positioning the currently selected item.</td></tr>
-           <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td> Background drawable to use for the dropdown in spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_disableChildrenWhenDisabled com.canarias.rentacar:disableChildrenWhenDisabled}</code></td><td>
-             Whether this spinner should mark child views as enabled/disabled when
-             the spinner itself is enabled/disabled.</td></tr>
-           <tr><td><code>{@link #Spinner_popupPromptView com.canarias.rentacar:popupPromptView}</code></td><td>
-             Reference to a layout to use for displaying a prompt in the dropdown for
-             spinnerMode="dropdown".</td></tr>
-           <tr><td><code>{@link #Spinner_prompt com.canarias.rentacar:prompt}</code></td><td> The prompt to display when the spinner's dialog is shown.</td></tr>
-           <tr><td><code>{@link #Spinner_spinnerMode com.canarias.rentacar:spinnerMode}</code></td><td> Display mode for spinner options.</td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownHorizontalOffset android:dropDownHorizontalOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownSelector android:dropDownSelector}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownVerticalOffset android:dropDownVerticalOffset}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_android_dropDownWidth android:dropDownWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_android_gravity android:gravity}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_android_popupBackground android:popupBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_disableChildrenWhenDisabled com.canarias.rentacar:disableChildrenWhenDisabled}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_popupPromptView com.canarias.rentacar:popupPromptView}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_prompt com.canarias.rentacar:prompt}</code></td><td></td></tr>
+           <tr><td><code>{@link #Spinner_spinnerMode com.canarias.rentacar:spinnerMode}</code></td><td></td></tr>
            </table>
            @see #Spinner_android_dropDownHorizontalOffset
            @see #Spinner_android_dropDownSelector
@@ -5251,72 +4741,44 @@ containing a value of this type.
             0x7f010088, 0x7f010089
         };
         /**
-          <p>
-          @attr description
-          
-             Horizontal offset from the spinner widget for positioning the dropdown
-             in spinnerMode="dropdown".
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownHorizontalOffset}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownHorizontalOffset}
+          attribute's value can be found in the {@link #Spinner} array.
           @attr name android:dropDownHorizontalOffset
         */
         public static final int Spinner_android_dropDownHorizontalOffset = 4;
         /**
-          <p>
-          @attr description
-           List selector to use for spinnerMode="dropdown" display. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownSelector}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownSelector}
+          attribute's value can be found in the {@link #Spinner} array.
           @attr name android:dropDownSelector
         */
         public static final int Spinner_android_dropDownSelector = 1;
         /**
-          <p>
-          @attr description
-          
-             Vertical offset from the spinner widget for positioning the dropdown in
-             spinnerMode="dropdown".
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownVerticalOffset}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownVerticalOffset}
+          attribute's value can be found in the {@link #Spinner} array.
           @attr name android:dropDownVerticalOffset
         */
         public static final int Spinner_android_dropDownVerticalOffset = 5;
         /**
-          <p>
-          @attr description
-           Width of the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#dropDownWidth}.
+          <p>This symbol is the offset where the {@link android.R.attr#dropDownWidth}
+          attribute's value can be found in the {@link #Spinner} array.
           @attr name android:dropDownWidth
         */
         public static final int Spinner_android_dropDownWidth = 3;
         /**
-          <p>
-          @attr description
-           Gravity setting for positioning the currently selected item. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#gravity}.
+          <p>This symbol is the offset where the {@link android.R.attr#gravity}
+          attribute's value can be found in the {@link #Spinner} array.
           @attr name android:gravity
         */
         public static final int Spinner_android_gravity = 0;
         /**
-          <p>
-          @attr description
-           Background drawable to use for the dropdown in spinnerMode="dropdown". 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#popupBackground}.
+          <p>This symbol is the offset where the {@link android.R.attr#popupBackground}
+          attribute's value can be found in the {@link #Spinner} array.
           @attr name android:popupBackground
         */
         public static final int Spinner_android_popupBackground = 2;
         /**
-          <p>
-          @attr description
-          
-             Whether this spinner should mark child views as enabled/disabled when
-             the spinner itself is enabled/disabled.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#disableChildrenWhenDisabled}
+          attribute's value can be found in the {@link #Spinner} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -5325,42 +4787,32 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:disableChildrenWhenDisabled
         */
         public static final int Spinner_disableChildrenWhenDisabled = 9;
         /**
-          <p>
-          @attr description
-          
-             Reference to a layout to use for displaying a prompt in the dropdown for
-             spinnerMode="dropdown". This layout must contain a TextView with the id
-             {@code @android:id/text1} to be populated with the prompt text.
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#popupPromptView}
+          attribute's value can be found in the {@link #Spinner} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:popupPromptView
         */
         public static final int Spinner_popupPromptView = 8;
         /**
-          <p>
-          @attr description
-           The prompt to display when the spinner's dialog is shown. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#prompt}
+          attribute's value can be found in the {@link #Spinner} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:prompt
         */
         public static final int Spinner_prompt = 6;
         /**
-          <p>
-          @attr description
-           Display mode for spinner options. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#spinnerMode}
+          attribute's value can be found in the {@link #Spinner} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -5369,13 +4821,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>dialog</code></td><td>0</td><td> Spinner options will be presented to the user as a dialog window. </td></tr>
-<tr><td><code>dropdown</code></td><td>1</td><td>
-                 Spinner options will be presented to the user as an inline dropdown
-                 anchored to the spinner widget itself.
-            </td></tr>
+<tr><td><code>dialog</code></td><td>0</td><td></td></tr>
+<tr><td><code>dropdown</code></td><td>1</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:spinnerMode
         */
         public static final int Spinner_spinnerMode = 7;
@@ -5385,12 +4833,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #Theme_actionDropDownStyle com.canarias.rentacar:actionDropDownStyle}</code></td><td> Default ActionBar dropdown style.</td></tr>
-           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight com.canarias.rentacar:dropdownListPreferredItemHeight}</code></td><td> The preferred item height for dropdown lists.</td></tr>
-           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator com.canarias.rentacar:listChoiceBackgroundIndicator}</code></td><td> Drawable used as a background for selected list items.</td></tr>
-           <tr><td><code>{@link #Theme_panelMenuListTheme com.canarias.rentacar:panelMenuListTheme}</code></td><td> Default Panel Menu style.</td></tr>
-           <tr><td><code>{@link #Theme_panelMenuListWidth com.canarias.rentacar:panelMenuListWidth}</code></td><td> Default Panel Menu width.</td></tr>
-           <tr><td><code>{@link #Theme_popupMenuStyle com.canarias.rentacar:popupMenuStyle}</code></td><td> Default PopupMenu style.</td></tr>
+           <tr><td><code>{@link #Theme_actionDropDownStyle com.canarias.rentacar:actionDropDownStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_dropdownListPreferredItemHeight com.canarias.rentacar:dropdownListPreferredItemHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_listChoiceBackgroundIndicator com.canarias.rentacar:listChoiceBackgroundIndicator}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListTheme com.canarias.rentacar:panelMenuListTheme}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_panelMenuListWidth com.canarias.rentacar:panelMenuListWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #Theme_popupMenuStyle com.canarias.rentacar:popupMenuStyle}</code></td><td></td></tr>
            </table>
            @see #Theme_actionDropDownStyle
            @see #Theme_dropdownListPreferredItemHeight
@@ -5404,21 +4852,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f01008e, 0x7f01008f
         };
         /**
-          <p>
-          @attr description
-           Default ActionBar dropdown style. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#actionDropDownStyle}
+          attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:actionDropDownStyle
         */
         public static final int Theme_actionDropDownStyle = 0;
         /**
-          <p>
-          @attr description
-           The preferred item height for dropdown lists. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#dropdownListPreferredItemHeight}
+          attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5429,38 +4874,32 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:dropdownListPreferredItemHeight
         */
         public static final int Theme_dropdownListPreferredItemHeight = 1;
         /**
-          <p>
-          @attr description
-           Drawable used as a background for selected list items. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#listChoiceBackgroundIndicator}
+          attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:listChoiceBackgroundIndicator
         */
         public static final int Theme_listChoiceBackgroundIndicator = 5;
         /**
-          <p>
-          @attr description
-           Default Panel Menu style. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#panelMenuListTheme}
+          attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:panelMenuListTheme
         */
         public static final int Theme_panelMenuListTheme = 4;
         /**
-          <p>
-          @attr description
-           Default Panel Menu width. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#panelMenuListWidth}
+          attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5471,19 +4910,16 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:panelMenuListWidth
         */
         public static final int Theme_panelMenuListWidth = 3;
         /**
-          <p>
-          @attr description
-           Default PopupMenu style. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#popupMenuStyle}
+          attribute's value can be found in the {@link #Theme} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:popupMenuStyle
         */
         public static final int Theme_popupMenuStyle = 2;
@@ -5493,21 +4929,21 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.canarias.rentacar:clipPadding}</code></td><td> Screen edge padding.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerColor com.canarias.rentacar:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.canarias.rentacar:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.canarias.rentacar:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.canarias.rentacar:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.canarias.rentacar:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.canarias.rentacar:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_linePosition com.canarias.rentacar:linePosition}</code></td><td> Position of the line.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.canarias.rentacar:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.canarias.rentacar:selectedColor}</code></td><td> Color of the selected title.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.canarias.rentacar:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
-           <tr><td><code>{@link #TitlePageIndicator_topPadding com.canarias.rentacar:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.canarias.rentacar:clipPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerColor com.canarias.rentacar:footerColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.canarias.rentacar:footerIndicatorHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.canarias.rentacar:footerIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.canarias.rentacar:footerIndicatorUnderlinePadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.canarias.rentacar:footerLineHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.canarias.rentacar:footerPadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_linePosition com.canarias.rentacar:linePosition}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.canarias.rentacar:selectedBold}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.canarias.rentacar:selectedColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.canarias.rentacar:titlePadding}</code></td><td></td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_topPadding com.canarias.rentacar:topPadding}</code></td><td></td></tr>
            </table>
            @see #TitlePageIndicator_android_background
            @see #TitlePageIndicator_android_textColor
@@ -5532,36 +4968,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f010098, 0x7f010099, 0x7f01009a
         };
         /**
-          <p>
-          @attr description
-           View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
+          <p>This symbol is the offset where the {@link android.R.attr#background}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
           @attr name android:background
         */
         public static final int TitlePageIndicator_android_background = 2;
         /**
-          <p>
-          @attr description
-           Color of regular titles. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#textColor}.
+          <p>This symbol is the offset where the {@link android.R.attr#textColor}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
           @attr name android:textColor
         */
         public static final int TitlePageIndicator_android_textColor = 1;
         /**
-          <p>
-          @attr description
-           Size of title text. 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#textSize}.
+          <p>This symbol is the offset where the {@link android.R.attr#textSize}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
           @attr name android:textSize
         */
         public static final int TitlePageIndicator_android_textSize = 0;
         /**
-          <p>
-          @attr description
-           Screen edge padding. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#clipPadding}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5572,14 +4998,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:clipPadding
         */
         public static final int TitlePageIndicator_clipPadding = 4;
         /**
-          <p>
-          @attr description
-           Color of the footer line and indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#footerColor}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -5589,14 +5013,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:footerColor
         */
         public static final int TitlePageIndicator_footerColor = 5;
         /**
-          <p>
-          @attr description
-           Height of the indicator above the footer line. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#footerIndicatorHeight}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5607,14 +5029,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:footerIndicatorHeight
         */
         public static final int TitlePageIndicator_footerIndicatorHeight = 8;
         /**
-          <p>
-          @attr description
-           Style of the indicator. Default is triangle. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#footerIndicatorStyle}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -5627,14 +5047,12 @@ containing a value of this type.
 <tr><td><code>triangle</code></td><td>1</td><td></td></tr>
 <tr><td><code>underline</code></td><td>2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:footerIndicatorStyle
         */
         public static final int TitlePageIndicator_footerIndicatorStyle = 7;
         /**
-          <p>
-          @attr description
-           Left and right padding of the underline indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#footerIndicatorUnderlinePadding}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5645,14 +5063,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:footerIndicatorUnderlinePadding
         */
         public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
         /**
-          <p>
-          @attr description
-           Height of the footer line. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#footerLineHeight}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5663,14 +5079,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:footerLineHeight
         */
         public static final int TitlePageIndicator_footerLineHeight = 6;
         /**
-          <p>
-          @attr description
-           Padding between the bottom of the title and the footer. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#footerPadding}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5681,14 +5095,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:footerPadding
         */
         public static final int TitlePageIndicator_footerPadding = 10;
         /**
-          <p>
-          @attr description
-           Position of the line. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#linePosition}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -5700,14 +5112,12 @@ containing a value of this type.
 <tr><td><code>bottom</code></td><td>0</td><td></td></tr>
 <tr><td><code>top</code></td><td>1</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:linePosition
         */
         public static final int TitlePageIndicator_linePosition = 11;
         /**
-          <p>
-          @attr description
-           Whether or not the selected item is displayed as bold. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#selectedBold}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -5716,14 +5126,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:selectedBold
         */
         public static final int TitlePageIndicator_selectedBold = 12;
         /**
-          <p>
-          @attr description
-           Color of the selected title. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#selectedColor}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -5733,14 +5141,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:selectedColor
         */
         public static final int TitlePageIndicator_selectedColor = 3;
         /**
-          <p>
-          @attr description
-           Padding between titles when bumping into each other. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#titlePadding}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5751,14 +5157,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:titlePadding
         */
         public static final int TitlePageIndicator_titlePadding = 13;
         /**
-          <p>
-          @attr description
-           Padding between titles and the top of the View. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#topPadding}
+          attribute's value can be found in the {@link #TitlePageIndicator} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5769,7 +5173,6 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:topPadding
         */
         public static final int TitlePageIndicator_topPadding = 14;
@@ -5779,11 +5182,11 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.canarias.rentacar:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.canarias.rentacar:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_fades com.canarias.rentacar:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
-           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.canarias.rentacar:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td></td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.canarias.rentacar:fadeDelay}</code></td><td></td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.canarias.rentacar:fadeLength}</code></td><td></td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fades com.canarias.rentacar:fades}</code></td><td></td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.canarias.rentacar:selectedColor}</code></td><td></td></tr>
            </table>
            @see #UnderlinePageIndicator_android_background
            @see #UnderlinePageIndicator_fadeDelay
@@ -5796,18 +5199,14 @@ containing a value of this type.
             0x7f01009d
         };
         /**
-          <p>
-          @attr description
-           View background 
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#background}.
+          <p>This symbol is the offset where the {@link android.R.attr#background}
+          attribute's value can be found in the {@link #UnderlinePageIndicator} array.
           @attr name android:background
         */
         public static final int UnderlinePageIndicator_android_background = 0;
         /**
-          <p>
-          @attr description
-           Length of the delay to fade the indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#fadeDelay}
+          attribute's value can be found in the {@link #UnderlinePageIndicator} array.
 
 
           <p>Must be an integer value, such as "<code>100</code>".
@@ -5816,14 +5215,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:fadeDelay
         */
         public static final int UnderlinePageIndicator_fadeDelay = 3;
         /**
-          <p>
-          @attr description
-           Length of the indicator fade to transparent. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#fadeLength}
+          attribute's value can be found in the {@link #UnderlinePageIndicator} array.
 
 
           <p>Must be an integer value, such as "<code>100</code>".
@@ -5832,14 +5229,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:fadeLength
         */
         public static final int UnderlinePageIndicator_fadeLength = 4;
         /**
-          <p>
-          @attr description
-           Whether or not the selected indicator fades. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#fades}
+          attribute's value can be found in the {@link #UnderlinePageIndicator} array.
 
 
           <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -5848,14 +5243,12 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:fades
         */
         public static final int UnderlinePageIndicator_fades = 2;
         /**
-          <p>
-          @attr description
-           Color of the selected line that represents the current page. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#selectedColor}
+          attribute's value can be found in the {@link #UnderlinePageIndicator} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -5865,7 +5258,6 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:selectedColor
         */
         public static final int UnderlinePageIndicator_selectedColor = 1;
@@ -5875,10 +5267,9 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td>
-             Boolean that controls whether a view can take focus.</td></tr>
-           <tr><td><code>{@link #View_paddingEnd com.canarias.rentacar:paddingEnd}</code></td><td> Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}.</td></tr>
-           <tr><td><code>{@link #View_paddingStart com.canarias.rentacar:paddingStart}</code></td><td> Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}.</td></tr>
+           <tr><td><code>{@link #View_android_focusable android:focusable}</code></td><td></td></tr>
+           <tr><td><code>{@link #View_paddingEnd com.canarias.rentacar:paddingEnd}</code></td><td></td></tr>
+           <tr><td><code>{@link #View_paddingStart com.canarias.rentacar:paddingStart}</code></td><td></td></tr>
            </table>
            @see #View_android_focusable
            @see #View_paddingEnd
@@ -5888,25 +5279,14 @@ containing a value of this type.
             0x010100da, 0x7f01009e, 0x7f01009f
         };
         /**
-          <p>
-          @attr description
-          
-             Boolean that controls whether a view can take focus.  By default the user can not
-             move focus to a view; by setting this attribute to true the view is
-             allowed to take focus.  This value does not impact the behavior of
-             directly calling {@link android.view.View#requestFocus}, which will
-             always request focus regardless of this view.  It only impacts where
-             focus navigation will try to move focus.
-        
-          <p>This corresponds to the global attribute
-          resource symbol {@link android.R.attr#focusable}.
+          <p>This symbol is the offset where the {@link android.R.attr#focusable}
+          attribute's value can be found in the {@link #View} array.
           @attr name android:focusable
         */
         public static final int View_android_focusable = 0;
         /**
-          <p>
-          @attr description
-           Sets the padding, in pixels, of the end edge; see {@link android.R.attr#padding}. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#paddingEnd}
+          attribute's value can be found in the {@link #View} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5917,14 +5297,12 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:paddingEnd
         */
         public static final int View_paddingEnd = 2;
         /**
-          <p>
-          @attr description
-           Sets the padding, in pixels, of the start edge; see {@link android.R.attr#padding}. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#paddingStart}
+          attribute's value can be found in the {@link #View} array.
 
 
           <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -5935,7 +5313,6 @@ in (inches), mm (millimeters).
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:paddingStart
         */
         public static final int View_paddingStart = 1;
@@ -5945,12 +5322,12 @@ containing a value of this type.
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.canarias.rentacar:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.canarias.rentacar:vpiIconPageIndicatorStyle}</code></td><td> Style of the icon indicator's views.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.canarias.rentacar:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.canarias.rentacar:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.canarias.rentacar:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
-           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.canarias.rentacar:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.canarias.rentacar:vpiCirclePageIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.canarias.rentacar:vpiIconPageIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.canarias.rentacar:vpiLinePageIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.canarias.rentacar:vpiTabPageIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.canarias.rentacar:vpiTitlePageIndicatorStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.canarias.rentacar:vpiUnderlinePageIndicatorStyle}</code></td><td></td></tr>
            </table>
            @see #ViewPagerIndicator_vpiCirclePageIndicatorStyle
            @see #ViewPagerIndicator_vpiIconPageIndicatorStyle
@@ -5964,74 +5341,62 @@ containing a value of this type.
             0x7f0100a4, 0x7f0100a5
         };
         /**
-          <p>
-          @attr description
-           Style of the circle indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#vpiCirclePageIndicatorStyle}
+          attribute's value can be found in the {@link #ViewPagerIndicator} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:vpiCirclePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
         /**
-          <p>
-          @attr description
-           Style of the icon indicator's views. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#vpiIconPageIndicatorStyle}
+          attribute's value can be found in the {@link #ViewPagerIndicator} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:vpiIconPageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
         /**
-          <p>
-          @attr description
-           Style of the line indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#vpiLinePageIndicatorStyle}
+          attribute's value can be found in the {@link #ViewPagerIndicator} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:vpiLinePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
         /**
-          <p>
-          @attr description
-           Style of the tab indicator's tabs. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#vpiTabPageIndicatorStyle}
+          attribute's value can be found in the {@link #ViewPagerIndicator} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:vpiTabPageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
         /**
-          <p>
-          @attr description
-           Style of the title indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#vpiTitlePageIndicatorStyle}
+          attribute's value can be found in the {@link #ViewPagerIndicator} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:vpiTitlePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
         /**
-          <p>
-          @attr description
-           Style of the underline indicator. 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#vpiUnderlinePageIndicatorStyle}
+          attribute's value can be found in the {@link #ViewPagerIndicator} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:vpiUnderlinePageIndicatorStyle
         */
         public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
@@ -6041,10 +5406,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_environment com.canarias.rentacar:environment}</code></td><td> Google Wallet environment to use </td></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_fragmentMode com.canarias.rentacar:fragmentMode}</code></td><td> Fragment mode </td></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_fragmentStyle com.canarias.rentacar:fragmentStyle}</code></td><td> A style resource specifing attributes to customize the look and feel of WalletFragment </td></tr>
-           <tr><td><code>{@link #WalletFragmentOptions_theme com.canarias.rentacar:theme}</code></td><td> Theme to be used for the Wallet selector </td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_environment com.canarias.rentacar:environment}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_fragmentMode com.canarias.rentacar:fragmentMode}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_fragmentStyle com.canarias.rentacar:fragmentStyle}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentOptions_theme com.canarias.rentacar:theme}</code></td><td></td></tr>
            </table>
            @see #WalletFragmentOptions_environment
            @see #WalletFragmentOptions_fragmentMode
@@ -6055,9 +5420,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f0100a6, 0x7f0100a7, 0x7f0100a8, 0x7f0100a9
         };
         /**
-          <p>
-          @attr description
-           Google Wallet environment to use 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#environment}
+          attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -6070,14 +5434,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>sandbox</code></td><td>0</td><td></td></tr>
 <tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:environment
         */
         public static final int WalletFragmentOptions_environment = 1;
         /**
-          <p>
-          @attr description
-           Fragment mode 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#fragmentMode}
+          attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -6089,26 +5451,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>buyButton</code></td><td>1</td><td></td></tr>
 <tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:fragmentMode
         */
         public static final int WalletFragmentOptions_fragmentMode = 3;
         /**
-          <p>
-          @attr description
-           A style resource specifing attributes to customize the look and feel of WalletFragment 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#fragmentStyle}
+          attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:fragmentStyle
         */
         public static final int WalletFragmentOptions_fragmentStyle = 2;
         /**
-          <p>
-          @attr description
-           Theme to be used for the Wallet selector 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#theme}
+          attribute's value can be found in the {@link #WalletFragmentOptions} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -6120,7 +5478,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>holo_dark</code></td><td>0</td><td></td></tr>
 <tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:theme
         */
         public static final int WalletFragmentOptions_theme = 0;
@@ -6130,19 +5487,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            <colgroup align="left" />
            <colgroup align="left" />
            <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonAppearance com.canarias.rentacar:buyButtonAppearance}</code></td><td> Appearance of the buy button.</td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonHeight com.canarias.rentacar:buyButtonHeight}</code></td><td>
-             Height of the buy button.</td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonText com.canarias.rentacar:buyButtonText}</code></td><td> Text on the buy button.</td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_buyButtonWidth com.canarias.rentacar:buyButtonWidth}</code></td><td>
-             Width of the buy button.</td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsBackground com.canarias.rentacar:maskedWalletDetailsBackground}</code></td><td> Masked wallet details background </td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonBackground com.canarias.rentacar:maskedWalletDetailsButtonBackground}</code></td><td> "Change" button background in masked wallet details view </td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance com.canarias.rentacar:maskedWalletDetailsButtonTextAppearance}</code></td><td> TextAppearance for the "Change" button in masked wallet details view </td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance com.canarias.rentacar:maskedWalletDetailsHeaderTextAppearance}</code></td><td> TextAppearance for headers describing masked wallet details </td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoImageType com.canarias.rentacar:maskedWalletDetailsLogoImageType}</code></td><td> Type of the wallet logo image in masked wallet details view </td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoTextColor com.canarias.rentacar:maskedWalletDetailsLogoTextColor}</code></td><td> Color of the Google Wallet logo text in masked wallet details view </td></tr>
-           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsTextAppearance com.canarias.rentacar:maskedWalletDetailsTextAppearance}</code></td><td> TextAppearance for masked wallet details </td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonAppearance com.canarias.rentacar:buyButtonAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonHeight com.canarias.rentacar:buyButtonHeight}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonText com.canarias.rentacar:buyButtonText}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_buyButtonWidth com.canarias.rentacar:buyButtonWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsBackground com.canarias.rentacar:maskedWalletDetailsBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonBackground com.canarias.rentacar:maskedWalletDetailsButtonBackground}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance com.canarias.rentacar:maskedWalletDetailsButtonTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance com.canarias.rentacar:maskedWalletDetailsHeaderTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoImageType com.canarias.rentacar:maskedWalletDetailsLogoImageType}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsLogoTextColor com.canarias.rentacar:maskedWalletDetailsLogoTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #WalletFragmentStyle_maskedWalletDetailsTextAppearance com.canarias.rentacar:maskedWalletDetailsTextAppearance}</code></td><td></td></tr>
            </table>
            @see #WalletFragmentStyle_buyButtonAppearance
            @see #WalletFragmentStyle_buyButtonHeight
@@ -6162,9 +5517,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
             0x7f0100b2, 0x7f0100b3, 0x7f0100b4
         };
         /**
-          <p>
-          @attr description
-           Appearance of the buy button. Must be one of "classic", "grayscale" and "monochrome" 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#buyButtonAppearance}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -6177,18 +5531,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>grayscale</code></td><td>2</td><td></td></tr>
 <tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:buyButtonAppearance
         */
         public static final int WalletFragmentStyle_buyButtonAppearance = 3;
         /**
-          <p>
-          @attr description
-          
-             Height of the buy button. This includes an 8dp padding (4dp on each side) used for
-             pressed and focused states of the button. The value can be a specific height, e.g.
-             "48dp", or special values "match_parent" and "wrap_content".
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#buyButtonHeight}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -6208,14 +5556,12 @@ containing a value of this type.
 <tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:buyButtonHeight
         */
         public static final int WalletFragmentStyle_buyButtonHeight = 0;
         /**
-          <p>
-          @attr description
-           Text on the buy button. Must be one of "buy_with_google", "buy_now" and "book_now" 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#buyButtonText}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -6228,18 +5574,12 @@ containing a value of this type.
 <tr><td><code>buy_now</code></td><td>2</td><td></td></tr>
 <tr><td><code>book_now</code></td><td>3</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:buyButtonText
         */
         public static final int WalletFragmentStyle_buyButtonText = 2;
         /**
-          <p>
-          @attr description
-          
-             Width of the buy button. This includes an 8dp padding (4dp on each side) used for
-             pressed and focused states of the button. The value can be a specific width, e.g.
-             "300dp", or special values "match_parent" and "wrap_content".
-        
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#buyButtonWidth}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
@@ -6259,66 +5599,56 @@ containing a value of this type.
 <tr><td><code>match_parent</code></td><td>-1</td><td></td></tr>
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:buyButtonWidth
         */
         public static final int WalletFragmentStyle_buyButtonWidth = 1;
         /**
-          <p>
-          @attr description
-           Masked wallet details background 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsBackground}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsBackground
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
         /**
-          <p>
-          @attr description
-           "Change" button background in masked wallet details view 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsButtonBackground}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsButtonBackground
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
         /**
-          <p>
-          @attr description
-           TextAppearance for the "Change" button in masked wallet details view 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsButtonTextAppearance}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsButtonTextAppearance
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
         /**
-          <p>
-          @attr description
-           TextAppearance for headers describing masked wallet details 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsHeaderTextAppearance}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsHeaderTextAppearance
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
         /**
-          <p>
-          @attr description
-           Type of the wallet logo image in masked wallet details view 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsLogoImageType}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be one of the following constant values.</p>
@@ -6330,14 +5660,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>classic</code></td><td>1</td><td></td></tr>
 <tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
 </table>
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsLogoImageType
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
         /**
-          <p>
-          @attr description
-           Color of the Google Wallet logo text in masked wallet details view 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsLogoTextColor}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -6347,19 +5675,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsLogoTextColor
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
         /**
-          <p>
-          @attr description
-           TextAppearance for masked wallet details 
+          <p>This symbol is the offset where the {@link com.canarias.rentacar.R.attr#maskedWalletDetailsTextAppearance}
+          attribute's value can be found in the {@link #WalletFragmentStyle} array.
 
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          <p>This is a private symbol.
           @attr name com.canarias.rentacar:maskedWalletDetailsTextAppearance
         */
         public static final int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;

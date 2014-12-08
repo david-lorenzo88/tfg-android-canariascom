@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-7541db917baa506c0dd564574dda219c7099e134.jar"
         jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-7541db917baa506c0dd564574dda219c7099e134.jar" />
+    </item>
     <item
-        dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\simple-xml-2.7.1-78145be1f47b0a8fa1a8ab8ff2f6b026d8a72805.jar"
-        jar="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\libs\simple-xml-2.7.1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="083623424bcfa03bd598e709765bad0816c2375d"/>
-    <item
-        dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\classes-c4c4411a8a7ff474b6f0f9b9b25327e710d90630.jar"
         jar="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\5.0.77\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="b6a82434c1eca686607867cd906bcc80ed987837"/>
+        sha1="b6a82434c1eca686607867cd906bcc80ed987837">
+        <dex dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\classes-c4c4411a8a7ff474b6f0f9b9b25327e710d90630.jar" />
+    </item>
     <item
-        dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\classes-c4ecc82122f4946c8bac7c0a8b91e6eed548ea79.jar"
+        jar="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\libs\simple-xml-2.7.1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="083623424bcfa03bd598e709765bad0816c2375d">
+        <dex dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\simple-xml-2.7.1-78145be1f47b0a8fa1a8ab8ff2f6b026d8a72805.jar" />
+    </item>
+    <item
         jar="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="C:\Users\David\AndroidStudioProjects\RentacarCanarias.com_new\app\build\intermediates\pre-dexed\debug\classes-c4ecc82122f4946c8bac7c0a8b91e6eed548ea79.jar" />
+    </item>
 
-</pre-dex-items>
+</items>

@@ -218,12 +218,12 @@ public class ReservationDetailFragment extends Fragment {
             Extra e = it.next();
 
             //Calculamos el precio total del extra
-            float price = e.getQuantity() * e.getPrice();
+            float price = e.getQuantity() * e.getPrice() * (1 + (Config.TAX / 100));
 
 
-            if (e.getPriceType().equals(Extra.PriceType.DAILY)) {
-                price = price * dateDiff;
-            }
+            //if (e.getPriceType().equals(Extra.PriceType.DAILY)) {
+            //    price = price * dateDiff;
+            //}
 
             price = Utils.round(price);
 
@@ -276,7 +276,9 @@ public class ReservationDetailFragment extends Fragment {
         //Datos del cliente
         TextView customerNameDateBirth = (TextView) rootView.findViewById(R.id.resDetailTitularNombreFecha);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        customerNameDateBirth.setText(mItem.getCustomer().getName() + " - " + sdf.format(mItem.getCustomer().getBirthDate()));
+        customerNameDateBirth.setText(mItem.getCustomer().getName() + " " +
+                mItem.getCustomer().getSurname() + " - " +
+                sdf.format(mItem.getCustomer().getBirthDate()));
 
         TextView customerEmail = (TextView) rootView.findViewById(R.id.resDetailTitularEmail);
         customerEmail.setText(mItem.getCustomer().getEmail());

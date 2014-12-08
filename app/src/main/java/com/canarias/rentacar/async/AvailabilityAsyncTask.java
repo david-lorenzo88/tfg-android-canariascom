@@ -169,7 +169,7 @@ public class AvailabilityAsyncTask extends
             //Establecemos un listener que nos capture la acción de scroll sobre la ListView
             //Para ocultar el resumen de busqueda al hacer scroll hacia abajo
             //y mostrarlo al hacer scroll hacia arriba
-            resultsListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            /*resultsListView.setOnScrollListener(new AbsListView.OnScrollListener() {
                 private int mLastFirstVisibleItem;
                 private boolean isCollapsed = false;
                 private boolean firstItem = false;
@@ -186,6 +186,7 @@ public class AvailabilityAsyncTask extends
                     if (mLastFirstVisibleItem < firstVisibleItem && !isCollapsed && !firstItem) {
                         //Si hacemos scroll hacia abajo
                         //colapsamos el resumen
+                        Log.v("TEST2", "scroll down");
                         AnimationHelper.collapse(summary);
                         firstItem = true;
                         new CountDownTimer(1500, 1500) {
@@ -195,7 +196,7 @@ public class AvailabilityAsyncTask extends
                             }
 
                             public void onFinish() {
-
+                                Log.v("TEST2", "timer down finished");
                                 isCollapsed = true;
                             }
                         }.start();
@@ -206,6 +207,7 @@ public class AvailabilityAsyncTask extends
                         //expandimos el resumen
                         AnimationHelper.expand(summary);
                         firstItem = true;
+                        Log.v("TEST2", "scroll up");
                         new CountDownTimer(1500, 1500) {
 
                             public void onTick(long millisUntilFinished) {
@@ -213,7 +215,7 @@ public class AvailabilityAsyncTask extends
                             }
 
                             public void onFinish() {
-
+                                Log.v("TEST2", "timer up finished");
                                 isCollapsed = false;
                             }
                         }.start();
@@ -224,11 +226,13 @@ public class AvailabilityAsyncTask extends
                     //hacia arriba o hacia abajo
                     mLastFirstVisibleItem = firstVisibleItem;
 
-                    if (firstItem)
+                    if (firstItem) {
                         firstItem = false;
+                        Log.v("TEST2", "first item");
+                    }
 
                 }
-            });
+            });*/
 
 
             rootView.findViewById(R.id.searchResultsContainer)

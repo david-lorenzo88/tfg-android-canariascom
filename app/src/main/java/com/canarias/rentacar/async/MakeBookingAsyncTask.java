@@ -229,6 +229,7 @@ public class MakeBookingAsyncTask extends
             intent.putExtra(ReservationDetailFragment.ARG_ITEM_ID, result.getLocalizer());
             intent.putExtra(ReservationDetailFragment.SHOW_TOAST,
                     context.getString(R.string.confirmed_booking));
+            intent.putExtra(ReservationDetailFragment.ARG_LAUNCH_UPDATE, true);
 
             context.startActivity(intent);
 

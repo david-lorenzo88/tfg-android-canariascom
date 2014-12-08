@@ -174,7 +174,8 @@ public class CarDetailFragment extends Fragment {
             while (it.hasNext()) {
                 CarAttribute current = it.next();
 
-                if(current.getValue().equals(
+                if(current.getValue().equals("Si") || current.getValue().equals("Sí")
+                    || current.getValue().equals(
                         Config.yesTranslations.get(
                                 Config.getLanguageCode(Locale.getDefault().getLanguage())))
                         || TextUtils.isDigitsOnly(current.getValue())) {

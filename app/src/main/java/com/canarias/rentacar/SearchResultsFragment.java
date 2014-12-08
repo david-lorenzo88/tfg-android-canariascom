@@ -1,5 +1,6 @@
 package com.canarias.rentacar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.canarias.rentacar.async.AvailabilityAsyncTask;
@@ -15,6 +17,7 @@ import com.canarias.rentacar.db.dao.OfficeDataSource;
 import com.canarias.rentacar.db.dao.ZoneDataSource;
 import com.canarias.rentacar.model.Office;
 import com.canarias.rentacar.model.Zone;
+import com.canarias.rentacar.utils.QuickReturnHeaderHelper;
 
 import java.util.HashMap;
 
@@ -30,6 +33,7 @@ public class SearchResultsFragment extends Fragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
     AvailabilityAsyncTask availAsync;
+
 
 
     public SearchResultsFragment() {
@@ -66,7 +70,19 @@ public class SearchResultsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
+        View rootView;
+
+        boolean isTablet = getActivity().getResources().getBoolean(R.bool.isTablet);
+        if(isTablet) {
+            //Si es tablet, mostramos en dos paneles
+            rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
+        } else {
+            //Si es smartphone, aplicamos el QuickReturnHeader para ocultar el resumen
+            //al hacer scroll
+            QuickReturnHeaderHelper helper = new QuickReturnHeaderHelper(getActivity(),
+                    R.layout.fragment_search_results, R.layout.fragment_search_results_header);
+            rootView = helper.createView();
+        }
 
         initActivity(rootView);
 
@@ -105,6 +121,9 @@ public class SearchResultsFragment extends Fragment {
                 getFragmentManager().popBackStack();
             }
         });
+
+
+
 
         ZoneDataSource zoneDS = new ZoneDataSource(getActivity());
         OfficeDataSource officeDS = new OfficeDataSource(getActivity());
