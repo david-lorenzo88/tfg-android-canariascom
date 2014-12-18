@@ -81,13 +81,15 @@ public class TimePickerDialog extends Dialog {
             public void onClick(View v) {
                 if (mCallback != null) {
                     mCallback.onTimeChanged(mTag,
-                            timePicker.getCurrentHour() + ":" + timePicker.getCurrentMinute());
+                            timePicker.getCurrentHour() + ":" +
+                                    String.format("%02d",timePicker.getCurrentMinute()));
                 }
                 dismiss();
             }
         });
 
     }
+
 
     /**
      * El Callback usado para notificar la hora seleccionada a la Activity fuente

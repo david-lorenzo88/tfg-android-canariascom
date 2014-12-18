@@ -292,9 +292,9 @@
     -->
     <string name="palestine_display_name">Palestine</string>
     <string name="step_1">1.</string>
-    <string name="pickupZoneDefaultLabel">Selecciona un punto de recogida</string>
+    <string name="pickupPointDefaultLabel">Selecciona un punto de recogida</string>
     <string name="step_2">2.</string>
-    <string name="dropoffZoneDefaultLabel">Selecciona un punto de devolución</string>
+    <string name="dropoffPointDefaultLabel">Selecciona un punto de devolución</string>
     <string name="step_3">3.</string>
     <string name="pickupDateDefaultLabel">dd/mm/yyyy</string>
     <string name="pickupPointTitle">Punto de Recogida</string>
@@ -471,5 +471,8 @@
     <string name="downloading_offices_msg">Actualizando la base de datos de oficinas.</string>
     <string name="default_zone">-- Selecciona una zona --</string>
     <string name="last_sync">Última sincronización</string>
-
+    <string name="no_results_reservation">¡Vaya, parece que aún no tienes ninguna reserva!</string>
+    <string name="no_results_btn">Alquilar un coche ahora</string>
+    <string name="selectZoneDefaultLabel">Selecciona una Zona</string>
+    <string name="selectPointDefaultLabel">Selecciona una Oficina</string>
 </resources>

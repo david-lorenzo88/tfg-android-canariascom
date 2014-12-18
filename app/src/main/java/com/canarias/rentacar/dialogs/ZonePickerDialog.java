@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.canarias.rentacar.R;
@@ -31,6 +32,7 @@ public class ZonePickerDialog extends Dialog {
 
     private Spinner selectorZone;
     private Spinner selectorOffice;
+    private TextView txtOffice;
     private Button btnAccept;
     private String mTag;
     private Context context;
@@ -81,6 +83,8 @@ public class ZonePickerDialog extends Dialog {
         selectorOffice = (Spinner) findViewById(R.id.selectorOffice);
         selectorZone = (Spinner) findViewById(R.id.selectorZone);
         btnAccept = (Button) findViewById(R.id.btnSelectZone);
+
+        txtOffice = (TextView) findViewById(R.id.txtOfficeLabel);
 
         final ZoneDataSource zoneDS = new ZoneDataSource(getContext());
         final OfficeDataSource officeDS = new OfficeDataSource(getContext());
@@ -141,12 +145,14 @@ public class ZonePickerDialog extends Dialog {
                                     offices
                             ));
                             selectorOffice.setVisibility(View.VISIBLE);
+                            txtOffice.setVisibility(View.VISIBLE);
                             ds.close();
                         } catch (Exception ex) {
                             Log.v("TEST", ex.getMessage());
                         }
                     } else {
                         selectorOffice.setVisibility(View.GONE);
+                        txtOffice.setVisibility(View.GONE);
                     }
                 }
 

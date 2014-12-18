@@ -292,9 +292,9 @@
     -->
     <string name="palestine_display_name">Palestine</string>
     <string name="step_1">1.</string>
-    <string name="pickupZoneDefaultLabel">Select pick up point</string>
+    <string name="pickupPointDefaultLabel">Select pick up point</string>
     <string name="step_2">2.</string>
-    <string name="dropoffZoneDefaultLabel">Select drop off point</string>
+    <string name="dropoffPointDefaultLabel">Select drop off point</string>
     <string name="step_3">3.</string>
     <string name="pickupDateDefaultLabel">dd/mm/yyyy</string>
     <string name="pickupPointTitle">Pick up Point</string>
@@ -471,5 +471,9 @@
     <string name="downloading_offices_msg">Updating offices database.</string>
     <string name="default_zone">-- Select a zone --</string>
     <string name="last_sync">Last Synchronization</string>
+    <string name="no_results_reservation">Ops, you haven\'t any booking yet!</string>
+    <string name="no_results_btn">Rent a car now</string>
+    <string name="selectZoneDefaultLabel">Select a Zone</string>
+    <string name="selectPointDefaultLabel">Select an Office</string>
 
 </resources>

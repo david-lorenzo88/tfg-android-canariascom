@@ -223,6 +223,7 @@ public class OfficeDetailFragment extends Fragment {
                     intent.putExtra(SearchFragment.TAG_DROPOFF_ZONE, mItem.getCode());
                     intent.putExtra(HomeActivity.DEFAULT_ACTION,
                             HomeActivity.DRAWER_POSITION_NEW_BOOKING);
+                    intent.putExtra(HomeActivity.DONT_OPEN_DRAWER, true);
                     startActivity(intent);
                 }
             });

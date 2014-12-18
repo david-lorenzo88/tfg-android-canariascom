@@ -254,9 +254,9 @@ public class CarDetailFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), HomeActivity.class);
                 intent.putExtra(SearchFragment.TAG_SELECTED_MODEL, car.getModel());
-
                 intent.putExtra(HomeActivity.DEFAULT_ACTION,
                         HomeActivity.DRAWER_POSITION_NEW_BOOKING);
+                intent.putExtra(HomeActivity.DONT_OPEN_DRAWER, true);
                 startActivity(intent);
             }
         });

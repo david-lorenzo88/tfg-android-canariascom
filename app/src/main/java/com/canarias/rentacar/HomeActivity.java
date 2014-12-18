@@ -41,6 +41,7 @@ public class HomeActivity extends Activity
     private final static int DRAWER_POSITION_HELP = 5;
     private final static int DRAWER_POSITION_SETTINGS = 6;
     public static final String DEFAULT_ACTION = "default_action";
+    public static final String DONT_OPEN_DRAWER = "dont_open_drawer";
 
 
     /**
@@ -67,6 +68,13 @@ public class HomeActivity extends Activity
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
+
+        //Flag para indicar si queremos que se abra el drawer o no, si el usuario no ha aprendido
+        //aún el funcionamiento
+        if(getIntent().getExtras() != null && getIntent().getExtras().containsKey(DONT_OPEN_DRAWER)) {
+            mNavigationDrawerFragment.setmDontOpenDrawer(
+                    getIntent().getExtras().getBoolean(DONT_OPEN_DRAWER, false));
+        }
 
         // Configura el NavigationDrawer
         mNavigationDrawerFragment.setUp(

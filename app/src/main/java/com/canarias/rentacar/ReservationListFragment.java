@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+import com.canarias.rentacar.adapters.NoResultsAdapter;
 import com.canarias.rentacar.adapters.ReservationListAdapter;
 import com.canarias.rentacar.db.dao.ReservationDataSource;
 import com.canarias.rentacar.model.Reservation;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -110,11 +112,16 @@ public class ReservationListFragment extends ListFragment {
 
             resDS.close();
 
-            adapter = new ReservationListAdapter(getActivity(),
-                    R.layout.reservation_list_item, reservations);
+            if(reservations != null && reservations.size() > 0) {
 
-
-            setListAdapter(adapter);
+                adapter = new ReservationListAdapter(getActivity(),
+                        R.layout.reservation_list_item, reservations);
+                setListAdapter(adapter);
+            } else {
+                List<String> items = new ArrayList<String>();
+                items.add(getString(R.string.no_results_reservation));
+                setListAdapter(new NoResultsAdapter(getActivity(), R.layout.no_results_msg, items));
+            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -159,12 +166,14 @@ public class ReservationListFragment extends ListFragment {
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
 
-        // Notify the active callbacks interface (the activity, if the
-        // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(reservations.get(position - 1).getLocalizer());
+        if(adapter != null) {
+            // Notify the active callbacks interface (the activity, if the
+            // fragment is attached to one) that an item has been selected.
+            mCallbacks.onItemSelected(reservations.get(position - 1).getLocalizer());
 
 
-        adapter.setSelectedIndex(position - 1);
+            adapter.setSelectedIndex(position - 1);
+        }
     }
 
     /**

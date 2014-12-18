@@ -99,7 +99,12 @@
                 android:clickable="true"
                 android:padding="10dp">
 
-
+                <ImageView
+                    android:id="@id/pickupZoneIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_action_new" />
                 <TextView
                     android:id="@+id/pickupZoneDefaultLabel"
                     android:layout_width="wrap_content"
@@ -108,14 +113,12 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="5dp"
-                    android:text="@string/pickupZoneDefaultLabel" />
+                    android:text="@string/pickupPointDefaultLabel"
+                    android:ellipsize="end"
+                    android:layout_toLeftOf="@id/pickupZoneIcon"
+                    android:singleLine="true" />
 
-                <ImageView
-                    android:id="@id/pickupZoneIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_action_new" />
+
 
             </com.canarias.rentacar.widgets.StatusRelativeLayout>
 
@@ -143,7 +146,12 @@
                 android:background="@drawable/border_bottom"
                 android:clickable="true"
                 android:padding="10dp">
-
+                <ImageView
+                    android:id="@id/dropoffZoneIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_action_new" />
 
                 <TextView
                     android:id="@+id/dropoffZoneDefaultLabel"
@@ -152,15 +160,13 @@
                     android:layout_alignBottom="@id/dropoffZoneIcon"
                     android:layout_alignParentLeft="true"
                     android:layout_marginBottom="5dp"
+                    android:layout_toLeftOf="@id/dropoffZoneIcon"
                     android:layout_marginLeft="5dp"
-                    android:text="@string/dropoffZoneDefaultLabel" />
+                    android:text="@string/dropoffPointDefaultLabel"
+                    android:singleLine="true"
+                    android:ellipsize="end" />
 
-                <ImageView
-                    android:id="@id/dropoffZoneIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_action_new" />
+
 
             </com.canarias.rentacar.widgets.StatusRelativeLayout>
 

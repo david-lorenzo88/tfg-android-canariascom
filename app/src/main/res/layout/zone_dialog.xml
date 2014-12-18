@@ -5,17 +5,36 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_large"
+        android:text="@string/selectZoneDefaultLabel"
+        android:textStyle="bold"
+        android:padding="16dp"/>
     <Spinner
         android:id="@+id/selectorZone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/zona_recogida" />
-
+        android:contentDescription="@string/zona_recogida"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_large"
+        android:text="@string/selectPointDefaultLabel"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:visibility="gone"
+        android:id="@+id/txtOfficeLabel"/>
     <Spinner
         android:id="@+id/selectorOffice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
 
     <Button
         android:id="@+id/btnSelectZone"
