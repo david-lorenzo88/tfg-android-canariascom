@@ -359,7 +359,7 @@
     <string name="dummyComentarios">Comentarios de la reserva...</string>
     <string name="error">Error General.</string>
 
-    <string name="confirmed_booking">¡Reserva Confirmada!</string>
+    <string name="confirmed_booking">Reserva Confirmada</string>
     <string name="navigation_drawer_help">Ayuda</string>
     <string name="navigation_drawer_home">Inicio</string>
     <string name="cancel_reservation">Cancelar Reserva</string>
@@ -378,7 +378,7 @@
     <string name="getting_extras">Obteniendo extras...</string>
     <string name="updating_booking_title">Actualizando Reserva</string>
     <string name="updating_booking">Actualizando Reserva...</string>
-    <string name="updated_reservation">¡Reserva actualizada correctamente!</string>
+    <string name="updated_reservation">Reserva actualizada correctamente</string>
     <string name="title_fragment_offices">Oficinas</string>
     <string name="show_offices_in_map">Mostrar en mapa</string>
     <string name="office_name">Nombre Oficina</string>
@@ -393,7 +393,7 @@
     <string name="office_fax">922 717171</string>
     <string name="delivery_conditions_label">Condiciones de Recogida</string>
     <string name="return_conditions_label">Condiciones de Devolución</string>
-    <string name="offices_and_cars_download_ok">¡Oficinas y coches actualizados correctamente!</string>
+    <string name="offices_and_cars_download_ok">Oficinas y coches actualizados correctamente</string>
     <string name="title_activity_help">Ayuda</string>
     <string name="txt_image_slider">Slider de imágenes</string>
     <string name="help_newbook1_title">Iniciar Reserva</string>
@@ -471,7 +471,7 @@
     <string name="downloading_offices_msg">Actualizando la base de datos de oficinas.</string>
     <string name="default_zone">-- Selecciona una zona --</string>
     <string name="last_sync">Última sincronización</string>
-    <string name="no_results_reservation">¡Vaya, parece que aún no tienes ninguna reserva!</string>
+    <string name="no_results_reservation">Vaya, parece que aún no tienes ninguna reserva</string>
     <string name="no_results_btn">Alquilar un coche ahora</string>
     <string name="selectZoneDefaultLabel">Selecciona una Zona</string>
     <string name="selectPointDefaultLabel">Selecciona una Oficina</string>
