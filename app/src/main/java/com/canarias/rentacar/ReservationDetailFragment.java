@@ -394,9 +394,12 @@ public class ReservationDetailFragment extends Fragment {
                                             reservationId,
                                             (TextView) rootView.findViewById(R.id.reservation_status),
                                             (ImageView) rootView.findViewById(R.id.status_icon));
-                            task.execute();
+
                             openCancelDialog = false;
-                            dialog.dismiss();
+                            dialog.cancel();
+
+                            task.execute();
+
                         }
                     });
             builder.setNegativeButton(getString(R.string.cancel_reservation_action_negative),
