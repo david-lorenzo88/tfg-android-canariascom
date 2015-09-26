@@ -1,14 +1,16 @@
 package com.canarias.rentacar;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 /**
  * Activity que encapsula las presentaciones en slide de los temas de ayuda
  */
-public class SlideActivity extends ActionBarActivity {
+public class SlideActivity extends Activity {
     public static String ARG_ITEM_ID = "item_id";
 
     /**

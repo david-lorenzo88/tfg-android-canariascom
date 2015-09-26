@@ -82,6 +82,7 @@ public class SearchResultsFragment extends Fragment {
             QuickReturnHeaderHelper helper = new QuickReturnHeaderHelper(getActivity(),
                     R.layout.fragment_search_results, R.layout.fragment_search_results_header);
             rootView = helper.createView();
+            //rootView = inflater.inflate(R.layout.fragment_search_results, container, false);
         }
 
         initActivity(rootView);
@@ -115,13 +116,14 @@ public class SearchResultsFragment extends Fragment {
         TextView lblDropoffDateTime = (TextView) rootView.findViewById(R.id.searchResultDropoffDateValue);
 
         LinearLayout changeBtn = (LinearLayout) rootView.findViewById(R.id.changeBtn);
-        changeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStack();
-            }
-        });
-
+        if(changeBtn != null) {
+            changeBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getFragmentManager().popBackStack();
+                }
+            });
+        }
 
 
 

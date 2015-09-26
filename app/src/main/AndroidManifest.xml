@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="22" />
 
     <!-- Acceso a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -40,7 +40,7 @@
         <!-- Release -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCfME3ZIn5wiS6ORDry4XKH2n8yVp97maw" />
+            android:value="AIzaSyAWwb0vHtl9lotMSIgLJc6lrOZn6aLFWo8" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

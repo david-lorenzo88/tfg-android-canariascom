@@ -1,44 +1,61 @@
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 17
+    signingConfigs {
+        config {
+            keyAlias 'canariascom'
+            keyPassword 'Canarias2'
+            storeFile file('/Users/David/canariascom.keystore')
+            storePassword 'Canarias2'
+        }
+    }
+    compileSdkVersion 23
     buildToolsVersion "20.0.0"
-
     defaultConfig {
         applicationId "com.canarias.rentacar"
         minSdkVersion 11
-        targetSdkVersion 17
+        targetSdkVersion 23
+        versionCode 5
+        versionName '1.4'
+        signingConfig signingConfigs.config
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-
     configurations.all {
         resolutionStrategy {
-            force 'com.android.support:support-v4:19.1.0'
+            force 'com.android.support:support-v4:22.0.+'
 
         }
+    }
+    //useLibrary 'org.apache.http.legacy'
+    productFlavors {
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
     }
 }
 
 dependencies {
+
     //compile 'com.android.support:support-v4:19.1.0'
-    compile('com.android.support:support-v4:19.1.0') {
+    compile('com.android.support:support-v4:22.0.+') {
         force = true
     }
     //compile 'com.android.support:gridlayout-v7:+'
     // You must install or update the Support Repository through the SDK manager to use this dependency.
     compile files('libs/simple-xml-2.7.1.jar')
 
+    compile files('libs/httpclient-4.5.1.jar')
+    compile files('libs/httpcore-4.4.3.jar')
     //compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar-abc:3.1.2'
     //compile 'com.android.support:appcompat-v7:20.0.0'
-
-
-    compile 'com.android.support:support-v4:20.0.0'
-    compile 'com.google.android.gms:play-services:5.0.77'
-    compile 'com.android.support:appcompat-v7:20.0.0'
+    compile 'com.android.support:support-v4:23.0.1'
+    compile 'com.google.android.gms:play-services:7.8.0'
+    compile 'com.android.support:appcompat-v7:23.0.1'
 }

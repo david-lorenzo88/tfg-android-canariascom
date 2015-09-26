@@ -22,12 +22,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.http.AndroidHttpClient;
+
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
 
+import org.apache.http.HttpConnectionFactory;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -44,6 +45,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
+import java.net.Socket;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -289,8 +291,9 @@ public class ImageDownloader {
         final int IO_BUFFER_SIZE = 4 * 1024;
         Bitmap b = null;
         // AndroidHttpClient is not allowed to be used from the main thread
-        final HttpClient client = (mode == Mode.NO_ASYNC_TASK) ? new DefaultHttpClient() :
-                AndroidHttpClient.newInstance("Android");
+        //final HttpClient client = (mode == Mode.NO_ASYNC_TASK) ? new DefaultHttpClient() :
+         //       AndroidHttpClient.newInstance("Android");
+        final HttpClient client = new DefaultHttpClient();
         final HttpGet getRequest = new HttpGet(url);
 
         try {
@@ -351,9 +354,10 @@ public class ImageDownloader {
             getRequest.abort();
             Log.w(LOG_TAG, "Error while retrieving bitmap from " + url, e);
         } finally {
-            if ((client instanceof AndroidHttpClient)) {
+
+            /*if ((client instanceof AndroidHttpClient)) {
                 ((AndroidHttpClient) client).close();
-            }
+            }*/
         }
         return null;
     }

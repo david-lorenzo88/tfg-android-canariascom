@@ -48,9 +48,9 @@ public final class Config {
     //URL del Servicio Web
     public static String WEBSERVICE_PATH = "https://rentacar.canarias.com/CarHireXML_android.asp";
     //Código de Agente en el sistema de Canarias.com
-    public static String AGENCY_CODE = "4O7GMLV8J1";
+    public static String AGENCY_CODE = "8EZTDYTH1G";
     //Contraseña de Agente en el sistema de Canarias.com
-    public static String AGENCY_PASS = "tenerife2";
+    public static String AGENCY_PASS = "9Cxbi2yyI1M2X2x";
     //Código de Moneda
     public static String CURRENCY = "EUR";
     //Idioma por defecto

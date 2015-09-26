@@ -60,7 +60,7 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
 
         //Establecemos el idioma por defecto en ingles, y solo si el actual es español
         //lo cargamos en español
-        String langCode = Locale.getDefault().getLanguage().equals("es") ? "es" : "en";
+        /*String langCode = Locale.getDefault().getLanguage().equals("es") ? "es" : "en";
 
         Response result = null;
         try {
@@ -83,12 +83,12 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
         //Realizamos la descarga de los vehículos
-        //WebServiceController wsc = new WebServiceController();
-        //Response result = wsc.getAllCars();
+        WebServiceController wsc = new WebServiceController();
+        Response result = wsc.getAllCars();
 
         //Comprobamos si el tipo devuelto es GetAllCarsResponse
         if (result != null && result.getClass().equals(GetAllCarsResponse.class)) {
@@ -131,10 +131,10 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
                 //Publicamos un mensaje indicando que ahora comienza la descarga de oficinas
                 publishProgress(context.getString(R.string.downloading_offices));
 
-                //Realizamos la descarga de las zonas desde el servicio wev
-                //result = wsc.listDestinations();
+                //Realizamos la descarga de las zonas desde el servicio web
+                result = wsc.listDestinations();
 
-                result = null;
+                /*result = null;
                 try {
                     InputStream isResult = context.getAssets().open("offices_"+langCode+".xml");
 
@@ -155,7 +155,7 @@ public class SyncDataAsyncTask extends AsyncTask<Void, String, String> {
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
+                }*/
 
                 //Comprobamos si el tipo devuelto es ListDestinationsResponse
                 if (result.getClass().equals(ListDestinationsResponse.class)) {

@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.canarias.rentacar.R;
@@ -92,6 +93,8 @@ public class AvailabilityAsyncTask extends
             //Obtenemos la lista de resultados
             List<SearchResult> cars = ((AvailabilityResponse) result).getCars();
 
+
+
             if (cars == null)
                 cars = new ArrayList<SearchResult>();
 
@@ -101,11 +104,12 @@ public class AvailabilityAsyncTask extends
             //de la reserva
             mExtrasString = getExtrasString(extras);
 
+            AttributeDataSource ds = new AttributeDataSource(context);
             try {
 
                 //Para cada vehículo devuelto en la respuesta de disponibilidad
                 //sacamos su lista de características para mostrarlas
-                AttributeDataSource ds = new AttributeDataSource(context);
+
                 ds.open();
 
 
@@ -134,9 +138,14 @@ public class AvailabilityAsyncTask extends
 
                 //Devolvemos el resultado
                 return resultWithAtts;
+
+
             } catch (SQLException ex) {
                 Log.e("TEST", ex.getMessage());
+            }  catch (Exception ex){
+                Log.e("TEST", ex.getMessage());
             }
+
 
             return cars;
         } else
@@ -162,6 +171,8 @@ public class AvailabilityAsyncTask extends
 
             ListView resultsListView = (ListView) rootView
                     .findViewById(R.id.listViewSearchResults);
+
+
             resultsListView.setAdapter(resultsAdapter);
 
             final View summary = rootView.findViewById(R.id.searchResultSummary);
