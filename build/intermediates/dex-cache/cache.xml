@@ -2,214 +2,200 @@
 <items version="2" >
 
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-vision/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-64e15351df4fe1b95d9c73fd91e9b4aa217ab6f7.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-c41a1eb2ca311ac9bd585381901876c0f14f3bc8.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/libs/internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/internal_impl-22.0.0-08e0038a27de84b8abc992eaaa15e714ad46662f.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-925235898ba8d4f62e691e46bb8eea870a65562f.jar" />
-    </item>
-    <item
-        jar="/Users/David/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/support-annotations-22.0.0-03ebac0a19d2864dbdfdf9b1b7a70cdb65cd5a29.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-3ef341d6fab2752d73dff4c5732d2fc05979a128.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-01bdd71a974889ae031b475d4159dd1decacbbdb.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-fbe9f77ce89418749f15142cc8cfbd6f701ac466.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.8.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="2491ae1b2a848af1f4f0c795f3117c1bd6a1989f">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-8f0b73def09d7ba68445a98ecaa0e20680600781.jar" />
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-68eaba9378a1853f794e46350fed6090976b74d6.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-0bd66701f78402681bacd476145e130d0af91f48.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-9ac497a54d908879b428a7ccd21412f8805a22af.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/jars/libs/internal_impl-22.2.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/internal_impl-22.2.0-68ec31b57b8ca9c5919c0ef84966fdcb6633c46e.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.8.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="c5cafb324568d954780abb858c25db7ce675ab3c">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-8c4d311476f1968d45c7ed42326a02fef1d3f8de.jar" />
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-6394d43bc551da887fd1665d577a853c804664c4.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/libs/httpclient-4.5.1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="7e3cecc566df91338c6c67883b89ddd05a17db43">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/httpclient-4.5.1-c1dee7f3737fdce617a4fa61221875feade54723.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-3d62d24d083417fb5489f80fc5e641c18dd47f85.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-acf24f410bc5763fcd2220ac8fbbffc5ee5de1c4.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-drive/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-e923d0d56c0cf6ced40362f0e7397a386663cdf0.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-f46567cf2971a4499b4640146b3ad015a6f06920.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-71b1c3e429e0cc7d5bcf028c061121f52d168a9c.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-3c9f16019751844d2c97f5cddbe4f62341784ac5.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/libs/httpcore-4.4.3.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e876a79d561e5c6207b78d347e198c8c4531a5e5">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/httpcore-4.4.3-051ceca147929cca5a23720cac6ca96ebfa67489.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-5b2302d9eed7bfb49b703b483db7780982ad4a20.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-dcf214befe9a8d1ec4dee448b3cc762ee66897ce.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.8.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="2e24e5f1b11170163028277de63f709e42525db4">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-a265798383fa1187eea5a582c84fd83f74bb2e46.jar" />
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-aedefdc5f5ecd141835e1c91cdbb69a81435e1a8.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.8.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-805b4bba5d2a3c0fa8b4d1943993eeb2044506f2.jar" />
+        sha1="42a1ee578b62fd1bd28b3307a679dc9ba0791587">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-e4b99db601ae2a27a81510f27a8740df03be8ded.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.8.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="1ff30fa49c07a08c3035d7218a3efebf5680d522">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-157196e1e1d566045ebd4b032ca927ed9d953503.jar" />
+        sha1="130b32ed466fa0f63efd4c7d6250ccd2ed506790">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-57496c3effa748861082b23400dcfef2833f8989.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-bcc4e1f3ec10681fb9ffaea2e734f3b1cec6ca1f.jar" />
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-f2058a555be81b2b22191b62fa79d335e0877dfe.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.8.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-838537fabf46a9d95d5d83fe06e40e384b335745.jar" />
-    </item>
-    <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/libs/simple-xml-2.7.1.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\libs\simple-xml-2.7.1.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="083623424bcfa03bd598e709765bad0816c2375d">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/simple-xml-2.7.1-71743d5a210adbe4c54ebba33cc9575fb0f88cf7.jar" />
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\simple-xml-2.7.1-85050d6031c027bd5bb05c7cf3b77be51bef2daf.jar" />
     </item>
     <item
-        jar="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.8.0/jars/classes.jar"
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="98137c4d12c50923f5809852b1ef4d1c4e162081">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-336d9a05760a8aab49c5d0ac7cf953359de4407b.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-fa31654c374c7e53eaa4db4a2797ccf7c38fb8ca.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="edea92852b40eee716e910af8dad9eeaa58fb0e1">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-99254083abf08bb0bbe7012ecc61ad0aeae08325.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="c2ac04c5b232f6f0658ee4f1c13be09cd76406e2">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-cd9b62bd9944136164256a1492049412b388d0cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-7d5f3bee2b9e834168485b0e71e3e13de3ed8357.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="166e458ee3b5fb5fcff0f936df3f3a788e6c54f3">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-c68e7e399b9afb9c9eb3b9ae0732d28c26daef00.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-a459a3f3dd39f23c52296847df35da4e96de5933.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="0124ce31248c0e8acfa2b28283c6d1a4d76e73d2">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-12e2db81a77db603cea9f5bbd7cf747983fce834.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4a135d56554069e5d0ff80e3220e887e57146ee5">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-a1973b018b8edff19152b056ea752de36e1e4c21.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-c15129d16beceeee9422c21de79daa2c1d38f56a.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1ff30fa49c07a08c3035d7218a3efebf5680d522">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-3a841512a8e708f1758fad02f6725f3830b91c6c.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-fff6a2b74f796d418d716943cb05cbc323fb7279.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="77a9dcb5f8b1dba36aacaa9c150eb0942dbea158">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-b287981878fc00ad30c310c2a9f815debf4a9ba4.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-e5dfa5296b46b1176619d345c650f250be5ac8b1.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="adebe28e0c0c05d34a3bfd76f3275bf4d8ff87b6">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-c940fe0432d8b96f5e20235f6d6d6eb3156eb95f.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="cb6fab7a71fa9ec1f483d44c5fca65ab469d8aca">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-be57b7c328166bd3ef8d1a6adc7f0e11352e8fa8.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.8.0\jars\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="e23ea11124bb700eeddd4ab7aa848c615f493850">
-        <dex dex="/Users/David/Android Studio Projects/android-canariascom/app/build/intermediates/pre-dexed/release/classes-d6c475c3147fbe830e5081bc5e4fd5dd37eff42b.jar" />
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-84d0935d6efbb8c7399beb8dbb4bffb2e3671b38.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d11330ea68c0d964d30d5caed1f27e6b1488b189">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-91851b3fd4d02685e7cc3d9596ceaae75078d072.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-a940b4b2d909b93eb90d5da4081ea14e1915566b.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="b99f0b78bbcb76b915bc6529a83b65d4d46990dd">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-99b823ec4d6589d3c50beb33ff3fa782088a0476.jar" />
+    </item>
+    <item
+        jar="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="6e85edfc9b5346d216e50ccef1f8e825504144a3">
+        <dex dex="C:\Users\David\StudioProjects\tfg-android-canariascom\app\build\intermediates\pre-dexed\debug\classes-882059dcc13b8c203936636f2a96377746bc51fd.jar" />
     </item>
 
 </items>

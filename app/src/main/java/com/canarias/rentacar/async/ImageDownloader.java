@@ -28,14 +28,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
 
-import org.apache.http.HttpConnectionFactory;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -45,7 +37,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
+import java.net.HttpURLConnection;
 import java.net.Socket;
+import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -293,23 +287,26 @@ public class ImageDownloader {
         // AndroidHttpClient is not allowed to be used from the main thread
         //final HttpClient client = (mode == Mode.NO_ASYNC_TASK) ? new DefaultHttpClient() :
          //       AndroidHttpClient.newInstance("Android");
-        final HttpClient client = new DefaultHttpClient();
-        final HttpGet getRequest = new HttpGet(url);
+
+        ;
 
         try {
-            HttpResponse response = client.execute(getRequest);
-            final int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
+            URL _url = new URL(url);
+            HttpURLConnection  connection  =  (HttpURLConnection)_url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+
+            /*if (statusCode != HttpStatus.SC_OK) {
                 Log.w("ImageDownloader", "Error " + statusCode +
                         " while retrieving bitmap from " + url);
                 return null;
-            }
+            }*/
 
-            final HttpEntity entity = response.getEntity();
-            if (entity != null) {
+            //final HttpEntity entity = response.getEntity();
+            //if (entity != null) {
                 InputStream inputStream = null;
                 try {
-                    inputStream = entity.getContent();
+                    inputStream = connection.getInputStream();
 
 
                     // return BitmapFactory.decodeStream(inputStream);
@@ -341,17 +338,17 @@ public class ImageDownloader {
                     if (inputStream != null) {
                         inputStream.close();
                     }
-                    entity.consumeContent();
+                    //entity.consumeContent();
                 }
-            }
+            //}
         } catch (IOException e) {
-            getRequest.abort();
+
             Log.w(LOG_TAG, "I/O error while retrieving bitmap from " + url, e);
         } catch (IllegalStateException e) {
-            getRequest.abort();
+
             Log.w(LOG_TAG, "Incorrect URL: " + url);
         } catch (Exception e) {
-            getRequest.abort();
+
             Log.w(LOG_TAG, "Error while retrieving bitmap from " + url, e);
         } finally {
 
