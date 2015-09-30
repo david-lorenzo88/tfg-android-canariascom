@@ -46,7 +46,7 @@ public final class Config {
     public static final String ARG_SELECTED_CAR = "selected_car";
 
     //URL del Servicio Web
-    public static String WEBSERVICE_PATH = "https://rentacar.canarias.com/CarHireXML_android.asp";
+    public static String WEBSERVICE_PATH = "https://carengine.canarias.com/CarHireXML_android.asp";
     //Código de Agente en el sistema de Canarias.com
     public static String AGENCY_CODE = "8EZTDYTH1G";
     //Contraseña de Agente en el sistema de Canarias.com

@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android-canariascom.iml" filepath="$PROJECT_DIR$/android-canariascom.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tfg-android-canariascom.iml" filepath="$PROJECT_DIR$/tfg-android-canariascom.iml" />
     </modules>
   </component>
 </project>

@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'canariascom'
             keyPassword 'Canarias2'
-            storeFile file('C:/Users/David/canariascom.keystore.jks')
+            storeFile file('/Users/David/canariascom.keystore')
             storePassword 'Canarias2'
         }
     }
